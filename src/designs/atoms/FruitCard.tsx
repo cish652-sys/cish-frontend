@@ -2,7 +2,7 @@ import Image from "next/image";
 
 interface FruitCardProps {
   name: string;
-  icon: string; 
+  icon: string;
   isActive?: boolean;
 }
 

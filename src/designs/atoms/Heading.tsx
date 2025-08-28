@@ -6,9 +6,5 @@ type HeadingProps = {
 };
 
 export default function Heading({ title, className }: HeadingProps) {
-  return (
-    <h2 className={`text-2xl font-bold text-green-800 mb-6 ${className}`}>
-      {title}
-    </h2>
-  );
+  return <h2 className={`text-2xl font-bold text-green-800 mb-6 ${className}`}>{title}</h2>;
 }

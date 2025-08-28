@@ -9,25 +9,19 @@ import { AnnouncementBar } from "../molecules/AnnouncementBar";
 
 export const MainHeader = () => {
   return (
-    <main className = "w-full">
+    <main className="w-full">
       <Header />
       <Navbar />
       <section className="relative w-full">
-        <Logo
-          src={banner}
-          alt="Website Banner"
-          width={2500}
-          height={600}   
-          
-        />
+        <Logo src={banner} alt="Website Banner" width={2500} height={600} />
       </section>
-     <AnnouncementBar
-  messages={[
-    "Central Institute For Subtropical Horticulture Institute",
-    "New Research Paper Published on Mango Cultivation",
-    "Upcoming Seminar on Sustainable Horticulture Practices"
-  ]}
-/>
-    </main >
+      <AnnouncementBar
+        messages={[
+          "Central Institute For Subtropical Horticulture Institute",
+          "New Research Paper Published on Mango Cultivation",
+          "Upcoming Seminar on Sustainable Horticulture Practices",
+        ]}
+      />
+    </main>
   );
 };

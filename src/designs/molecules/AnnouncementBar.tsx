@@ -12,7 +12,7 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
     <div className="w-full bg-white border-y border-gray-200 flex items-center px-[160px] py-6 overflow-hidden">
       <div className="flex items-center gap-2 whitespace-nowrap pr-6">
         <span className="font-semibold text-green-700 text-[16px]">Announcements</span>
-        <Logo src={plump} alt="Announcement Icon" width={15}height={15}/>
+        <Logo src={plump} alt="Announcement Icon" width={15} height={15} />
       </div>
 
       <div className="relative flex-1 overflow-hidden">

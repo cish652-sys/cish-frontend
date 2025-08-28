@@ -7,7 +7,9 @@ const varieties = [
 ];
 
 const VarietiesSection: React.FC = () => (
-  <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Increased gap for more spacing */}
+  <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {" "}
+    {/* Increased gap for more spacing */}
     {varieties.map((variety, index) => (
       <ProductCard key={index} imageSrc={variety.imageSrc} productName={variety.productName} />
     ))}

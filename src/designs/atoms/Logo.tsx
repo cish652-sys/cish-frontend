@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 interface LogoProps {
-  src: string ;
+  src: string;
   alt: string;
   width?: number;
   height?: number;

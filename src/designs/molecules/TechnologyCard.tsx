@@ -1,4 +1,4 @@
-import { Button } from "@/designs/atoms/button";  // import the ShadCN Button component
+import { Button } from "@/designs/atoms/button"; // import the ShadCN Button component
 
 interface TechnologyCardProps {
   technologyName: string;

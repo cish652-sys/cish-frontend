@@ -5,7 +5,7 @@ import { IconButton } from "../atoms/IconButton";
 import { LanguageSwitcher } from "../molecules/LanguageSwitcher";
 import { AccessibilityControls } from "../molecules/AccessibilityCOntrols";
 import cish from "../public/images/cish 1.svg";
-import icar from "../public/images/icar 2.svg"; 
+import icar from "../public/images/icar 2.svg";
 import access from "../public/images/uil_file-download-alt.svg";
 import next from "../public/images/nextpage.svg";
 import local from "../public/images/localisation.svg";
@@ -40,12 +40,10 @@ export const Header = () => {
 
           <div className="flex items-center gap-2 md:gap-3">
             <Logo src={access} alt="accessibility Logo" width={24} height={24} />
-            
+
             <Logo src={next} alt="next Logo" width={24} height={24} />
-                        
 
             <Logo src={local} alt="local Logo" width={24} height={24} />
-                        
 
             <Logo src={accessibility} alt="accessibility Logo" width={24} height={24} />
           </div>

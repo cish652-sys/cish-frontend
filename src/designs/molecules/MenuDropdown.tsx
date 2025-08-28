@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  MenubarMenu,
-  MenubarTrigger,
-  MenubarContent,
-} from "@/designs/atoms/menubar";
+import { MenubarMenu, MenubarTrigger, MenubarContent } from "@/designs/atoms/menubar";
 import Link from "next/link";
 import type { LinkItem } from "@/config/navigation";
 

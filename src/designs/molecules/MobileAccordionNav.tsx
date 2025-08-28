@@ -1,5 +1,10 @@
 "use client";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/designs/atoms/accordion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/designs/atoms/accordion";
 import Link from "next/link";
 import type { NavItem } from "@/config/navigation";
 

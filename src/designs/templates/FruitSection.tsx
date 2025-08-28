@@ -16,8 +16,8 @@ export const FruitsSection = () => {
   return (
     <section className="py-10 bg-[#fafaf4]">
       <h2 className="text-center text-lg md:text-xl font-bold text-green-800 mb-6">
-        WE ARE PIONEERS IN SUBTROPICAL FRUIT RESEARCH SPANNING FROM CLIMATE
-        RESILIENT VARIETIES TO VALUE CHAIN RESEARCH.
+        WE ARE PIONEERS IN SUBTROPICAL FRUIT RESEARCH SPANNING FROM CLIMATE RESILIENT VARIETIES TO
+        VALUE CHAIN RESEARCH.
       </h2>
       <FruitGrid fruits={fruits} activeFruit="Mango" />
     </section>

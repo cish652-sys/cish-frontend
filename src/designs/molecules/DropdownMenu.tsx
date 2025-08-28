@@ -11,9 +11,7 @@ export const DropdownMenu = ({ label, links = [] }: DropdownMenuProps) => {
   return (
     <div className="relative group">
       {/* Label */}
-      <button className="px-3 py-2 text-sm font-medium">
-        {label}
-      </button>
+      <button className="px-3 py-2 text-sm font-medium">{label}</button>
 
       {/* Dropdown on hover */}
       <div

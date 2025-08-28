@@ -1,5 +1,5 @@
 // import { FruitsSection } from "@/designs/templates/FruitSection"
-import { MainHeader } from "@/designs/templates/MainHeader"
+import { MainHeader } from "@/designs/templates/MainHeader";
 
 import EventsSection from "@/designs/organisms/EventsSection";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
@@ -9,18 +9,15 @@ import Dashboard from "@/designs/templates/DashboardKeyOffering";
 
 export default function Home() {
   return (
-  (
     <div>
-      
-    <MainHeader />
-    {/* <FruitsSection /> */}
-  <HomeWithDirector />
-  {/* <ManinPageProduct /> */}
-  <Dashboard />
+      <MainHeader />
+      {/* <FruitsSection /> */}
+      <HomeWithDirector />
+      {/* <ManinPageProduct /> */}
+      <Dashboard />
       <EventsSection />
 
       <Footer />
     </div>
-  )
-  )
+  );
 }
