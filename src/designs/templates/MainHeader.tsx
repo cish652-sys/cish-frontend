@@ -13,8 +13,9 @@ export const MainHeader = () => {
       <Header />
       <Navbar />
       <section className="relative w-full">
-        <Logo src={banner} alt="Website Banner" width={2500} height={600} />
+        <Logo src={banner} alt="Website Banner" responsive />
       </section>
+
       <AnnouncementBar
         messages={[
           "Central Institute For Subtropical Horticulture Institute",

@@ -22,7 +22,7 @@ const ActionButtonAtom: React.FC<ActionButtonAtomProps> = ({
     <Card
       onClick={onClick}
       className={clsx(
-        "flex-1 cursor-pointer transition hover:shadow-md rounded-none md:rounded-none w-[280px] h-[86px]",
+        "flex-1 cursor-pointer transition hover:shadow-md",
         {
           "bg-green-700 text-white": active,
           "border border-gray-300 text-green-700 bg-white": !active,

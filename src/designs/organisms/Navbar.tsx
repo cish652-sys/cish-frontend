@@ -8,9 +8,8 @@ import { navigation } from "@/config/navigation";
 
 export const Navbar = () => {
   return (
-    <nav className="w-full border-b bg-white relative z-50">
-      {/* Desktop / Tablet */}
-      <div className="container mx-auto hidden md:flex items-center justify-center">
+    <nav className="w-full bg-white border-b">
+      <div className="container flex items-center justify-between py-3">
         <Menubar className="gap-2 border-none shadow-none bg-transparent">
           {navigation.map((item) =>
             item.type === "link" ? (
