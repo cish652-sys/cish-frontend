@@ -17,6 +17,9 @@ export default function EventsSection() {
               date={item.date}
               title={item.title}
               description={item.description}
+              showDate={true}
+              showFooter={true}
+              showTitle={true}
             />
           ))}
         </div>
