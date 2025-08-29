@@ -9,26 +9,39 @@ type NewsCardProps = {
   date: string;
   title: string;
   description: string;
+  showDate?: boolean;
+  showFooter?: boolean;
+  showTitle?: boolean;
 };
 
-export default function EventCard({ image, date, title, description }: NewsCardProps) {
+export default function EventCard({
+  image,
+  date,
+  title,
+  description,
+  showDate,
+  showTitle,
+  showFooter,
+}: NewsCardProps) {
   return (
-    <Card className="max-w-[349px] h-[422] overflow-hidden flex flex-col shadow-md hover:shadow-lg transition">
-      <Image
-        src="/icons/Event 1.svg"
-        alt={title}
-        width={349.07}
-        height={253.79}
-        className="object-cover"
-      />
+    <Card className="max-w-[349px] overflow-hidden flex flex-col shadow-md hover:shadow-lg transition">
+      <Image src={image} alt={title} width={349.07} height={253.79} className="object-cover" />
       <CardContent className="p-2 flex flex-col">
-        <DateLabel date={date} />
-        <h3 className="text-md font-semibold text-green-800 mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm line-clamp-2">{description}</p>
+        {showDate && <DateLabel date={date} />}
+        {showTitle && <h3 className="text-md font-semibold text-green-800 mb-2">{title}</h3>}
+        <p
+          style={{
+            fontWeight: 400,
+            fontSize: "12px",
+          }}
+          className="text-muted-foreground"
+        >{description}</p>
       </CardContent>
-      <CardFooter className="flex justify-end">
-        <ButtonLink label="Read More" />
-      </CardFooter>
+      {showFooter && (
+        <CardFooter className="flex justify-end">
+          <ButtonLink label="Read More" />
+        </CardFooter>
+      )}
     </Card>
   );
 }
