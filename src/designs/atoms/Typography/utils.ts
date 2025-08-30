@@ -1,4 +1,4 @@
-import { TypographyVariant, TypographyRobotCondensedSize } from "./interface";
+import { TypographyVariant, TypographyRobotCondensedSize, FontWeight } from "./interface";
 
 export const getFontFamily = (variant: TypographyVariant) => {
   switch (variant) {
@@ -7,70 +7,45 @@ export const getFontFamily = (variant: TypographyVariant) => {
     case "condensed":
       return "font-poppins";
     default:
-      throw "Wrong Typography variant " + variant;
+      return "";
   }
 };
 
-export const getFontSize = (size: TypographyRobotCondensedSize) => {
+export const getFontSize = (size?: TypographyRobotCondensedSize) => {
   switch (size) {
-    /**
-     * font-size: 2.5rem
-     * line-height: 2.875rem
-     * font-weight: bold
-     */
-    case "h1":
-      return "text-4xl font-semibold dark:text-white";
+    case "h1": return "text-4xl";
+    case "h2": return "text-3xl";
+    case "h3": return "text-2xl";
+    case "h4": return "text-xl";
+    case "h5": return "text-lg";
+    case "h6": return "text-base";
+    case "paragraph": return "text-sm";
+    default: return "";
+  }
+};
 
-    /**
-     * font-size: 1.75rem
-     * * line-height: 2rem
-     * font-weight: 600
-     */
-    case "h2":
-      return "text-3xl font-semibold dark:text-white";
+export const getFontWeight = (weight?: FontWeight) => {
+  switch (weight) {
+    case "normal": return "font-normal";
+    case "medium": return "font-medium";
+    case "semibold": return "font-semibold";
+    case "bold": return "font-bold";
+    case "700": return "font-bold";
+    case "600": return "font-semibold";
+    case "500": return "font-medium";
+    case "400": return "font-normal";
+    default: return "";
+  }
+};
 
-    /**
-     * font-size: 1.625rem
-     * line-height: 2rem
-     * font-weight: 600
-     */
-    case "h3":
-      return "text-2xl font-semibold dark:text-white";
-
-    /**
-     * font-size: 1.375rem
-     * line-height: 1.75rem
-     * font-weight: 600
-     */
-    case "h4":
-      return "text-xl font-semibold dark:text-white";
-
-    /**
-     * font-size: 1.125rem
-     * line-height: 1.5rem
-     * font-weight: 400
-     */
-    case "h5":
-      return "text-lg font-normal dark:text-white";
-
-    /**
-     * font-size: 0.9375rem
-     * line-height: 1.375rem
-     * font-weight: 400
-     */
-
-    case "h6":
-      return "text-base font-semibold dark:text-white";
-
-    /**
-     * font-size:0.8125rem
-     * line-height: 1.25rem
-     * font-weight: 600
-     */
-    case "paragraph":
-      return "text-sm font-normal dark:text-white";
-
+// ✅ Variant mapping
+export const getVariantStyle = (variant?: TypographyVariant) => {
+  switch (variant) {
+    case "bodySmall":
+      return { className: "font-bold", style: { fontSize: "16px" } };
+    case "bodyLarge":
+      return { className: "font-semibold", style: { fontSize: "20px" } };
     default:
-      throw "Wrong Typography size " + size;
+      return { className: "", style: {} };
   }
 };

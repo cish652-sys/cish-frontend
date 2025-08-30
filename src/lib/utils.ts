@@ -55,3 +55,28 @@ export const rearchData = [
     description: "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
   },
 ];
+
+
+export const technologies = [
+  {
+    title: "CISH-SOLANACEOUS VEGETABLES HYDROPONIC NUTRIENT SOLUTION",
+    description:
+      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
+    href: "/tech/solanaceous",
+    image: "/icons/arunika.svg",
+  },
+  {
+    title: "CISH-LEAFY VEGETABLES HYDROPONIC NUTRIENT SOLUTION",
+    description:
+      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
+    href: "/tech/leafy",
+    image: "/icons/arunika.svg",
+  },
+  {
+    title: "CISH HOT WATER DISPERSIBLE AONLA HERBAL TABLET",
+    description:
+      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
+    href: "/tech/aonla",
+    image: "/icons/arunika.svg",
+  },
+];
