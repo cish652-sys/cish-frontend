@@ -19,6 +19,15 @@ export default function Home() {
       {/* <HomeWithDirector /> */}
       {/* <ManinPageProduct /> */}
       {/* <Dashboard /> */}
+      <MainHeader
+        bannerSrc={banner}
+        bannerAlt="Main Website Banner"
+        announcements={[
+          "Central Institute For Subtropical Horticulture Institute",
+          "New Research Paper Published on Mango Cultivation",
+          "Upcoming Seminar on Sustainable Horticulture Practices",
+        ]}
+      />
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },

@@ -35,7 +35,9 @@ export default function EventCard({
             fontSize: "12px",
           }}
           className="text-muted-foreground"
-        >{description}</p>
+        >
+          {description}
+        </p>
       </CardContent>
       {showFooter && (
         <CardFooter className="flex justify-end">

@@ -21,9 +21,7 @@ const Typography: React.FC<TypographyProps> = ({
 
   const variantConfig = getVariantStyle(variant);
 
-  const style = customSize
-    ? { fontSize: customSize }
-    : variantConfig.style;
+  const style = customSize ? { fontSize: customSize } : variantConfig.style;
 
   const finalClass = `${baseClasses} ${variantConfig.className}`.trim();
 

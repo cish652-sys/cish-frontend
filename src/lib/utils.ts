@@ -34,28 +34,31 @@ export const rearchData = [
     image: "/icons/Event 1.svg",
     date: "May 15, 2025",
     title: "ICAR DEVELOPS NEW CROP VARIETY",
-    description: "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    description:
+      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
   },
   {
     image: "/icons/Event 2.svg",
     date: "June 10, 2025",
     title: "NATIONAL CONFERENCE ON CLIMATE-SMART AGRICULTURE ANNOUNCED",
-    description: "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    description:
+      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
   },
   {
     image: "/icons/Event 3.svg",
     date: "April 28, 2025",
     title: "ICAR SIGNS MOU WITH INTERNATIONAL RESEARCH ORGANIZATIONS",
-    description: "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    description:
+      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
   },
-   {
+  {
     image: "/icons/Event 3.svg",
     date: "April 28, 2025",
     title: "ICAR SIGNS MOU WITH INTERNATIONAL RESEARCH ORGANIZATIONS",
-    description: "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    description:
+      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
   },
 ];
-
 
 export const technologies = [
   {
