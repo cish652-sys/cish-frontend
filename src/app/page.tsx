@@ -11,23 +11,16 @@ import KeyImpacts from "@/designs/organisms/KeyImpacts";
 import VarietiesSection from "@/designs/organisms/VarietiesSection";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
+import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 
 export default function Home() {
   return (
     <div>
+      {/* <MainHeader /> */}
       {/* <FruitsSection /> */}
       {/* <HomeWithDirector /> */}
       {/* <ManinPageProduct /> */}
       {/* <Dashboard /> */}
-      <MainHeader
-        bannerSrc={banner}
-        bannerAlt="Main Website Banner"
-        announcements={[
-          "Central Institute For Subtropical Horticulture Institute",
-          "New Research Paper Published on Mango Cultivation",
-          "Upcoming Seminar on Sustainable Horticulture Practices",
-        ]}
-      />
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
@@ -42,6 +35,7 @@ export default function Home() {
         ]}
       />
       <TrendingTechnologies />
+      <OtherTechnologies/>
       <Footer />
     </div>
   );

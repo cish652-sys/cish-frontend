@@ -6,7 +6,9 @@ export type TypographyVariant =
   | "regular"
   | "condensed"
   | "bodySmall" // ✅ new custom variant
-  | "bodyLarge"; // ✅ example future extend
+  | "bodyLarge" // ✅ example future extend
+  | "bodyInterItalic"
+  | "paragraphVariant";
 
 export type FontWeight = "normal" | "medium" | "semibold" | "bold" | "700" | "600" | "500" | "400";
 

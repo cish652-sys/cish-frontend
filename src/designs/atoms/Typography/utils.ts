@@ -57,12 +57,55 @@ export const getFontWeight = (weight?: FontWeight) => {
 
 // ✅ Variant mapping
 export const getVariantStyle = (variant?: TypographyVariant) => {
+  const baseStyle = {
+    fontFamily: "Noto Sans",
+    fontWeight: 700,
+    lineHeight: "157%",
+    letterSpacing: "0%",
+    textTransform: "uppercase" as const,
+    color: "#1B5E20", // ✅ default text color
+  };
+
   switch (variant) {
     case "bodySmall":
-      return { className: "font-bold", style: { fontSize: "16px" } };
+      return { className: "", style: { ...baseStyle, fontSize: "16px" } };
+
     case "bodyLarge":
-      return { className: "font-semibold", style: { fontSize: "20px" } };
+      return { className: "", style: { ...baseStyle, fontSize: "20px" } };
+
+    case "bodyInterItalic":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Inter",
+          fontWeight: 700,
+          fontStyle: "italic",
+          fontSize: "13px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textAlign: "center" as const,
+          textTransform: "uppercase" as const,
+          color: "#6F7E70", // ✅ different text color
+        },
+      };
+
+    // 🔥 naya variant: paragraphVariant
+    case "paragraphVariant":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 400,
+          fontStyle: "normal",
+          fontSize: "14px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "capitalize" as const,
+          color: "#4F5850",
+        },
+      };
+
     default:
-      return { className: "", style: {} };
+      return { className: "", style: baseStyle };
   }
 };

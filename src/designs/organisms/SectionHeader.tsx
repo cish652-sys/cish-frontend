@@ -27,8 +27,8 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {/* Icon + Title */}
       <div className="flex items-center gap-2">
-        <Icon src="/icons\cish.svg" alt="1568685-200 1.svg" className="text-green-700" />
-        <Typography variant="h4" weight="bold" className="text-green-800">
+        <Icon src="/icons/microscope.svg" alt="1568685-200 1.svg" className="text-green-700" />
+        <Typography variant="bodyLarge" weight="bold" className="text-green-800">
           {title}
         </Typography>
       </div>
@@ -38,9 +38,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         {description.map((line, i) => (
           <Typography
             key={i}
-            variant="bodyMedium"
-            weight="medium"
-            className="italic text-muted-foreground"
+            variant="bodyInterItalic"
           >
             {line}
           </Typography>

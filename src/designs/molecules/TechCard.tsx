@@ -13,19 +13,17 @@ const TechCard: React.FC<TechCardProps> = ({ title, description, href, image }) 
   return (
     <div className="flex flex-col md:flex-row bg-white shadow-md overflow-hidden hover:shadow-lg transition p-4 gap-4">
       {image && (
-        <div className="flex-shrink-0 w-full md:w-40 bg-gray-200 flex items-center justify-center">
+        <div className="flex-shrink-0 w-fit bg-gray-200 flex items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={image} alt={title} className="object-cover w-full h-full" />
         </div>
       )}
       <div className="flex flex-col justify-between flex-1">
-        <Typography variant="condensed" size="h2" className="text-green-800">
-          {title}
-        </Typography>
-        <Typography size="paragraph" className="line-clamp-3 md:line-clamp-4 text-gray-700">
+        <Typography variant="bodySmall">{title}</Typography>
+        <Typography variant="paragraphVariant">
           {description}
         </Typography>
-        <ButtonLink label="Read More" />{" "}
+        <ButtonLink label="SEE MORE" />{" "}
       </div>
     </div>
   );

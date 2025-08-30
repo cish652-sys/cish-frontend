@@ -83,3 +83,63 @@ export const technologies = [
     image: "/icons/arunika.svg",
   },
 ];
+
+export const mockTechnologies = [
+  {
+    id: "1",
+    title: "ICAR-BIOIMMUNIZER",
+    image:"/icons/arunika.svg",
+    description:
+      "In-vitro bio-induction of host plant tolerance is a first kind of its approach in tissue culture towards production of wilt tolerant disease free planting material.",
+  },
+  {
+    id: "2",
+    title: "CISH- BIOENHANCER",
+    image:"/icons/arunika.svg",
+    description:
+      "A consortium of beneficial bacteria isolated from indigenous natural farming products like Panchagavya, Beejamrita, Amritpani, etc.",
+  },
+  {
+    id: "3",
+    title: "ICAR-FUSICONT",
+    image:"/icons/arunika.svg",
+    description:
+      "A bio-pesticide for effective management of Panama wilt disease affecting Cavendish bananas causing production losses of more than 60 percent.",
+  },
+  {
+    id: "4",
+    title: "CISH TRAP-1",
+    image:"/icons/arunika.svg",
+    description:
+      "Mango hybrid Arunika developed by crossing between Amrapali × Vanraj. Dwarf, regular bearer, attractive fruit colour with excellent shelf-life.",
+  },
+  {
+    id: "5",
+    title: "CISH TRAP-2",
+    image:"/icons/arunika.svg",
+    description:
+    "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj."
+  },
+  {
+    id: "6",
+    title: "CISH TRAP-3",
+    image:"/icons/arunika.svg",
+    description:
+    "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj."
+  },
+  {
+    id: "7",
+    title: "CISH- OMAT",
+    image:"/icons/arunika.svg",
+    description:
+    "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj."
+  },
+  {
+    id: "8",
+    title: "CISH VMAT",
+    image:"/icons/arunika.svg",
+    description:
+    "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj."
+  },
+  
+];
