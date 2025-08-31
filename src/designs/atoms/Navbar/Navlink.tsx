@@ -1,12 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
+import routes from "@/routes";
 
 interface NavLinkProps {
-  children: React.ReactNode;
+  children: string;
   hasDropdown?: boolean;
   isActive?: boolean;
   isHovered?: boolean;
-  onClick?: () => void;
+  onClick?: () => void; // 👈 add this back
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
 }
@@ -16,18 +18,19 @@ export const NavLink: React.FC<NavLinkProps> = ({
   hasDropdown = false,
   isActive = false,
   isHovered = false,
-  onClick,
+  onClick, // 👈 accept it
   onMouseEnter,
   onMouseLeave,
 }) => (
-  <div
+  <Link
+    href={routes[children] || "/"}
+    onClick={onClick} // 👈 forward it
     className={`
-      relative px-3 py-2 text-sm font-medium cursor-pointer transition-all duration-200
+      relative px-2 2xl:px-3 py-6 text-xs font-medium cursor-pointer transition-all duration-200
       ${isHovered || isActive ? "bg-[#67B96D] text-white" : "text-gray-800 hover:bg-[#67B96D] hover:text-black"}
       ${hasDropdown ? "flex items-center gap-1" : ""}
       whitespace-nowrap select-none
     `}
-    onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
   >
@@ -42,5 +45,5 @@ export const NavLink: React.FC<NavLinkProps> = ({
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
     )}
-  </div>
+  </Link>
 );
