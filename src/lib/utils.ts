@@ -138,3 +138,51 @@ export const mockTechnologies = [
     description: "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.",
   },
 ];
+export const varieties = [
+  { src: "/icons/awadh abhaya.svg", title: "Awadh-Abhaya" },
+  { src: "/icons/ambika.svg", title: "CISH-Ambika" },
+  { src: "/icons/arunika new.svg", title: "CISH-Arunika" },
+];
+
+export const varitiesTechnologies = [
+  {
+    title: "CISH metwash",
+    description: "Espalier Training System For Guava",
+    date: "Aug 22, 2004",
+  },
+  {
+    title: "Espalier training system for increased productivity and quality of guava",
+    description: "Improved Productivity & Quality",
+    date: "Aug 22, 2004",
+  },
+  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  {
+    title: "Espalier training system for increased productivity and quality of guava",
+    description: "Improved Productivity & Quality",
+    date: "Aug 22, 2004",
+  },
+  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  {
+    title: "Espalier training system for increased productivity and quality of guava",
+    description: "Improved Productivity & Quality",
+    date: "Aug 22, 2004",
+  },
+  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  {
+    title: "Espalier training system for increased productivity and quality of guava",
+    description: "Improved Productivity & Quality",
+    date: "Aug 22, 2004",
+  },
+  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  {
+    title: "Espalier training system for increased productivity and quality of guava",
+    description: "Improved Productivity & Quality",
+    date: "Aug 22, 2004",
+  },
+  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  {
+    title: "Espalier training system for increased productivity and quality of guava",
+    description: "Improved Productivity & Quality",
+    date: "Aug 22, 2004",
+  },
+];

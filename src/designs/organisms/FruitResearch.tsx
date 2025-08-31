@@ -26,7 +26,7 @@ export const FruitResearch: React.FC = () => {
       </Typography>
 
       {/* Fruits Flexbox */}
-      <div className="flex flex-wrap justify-center gap-18">
+      <div className="flex flex-wrap justify-center gap-15">
         {fruitItems.map((fruit) => (
           <div
             key={fruit.id}

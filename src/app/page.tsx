@@ -15,6 +15,8 @@ import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 import ImpactCard from "@/designs/molecules/ImpactCard";
 import { FruitResearch } from "@/designs/organisms/FruitResearch";
 import { KeyOfferingsSection } from "@/designs/organisms/KeyOfferingSection";
+import { CommercializationSection } from "@/designs/organisms/CommercializationSection";
+import { varieties, varitiesTechnologies } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -25,6 +27,7 @@ export default function Home() {
       {/* <ManinPageProduct /> */}
       {/* <Dashboard /> */}
       <FruitResearch/>
+      <CommercializationSection varieties={varieties} technologies={varitiesTechnologies} />;
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
