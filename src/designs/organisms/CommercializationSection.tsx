@@ -38,11 +38,11 @@ export const CommercializationSection = ({
       const containerWidth = scrollContainer.clientWidth;
       const scrollWidth = scrollContainer.scrollWidth;
       const itemWidth = 200; // Approximate width of each variety card including gap
-      
+
       const visibleItems = Math.floor(containerWidth / itemWidth);
       const totalItems = varieties.length;
       const dotsNeeded = Math.max(1, Math.ceil(totalItems / visibleItems));
-      
+
       setTotalDots(dotsNeeded);
     };
 
@@ -50,28 +50,28 @@ export const CommercializationSection = ({
       const scrollLeft = scrollContainer.scrollLeft;
       const containerWidth = scrollContainer.clientWidth;
       const scrollWidth = scrollContainer.scrollWidth;
-      
+
       if (scrollWidth <= containerWidth) {
         setCurrentDot(0);
         return;
       }
-      
+
       const maxScrollLeft = scrollWidth - containerWidth;
       const scrollPercentage = scrollLeft / maxScrollLeft;
       const dotIndex = Math.round(scrollPercentage * (totalDots - 1));
-      
+
       setCurrentDot(Math.max(0, Math.min(dotIndex, totalDots - 1)));
     };
 
     updateDots();
     handleScroll();
 
-    scrollContainer.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', updateDots);
+    scrollContainer.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", updateDots);
 
     return () => {
-      scrollContainer.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateDots);
+      scrollContainer.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateDots);
     };
   }, [varieties.length, totalDots]);
 
@@ -82,12 +82,12 @@ export const CommercializationSection = ({
     const containerWidth = scrollContainer.clientWidth;
     const scrollWidth = scrollContainer.scrollWidth;
     const maxScrollLeft = scrollWidth - containerWidth;
-    
+
     const targetScrollLeft = (dotIndex / (totalDots - 1)) * maxScrollLeft;
-    
+
     scrollContainer.scrollTo({
       left: targetScrollLeft,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -97,15 +97,23 @@ export const CommercializationSection = ({
         <div className="flex-1 flex flex-col min-w-0">
           <div>
             <div className="flex items-center gap-2 mb-4 sm:mb-6">
-              <Icon src="/icons/codicon.svg" alt="Varieties" className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-              <Typography variant="bodyLarge" weight="bold" className="text-sm sm:text-base md:text-lg">
+              <Icon
+                src="/icons/codicon.svg"
+                alt="Varieties"
+                className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
+              />
+              <Typography
+                variant="bodyLarge"
+                weight="bold"
+                className="text-sm sm:text-base md:text-lg"
+              >
                 Varieties for Commercialization
               </Typography>
             </div>
-            <div 
+            <div
               ref={scrollRef}
               className="flex gap-2 sm:gap-4 overflow-x-auto pb-4 -mx-2 px-2 sm:mx-0 sm:px-0 scrollbar-hide"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {varieties.map((item, idx) => (
                 <div key={idx} className="flex-shrink-0">
@@ -113,7 +121,7 @@ export const CommercializationSection = ({
                 </div>
               ))}
             </div>
-            
+
             {totalDots > 1 && (
               <div className="flex justify-center gap-2">
                 {Array.from({ length: totalDots }).map((_, index) => (
@@ -121,9 +129,7 @@ export const CommercializationSection = ({
                     key={index}
                     onClick={() => scrollToDot(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentDot
-                        ? 'bg-green-700 w-6'
-                        : 'bg-gray-300 hover:bg-gray-400'
+                      index === currentDot ? "bg-green-700 w-6" : "bg-gray-300 hover:bg-gray-400"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />

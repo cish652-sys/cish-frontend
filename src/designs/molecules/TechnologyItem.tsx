@@ -16,14 +16,17 @@ export const TechnologyItem = ({ title, date, description }: TechnologyItemProps
         <span className="text-sm sm:text-base md:text-lg font-bold capitalize leading-tight tracking-normal font-['Noto Sans'] flex-1 min-w-0">
           {title}
         </span>
-        
+
         <span className="text-xs text-gray-500 whitespace-nowrap flex-shrink-0 self-start sm:self-auto">
           {date}
         </span>
       </div>
 
       {/* Description - uncommented and made responsive */}
-      <Typography variant="bodySmall" className="text-gray-700 text-xs sm:text-sm line-clamp-2 sm:line-clamp-1 leading-relaxed">
+      <Typography
+        variant="bodySmall"
+        className="text-gray-700 text-xs sm:text-sm line-clamp-2 sm:line-clamp-1 leading-relaxed"
+      >
         {description}
       </Typography>
     </div>

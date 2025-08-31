@@ -17,11 +17,7 @@ export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
       {/* Heading */}
       {showHeading && (
         <div className="flex items-center gap-2 mb-8 container">
-          <Icon
-            src="/icons/OtherTechnologyIcon.svg"
-            alt="Trending"
-            
-          />
+          <Icon src="/icons/OtherTechnologyIcon.svg" alt="Trending" />
           <Typography variant="sectionHeading">Other Technologies</Typography>
         </div>
       )}

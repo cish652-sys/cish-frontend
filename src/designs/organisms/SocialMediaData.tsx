@@ -9,19 +9,11 @@ const socialMediaData = [
   },
   {
     title: "Facebook",
-    images: [
-      "",
-      "",
-      "",
-    ],
+    images: ["", "", ""],
   },
   {
     title: "Instagram",
-    images: [
-      "",
-      "",
-      "",
-    ],
+    images: ["", "", ""],
   },
   {
     title: "YouTube",
