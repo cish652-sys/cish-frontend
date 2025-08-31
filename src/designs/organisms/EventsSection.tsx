@@ -24,7 +24,7 @@ export default function EventsSection() {
           ))}
         </div>
         <div className="flex justify-center mt-10">
-          <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-2 rounded-lg font-semibold">
+          <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-2 font-semibold">
             VIEW MORE →
           </Button>
         </div>

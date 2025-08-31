@@ -7,7 +7,7 @@ interface TenderTableProps {
 }
 
 export const TenderTable: React.FC<TenderTableProps> = ({ tenders }) => (
-  <div className="overflow-y-auto max-h-64 border rounded-lg shadow-sm">
+  <div className="overflow-y-auto  border  shadow-sm">
     <table className="w-full text-sm">
       <thead className="bg-gray-100 sticky top-0">
         <tr>

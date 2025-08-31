@@ -38,7 +38,7 @@ export const KeyOfferingsSection: React.FC = () => {
   return (
     <div className="flex flex-col w-full ">
       <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
-      <div className="flex rounded-lg overflow-hidden border">
+      <div className="flex overflow-hidden border">
         {["Announcements.", "Jobs", "Tenders"].map((tab) => (
           <TabButton
             key={tab}

@@ -8,7 +8,7 @@ interface LinkItem {
 }
 
 export const LinksList: React.FC<{ links: LinkItem[] }> = ({ links }) => (
-  <div className="overflow-y-auto max-h-64 border rounded-md shadow-sm bg-white">
+  <div className="overflow-y-auto max-h-[275px] border  shadow-sm bg-white">
     {links.map((l, i) => (
       <div key={i} className="px-4 py-3 border-b last:border-b-0">
         <p className="font-bold text-gray-800 text-sm">{l.title}</p>
