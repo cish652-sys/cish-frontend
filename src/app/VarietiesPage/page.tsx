@@ -4,10 +4,10 @@ import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
-import VarietiesSection from "@/designs/organisms/VarietiesSection";
 import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 import React from "react";
 import banner from "../../designs/public/images/banner.svg";
+import { technologiesVarietiesItems, varietiesItem } from "@/lib/utils";
 
 function Varietiespage() {
   return (
@@ -18,20 +18,19 @@ function Varietiespage() {
         <Logo src={banner} alt="Website Banner" responsive />
       </section>
       <SectionHeader
-        breadcrumbItems={[
-          { label: "Home", href: "/" },
-          { label: "TECHNOLOGIES FOR COMMERCIALIZATION" },
-        ]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
         iconName="microscope"
-        title="TECHNOLOGIES FOR COMMERCIALIZATION"
+        title="Varieties For COMMERCIALIZATION"
         description={[
-          "Bring advanced tools and practices from research to the fields.",
-          "They help farmers improve productivity, reduce costs, and ensure better quality yields.",
-          "The goal is to make farming more sustainable, profitable, and accessible to all.",
+          "Bring farmers high-yield, resilient, and quality crop options.",
+          "These varieties are designed to fight pests, withstand climate challenges, and ensure better harvests.",
+          "They empower farmers with more profit, stability, and a brighter future in farming.",
         ]}
       />
-      <TrendingTechnologies />
-      <OtherTechnologies />
+      <div className="py-0 bg-[#FBFAF0]">
+        <TrendingTechnologies technologies={varietiesItem} showVerieties={false} />
+        <OtherTechnologies technologiesItems={technologiesVarietiesItems} showHeading={false} />
+      </div>
       <Footer />
     </div>
   );
