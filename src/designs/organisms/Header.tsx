@@ -18,13 +18,13 @@ export const Header = () => {
         <div className="flex flex-col md:flex-row md:items-center gap-3 text-center md:text-left">
           {/* CISH Logo */}
           <div className="flex justify-center md:justify-start">
-            <Logo src={cish} alt="CISH Logo" width={60} height={80} />
+            <Logo src={cish} alt="CISH Logo" width={81} height={109} />
           </div>
 
           {/* Labels (scale down responsively) */}
           <div className="flex flex-col items-center md:items-start gap-1">
-            <Logo src={label} alt="Hindi Label" width={250} height={30} />
-            <Logo src={label2} alt="English Label" width={300} height={25} />
+            <Logo src={label} alt="Hindi Label" width={456} height={42} />
+            <Logo src={label2} alt="English Label" width={612} height={33} />
           </div>
         </div>
 

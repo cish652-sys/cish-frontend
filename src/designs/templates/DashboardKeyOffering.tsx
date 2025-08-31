@@ -5,12 +5,12 @@ import { ImportantLinksSection } from "../organisms/ImportantLinksSection";
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-6 justify-center p-2 p-y-[20px]">
-      <div className="w-full md:w-[808px]">
+    <div className="container flex flex-row gap-4  ">
+      <div className="w-[70%]">
         <KeyOfferingsSection />
       </div>
 
-      <div className="w-full md:w-[376px]">
+      <div className="w-[30%]">
         <ImportantLinksSection />
       </div>
     </div>

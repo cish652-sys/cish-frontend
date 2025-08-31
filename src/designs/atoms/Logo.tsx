@@ -14,13 +14,7 @@ export const Logo: React.FC<LogoProps> = ({ src, alt, width = 60, height = 60, r
   if (responsive) {
     return (
       <div className="relative w-full h-[200px] md:h-[400px] lg:h-[600px]">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-cover"
-          priority
-        />
+        <Image src={src} alt={alt} fill className="object-cover" priority />
       </div>
     );
   }

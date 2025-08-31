@@ -2,16 +2,17 @@
 
 import { Images } from "lucide-react";
 import { Header } from "../organisms/Header";
-import { Navbar } from "../organisms/Navbar";
 import banner from "../public/images/banner.svg";
 import { Logo } from "../atoms/Logo";
 import { AnnouncementBar } from "../molecules/AnnouncementBar";
+import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
 
 export const MainHeader = () => {
   return (
     <main className="w-full">
       <Header />
-      <Navbar />
+      <ResponsiveNavbar />
+
       <section className="relative w-full">
         <Logo src={banner} alt="Website Banner" responsive />
       </section>
