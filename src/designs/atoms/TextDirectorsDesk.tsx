@@ -7,7 +7,7 @@ export interface TextAtomProps {
 }
 
 const TextAtom: React.FC<TextAtomProps> = ({ children, className = "" }) => (
-  <p className={`text-gray-600 text-sm md:text-base leading-relaxed ${className}`}>{children}</p>
+  <p className={`text-gray-600 text-sm md:text-base leading-tight ${className}`}>{children}</p>
 );
 
 export default TextAtom;
