@@ -26,9 +26,9 @@ const TechCard: React.FC<TechCardProps> = ({ title, description, image }) => {
         </div>
       )}
       <div className="flex flex-col justify-between flex-1">
-        <Typography variant="bodySmall">{title}</Typography>
-        <Typography variant="paragraphVariant">{description}</Typography>
-        <ButtonLink label="SEE MORE" />
+        <Typography variant="cardTitle">{title}</Typography>
+        <Typography variant="paragraphSmall">{description}</Typography>
+        <ButtonLink label="SEE MORE" />{" "}
       </div>
     </div>
   );

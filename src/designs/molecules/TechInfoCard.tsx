@@ -35,10 +35,10 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({ title, description, 
 
       {/* Content */}
       <CardContent className="p-2">
-        <Typography variant="bodyLarge">{title}</Typography>
-        <Typography variant="bodySmall">Technology Details:</Typography>
+        <Typography variant="contentTitle">{title}</Typography>
+        <Typography variant="badgeStyle">Technology Details:</Typography>
 
-        <Typography variant="paragraphVariant">{description}</Typography>
+        <Typography variant="labelSmall">{description}</Typography>
       </CardContent>
 
       {/* Footer */}

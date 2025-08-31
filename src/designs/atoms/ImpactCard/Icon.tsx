@@ -8,7 +8,7 @@ interface IconProps {
 }
 
 const Icon: React.FC<IconProps> = ({ src, alt, className }) => {
-  return <Image src={src} alt={alt} className={`w-8 h-8 ${className}`} height={32} width={32} />;
+  return <img src={src} alt={alt} className={`w-10 h-10 ${className}`} />;
 };
 
 export default Icon;

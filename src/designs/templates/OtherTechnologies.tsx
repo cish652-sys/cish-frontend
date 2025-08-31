@@ -20,9 +20,9 @@ export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
           <Icon
             src="/icons/OtherTechnologyIcon.svg"
             alt="Trending"
-            className="w-6 h-6 text-green-700"
+            
           />
-          <Typography variant="bodyLarge">Other Technologies</Typography>
+          <Typography variant="sectionHeading">Other Technologies</Typography>
         </div>
       )}
 

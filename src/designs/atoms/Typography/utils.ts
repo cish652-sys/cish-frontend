@@ -55,7 +55,6 @@ export const getFontWeight = (weight?: FontWeight) => {
   }
 };
 
-// ✅ Variant mapping
 export const getVariantStyle = (variant?: TypographyVariant) => {
   const baseStyle = {
     fontFamily: "Noto Sans",
@@ -63,24 +62,51 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
     lineHeight: "157%",
     letterSpacing: "0%",
     textTransform: "uppercase" as const,
-    color: "#1B5E20", // ✅ default text color
+    color: "#1B5E20",
   };
 
   switch (variant) {
-    case "bodySmall":
-      return { className: "", style: { ...baseStyle, fontSize: "16px" } };
+    // ✅ 1. Heading Small (16px, 100% line-height)
+    case "headingSmall":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "16px",
+          lineHeight: "100%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#1B5E20",
+        },
+      };
 
-    case "bodyLarge":
-      return { className: "", style: { ...baseStyle, fontSize: "20px" } };
+    // ✅ 2. Heading Large (25px, 157% line-height)
+    case "headingLarge":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "25px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#1B5E20",
+        },
+      };
 
-    case "bodyInterItalic":
+    // ✅ 3. Inter Italic Highlight
+    case "italicHighlight":
       return {
         className: "",
         style: {
           fontFamily: "Inter",
           fontWeight: 700,
           fontStyle: "italic",
-          fontSize: "13px",
+          fontSize: "18px",
           lineHeight: "157%",
           letterSpacing: "0%",
           textAlign: "center" as const,
@@ -89,14 +115,47 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
         },
       };
 
-    case "paragraphVariant":
+    // ✅ 4. Section Heading (22px)
+    case "sectionHeading":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "22px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#1B5E20",
+        },
+      };
+
+    // ✅ 5. Card Title (18px)
+    case "cardTitle":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "18px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#1B5E20",
+        },
+      };
+
+    // ✅ 6. Paragraph Small (12px, capitalize)
+    case "paragraphSmall":
       return {
         className: "",
         style: {
           fontFamily: "Noto Sans",
           fontWeight: 400,
           fontStyle: "normal",
-          fontSize: "14px",
+          fontSize: "12px",
           lineHeight: "157%",
           letterSpacing: "0%",
           textTransform: "capitalize" as const,
@@ -104,24 +163,89 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
         },
       };
 
-    // 🔥 naya variant: headingType
-    case "headingType":
+    // ✅ 7. SubHeading Gray (19px)
+    case "subHeadingGray":
       return {
         className: "",
         style: {
           fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
-          fontSize: "25px",
-          lineHeight: "100%",
+          fontSize: "19px",
+          lineHeight: "157%",
           letterSpacing: "0%",
-          textAlign: "center" as const,
           textTransform: "uppercase" as const,
-          color: "#1B5E20", // ✅ color added
+          color: "#6F7E70",
         },
       };
 
+    // ✅ 8. Content Title (20px)
+    case "contentTitle":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "20px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#1B5E20",
+        },
+      };
+
+    // ✅ 9. Badge Style (12px, dark green)
+    case "badgeStyle":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "12px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#2D5631",
+        },
+      };
+
+    // ✅ 10. Label Small (9px, capitalize, gray)
+    case "labelSmall":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "9px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "capitalize" as const,
+          color: "#4F5850",
+        },
+      };
+
+    // ✅ 11. Label Tiny (10px, uppercase, green)
+    case "labelTiny":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "10px",
+          lineHeight: "157%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#1B5E20",
+        },
+      };
+
+    // 🔥 default fallback
     default:
       return { className: "", style: baseStyle };
   }
 };
+
