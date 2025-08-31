@@ -27,15 +27,13 @@ export default function Home() {
 
       <HomeWithDirector />
       <CommercializationSection varieties={varieties} technologies={varitiesTechnologies} />
-            <KeyImpacts />
-            <Rearch />
-            
+      <KeyImpacts />
+      <Rearch />
 
       <Dashboard />
       <EventsSection />
       <SocialMediaSection />
-      
-      
+
       <Footer />
     </div>
   );

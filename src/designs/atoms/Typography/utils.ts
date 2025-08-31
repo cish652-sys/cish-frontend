@@ -125,4 +125,3 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return { className: "", style: baseStyle };
   }
 };
-

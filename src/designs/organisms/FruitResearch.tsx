@@ -17,10 +17,7 @@ export const FruitResearch: React.FC = () => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-12 text-center container">
       {/* Heading */}
-      <Typography
-        variant="headingType"
-        className="text-green-800 uppercase mb-10 leading-snug"
-      >
+      <Typography variant="headingType" className="text-green-800 uppercase mb-10 leading-snug">
         We are pioneers in subtropical fruit research spanning from climate resilient varieties to
         value chain research.
       </Typography>
@@ -31,9 +28,7 @@ export const FruitResearch: React.FC = () => {
           <div
             key={fruit.id}
             className={`flex flex-col items-center p-2 ${
-              fruit.id === "mango"
-                ? ""
-                : "hover:bg-green-50"
+              fruit.id === "mango" ? "" : "hover:bg-green-50"
             }`}
           >
             <div

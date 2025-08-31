@@ -5,11 +5,7 @@ import iconEarth from "../public/images/SocialMedia/famicons_earth-outline.svg";
 const socialMediaData = [
   {
     title: "X",
-    images: [
-      "icons/Mask group.svg",
-      "/SocialMedia/Mask group.svg",
-      "/SocialMedia/Mask group.svg",
-    ],
+    images: ["icons/Mask group.svg", "/SocialMedia/Mask group.svg", "/SocialMedia/Mask group.svg"],
   },
   {
     title: "Facebook",
@@ -42,15 +38,8 @@ export default function SocialMediaSection() {
     <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
       {/* Heading */}
       <div className="container flex items-center gap-2 mb-10">
-        <Image
-          src={iconEarth}
-          alt="social"
-          width={28}
-          height={28}
-        />
-        <h2 className="text-green-900 font-bold text-lg md:text-xl uppercase">
-          IN SOCIAL MEDIA
-        </h2>
+        <Image src={iconEarth} alt="social" width={28} height={28} />
+        <h2 className="text-green-900 font-bold text-lg md:text-xl uppercase">IN SOCIAL MEDIA</h2>
       </div>
 
       {/* Cards */}
@@ -61,17 +50,12 @@ export default function SocialMediaSection() {
             className="flex-1 min-w-[240px] max-w-[280px] bg-white shadow-md border flex flex-col p-4"
           >
             {/* Card Title */}
-            <h3 className="text-green-900 font-semibold text-center mb-4">
-              {item.title}
-            </h3>
+            <h3 className="text-green-900 font-semibold text-center mb-4">{item.title}</h3>
 
             {/* 3 Images */}
             <div className="flex flex-col gap-4">
               {item.images.map((src, i) => (
-                <div
-                  key={i}
-                  className="w-full border  overflow-hidden"
-                >
+                <div key={i} className="w-full border  overflow-hidden">
                   <Image
                     src={src}
                     alt={`${item.title} post ${i + 1}`}

@@ -5,7 +5,6 @@ import { Card, CardContent } from "./card";
 import Icon from "./ImpactCard/Icon";
 import Typography from "./Typography";
 
-
 interface FruitCardProps {
   icon: string; // svg path
   label: string;
