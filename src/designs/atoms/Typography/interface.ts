@@ -8,6 +8,7 @@ export type TypographyVariant =
   | "bodySmall" // ✅ new custom variant
   | "bodyLarge" // ✅ example future extend
   | "bodyInterItalic"
+  | "headingType"
   | "paragraphVariant";
 
 export type FontWeight = "normal" | "medium" | "semibold" | "bold" | "700" | "600" | "500" | "400";

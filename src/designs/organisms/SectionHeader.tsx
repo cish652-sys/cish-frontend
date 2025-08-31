@@ -19,7 +19,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   description,
 }) => {
   return (
-    <section className="w-full flex flex-col items-center text-center px-4 md:px-8 lg:px-16 py-8">
+    <section className="w-full flex flex-col items-center text-center px-4 md:px-8 lg:px-16 py-8 container">
       {/* Breadcrumb */}
       <div className="w-full text-left mb-6">
         <Breadcrumb items={breadcrumbItems} />

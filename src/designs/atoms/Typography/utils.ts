@@ -85,11 +85,10 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
           letterSpacing: "0%",
           textAlign: "center" as const,
           textTransform: "uppercase" as const,
-          color: "#6F7E70", // ✅ different text color
+          color: "#6F7E70",
         },
       };
 
-    // 🔥 naya variant: paragraphVariant
     case "paragraphVariant":
       return {
         className: "",
@@ -105,7 +104,25 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
         },
       };
 
+    // 🔥 naya variant: headingType
+    case "headingType":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "25px",
+          lineHeight: "100%",
+          letterSpacing: "0%",
+          textAlign: "center" as const,
+          textTransform: "uppercase" as const,
+          color: "#1B5E20", // ✅ color added
+        },
+      };
+
     default:
       return { className: "", style: baseStyle };
   }
 };
+

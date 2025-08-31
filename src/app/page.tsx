@@ -12,6 +12,9 @@ import VarietiesSection from "@/designs/organisms/VarietiesSection";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
+import ImpactCard from "@/designs/molecules/ImpactCard";
+import { FruitResearch } from "@/designs/organisms/FruitResearch";
+import { KeyOfferingsSection } from "@/designs/organisms/KeyOfferingSection";
 
 export default function Home() {
   return (
@@ -21,6 +24,7 @@ export default function Home() {
       {/* <HomeWithDirector /> */}
       {/* <ManinPageProduct /> */}
       {/* <Dashboard /> */}
+      <FruitResearch/>
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
