@@ -66,21 +66,21 @@ export const technoItems = [
     description:
       "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
     href: "/tech/solanaceous",
-    image: "/icons/arunika.svg",
+    image: "/icons/Awadh Mango.svg",
   },
   {
     title: "CISH-LEAFY VEGETABLES HYDROPONIC NUTRIENT SOLUTION",
     description:
       "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
     href: "/tech/leafy",
-    image: "/icons/arunika.svg",
+    image: "/icons/Ambika Mango.svg",
   },
   {
     title: "CISH HOT WATER DISPERSIBLE AONLA HERBAL TABLET",
     description:
       "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
     href: "/tech/aonla",
-    image: "/icons/arunika.svg",
+    image: "/icons/Arunika Mango.svg",
   },
 ];
 export const varietiesItem = [
@@ -117,7 +117,7 @@ export const technologiesItems = [
   {
     id: "2",
     title: "CISH- BIOENHANCER",
-    image: "/icons/arunika.svg",
+    image: "/icons/Lalit.svg",
     description:
       "A consortium of beneficial bacteria isolated from indigenous natural farming products like Panchagavya, Beejamrita, Amritpani, etc.",
   },
@@ -131,20 +131,20 @@ export const technologiesItems = [
   {
     id: "4",
     title: "CISH TRAP-1",
-    image: "/icons/arunika.svg",
+    image: "/icons/Lalima.svg",
     description:
       "Mango hybrid Arunika developed by crossing between Amrapali × Vanraj. Dwarf, regular bearer, attractive fruit colour with excellent shelf-life.",
   },
   {
     id: "5",
     title: "CISH TRAP-2",
-    image: "/icons/arunika.svg",
+    image: "/icons/Dhawal.svg",
     description: "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.",
   },
   {
     id: "6",
     title: "CISH TRAP-3",
-    image: "/icons/arunika.svg",
+    image: "/icons/Lalima.svg",
     description: "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.",
   },
   {
@@ -156,7 +156,7 @@ export const technologiesItems = [
   {
     id: "8",
     title: "CISH VMAT",
-    image: "/icons/arunika.svg",
+    image: "/icons/Lalit.svg",
     description: "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.",
   },
 ];

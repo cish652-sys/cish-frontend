@@ -3,13 +3,17 @@ import type { PropsWithChildren } from "react";
 export type TypographyRobotCondensedSize = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "paragraph";
 
 export type TypographyVariant =
-  | "regular"
-  | "condensed"
-  | "bodySmall" // ✅ new custom variant
-  | "bodyLarge" // ✅ example future extend
-  | "bodyInterItalic"
-  | "headingType"
-  | "paragraphVariant";
+  | "headingSmall" 
+  | "headingLarge"
+  | "italicHighlight"
+  | "sectionHeading"
+  | "cardTitle"
+  | "paragraphSmall"
+  | "subHeadingGray"
+  | "contentTitle"
+  | "badgeStyle"
+  | "labelSmall"
+  | "labelTiny";
 
 export type FontWeight = "normal" | "medium" | "semibold" | "bold" | "700" | "600" | "500" | "400";
 

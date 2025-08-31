@@ -4,7 +4,7 @@ import Icon from "../atoms/ImpactCard/Icon";
 import Typography from "../atoms/Typography";
 import { TechnologyGrid } from "../organisms/TechnologyGrid";
 type OtherTechnologiesProps = {
-  technologiesItems: any[];
+  technologiesItems:[];
   showHeading?: boolean;
 };
 export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
@@ -19,9 +19,9 @@ export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
           <Icon
             src="/icons/OtherTechnologyIcon.svg"
             alt="Trending"
-            className="w-6 h-6 text-green-700"
+            
           />
-          <Typography variant="bodyLarge">Other Technologies</Typography>
+          <Typography variant="sectionHeading">Other Technologies</Typography>
         </div>
       )}
 
