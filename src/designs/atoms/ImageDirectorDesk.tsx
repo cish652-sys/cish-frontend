@@ -23,7 +23,7 @@ const ImageAtom: React.FC<ImageAtomProps> = ({
       alt={alt}
       width={width}
       height={height}
-      className="shadow-md object-cover"
+      className="object-cover"
       priority={false}
     />
   </div>

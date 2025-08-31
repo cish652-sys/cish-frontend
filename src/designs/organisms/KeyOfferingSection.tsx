@@ -36,7 +36,7 @@ export const KeyOfferingsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Tenders");
 
   return (
-    <div className="flex flex-col w-full ">
+    <div className="flex flex-col w-full min-h-[300px] ">
       <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
       <div className="flex overflow-hidden border">
         {["Announcements.", "Jobs", "Tenders"].map((tab) => (

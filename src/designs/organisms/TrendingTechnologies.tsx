@@ -10,9 +10,7 @@ const TrendingTechnologies: React.FC = () => {
       <div className="flex flex-col gap-6 px-[80px] pb-[80px] pt-[25px] container">
         <div className="flex items-center gap-2">
           <Icon src="/icons/tractor.svg" alt="Trending" className="w-6 h-6 text-green-700" />
-          <Typography variant="bodyLarge">
-            Trending Technologies
-          </Typography>
+          <Typography variant="bodyLarge">Trending Technologies</Typography>
         </div>
         {technologies.map((tech, idx) => (
           <TechCard key={idx} {...tech} />

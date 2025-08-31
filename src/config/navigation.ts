@@ -1,4 +1,3 @@
-// src/config/navigation.ts
 export type LinkItem = { href: string; label: string };
 export type NavItem =
   | { type: "link"; label: string; href: string; active?: boolean }

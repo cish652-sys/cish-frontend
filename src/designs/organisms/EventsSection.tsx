@@ -7,7 +7,7 @@ import { Button } from "../atoms/button";
 export default function EventsSection() {
   return (
     <section className="py-12 px-6 md:px-16" style={{ backgroundColor: "#FBFAF0" }}>
-      <div className="max-w-7xl mx-auto">
+      <div className="container max-w-7xl mx-auto">
         <Heading title="NEWS & EVENTS" />
         <div className="grid gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
           {eventsData.map((item, index) => (

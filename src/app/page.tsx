@@ -17,32 +17,25 @@ import { FruitResearch } from "@/designs/organisms/FruitResearch";
 import { KeyOfferingsSection } from "@/designs/organisms/KeyOfferingSection";
 import { CommercializationSection } from "@/designs/organisms/CommercializationSection";
 import { varieties, varitiesTechnologies } from "@/lib/utils";
+import SocialMediaSection from "@/designs/organisms/SocialMediaData";
 
 export default function Home() {
   return (
     <div>
-      {/* <MainHeader /> */}
-      {/* <FruitsSection /> */}
-      {/* <HomeWithDirector /> */}
-      {/* <ManinPageProduct /> */}
-      {/* <Dashboard /> */}
-      <FruitResearch/>
-      <CommercializationSection varieties={varieties} technologies={varitiesTechnologies} />;
-      <SectionHeader
-        breadcrumbItems={[
-          { label: "Home", href: "/" },
-          { label: "TECHNOLOGIES FOR COMMERCIALIZATION" },
-        ]}
-        iconName="microscope"
-        title="TECHNOLOGIES FOR COMMERCIALIZATION"
-        description={[
-          "Bring advanced tools and practices from research to the fields.",
-          "They help farmers improve productivity, reduce costs, and ensure better quality yields.",
-          "The goal is to make farming more sustainable, profitable, and accessible to all.",
-        ]}
-      />
-      <TrendingTechnologies />
-      <OtherTechnologies/>
+      <MainHeader />
+      <FruitResearch />
+
+      <HomeWithDirector />
+      <CommercializationSection varieties={varieties} technologies={varitiesTechnologies} />
+            <KeyImpacts />
+            <Rearch />
+            
+
+      <Dashboard />
+      <EventsSection />
+      <SocialMediaSection />
+      
+      
       <Footer />
     </div>
   );

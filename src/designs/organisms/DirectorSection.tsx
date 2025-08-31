@@ -12,21 +12,26 @@ export interface DirectorSectionProps {
 
 const DirectorSection: React.FC<DirectorSectionProps> = ({ imageSrc, className = "" }) => {
   return (
-    <section className={`my-14 py-6${className}`}>
-      <div className="container flex flex-row gap-4 ">
-        <div className="">
-          <DirectorHeader />
-          <DirectorContent />
-          <div className="mt-10">
-            <ActionCards />
-          </div>
-        </div>
-
-        <div className="flex justify-center items-end">
-          <ImageAtom src={imageSrc} alt="Director" width={2600} height={3000} />
-        </div>
+   <section className={`my-14 py-6 ${className}`}>
+  <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
+    <div className="flex-1">
+      <DirectorHeader />
+      <DirectorContent />
+      <div className="mt-10">
+        <ActionCards />
       </div>
-    </section>
+    </div>
+
+    <div className="flex mb-[-8px] justify-center items-end lg:justify-end">
+      <ImageAtom
+        src={imageSrc}
+        alt="Director"
+        className="max-w-full h-auto"
+      />
+    </div>
+  </div>
+</section>
+
   );
 };
 

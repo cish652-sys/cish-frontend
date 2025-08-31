@@ -6,7 +6,7 @@ import { rearchData } from "@/lib/utils";
 export default function Rearch() {
   return (
     <section className="py-12 px-6 md:px-16" style={{ backgroundColor: "#FBFAF0" }}>
-      <div className="max-w-7xl mx-auto">
+      <div className="container max-w-7xl mx-auto">
         <Heading title=" Key Research" />
         <div className="grid gap-4 md:grid-cols-4 sm:grid-cols-2 grid-cols-1">
           {rearchData.map((item, index) => (

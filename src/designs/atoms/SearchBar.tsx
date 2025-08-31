@@ -4,12 +4,17 @@ import { Search } from "lucide-react";
 
 export const SearchBar = () => {
   return (
-    <div className="relative w-60">
+    <div className="flex w-[209px]">
+      {/* Input with top rounded, bottom square */}
       <Input
         placeholder="Search Here......"
-        className="pl-4 pr-10 py-2 w-[209px] h-[39px] text-sm rounded-t-lg border-b-2 border-blue-500 "
+        className="rounded-t-md rounded-b-none border-b-2 border-[#162F6A] h-[39px] px-3 text-sm"
       />
-      <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+
+      {/* Icon container with same top rounding */}
+      <div className="flex items-center justify-center w-10 border-b-2 border-[#162F6A] rounded-t-md rounded-b-none bg-white">
+        <Search className="h-4 w-4 text-gray-500" />
+      </div>
     </div>
   );
 };

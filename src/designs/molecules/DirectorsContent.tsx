@@ -5,7 +5,7 @@ import LinkAtom from "../atoms/LinkDirectorsDesk";
 
 const DirectorContent: React.FC = () => {
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <TextAtom>
         Central Institute for Subtropical Horticulture Institute with a unique distinction of
         working on the mango the king of fruit on one hand and guava the poor man’s apple on the

@@ -5,7 +5,7 @@ import { Users, Grid, BarChart3 } from "lucide-react";
 
 const ActionCards: React.FC = () => {
   return (
-    <div className="flex gap-3.5">
+    <div className="flex flex-wrap gap-3.5">
       <ActionButtonAtom Icon={Users} text="OUR TEAM" active onClick={() => {}} />
       <ActionButtonAtom Icon={Grid} text="OUR ORGANIZATION" onClick={() => {}} />
       <ActionButtonAtom Icon={BarChart3} text="OUR PERFORMANCE" onClick={() => {}} />

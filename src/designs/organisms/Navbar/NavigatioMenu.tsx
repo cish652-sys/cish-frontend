@@ -134,15 +134,15 @@ const ResponsiveNavbar: React.FC = () => {
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">
-      <div className="container  px-4">
-        <div className="hidden lg:flex items-center flex justify-center justify-evenly h-16">
+      <div className=" max-w-full mx-auto px-4">
+        <div className="container hidden lg:flex items-center flex justify-center justify-evenly h-16">
           {navigationItems.map((item) => {
             const hasDropdown = item.dropdownItems && item.dropdownItems.length > 0;
             const isHovered = hoveredItem === item.label;
             const isActive = activeItem === item.label;
 
             return (
-              <div key={item.label} className="relative px-4 py-3">
+              <div key={item.label} className="relative py-3">
                 <NavLink
                   hasDropdown={hasDropdown}
                   isActive={isActive}
@@ -200,9 +200,8 @@ const ResponsiveNavbar: React.FC = () => {
 
         <div
           className={`
-  lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white
-  ${isMobileMenuOpen ? "max-h-screen opacity-100 pb-4" : "max-h-0 opacity-0"}
-  absolute top-full left-0 right-0 z-50 shadow-lg
+  lg:hidden transition-all duration-300 ease-in-out
+  ${isMobileMenuOpen ? " opacity-100" : "max-h-0 opacity-0"}
 `}
         >
           <div className="bg-gray-50  mt-2 max-h-full overflow-y-auto">
