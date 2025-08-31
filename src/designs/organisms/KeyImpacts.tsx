@@ -2,17 +2,26 @@ import React from "react";
 import ImpactCard from "../molecules/ImpactCard";
 
 const impacts = [
-  { icon: "/icons/icon-park-outline_sapling.svg", number: "1", text: "Farmer Empowerment" },
+  { icon: "/icons/keyIcon1.svg", number: "1", text: "Farmer Empowerment" },
   {
     icon: "/icons/si_library-books-line.svg",
     number: "2",
     text: "Transparency & Accountability",
-    highlight: true,
   },
   { icon: "/icons/Vector.svg", number: "3", text: "Market Linkages & Economic Growth" },
   {
     icon: "/icons/streamline-plump_deepfake-technology-1.svg",
     number: "4",
+    text: "Technological & Advisory Services",
+  },
+  {
+    icon: "/icons/streamline-plump_deepfake-technology-1.svg",
+    number: "5",
+    text: "Technological & Advisory Services",
+  },
+  {
+    icon: "/icons/streamline-plump_deepfake-technology-1.svg",
+    number: "6",
     text: "Technological & Advisory Services",
   },
 ];
@@ -25,10 +34,9 @@ const KeyImpacts: React.FC = () => {
           🌱 Key Impacts
         </h2>
 
-        {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+        <div className="flex justify-between gap-2 flex-wrap">
           {impacts.map((impact, idx) => (
-            <ImpactCard key={idx} {...impact} />
+            <ImpactCard key={idx} {...impact} index={idx} />
           ))}
         </div>
       </div>

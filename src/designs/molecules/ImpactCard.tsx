@@ -1,33 +1,32 @@
 import React from "react";
-import { Card, CardContent } from "../atoms/card";
-import Icon from "../atoms/ImpactCard/Icon";
+import { Card } from "../atoms/card";
 
 interface ImpactCardProps {
   icon: string;
   number: string;
   text: string;
   highlight?: boolean;
+  index?: number; // add index prop
 }
 
-const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight }) => {
+const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, index }) => {
+  const hoverColors = [
+    "hover:bg-[#DDA73A]",
+    "hover:bg-[#407F46] hover:text-white",
+    "hover:bg-[#F26A2D]",
+    "hover:bg-[#59BA48]",
+    "hover:bg-[#BF8D2C]",
+    "hover:bg-[#4CA146]",
+  ];
+
   return (
     <Card
-      className={`w-[288px] h-[164px] flex flex-col justify-center items-center text-center  border shadow-sm ${
+      className={`w-[163px] h-[140px] flex flex-col justify-center items-center text-center border shadow-sm transition-colors duration-300 ${
         highlight ? "bg-green-50 shadow-md" : "bg-white"
-      }`}
+      } ${hoverColors[index ?? 0]}`}
     >
-      <div className="w-full ml-[14px] mt-[14px]">
-        <Icon src={icon} alt={text} className="w-10 h-10" />
-      </div>
-
-      <CardContent className="flex flex-row items-start justify-start space-x-4">
-        {/* Icon */}
-        {/* Number + Title */}
-        <div className="flex flex-col items-center">
-          <span className="text-3xl font-bold text-green-800">{number}</span>
-          <p className="mt-1 text-green-900 text-2xl font-bold text-center leading-snug">{text}</p>
-        </div>
-      </CardContent>
+      <span className="text-3xl font-bold text-green-800">{number}</span>
+      <p className="mt-1 text-green-900 text-sm font-bold text-center leading-snug">{text}</p>
     </Card>
   );
 };
