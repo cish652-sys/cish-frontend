@@ -1,14 +1,12 @@
 "use client";
 
-import Typography from "../atoms/Typography";
-
 interface TechnologyItemProps {
   title: string;
   description: string;
   date: string;
 }
 
-export const TechnologyItem = ({ title, description, date }: TechnologyItemProps) => {
+export const TechnologyItem = ({ title, date }: TechnologyItemProps) => {
   return (
     <div className="border-b px-4 py-3 hover:bg-gray-50 transition">
       {/* Title + Date */}

@@ -1,12 +1,13 @@
-// src/components/sections/OtherTechnologies.tsx
 "use client";
 import Icon from "../atoms/ImpactCard/Icon";
 import Typography from "../atoms/Typography";
-import { TechnologyGrid } from "../organisms/TechnologyGrid";
+import { TechnologyGrid, type TechnologyItem } from "../organisms/TechnologyGrid"; // import type
+
 type OtherTechnologiesProps = {
-  technologiesItems: any[];
+  technologiesItems: TechnologyItem[]; // <-- no more any[]
   showHeading?: boolean;
 };
+
 export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
   technologiesItems,
   showHeading = true,

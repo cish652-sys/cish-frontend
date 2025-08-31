@@ -43,8 +43,12 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 @keyframes marquee {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .animate-marquee {
@@ -52,7 +56,6 @@
   min-width: 100%;
   animation: marquee 15s linear infinite;
 }
-
 
 :root {
   --radius: 0.625rem;
@@ -132,9 +135,7 @@
   }
 }
 
-
- /* Global container */
-  .container {
-    @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
-  }
-  
+/* Global container */
+.container {
+  @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
+}

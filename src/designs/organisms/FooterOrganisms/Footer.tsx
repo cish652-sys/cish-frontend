@@ -3,6 +3,7 @@
 import { FooterIcon } from "@/designs/atoms/FooterAtoms/FooterIcon";
 import { ContactInfo } from "@/designs/molecules/FooterMolecules/ContactInfo";
 import { FooterLinksGroup } from "@/designs/molecules/FooterMolecules/FooterLinksGroup";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -13,7 +14,13 @@ export function Footer() {
           {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <img src="/icons/cish.svg" alt="ICAR-CISH Logo" className="w-20 h-20" />
+              <Image
+                src="/icons/cish.svg"
+                alt="ICAR-CISH Logo"
+                className="w-20 h-20"
+                height={80}
+                width={80}
+              />
               <h3 className="font-bold text-xl md:text-2xl leading-tight font-['Noto_Sans',sans-serif]">
                 ICAR-CISH
               </h3>

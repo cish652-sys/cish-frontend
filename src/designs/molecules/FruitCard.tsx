@@ -7,7 +7,7 @@ interface FruitCardProps {
   title: string;
 }
 
-const FruitCard: FC<FruitCardProps> = ({ icon, title }) => {
+const FruitCard: FC<FruitCardProps> = ({ title }) => {
   return (
     <Card className="p-4">
       <CardHeader className="flex justify-center"></CardHeader>

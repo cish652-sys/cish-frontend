@@ -1,11 +1,13 @@
 import React from "react";
 import Typography from "../atoms/Typography";
-import TechCard from "../molecules/TechCard";
+import TechCard, { TechCardProps } from "../molecules/TechCard"; // import the props type
 import Icon from "../atoms/ImpactCard/Icon";
+
 type TrendingTechnologiesProps = {
-  technologies: any[];
-  showVerieties?: boolean
+  technologies: TechCardProps[];
+  showVerieties?: boolean;
 };
+
 const TrendingTechnologies: React.FC<TrendingTechnologiesProps> = ({
   technologies,
   showVerieties = true,

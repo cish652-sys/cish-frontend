@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "../atoms/card";
 import Icon from "../atoms/ImpactCard/Icon";
-import Title from "../atoms/ImpactCard/Title";
 
 interface ImpactCardProps {
   icon: string;

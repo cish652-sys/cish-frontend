@@ -1,6 +1,5 @@
 "use client";
 
-import { Images } from "lucide-react";
 import { Header } from "../organisms/Header";
 import banner from "../public/images/banner.svg";
 import { Logo } from "../atoms/Logo";

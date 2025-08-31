@@ -166,28 +166,28 @@ export const technologiesVarietiesItems = [
     title: "CISH Lalit",
     image: "/icons/Lalit.svg",
     description:
-    "In-vitro bio-induction of host plant tolerance is a first kind of its approach in tissue culture towards production of wilt tolerant disease free planting material."
+      "In-vitro bio-induction of host plant tolerance is a first kind of its approach in tissue culture towards production of wilt tolerant disease free planting material.",
   },
   {
     id: "2",
     title: "CISH Shweta",
     image: "/icons/Lalima.svg",
     description:
-    "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc."
+      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc.",
   },
   {
     id: "3",
     title: "CISH Dhawal",
     image: "/icons/Dhawal.svg",
     description:
-    "ICAR- FUSICONT is a bio-pesticide for effective management of Panama Wilt (TR4) disease affecting Cavendish bananas causing production losses of more than 60 percent."
+      "ICAR- FUSICONT is a bio-pesticide for effective management of Panama Wilt (TR4) disease affecting Cavendish bananas causing production losses of more than 60 percent.",
   },
   {
     id: "4",
     title: "CISH Lalima",
     image: "/icons/Lalima.svg",
     description:
-    "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.Dwarf, regular bearer, late in maturity, attractive fruit colour with excellent shelf-life."
+      "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.Dwarf, regular bearer, late in maturity, attractive fruit colour with excellent shelf-life.",
   },
 ];
 export const varieties = [

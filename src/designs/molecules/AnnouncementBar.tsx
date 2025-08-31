@@ -1,5 +1,4 @@
 "use client";
-import { Volume2 } from "lucide-react";
 import plump from "../public/images/streamline-plump_announcement-megaphone.svg";
 import { Logo } from "../atoms/Logo";
 

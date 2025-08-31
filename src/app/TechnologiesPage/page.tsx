@@ -1,5 +1,4 @@
 import { Header } from "@/designs/organisms/Header";
-import TechnologiesSection from "@/designs/organisms/TechnologiesSection";
 import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 import React from "react";
 import banner from "../../designs/public/images/banner.svg";
@@ -9,7 +8,7 @@ import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { technoItems, technologiesItems } from "@/lib/utils";
-import src from "@/designs/public/images/microscope.svg"
+import src from "@/designs/public/images/microscope.svg";
 function TechnologiesPage() {
   return (
     <div>

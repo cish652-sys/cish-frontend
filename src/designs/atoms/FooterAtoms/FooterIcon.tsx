@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 
 interface FooterIconProps {
@@ -13,7 +14,13 @@ interface FooterIconProps {
 export function FooterIcon({ href, imgSrc, alt = "icon", className }: FooterIconProps) {
   return (
     <Link href={href} target="_blank">
-      <img src={imgSrc} alt={alt} className={cn("w-5 h-5 hover:brightness-125", className)} />
+      <Image
+        src={imgSrc}
+        alt={alt}
+        className={cn("w-5 h-5 hover:brightness-125", className)}
+        height={20}
+        width={20}
+      />
     </Link>
   );
 }

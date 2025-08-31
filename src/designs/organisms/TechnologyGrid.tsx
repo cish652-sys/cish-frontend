@@ -1,9 +1,9 @@
-// src/components/organisms/TechnologyGrid.tsx
 "use client";
 
 import { TechInfoCard } from "../molecules/TechInfoCard";
 
-interface TechnologyItem {
+export interface TechnologyItem {
+  // <-- add export
   id: string;
   title: string;
   description: string;

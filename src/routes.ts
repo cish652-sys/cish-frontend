@@ -3,14 +3,14 @@ const routes: Record<string, string> = {
   // routes.ts
   HOME: "/",
   "ABOUT US": "/", // fallback to home
-  RESEARCH: "/",   // fallback to home
+  RESEARCH: "/", // fallback to home
   PUBLICATIONS: "/", // fallback to home
-  TECHNOLOGIES: "/technologies", 
+  TECHNOLOGIES: "/technologies",
   VARIETIES: "/varieties",
-  "FOR FARMERS": "/", 
-  NURSERY: "/", 
-  MEDIA: "/", 
-  "CONTACT US": "/", 
+  "FOR FARMERS": "/",
+  NURSERY: "/",
+  MEDIA: "/",
+  "CONTACT US": "/",
   // ABOUT US dropdown
   "About Institute": "/about/institute",
   "Field Gene Bank": "/about/field-gene-bank",

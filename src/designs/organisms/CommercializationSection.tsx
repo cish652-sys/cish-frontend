@@ -52,14 +52,15 @@ export const CommercializationSection = ({
         </div>
 
         {/* Right Column - Technologies */}
-        <div className="flex-1 flex flex-col h-83"> {/* fixed height container */}
+        <div className="flex-1 flex flex-col h-83">
+          {" "}
+          {/* fixed height container */}
           <div className="flex items-center gap-2 mb-6">
             <Icon src="/icons/mynaui_sparkles.svg" alt="Technologies" className="w-6 h-6" />
             <Typography variant="bodyLarge" weight="bold" className="text-green-900 uppercase">
               Technologies for Commercialization
             </Typography>
           </div>
-
           {/* Scrollable area */}
           <div className="flex-1 overflow-y-auto bg-white shadow-md">
             {technologies.map((tech, idx) => (
@@ -71,7 +72,6 @@ export const CommercializationSection = ({
               />
             ))}
           </div>
-
           <div className="mt-6">
             <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-2 font-semibold">
               VIEW MORE →
@@ -82,4 +82,3 @@ export const CommercializationSection = ({
     </section>
   );
 };
-

@@ -14,7 +14,6 @@ interface SectionHeaderProps {
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   breadcrumbItems,
-  iconName,
   title,
   description,
 }) => {
@@ -36,10 +35,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       {/* Description */}
       <div className="mt-4 max-w-2xl space-y-2">
         {description.map((line, i) => (
-          <Typography
-            key={i}
-            variant="bodyInterItalic"
-          >
+          <Typography key={i} variant="bodyInterItalic">
             {line}
           </Typography>
         ))}
