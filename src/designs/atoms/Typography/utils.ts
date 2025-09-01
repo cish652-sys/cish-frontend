@@ -81,7 +81,20 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
           color: "#1B5E20",
         },
       };
-
+    case "cardHeading":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Noto Sans",
+          fontWeight: 700,
+          fontStyle: "normal",
+          fontSize: "13px",
+          lineHeight: "100%",
+          letterSpacing: "0%",
+          textTransform: "uppercase" as const,
+          color: "#1B5E20",
+        },
+      };
     // ✅ 2. Heading Large (25px, 157% line-height)
     case "headingLarge":
       return {

@@ -1,28 +1,34 @@
 import React from "react";
 import ImpactCard from "../molecules/ImpactCard";
+import Typography from "../atoms/Typography";
+import Icon from "../atoms/ImpactCard/Icon";
 
 const impacts = [
-  { icon: "/icons/keyIcon1.svg", number: "1", text: "Farmer Empowerment" },
+  { icon: "icons/E_SDG_Icons-02-removebg-preview.svg", number: "2", text: "ZERO HUNGER" },
   {
-    icon: "/icons/si_library-books-line.svg",
-    number: "2",
-    text: "Transparency & Accountability",
-  },
-  { icon: "/icons/Vector.svg", number: "3", text: "Market Linkages & Economic Growth" },
-  {
-    icon: "/icons/streamline-plump_deepfake-technology-1.svg",
-    number: "4",
-    text: "Technological & Advisory Services",
+    icon: "icons/E_SDG_Icons-13-removebg-preview.svg",
+    number: "13",
+    text: "climate action",
   },
   {
-    icon: "/icons/streamline-plump_deepfake-technology-1.svg",
-    number: "5",
-    text: "Technological & Advisory Services",
+    icon: "/icons/E_SDG_Icons-09-removebg-preview.svg",
+    number: "9",
+    text: "Industry, Innovation and Infrastructure",
   },
   {
-    icon: "/icons/streamline-plump_deepfake-technology-1.svg",
-    number: "6",
-    text: "Technological & Advisory Services",
+    icon: "/icons/E_SDG_Icons-15-removebg-preview.svg",
+    number: "15",
+    text: "Life on land",
+  },
+  {
+    icon: "/icons/E_SDG_Icons-12-removebg-preview 1.svg",
+    number: "12",
+    text: " Sustainable production and consumption.",
+  },
+  {
+    icon: "/icons/E_SDG_Icons-03-removebg-preview.svg",
+    number: "3",
+    text: "Good Health & well being",
   },
 ];
 
@@ -30,11 +36,11 @@ const KeyImpacts: React.FC = () => {
   return (
     <section className="py-10">
       <div className="container">
-        <h2 className="text-green-800 font-bold text-lg flex items-center gap-2 mb-8">
-          🌱 Key Impacts
-        </h2>
-
-        <div className="flex justify-between gap-2 flex-wrap">
+        <div className="flex items-center gap-2">
+          <Icon src="/icons/registration-paper 1.svg" alt="Trending" className="w-0 h-0" />
+          <Typography variant="sectionHeading"> Key Impacts</Typography>
+        </div>
+        <div className="flex justify-between gap-2 flex-wrap mt-6 pb-12">
           {impacts.map((impact, idx) => (
             <ImpactCard key={idx} {...impact} index={idx} />
           ))}

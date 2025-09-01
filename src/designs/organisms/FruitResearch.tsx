@@ -16,12 +16,11 @@ const fruitItems = [
 export const FruitResearch: React.FC = () => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-12 text-center container">
-      <Typography variant="headingType" className="text-green-800 uppercase mb-10 leading-snug">
-        We are pioneers in subtropical fruit research spanning from climate resilient varieties to
+      <Typography variant="headingLarge">
+        We are pioneers in subtropical fruit research spanning from climate <br /> resilient varieties to
         value chain research.
       </Typography>
-
-      <div className="flex flex-wrap justify-center gap-15">
+      <div className="flex flex-wrap justify-center gap-15 mt-6">
         {fruitItems.map((fruit) => (
           <div key={fruit.id} className="flex flex-col items-center p-2 group ">
             <div className="border hover:shadow-md p-2 flex items-center justify-center w-24 h-24 group-hover:bg-green-50 group-hover:border-green-600">

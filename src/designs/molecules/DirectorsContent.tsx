@@ -16,7 +16,7 @@ const DirectorContent: React.FC = () => {
         for conserving the unique heirloom mango varieties by empowering the farmer through society
         for conservation of biodiversity. consequently we were able to submit 34 farmers and
         community varieties to ppv&fra for registration, established community nurseries and outside
-        community nursery produced more than 10000 grafts of non-commercial varieties.{" "}
+        community nursery produced more than 10000 grafts of non-commercial varieties.
         <LinkAtom href="#">SEE MORE</LinkAtom>
       </TextAtom>
     </div>

@@ -13,7 +13,7 @@ const HeadingAtom: React.FC<HeadingAtomProps> = ({ children, className = "" }) =
     <h2
       className={`flex items-center gap-2 text-green-700 font-semibold text-lg md:text-xl ${className}`}
     >
-      <Icon src={director} alt="block" className="w-6 h-6" />
+      <Icon src="/icons/torch-inspiration-leader 1.svg" alt="block" className="w-6 h-6" />
       {children}
     </h2>
   );

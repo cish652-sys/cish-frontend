@@ -1,7 +1,7 @@
 import { Header } from "@/designs/organisms/Header";
 import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 import React from "react";
-import banner from "../../designs/public/images/banner.svg";
+import banner from "../../designs/public/images/Mask group.jpg";
 import { Logo } from "@/designs/atoms/Logo";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";

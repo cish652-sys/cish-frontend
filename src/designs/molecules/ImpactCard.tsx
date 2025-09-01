@@ -1,14 +1,17 @@
 import React from "react";
 import { Card } from "../atoms/card";
+import Typography from "../atoms/Typography";
+import Image from "next/image";
 
 interface ImpactCardProps {
+  icon: string;
   number: string;
   text: string;
   highlight?: boolean;
   index?: number; // add index prop
 }
 
-const ImpactCard: React.FC<ImpactCardProps> = ({ number, text, highlight, index }) => {
+const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, index }) => {
   const hoverColors = [
     "hover:bg-[#DDA73A]",
     "hover:bg-[#407F46] hover:text-white",
@@ -20,12 +23,29 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ number, text, highlight, index 
 
   return (
     <Card
-      className={`w-[163px] h-[140px] flex flex-col justify-center items-center text-center border shadow-sm transition-colors duration-300 ${
-        highlight ? "bg-green-50 shadow-md" : "bg-white"
-      } ${hoverColors[index ?? 0]}`}
+      className={`w-[163px] h-[140px] border shadow-sm transition-colors duration-300 flex flex-col items-center justify-between py-3
+    ${highlight ? "bg-green-50 shadow-md" : "bg-white"} ${hoverColors[index ?? 0]}`}
     >
-      <span className="text-3xl font-bold text-green-800">{number}</span>
-      <p className="mt-1 text-green-900 text-sm font-bold text-center leading-snug">{text}</p>
+      {/* Number + Text (Top aligned on same vertical line) */}
+      <div className="flex  items-baseline gap-1 text-left w-full ml-4">
+        <Typography
+          variant="contentTitle"
+          className="leading-tight"
+        >
+          {number}
+        </Typography>
+        <Typography
+          variant="cardHeading"
+          className="leading-tight uppercase"
+        >
+          {text}
+        </Typography>
+      </div>
+
+      {/* Icon (Bottom Part) */}
+      <div className="flex items-center justify-center mt-2">
+        <Image src={icon} alt="image" width={40} height={40} />
+      </div>
     </Card>
   );
 };

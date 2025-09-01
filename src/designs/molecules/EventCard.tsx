@@ -3,6 +3,7 @@ import Image from "next/image";
 import DateLabel from "../atoms/DateLabel";
 import ButtonLink from "../atoms/ButtonLink";
 import { Card, CardContent, CardFooter } from "../atoms/card";
+import Typography from "../atoms/Typography";
 
 type NewsCardProps = {
   image: string;
@@ -28,16 +29,12 @@ export default function EventCard({
       <Image src={image} alt={title} width={349.07} height={253.79} className="object-cover" />
       <CardContent className="p-2 flex flex-col">
         {showDate && <DateLabel date={date} />}
-        {showTitle && <h3 className="text-md font-semibold text-green-800 mb-2">{title}</h3>}
-        <p
-          style={{
-            fontWeight: 400,
-            fontSize: "12px",
-          }}
-          className="text-muted-foreground"
-        >
-          {description}
-        </p>
+        {showTitle && (
+          <Typography variant="cardHeading" className="mb-2">
+            {title}
+          </Typography>
+        )}
+        <Typography variant="paragraphSmall">{description}</Typography>
       </CardContent>
       {showFooter && (
         <CardFooter className="flex justify-end">

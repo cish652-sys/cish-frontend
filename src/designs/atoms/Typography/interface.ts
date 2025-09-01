@@ -20,6 +20,7 @@ export type TypographyVariant =
   | "contentTitle"
   | "badgeStyle"
   | "labelSmall"
+  | "cardHeading"
   | "labelTiny";
 
 export type FontWeight = "normal" | "medium" | "semibold" | "bold" | "700" | "600" | "500" | "400";

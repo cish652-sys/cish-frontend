@@ -6,7 +6,7 @@ import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 import React from "react";
-import banner from "../../designs/public/images/banner.svg";
+import banner from "../../designs/public/images/Varieties Banner.jpg";
 import { technologiesVarietiesItems, varietiesItem } from "@/lib/utils";
 
 function Varietiespage() {

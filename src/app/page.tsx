@@ -15,16 +15,13 @@ export default function Home() {
     <div>
       <MainHeader />
       <FruitResearch />
-
       <HomeWithDirector />
       <CommercializationSection varieties={varieties} technologies={varitiesTechnologies} />
       <KeyImpacts />
       <Rearch />
-
       <Dashboard />
       <EventsSection />
       <SocialMediaSection />
-
       <Footer />
     </div>
   );
