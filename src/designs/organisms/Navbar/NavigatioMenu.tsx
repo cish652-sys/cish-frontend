@@ -88,6 +88,8 @@ const ResponsiveNavbar: React.FC = () => {
     const item = navigationItems.find((nav) => nav.label === label);
     if (item?.dropdownItems && item.dropdownItems.length > 0) {
       setHoveredItem(label);
+    } else {
+      setHoveredItem("");
     }
   };
 
@@ -131,14 +133,12 @@ const ResponsiveNavbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-full mx-auto px-4">
-        {/* ✅ Desktop nav */}
         <div className="container hidden lg:flex items-center justify-center justify-evenly h-16">
           {navigationItems.map((item) => {
             const hasDropdown = item.dropdownItems && item.dropdownItems.length > 0;
             const isHovered = hoveredItem === item.label;
             const isActive = activeItem === item.label;
 
-            // ✅ Handle TECHNOLOGIES + VARIETIES as links
             if (item.label === "TECHNOLOGIES" || item.label === "VARIETIES") {
               return (
                 <Link

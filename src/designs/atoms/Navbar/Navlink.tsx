@@ -8,7 +8,7 @@ interface NavLinkProps {
   hasDropdown?: boolean;
   isActive?: boolean;
   isHovered?: boolean;
-  onClick?: () => void; // 👈 add this back
+  onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
 }
@@ -18,16 +18,24 @@ export const NavLink: React.FC<NavLinkProps> = ({
   hasDropdown = false,
   isActive = false,
   isHovered = false,
-  onClick, // 👈 accept it
+  onClick,
   onMouseEnter,
   onMouseLeave,
 }) => (
   <Link
     href={routes[children] || "/"}
-    onClick={onClick} // 👈 forward it
+    onClick={onClick}
     className={`
       relative px-2 2xl:px-3 py-6 text-xs font-medium cursor-pointer transition-all duration-200
-      ${isHovered || isActive ? "bg-[#67B96D] text-white" : "text-gray-800 hover:bg-[#67B96D] hover:text-black"}
+      ${
+        children === "HOME" && isActive
+          ? "text-[#1B5E20]"
+          : isHovered || isActive
+            ? "bg-[#67B96D] text-white"
+            : children === "HOME"
+              ? "text-[#1B5E20] hover:text-[#1B5E20]"
+              : "text-gray-800 hover:bg-[#67B96D] hover:text-white"
+      }
       ${hasDropdown ? "flex items-center gap-1" : ""}
       whitespace-nowrap select-none
     `}
@@ -44,6 +52,10 @@ export const NavLink: React.FC<NavLinkProps> = ({
       >
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
+    )}
+
+    {children === "HOME" && isActive && (
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#1B5E20]"></div>
     )}
   </Link>
 );

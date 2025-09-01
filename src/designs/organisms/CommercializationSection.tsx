@@ -36,8 +36,7 @@ export const CommercializationSection = ({
 
     const updateDots = () => {
       const containerWidth = scrollContainer.clientWidth;
-      const scrollWidth = scrollContainer.scrollWidth;
-      const itemWidth = 200; // Approximate width of each variety card including gap
+      const itemWidth = 200; 
 
       const visibleItems = Math.floor(containerWidth / itemWidth);
       const totalItems = varieties.length;

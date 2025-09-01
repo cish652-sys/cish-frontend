@@ -2,14 +2,13 @@ import React from "react";
 import { Card } from "../atoms/card";
 
 interface ImpactCardProps {
-  icon: string;
   number: string;
   text: string;
   highlight?: boolean;
   index?: number; // add index prop
 }
 
-const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, index }) => {
+const ImpactCard: React.FC<ImpactCardProps> = ({ number, text, highlight, index }) => {
   const hoverColors = [
     "hover:bg-[#DDA73A]",
     "hover:bg-[#407F46] hover:text-white",
