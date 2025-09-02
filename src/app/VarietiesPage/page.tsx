@@ -19,7 +19,7 @@ function Varietiespage() {
       </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
-        iconName="microscope"
+        iconProps={false}
         title="Varieties For COMMERCIALIZATION"
         description={[
           "Bring farmers high-yield, resilient, and quality crop options.",

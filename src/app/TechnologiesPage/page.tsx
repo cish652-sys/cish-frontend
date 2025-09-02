@@ -8,7 +8,6 @@ import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { technoItems, technologiesItems } from "@/lib/utils";
-import src from "@/designs/public/images/microscope.svg";
 function TechnologiesPage() {
   return (
     <div>
@@ -23,7 +22,7 @@ function TechnologiesPage() {
           { label: "Home", href: "/" },
           { label: "TECHNOLOGIES FOR COMMERCIALIZATION" },
         ]}
-        iconName={src}
+        iconProps = {true}
         title="TECHNOLOGIES FOR COMMERCIALIZATION"
         description={[
           "Bring advanced tools and practices from research to the fields.",

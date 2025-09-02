@@ -7,13 +7,14 @@ import { Breadcrumb, BreadcrumbItem } from "../molecules/Breadcrumb";
 
 interface SectionHeaderProps {
   breadcrumbItems: BreadcrumbItem[];
-  iconName: string;
+  iconProps: boolean;
   title: string;
   description: string[];
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   breadcrumbItems,
+  iconProps,
   title,
   description,
 }) => {
@@ -26,7 +27,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {/* Icon + Title */}
       <div className="flex items-center gap-2">
-        <Icon src="/icons/microscope.svg" alt="1568685-200 1.svg" />
+        <Icon src={iconProps ? "/icons/microscope.svg" : "/icons/varieties.svg"} alt="icon" />
         <Typography variant="headingLarge">{title}</Typography>
       </div>
 

@@ -4,9 +4,8 @@ import ButtonLink from "../atoms/ButtonLink";
 import Image from "next/image";
 
 export interface TechCardProps {
-  // <-- export added
   title: string;
-  description: string;
+  description: string[];
   href: string;
   image?: string;
 }
@@ -25,10 +24,25 @@ const TechCard: React.FC<TechCardProps> = ({ title, description, image }) => {
           />
         </div>
       )}
-      <div className="flex flex-col justify-between flex-1">
+
+      {/* Right side content */}
+      <div className="flex flex-col flex-1">
         <Typography variant="cardTitle">{title}</Typography>
-        <Typography variant="paragraphSmall">{description}</Typography>
-        <ButtonLink label="SEE MORE" />{" "}
+
+        <ul className="list-disc list-outside pl-5 mt-2">
+          {description.map((line, idx) => (
+            <li key={idx} className="leading-snug">
+              <Typography variant="paragraphSmall" className="inline">
+                {line}
+              </Typography>
+            </li>
+          ))}
+        </ul>
+
+        {/* Button hamesha bottom me chipka rahega */}
+        <div className="mt-auto pt-4">
+          <ButtonLink label="SEE MORE" />
+        </div>
       </div>
     </div>
   );

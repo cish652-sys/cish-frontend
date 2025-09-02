@@ -4,7 +4,7 @@ import Typography from "../atoms/Typography";
 import { TechnologyGrid, type TechnologyItem } from "../organisms/TechnologyGrid"; // import type
 
 type OtherTechnologiesProps = {
-  technologiesItems: TechnologyItem[]; // <-- no more any[]
+  technologiesItems: TechnologyItem[];
   showHeading?: boolean;
 };
 
@@ -14,16 +14,13 @@ export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
 }) => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-10">
-      {/* Heading */}
       {showHeading && (
         <div className="flex items-center gap-2 mb-8 container">
-          <Icon src="/icons/OtherTechnologyIcon.svg" alt="Trending" />
+          <Icon src="/icons/tractor.svg" alt="Trending" />
           <Typography variant="sectionHeading">Other Technologies</Typography>
         </div>
       )}
-
-      {/* Grid */}
-      <TechnologyGrid items={technologiesItems} />
+      <TechnologyGrid items={technologiesItems} showHeading = {showHeading}/>
     </section>
   );
 };

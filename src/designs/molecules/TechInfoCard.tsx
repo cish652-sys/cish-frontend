@@ -8,15 +8,16 @@ import ButtonLink from "../atoms/ButtonLink";
 
 interface TechInfoCardProps {
   title: string;
-  description: string;
+  description: string[];
   image?: string;
   onViewMore?: () => void;
+  showHeading: boolean;
 }
 
-export const TechInfoCard: React.FC<TechInfoCardProps> = ({ title, description, image }) => {
+export const TechInfoCard: React.FC<TechInfoCardProps> = ({ title, description, image,showHeading }) => {
   return (
     <Card className="flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden">
-      {/* Image placeholder */}
+      {/* Image */}
       <CardHeader className="p-2 bg-gray-100 flex items-center justify-center">
         {image ? (
           <Image
@@ -34,16 +35,28 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({ title, description, 
       </CardHeader>
 
       {/* Content */}
-      <CardContent className="p-2">
+      <CardContent className="p-2 flex flex-col flex-1">
         <Typography variant="contentTitle">{title}</Typography>
-        <Typography variant="badgeStyle">Technology Details:</Typography>
+        {!showHeading && (
+          <Typography variant="badgeStyle" className="mt-2">
+            Technology Details:
+          </Typography>
+        )}
 
-        <Typography variant="labelSmall">{description}</Typography>
+        <ul className="list-disc list-outside pl-5">
+          {description.map((line, idx) => (
+            <li key={idx} className="leading-snug">
+              <Typography variant="labelSmall" className="inline">
+                {line}
+              </Typography>
+            </li>
+          ))}
+        </ul>
       </CardContent>
 
       {/* Footer */}
-      <CardFooter className="p-4 flex justify-end">
-        <ButtonLink label="VIEW MORE" />{" "}
+      <CardFooter className="p-4 flex justify-end mt-auto">
+        <ButtonLink label="VIEW MORE" />
       </CardFooter>
     </Card>
   );

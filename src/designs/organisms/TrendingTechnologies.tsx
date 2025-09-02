@@ -13,8 +13,8 @@ const TrendingTechnologies: React.FC<TrendingTechnologiesProps> = ({
   showVerieties = true,
 }) => {
   return (
-    <section className="py-0 bg-[#FBFAF0]">
-      <div className="flex flex-col gap-6 px-[80px] pb-[80px] pt-[25px] container">
+    <section className="w-full px-4 md:px-8 lg:px-16 py-10 bg-[#FBFAF0] ">
+      <div className="flex flex-col gap-6 container">
         {showVerieties && (
           <div className="flex items-center gap-2">
             <Icon src="/icons/tractor.svg" alt="Trending" />
