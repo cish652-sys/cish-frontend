@@ -17,8 +17,8 @@ export const FruitResearch: React.FC = () => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-12 text-center container">
       <Typography variant="headingLarge">
-        We are pioneers in subtropical fruit research spanning from climate <br /> resilient varieties to
-        value chain research.
+        We are pioneers in subtropical fruit research spanning from climate <br /> resilient
+        varieties to value chain research.
       </Typography>
       <div className="flex flex-wrap justify-center gap-15 mt-6">
         {fruitItems.map((fruit) => (

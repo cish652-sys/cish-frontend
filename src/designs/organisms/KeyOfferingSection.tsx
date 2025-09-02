@@ -36,10 +36,12 @@ export const KeyOfferingsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Tenders");
 
   return (
-    <div className="flex flex-col w-full min-h-[300px] ">
+    <div className="flex flex-col w-full h-[300px]">
       <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
+
+      {/* Tabs */}
       <div className="flex overflow-hidden border">
-        {["Announcements.", "Jobs", "Tenders"].map((tab) => (
+        {["Announcements", "Jobs", "Tenders"].map((tab) => (
           <TabButton
             key={tab}
             label={tab}
@@ -48,7 +50,9 @@ export const KeyOfferingsSection: React.FC = () => {
           />
         ))}
       </div>
-      <div className="mt-2">
+
+      {/* Scrollable content */}
+      <div className="mt-2 flex-1 overflow-y-auto">
         {activeTab === "Tenders" && <TenderTable tenders={dummyTenders} />}
         {activeTab !== "Tenders" && (
           <div className="p-4 text-sm text-gray-500">No data available</div>

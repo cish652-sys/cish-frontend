@@ -7,7 +7,7 @@ interface LogoProps {
   alt: string;
   width?: number;
   height?: number;
-  responsive?: boolean; // new prop
+  responsive?: boolean;
 }
 
 export const Logo: React.FC<LogoProps> = ({ src, alt, width = 60, height = 60, responsive }) => {

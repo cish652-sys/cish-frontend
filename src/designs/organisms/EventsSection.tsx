@@ -1,6 +1,5 @@
 "use client";
 import { eventsData } from "@/lib/utils";
-import Heading from "../atoms/Heading";
 import EventCard from "../molecules/EventCard";
 import { Button } from "../atoms/button";
 import Image from "next/image";
@@ -10,8 +9,8 @@ export default function EventsSection() {
   return (
     <section className="py-12 px-6 md:px-16" style={{ backgroundColor: "#FBFAF0" }}>
       <div className="container max-w-7xl mx-auto">
-         <div className="flex items-center gap-2 mb-6">
-        <Image src="/icons/newspaper 1.svg" alt="image" width={24} height={24}/>
+        <div className="flex items-center gap-2 mb-6">
+          <Image src="/icons/newspaper 1.svg" alt="image" width={24} height={24} />
           <Typography variant="sectionHeading">NEWS & EVENTS</Typography>
         </div>
         <div className="grid gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">

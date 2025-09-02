@@ -20,7 +20,7 @@ export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
           <Typography variant="sectionHeading">Other Technologies</Typography>
         </div>
       )}
-      <TechnologyGrid items={technologiesItems} showHeading = {showHeading}/>
+      <TechnologyGrid items={technologiesItems} showHeading={showHeading} />
     </section>
   );
 };

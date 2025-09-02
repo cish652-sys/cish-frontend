@@ -12,7 +12,7 @@ export interface DirectorSectionProps {
 
 const DirectorSection: React.FC<DirectorSectionProps> = ({ imageSrc, className = "" }) => {
   return (
-    <section className={`my-14 py-6 ${className}`}>
+    <section id="directorsSection" className={`my-14 py-6 ${className}`}>
       <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
         <div className="flex-1">
           <DirectorHeader />

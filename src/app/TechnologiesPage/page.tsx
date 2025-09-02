@@ -1,7 +1,6 @@
 import { Header } from "@/designs/organisms/Header";
 import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 import React from "react";
-import banner from "../../designs/public/images/Mask group.jpg";
 import { Logo } from "@/designs/atoms/Logo";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
@@ -15,14 +14,14 @@ function TechnologiesPage() {
       <ResponsiveNavbar />
 
       <section className="relative w-full">
-        <Logo src={banner} alt="Website Banner" responsive />
+        <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
           { label: "TECHNOLOGIES FOR COMMERCIALIZATION" },
         ]}
-        iconProps = {true}
+        iconProps={true}
         title="TECHNOLOGIES FOR COMMERCIALIZATION"
         description={[
           "Bring advanced tools and practices from research to the fields.",

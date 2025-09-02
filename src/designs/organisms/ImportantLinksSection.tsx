@@ -26,7 +26,7 @@ const dummyLinks = [
 ];
 
 export const ImportantLinksSection: React.FC = () => (
-  <div className="flex flex-col w-full min-h-[300px] ">
+  <div className="flex flex-col w-full h-[299px] ">
     <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">IMPORTANT LINKS</h2>
     <LinksList links={dummyLinks} />
   </div>

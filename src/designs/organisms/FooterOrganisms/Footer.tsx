@@ -9,9 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-green-800 text-white py-10">
       <div className="container">
-        {/* Top Grid */}
         <div className="grid md:grid-cols-4 gap-10">
-          {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Image

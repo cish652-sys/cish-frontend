@@ -14,7 +14,6 @@ export interface ActionButtonAtomProps {
 const ActionButtonAtom: React.FC<ActionButtonAtomProps> = ({
   Icon,
   text,
-  active = false,
   onClick,
   className = "",
 }) => {
@@ -22,11 +21,7 @@ const ActionButtonAtom: React.FC<ActionButtonAtomProps> = ({
     <Card
       onClick={onClick}
       className={clsx(
-        "flex-1 cursor-pointer max-h-[86px] transition hover:shadow-md",
-        {
-          "bg-green-700 text-white": active,
-          "border border-gray-300 text-green-700 bg-white": !active,
-        },
+        "flex-1 cursor-pointer max-h-[86px] border border-gray-300 transition hover:shadow-md hover:bg-green-700 hover:text-white ",
         className
       )}
     >

@@ -26,7 +26,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
     href={routes[children] || "/"}
     onClick={onClick}
     className={`
-      relative px-2 2xl:px-3 py-6 text-xs font-medium cursor-pointer transition-all duration-200
+      relative px-2 2xl:px-3 py-4 text-xs font-semibold font-medium cursor-pointer transition-all duration-200
       ${
         children === "HOME" && isActive
           ? "text-[#1B5E20]"

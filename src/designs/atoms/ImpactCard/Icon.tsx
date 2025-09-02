@@ -1,4 +1,5 @@
 import React from "react";
+import { Logo } from "../Logo";
 
 interface IconProps {
   src: string;
@@ -6,8 +7,8 @@ interface IconProps {
   className?: string;
 }
 
-const Icon: React.FC<IconProps> = ({ src, alt, className }) => {
-  return <img src={src} alt={alt} className={`w-10 h-10 ${className}`} />;
+const Icon: React.FC<IconProps> = ({ src, alt }) => {
+  return <Logo src={src} alt={alt} width={10} height={10} />;
 };
 
 export default Icon;

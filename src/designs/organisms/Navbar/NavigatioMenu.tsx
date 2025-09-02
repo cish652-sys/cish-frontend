@@ -22,11 +22,11 @@ const ResponsiveNavbar: React.FC = () => {
     {
       label: "ABOUT US",
       dropdownItems: [
-        "About Institute",
+        "Institute",
         "Field Gene Bank",
-        "Divisions",
+        "Divisions (Full details, staff information, etc.)",
         "PME",
-        "ITMu/JPR Cells",
+        "ITMu/IPR Cells",
         "Agri Business Incubation Center (ABI)",
         "AKMU",
         "Regional Research Station",
@@ -38,43 +38,32 @@ const ResponsiveNavbar: React.FC = () => {
     },
     {
       label: "RESEARCH",
-      dropdownItems: [
-        "Mango Cultivation",
-        "Mango Nutrition",
-        "Mango Diseases",
-        "Mango Genomics",
-        "Mango Genetics",
-      ],
+      dropdownItems: ["Institute Funded Project", "Externally Funded Projects", "Collaborations"],
     },
     {
       label: "PUBLICATIONS",
       dropdownItems: [
-        "Mango Cultivation",
-        "Mango Nutrition",
-        "Mango Diseases",
-        "Mango Genomics",
-        "Mango Genetics",
+        "Annual Reports",
+        "Research Publications",
+        "Newsletter (Subscription)",
+        "Udyan Rashmi (Subscription)",
+        "CISH Publications (Paid & Free)",
+        "Vision 2050 ",
       ],
     },
     { label: "TECHNOLOGIES" },
     {
       label: "VARIETIES",
-      dropdownItems: [
-        "Mango Cultivation",
-        "Mango Nutrition",
-        "Mango Diseases",
-        "Mango Genomics",
-        "Mango Genetics",
-      ],
+      dropdownItems: ["Climate Resilient", "Nutraceutical Rich"],
     },
     {
       label: "FOR FARMERS",
       dropdownItems: [
-        "Mango Cultivation",
-        "Mango Nutrition",
-        "Mango Diseases",
-        "Mango Genomics",
-        "Mango Genetics",
+        "Agro Advisory",
+        "National Farmer Portal (NFP)",
+        "Plant Bookings",
+        "Success Stories (of Farmers)",
+        "Farmer Friendly Technologies",
       ],
     },
     { label: "NURSERY" },
@@ -133,7 +122,7 @@ const ResponsiveNavbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-full mx-auto px-4">
-        <div className="container hidden lg:flex items-center justify-center justify-evenly h-16">
+        <div className="container hidden lg:flex items-center justify-center justify-evenly">
           {navigationItems.map((item) => {
             const hasDropdown = item.dropdownItems && item.dropdownItems.length > 0;
             const isHovered = hoveredItem === item.label;
@@ -161,7 +150,7 @@ const ResponsiveNavbar: React.FC = () => {
 
             // Default items
             return (
-              <div key={item.label} className="relative py-3">
+              <div key={item.label} className="relative">
                 <NavLink
                   hasDropdown={hasDropdown}
                   isActive={isActive}
@@ -241,7 +230,7 @@ const ResponsiveNavbar: React.FC = () => {
                   >
                     <div
                       className={`
-                        flex items-center justify-between px-4 py-4 cursor-pointer transition-colors duration-200
+                        flex items-center justify-between px-6 cursor-pointer transition-colors duration-200
                         ${isActive ? "bg-[#67B96D] text-white" : "text-gray-700 hover:bg-[#67B96D] hover:text-white"}
                       `}
                     >

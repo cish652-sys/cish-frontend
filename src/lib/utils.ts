@@ -31,32 +31,28 @@ export const eventsData = [
 
 export const rearchData = [
   {
-    image: "/icons/Event 1.svg",
+    image: "/icons/Rectangle 707.svg",
     date: "May 15, 2025",
-    title: "ICAR DEVELOPS NEW CROP VARIETY",
-    description:
-      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    titleResearch: "SMART BREEDING FOR CLIMATE RESILIENCE",
+    description: "",
   },
   {
-    image: "/icons/Event 2.svg",
+    image: "/icons/Rectangle 709.svg",
     date: "June 10, 2025",
-    title: "NATIONAL CONFERENCE ON CLIMATE-SMART AGRICULTURE ANNOUNCED",
-    description:
-      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    titleResearch: "DIGITL ORCHARDS, SUSTAINABLE HARVEST AND RESOURCE CONSERVATION",
+    description: "",
   },
   {
-    image: "/icons/Event 3.svg",
+    image: "/icons/Rectangle 712.svg",
     date: "April 28, 2025",
-    title: "ICAR SIGNS MOU WITH INTERNATIONAL RESEARCH ORGANIZATIONS",
-    description:
-      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    titleResearch: "PROTECTION TO PREVENTION ECO FRIENDLY PEST MANAGEMENT",
+    description: "",
   },
   {
-    image: "/icons/Event 3.svg",
+    image: "/icons/Rectangle 713.svg",
     date: "April 28, 2025",
-    title: "ICAR SIGNS MOU WITH INTERNATIONAL RESEARCH ORGANIZATIONS",
-    description:
-      "The Accelerated Crop Improvement Program leads the development of ICRISAT’s efforts to improve dryland crop varieties for Africa, Asia, and beyond. dryland crop varieties for Africa, Asia, and beyond.",
+    titleResearch: "INNOVATION IN VALUE CHAIN RESEARCH",
+    description: "",
   },
 ];
 export const technoItems = [
@@ -93,23 +89,26 @@ export const technoItems = [
 export const varietiesItem = [
   {
     title: "awadh abhaya",
-    description:[
+    description: [
       "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
-    ],href: "/tech/solanaceous",
+    ],
+    href: "/tech/solanaceous",
     image: "/icons/Awadh Mango.svg",
   },
   {
     title: "CISH ambika",
-    description:[
+    description: [
       "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
-    ],href: "/tech/leafy",
+    ],
+    href: "/tech/leafy",
     image: "/icons/Ambika Mango.svg",
   },
   {
     title: "CISH arunika",
-    description:[
+    description: [
       "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
-    ],href: "/tech/aonla",
+    ],
+    href: "/tech/aonla",
     image: "/icons/Arunika Mango.svg",
   },
 ];
@@ -119,7 +118,7 @@ export const technologiesItems = [
     title: "CISH-BIOENHANCER",
     image: "/icons/Rectangle 735.svg",
     description: [
-      "CISH-Bioenhancer” is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, which having the attributes of high solubilization of nutrients like P, K, Zn, IAA production, siderophore etc. "
+      "CISH-Bioenhancer” is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, which having the attributes of high solubilization of nutrients like P, K, Zn, IAA production, siderophore etc. ",
     ],
   },
   {
@@ -127,7 +126,7 @@ export const technologiesItems = [
     title: "CISH-BIOZAPPER",
     image: "/icons/Mask group.svg",
     description: [
-     "CISH-Biozapper showed best plant growth promotory properties like IAA, ammonia, HCN production, P, K, and Zn solubilization and soil health in terms of soil enzymes (Dehydrogenase, FDA etc.) and production."
+      "CISH-Biozapper showed best plant growth promotory properties like IAA, ammonia, HCN production, P, K, and Zn solubilization and soil health in terms of soil enzymes (Dehydrogenase, FDA etc.) and production.",
     ],
   },
   {
@@ -135,7 +134,7 @@ export const technologiesItems = [
     title: "CISH-FASAL PRABHAT",
     image: "/icons/Mask group (1).svg",
     description: [
-      "CISH-Fasal Prabhat is a water-soluble mixture of micronutrients (zinc, boron, magnesium, iron, and copper) and humic acid. "
+      "CISH-Fasal Prabhat is a water-soluble mixture of micronutrients (zinc, boron, magnesium, iron, and copper) and humic acid. ",
     ],
   },
   {
@@ -143,7 +142,7 @@ export const technologiesItems = [
     title: "CISH-GLUE TRAP",
     image: "/icons/Mask group (2).svg",
     description: [
-     "Four sheets (Blue/Yellow) applied with white oil based glue; sheets are foldable, seperated by butter paper. Can be used one by one by folding and removing the butter paper without replacement of sheet."
+      "Four sheets (Blue/Yellow) applied with white oil based glue; sheets are foldable, seperated by butter paper. Can be used one by one by folding and removing the butter paper without replacement of sheet.",
     ],
   },
   {
@@ -151,7 +150,7 @@ export const technologiesItems = [
     title: "CISH-MANGO WINE SPECIAL",
     image: "/icons/Mask group (3).svg",
     description: [
-      "CISH-Mango wine special offers a scope for production of mango wine round the year using preserved mango pulp"
+      "CISH-Mango wine special offers a scope for production of mango wine round the year using preserved mango pulp",
     ],
   },
   {
@@ -159,7 +158,7 @@ export const technologiesItems = [
     title: "PRE-HARVEST BAGGING TECHNOLOGY",
     image: "/icons/Rectangle 749 (1).svg",
     description: [
-      "Maximum fruit firmness of mature and ripe fruit (54.52 and 21.93N) was recorded in Double layer Brown/black"
+      "Maximum fruit firmness of mature and ripe fruit (54.52 and 21.93N) was recorded in Double layer Brown/black",
     ],
   },
   {
@@ -167,7 +166,7 @@ export const technologiesItems = [
     title: "SMART FRUIT PRODUCTION SYSTEM",
     image: "/icons/Rectangle 750 (1).svg",
     description: [
-      "Sensor-based soil moisture monitoring system for precise irrigation scheduling in mango and guava."
+      "Sensor-based soil moisture monitoring system for precise irrigation scheduling in mango and guava.",
     ],
   },
   {
@@ -175,7 +174,7 @@ export const technologiesItems = [
     title: "CISH-TRIANGULAR VERTICAL NFT HYDROPONICS DESIGN FOR VEGETABLES",
     image: "/icons/Rectangle 751.svg",
     description: [
-      "CISH Triangular NFT Hydroponics produced 2.5 times more yield per unit area by utilizing space vertically..."
+      "CISH Triangular NFT Hydroponics produced 2.5 times more yield per unit area by utilizing space vertically...",
     ],
   },
   {
@@ -183,7 +182,7 @@ export const technologiesItems = [
     title: "CISH-DOUBLE ROW VERTICAL HYDROPONICS DESIGN",
     image: "/icons/Mask group (4).svg",
     description: [
-      "The hydroponics design structure produced 4 times more yield per unit area by utilizing space vertically as compared with normal NFT and 20 % more yield with single vertical NFT design."
+      "The hydroponics design structure produced 4 times more yield per unit area by utilizing space vertically as compared with normal NFT and 20 % more yield with single vertical NFT design.",
     ],
   },
   {
@@ -191,16 +190,15 @@ export const technologiesItems = [
     title: "ESPALIER ARCHITECTURE FOR HIGH AND QUALITY YIELD OF GUAVA",
     image: "/icons/Rectangle 888.svg",
     description: [
-     "Espalier training system of guava is well standardized training system for high yield of quality fruits. In this system, fruiting starts 2nd year after planting (8.5 kg/tree)"
+      "Espalier training system of guava is well standardized training system for high yield of quality fruits. In this system, fruiting starts 2nd year after planting (8.5 kg/tree)",
     ],
   },
   {
     id: "11",
-    title: "TECHNOLOGY FOR MASS MULTIPLICATION OF WILT TOLERANT GUAVA ROOTSTOCK (PSIDIUM MOLLE × PSIDIUM GUAJAVA)",
+    title:
+      "TECHNOLOGY FOR MASS MULTIPLICATION OF WILT TOLERANT GUAVA ROOTSTOCK (PSIDIUM MOLLE × PSIDIUM GUAJAVA)",
     image: "/icons/Rectangle 889.svg",
-    description: [
-      ""
-    ],
+    description: [""],
   },
 ];
 export const technologiesVarietiesItems = [
@@ -208,30 +206,34 @@ export const technologiesVarietiesItems = [
     id: "1",
     title: "CISH Lalit",
     image: "/icons/Lalit.svg",
-    description:[
+    description: [
       "In-vitro bio-induction of host plant tolerance is a first kind of its approach in tissue culture towards production of wilt tolerant disease free planting material.",
-]},
+    ],
+  },
   {
     id: "2",
     title: "CISH Shweta",
     image: "/icons/Lalima.svg",
-    description:[
+    description: [
       "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc.",
-]},
+    ],
+  },
   {
     id: "3",
     title: "CISH Dhawal",
     image: "/icons/Dhawal.svg",
-    description:[
+    description: [
       "ICAR- FUSICONT is a bio-pesticide for effective management of Panama Wilt (TR4) disease affecting Cavendish bananas causing production losses of more than 60 percent.",
-]},
+    ],
+  },
   {
     id: "4",
     title: "CISH Lalima",
     image: "/icons/Lalima.svg",
-    description:[
+    description: [
       "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.Dwarf, regular bearer, late in maturity, attractive fruit colour with excellent shelf-life.",
-]},
+    ],
+  },
 ];
 export const varieties = [
   { src: "/icons/awadh abhaya.svg", title: "Awadh-Abhaya" },

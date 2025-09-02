@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import director from "../public/images/director's desk icon.svg";
 import Icon from "./ImpactCard/Icon";
 
 export interface HeadingAtomProps {

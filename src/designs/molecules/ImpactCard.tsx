@@ -28,16 +28,10 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, 
     >
       {/* Number + Text (Top aligned on same vertical line) */}
       <div className="flex  items-baseline gap-1 text-left w-full ml-4">
-        <Typography
-          variant="contentTitle"
-          className="leading-tight"
-        >
+        <Typography variant="contentTitle" className="leading-tight">
           {number}
         </Typography>
-        <Typography
-          variant="cardHeading"
-          className="leading-tight uppercase"
-        >
+        <Typography variant="cardHeading" className="leading-tight uppercase">
           {text}
         </Typography>
       </div>

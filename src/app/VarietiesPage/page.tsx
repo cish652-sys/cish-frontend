@@ -1,4 +1,3 @@
-import { Logo } from "@/designs/atoms/Logo";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
@@ -8,6 +7,7 @@ import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
 import React from "react";
 import banner from "../../designs/public/images/Varieties Banner.jpg";
 import { technologiesVarietiesItems, varietiesItem } from "@/lib/utils";
+import Image from "next/image";
 
 function Varietiespage() {
   return (
@@ -15,7 +15,7 @@ function Varietiespage() {
       <Header />
       <ResponsiveNavbar />
       <section className="relative w-full">
-        <Logo src={banner} alt="Website Banner" responsive />
+        <Image src={banner} alt="Website Banner" height={452} width={2000} />
       </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}

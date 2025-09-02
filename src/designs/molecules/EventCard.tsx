@@ -13,6 +13,7 @@ type NewsCardProps = {
   showDate?: boolean;
   showFooter?: boolean;
   showTitle?: boolean;
+  titleResearch?: string;
 };
 
 export default function EventCard({
@@ -23,11 +24,12 @@ export default function EventCard({
   showDate,
   showTitle,
   showFooter,
+  titleResearch,
 }: NewsCardProps) {
   return (
-    <Card className="max-w-[349px] overflow-hidden flex flex-col shadow-md hover:shadow-lg transition">
+    <Card className="max-w-[349px] px-2 py-2 overflow-hidden flex flex-col shadow-md hover:shadow-lg transition">
       <Image src={image} alt={title} width={349.07} height={253.79} className="object-cover" />
-      <CardContent className="p-2 flex flex-col">
+      <CardContent className="p-4 flex flex-col">
         {showDate && <DateLabel date={date} />}
         {showTitle && (
           <Typography variant="cardHeading" className="mb-2">
@@ -35,6 +37,7 @@ export default function EventCard({
           </Typography>
         )}
         <Typography variant="paragraphSmall">{description}</Typography>
+        {titleResearch && <h1 className="text-[#1B5E20] font-bold">{titleResearch}</h1>}
       </CardContent>
       {showFooter && (
         <CardFooter className="flex justify-end">

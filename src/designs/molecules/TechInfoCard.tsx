@@ -14,7 +14,12 @@ interface TechInfoCardProps {
   showHeading: boolean;
 }
 
-export const TechInfoCard: React.FC<TechInfoCardProps> = ({ title, description, image,showHeading }) => {
+export const TechInfoCard: React.FC<TechInfoCardProps> = ({
+  title,
+  description,
+  image,
+  showHeading,
+}) => {
   return (
     <Card className="flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden">
       {/* Image */}
