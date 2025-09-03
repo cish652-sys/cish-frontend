@@ -112,20 +112,20 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       };
 
     // ✅ 3. Inter Italic Highlight
-   case "italicHighlight":
-  return {
-    className: "",
-    style: {
-      fontFamily: "Inter, sans-serif",
-      fontWeight: 600, 
-      fontStyle: "italic",
-      fontSize: "18px", 
-      lineHeight: "160%", 
-      letterSpacing: "0.5px",
-      textAlign: "center" as const,
-      color: "#6F7E70",
-    },
-  };
+    case "italicHighlight":
+      return {
+        className: "",
+        style: {
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600,
+          fontStyle: "italic",
+          fontSize: "18px",
+          lineHeight: "160%",
+          letterSpacing: "0.5px",
+          textAlign: "center" as const,
+          color: "#6F7E70",
+        },
+      };
 
     // ✅ 4. Section Heading (22px)
     case "sectionHeading":

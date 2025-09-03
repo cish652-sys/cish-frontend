@@ -78,7 +78,7 @@ export const technoItems = [
   {
     title: "CISH-METWASH",
     description: [
-      "CISH-Metwash is an anti-senescence, antifungal bioactive secondary metabolite-based bio-stimulant (strain CSR M44 + Biopolymer +adjuvants) developed for increasing the shelf life of mango 40-44 day and banana 50-52 days at 13 °C and 85% humidity in reefer container used for export through sea route. ]It is breakthrough technology that stands distinct from the regular ethylene absorbers where the maximum reported shelf life in mango 10 days and banana 15 days."
+      "CISH-Metwash is an anti-senescence, antifungal bioactive secondary metabolite-based bio-stimulant (strain CSR M44 + Biopolymer +adjuvants) developed for increasing the shelf life of mango 40-44 day and banana 50-52 days at 13 °C and 85% humidity in reefer container used for export through sea route. ]It is breakthrough technology that stands distinct from the regular ethylene absorbers where the maximum reported shelf life in mango 10 days and banana 15 days.",
     ],
     href: "/tech/aonla",
     image: "/icons/Rectangle 780.svg",
@@ -213,16 +213,14 @@ export const technologiesVarietiesItems = [
     id: "1",
     title: "CISH Lalit",
     image: "/icons/Lalit.svg",
-    description: [
-      "CISH- Lalit is a superior seedling selection from Apple guava."
-    ],
+    description: ["CISH- Lalit is a superior seedling selection from Apple guava."],
   },
   {
     id: "2",
     title: "CISH Shweta",
     image: "/icons/Rectangle 739 (2).svg",
     description: [
-      "CISH-Sweta is a one of the high yielding varieties, about 90 kg / plant at the age of 6 years."
+      "CISH-Sweta is a one of the high yielding varieties, about 90 kg / plant at the age of 6 years.",
     ],
   },
   {
@@ -230,7 +228,7 @@ export const technologiesVarietiesItems = [
     title: "CISH Dhawal",
     image: "/icons/Dhawal.svg",
     description: [
-      "CISH-Dhawal has an average yield of 38.4 t/ha which is more than the double of national average of 15.6t/ha (2021-22) and more than CISH Lalima."
+      "CISH-Dhawal has an average yield of 38.4 t/ha which is more than the double of national average of 15.6t/ha (2021-22) and more than CISH Lalima.",
     ],
   },
   {
@@ -238,7 +236,7 @@ export const technologiesVarietiesItems = [
     title: "Awadh Samriddhi",
     image: "/icons/Rectangle 743 (1).svg",
     description: [
-      "Hybrid is regular bearer and late maturing type. Pulp dark yellow, firm pulp with scanty fibre, pulp about 71.8%, TSS 21.6°B. The hybrid has potential for both internal and export markets because of its attractive red fruit colour."
+      "Hybrid is regular bearer and late maturing type. Pulp dark yellow, firm pulp with scanty fibre, pulp about 71.8%, TSS 21.6°B. The hybrid has potential for both internal and export markets because of its attractive red fruit colour.",
     ],
   },
 ];
