@@ -48,7 +48,7 @@ const KeyImpacts: React.FC = () => {
 
         {/* Infinite Scroll Container */}
         <div className="overflow-hidden relative">
-          <div 
+          <div
             className="flex gap-4 animate-infinite-scroll"
             style={{
               width: `${duplicatedImpacts.length * 180}px`, // 163px card width + 17px gap
