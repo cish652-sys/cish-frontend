@@ -204,7 +204,7 @@ export const technologiesItems = [
     id: "11",
     title:
       "TECHNOLOGY FOR MASS MULTIPLICATION OF WILT TOLERANT GUAVA ROOTSTOCK (PSIDIUM MOLLE × PSIDIUM GUAJAVA)",
-    image: "/icons/Rectangle 889.svg",
+    image: "/icons/Rectangle 889 (1).svg",
     description: [""],
   },
 ];
