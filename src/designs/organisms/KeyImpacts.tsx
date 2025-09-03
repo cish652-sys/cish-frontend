@@ -35,7 +35,6 @@ const impacts = [
 ];
 
 const KeyImpacts: React.FC = () => {
-  // Duplicate the impacts array for seamless infinite scroll
   const duplicatedImpacts = [...impacts, ...impacts];
 
   return (
@@ -46,7 +45,6 @@ const KeyImpacts: React.FC = () => {
           <Typography variant="sectionHeading">Key Impacts</Typography>
         </div>
 
-        {/* Infinite Scroll Container */}
         <div className="overflow-hidden relative">
           <div
             className="flex gap-4 animate-infinite-scroll"
@@ -56,7 +54,7 @@ const KeyImpacts: React.FC = () => {
           >
             {duplicatedImpacts.map((impact, idx) => (
               <div key={`${impact.number}-${idx}`} className="flex-shrink-0">
-                <ImpactCard {...impact} />
+                <ImpactCard {...impact} index={idx % 6} />
               </div>
             ))}
           </div>

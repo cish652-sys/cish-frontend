@@ -10,7 +10,7 @@ interface VarietyCardProps {
 
 export const VarietyCard = ({ src, title }: VarietyCardProps) => {
   return (
-    <div className="shadow-md hover:shadow-lg transition overflow-hidden w-40 sm:w-48 md:w-56 lg:w-64 flex-shrink-0">
+    <div className="shadow-md hover:shadow-lg  overflow-hidden w-40 sm:w-48 md:w-56 lg:w-64 flex-shrink-0">
       <Image
         src={src}
         alt={title}

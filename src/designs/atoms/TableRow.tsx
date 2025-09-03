@@ -7,7 +7,10 @@ export interface Tender {
   id: number;
   title: string;
   lastDate: string;
-  isNew?: boolean;
+  isNew: boolean;
+  form?: string;
+  postDate?: string;
+  result?: string;
 }
 
 export const TableRow: React.FC<{ tender: Tender }> = ({ tender }) => (

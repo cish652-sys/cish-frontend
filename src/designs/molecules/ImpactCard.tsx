@@ -12,19 +12,19 @@ interface ImpactCardProps {
 }
 
 const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, index }) => {
-  const hoverColors = [
-    "hover:bg-[#DDA73A]",
-    "hover:bg-[#407F46] hover:text-white",
-    "hover:bg-[#F26A2D]",
-    "hover:bg-[#59BA48]",
-    "hover:bg-[#BF8D2C]",
-    "hover:bg-[#4CA146]",
+  const staticColors = [
+    "bg-[#DDA73A]",
+    "bg-[#407F46] text-white",
+    "bg-[#F26A2D]",
+    "bg-[#59BA48]",
+    "bg-[#BF8D2C]",
+    "bg-[#4CA146]",
   ];
 
   return (
     <Card
       className={`w-[163px] h-[140px] border shadow-sm transition-colors duration-300 flex flex-col items-center justify-between py-3
-    ${highlight ? "bg-green-50 shadow-md" : "bg-white"} ${hoverColors[index ?? 0]}`}
+      ${highlight ? "bg-green-50 shadow-md" : staticColors[index ?? 0]}`}
     >
       {/* Number + Text (Top aligned on same vertical line) */}
       <div className="flex items-baseline justify-center gap-1 text-left w-full ml-4 pr-5 ">

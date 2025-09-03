@@ -8,7 +8,7 @@ interface AnnouncementBarProps {
 
 export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
   return (
-    <div className="w-full bg-white border-gray-200">
+    <div className="w-full bg-[#FBFAF0] border-gray-200">
       <div className="container flex items-center py-4 overflow-hidden">
         <div className="flex items-center gap-2 whitespace-nowrap pr-6">
           <h2 className="text-[#1B5E20] font-semibold">ANNOUNCEMENTS</h2>
