@@ -15,16 +15,16 @@ function Varietiespage() {
       <Header />
       <ResponsiveNavbar />
       <section className="relative w-full">
-        <Image src={banner} alt="Website Banner" height={452} width={2000} />
+        <Image src={banner} alt="Website Banner" height={452} width={2000} className="w-full object-cover" />
       </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
         iconProps={false}
         title="Varieties For COMMERCIALIZATION"
         description={[
-          "Bring farmers high-yield, resilient, and quality crop options.",
-          "These varieties are designed to fight pests, withstand climate challenges, and ensure better harvests.",
-          "They empower farmers with more profit, stability, and a brighter future in farming.",
+          "Bring Farmers High-Yield, Resilient, And Quality Crop Options.",
+          "These Varieties Are Designed To Fight Pests, Withstand Climate Challenges, And Ensure Better Harvests.",
+          "They Empower Farmers With More Profit, Stability, And A Brighter Future In Farming.",
         ]}
       />
       <div className="py-0 bg-[#FBFAF0]">

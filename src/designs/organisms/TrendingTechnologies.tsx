@@ -17,7 +17,7 @@ const TrendingTechnologies: React.FC<TrendingTechnologiesProps> = ({
       <div className="flex flex-col gap-6 container">
         {showVerieties && (
           <div className="flex items-center gap-2">
-            <Icon src="/icons/tractor.svg" alt="Trending" />
+            <Icon src="/icons/microscope.svg" alt="Trending" />
             <Typography variant="sectionHeading">Trending Technologies</Typography>
           </div>
         )}
