@@ -1,7 +1,6 @@
 // src/components/organisms/SectionHeader.tsx
 "use client";
 
-import Icon from "../atoms/ImpactCard/Icon";
 import Typography from "../atoms/Typography";
 import { Breadcrumb, BreadcrumbItem } from "../molecules/Breadcrumb";
 
@@ -14,7 +13,6 @@ interface SectionHeaderProps {
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   breadcrumbItems,
-  iconProps,
   title,
   description,
 }) => {

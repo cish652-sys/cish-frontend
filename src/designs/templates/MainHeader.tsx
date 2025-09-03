@@ -1,7 +1,6 @@
 "use client";
 
 import { Header } from "../organisms/Header";
-import banner from "../public/images/banner.svg";
 import { Logo } from "../atoms/Logo";
 import { AnnouncementBar } from "../molecules/AnnouncementBar";
 import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
