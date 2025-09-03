@@ -5,11 +5,11 @@ import Image from "next/image";
 const fruitItems = [
   { id: "mango", label: "Mango", icon: "/icons/Mango.svg" },
   { id: "guava", label: "Guava", icon: "/icons/guava.svg" },
-  { id: "wood-apple", label: "Wood Apple", icon: "/icons/Apple.svg" },
+  { id: "wood-apple", label: "Bail", icon: "/icons/Apple.svg" },
   { id: "black-plum", label: "Black Plum", icon: "/icons/Plum.svg" },
-  { id: "gooseberry", label: "Indian Gooseberry", icon: "/icons/Gooseberry.svg" },
+  { id: "gooseberry", label: "Amla", icon: "/icons/Gooseberry.svg" },
   { id: "banana", label: "Banana", icon: "/icons/Banana.svg" },
-  { id: "avocado", label: "Avocado", icon: "/icons/Avacardo.svg" },
+  { id: "avocado", label: "Avacardo", icon: "/icons/Avacardo.svg" },
 ];
 
 export const FruitResearch: React.FC = () => {

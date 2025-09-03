@@ -13,7 +13,7 @@ export const MainHeader = () => {
       <ResponsiveNavbar />
 
       <section className="relative w-full">
-        <Logo src={banner} alt="Website Banner" responsive />
+        <Logo src="/icons/New Banner.svg" alt="Website Banner" responsive />
       </section>
 
       <AnnouncementBar

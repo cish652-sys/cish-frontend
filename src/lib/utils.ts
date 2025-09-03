@@ -9,23 +9,23 @@ export const eventsData = [
   {
     image: "/icons/Event 1.svg",
     date: "May 15, 2025",
-    title: "ICAR DEVELOPS NEW CROP VARIETY",
+    title: "Krishi Darshan Chaupal on common topic",
     description:
-      "Scientists at ICAR have developed a new crop variety that can withstand prolonged drought.",
+      "The 6th Krishi Darshan Chaupal on Mango topic was organized on 25th April 2025 at Central Institute for Subtropical Horticulture......",
   },
   {
     image: "/icons/Event 2.svg",
     date: "June 10, 2025",
-    title: "NATIONAL CONFERENCE ON CLIMATE-SMART AGRICULTURE ANNOUNCED",
+    title: "Independence Day",
     description:
-      "Scientists at ICAR have developed a new crop variety that can withstand prolonged drought conditions.",
+      "The 79th Independence Day was celebrated with great pomp on 15 August 2025 at the Central Institute of Subtropical Horticulture......",
   },
   {
     image: "/icons/Event 3.svg",
     date: "April 28, 2025",
-    title: "ICAR SIGNS MOU WITH INTERNATIONAL RESEARCH ORGANIZATIONS",
+    title: "lucknow aam mahotsav",
     description:
-      "Scientists at ICAR have developed a new crop variety that can withstand prolonged drought conditions.",
+      "Scientists at ICAR have developed a new crop variety that can withstand prolonged drought conditions.ICAR-CISH Rehmankhera, Kakori, Lucknow has participated in Uttar Pradesh Aam Mahotsav 2025 and exhibited >300 mango varieties and hybrids......",
   },
 ];
 
@@ -244,42 +244,43 @@ export const varieties = [
 export const varitiesTechnologies = [
   {
     title: "CISH metwash",
-    description: "Espalier Training System For Guava",
-    date: "Aug 22, 2004",
+    description: "",
+    date: "",
   },
   {
-    title: "Espalier training system for increased productivity and quality of guava",
-    description: "Improved Productivity & Quality",
-    date: "Aug 22, 2004",
+    title: "ICAR-BIOIMMUNIZER",
+    description: "",
+    date: "",
   },
-  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  { title: "ICAR-FUSICON", description: "", date: "" },
   {
-    title: "Espalier training system for increased productivity and quality of guava",
-    description: "Improved Productivity & Quality",
-    date: "Aug 22, 2004",
+    title: "CISH-BIOENHANCER",
+    description: "",
+    date: "",
   },
-  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  { title: "CISH-BIOZAPPER", description: "", date: "" },
   {
-    title: "Espalier training system for increased productivity and quality of guava",
-    description: "Improved Productivity & Quality",
-    date: "Aug 22, 2004",
+    title: "ICAR-FUSICON",
+    description: "",
+    date: "",
   },
-  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  { title: "CISH Metwash", description: "", date: "" },
   {
-    title: "Espalier training system for increased productivity and quality of guava",
-    description: "Improved Productivity & Quality",
-    date: "Aug 22, 2004",
+    title: "CISH-BIOZAPPER",
+    description: "",
+    date: "",
   },
-  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  { title: "CISH Metwash", description: "", date: "" },
   {
-    title: "Espalier training system for increased productivity and quality of guava",
-    description: "Improved Productivity & Quality",
-    date: "Aug 22, 2004",
+    title: "CISH-BIOZAPPER",
+    description: "",
+    date: "",
   },
-  { title: "CISH Metwash", description: "Improved Productivity & Quality", date: "Aug 22, 2004" },
+  { title: "CISH Metwash", description: "", date: "" },
   {
-    title: "Espalier training system for increased productivity and quality of guava",
-    description: "Improved Productivity & Quality",
-    date: "Aug 22, 2004",
+    title: "ICAR-FUSICON",
+    description: "",
+    date: "",
   },
 ];
+

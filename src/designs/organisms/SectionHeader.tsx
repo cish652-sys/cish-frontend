@@ -27,7 +27,6 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {/* Icon + Title */}
       <div className="flex items-center gap-2">
-        <Icon src={iconProps ? "/icons/microscope.svg" : "/icons/varieties.svg"} alt="icon" />
         <Typography variant="headingLarge">{title}</Typography>
       </div>
 

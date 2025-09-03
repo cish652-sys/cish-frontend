@@ -98,7 +98,7 @@ export const CommercializationSection = ({
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <Icon
-                  src="/icons/codicon.svg"
+                  src="/icons/task-checklist 1.svg"
                   alt="Varieties"
                   className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
                 />
@@ -146,7 +146,7 @@ export const CommercializationSection = ({
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <Icon
-                  src="/icons/mynaui_sparkles.svg"
+                  src="/icons/microscope.svg"
                   alt="Technologies"
                   className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
                 />

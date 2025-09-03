@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { TabButton } from "../atoms/TabButton";
 import { Tender } from "../atoms/TableRow";
 import { TenderTable } from "../molecules/TenderTable";
+import Icon from "../atoms/ImpactCard/Icon";
 
 const dummyTenders: Tender[] = [
   {
@@ -37,8 +38,10 @@ export const KeyOfferingsSection: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full h-[300px]">
-      <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
-
+      <div className="flex items-center gap-2">
+        <Icon src="/icons/nfc-magnifying-glass 1.svg" alt="Trending" />
+        <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
+      </div>
       {/* Tabs */}
       <div className="flex overflow-hidden border">
         {["Announcements", "Jobs", "Tenders"].map((tab) => (
