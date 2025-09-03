@@ -9,7 +9,6 @@ const TechnologiesSection: React.FC = () => (
   <section className="flex flex-col space-y-4">
     {technologies.map((technology, index) => (
       <TechnologyCard key={index} technologyName={technology.technologyName} />
-      
     ))}
   </section>
 );

@@ -44,7 +44,6 @@ const KeyImpacts: React.FC = () => {
           {impacts.map((impact, idx) => (
             <ImpactCard key={idx} {...impact} index={idx} />
           ))}
-          
         </div>
       </div>
     </section>
