@@ -50,14 +50,10 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
 
         <ul className="list-disc list-outside">
           {description.map((line, idx) => (
-            <Typography variant="labelSmall">
-              {line}
-            </Typography>
+            <Typography variant="labelSmall" key={idx}>{line}</Typography>
           ))}
         </ul>
       </CardContent>
-
-      {/* Footer */}
       <CardFooter className="p-4 flex justify-end mt-auto">
         <ButtonLink label="VIEW MORE" />
       </CardFooter>
