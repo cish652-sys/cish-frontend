@@ -9,6 +9,7 @@ import local from "../public/images/localisation.svg";
 import accessibility from "../public/images/accessibility.svg";
 import label from "../public/images/mainlabelhindi.svg";
 import label2 from "../public/images/mainlabel.svg";
+import Typography from "../atoms/Typography";
 
 export const Header = () => {
   const scrollToDirectors = () => {
