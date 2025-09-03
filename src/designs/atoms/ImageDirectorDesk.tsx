@@ -13,8 +13,8 @@ export interface ImageAtomProps {
 const ImageAtom: React.FC<ImageAtomProps> = ({
   src,
   alt = "image",
-  width = 350,
-  height = 350,
+  width = 300,
+  height = 300,
   className = "",
 }) => (
   <div className={`overflow-hidden ${className}`}>

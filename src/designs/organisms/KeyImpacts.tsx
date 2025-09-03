@@ -6,36 +6,35 @@ import Typography from "../atoms/Typography";
 import Icon from "../atoms/ImpactCard/Icon";
 
 const impacts = [
-  { icon: "icons/E_SDG_Icons-02-removebg-preview.svg", number: "2", text: "ZERO HUNGER" },
+  { icon: "/icons/key1.svg", number: "2", text: "ZERO HUNGER" },
   {
-    icon: "icons/E_SDG_Icons-13-removebg-preview.svg",
+    icon: "icons/key2.svg",
     number: "13",
     text: "climate action",
   },
   {
-    icon: "/icons/E_SDG_Icons-09-removebg-preview.svg",
+    icon: "/icons/key3.svg",
     number: "9",
     text: "Industry, Innovation and Infrastructure",
   },
   {
-    icon: "/icons/E_SDG_Icons-15-removebg-preview.svg",
+    icon: "/icons/key4.svg",
     number: "15",
     text: "Life on land",
   },
   {
-    icon: "/icons/E_SDG_Icons-12-removebg-preview 2.svg",
+    icon: "/icons/key5.svg",
     number: "12",
     text: " Sustainable production and consumption.",
   },
   {
-    icon: "/icons/E_SDG_Icons-03-removebg-preview.svg",
+    icon: "/icons/key6.svg",
     number: "3",
     text: "Good Health & well being",
   },
 ];
 
 const KeyImpacts: React.FC = () => {
-  // Duplicate the impacts array for seamless infinite scroll
   const duplicatedImpacts = [...impacts, ...impacts];
 
   return (
@@ -46,7 +45,6 @@ const KeyImpacts: React.FC = () => {
           <Typography variant="sectionHeading">Key Impacts</Typography>
         </div>
 
-        {/* Infinite Scroll Container */}
         <div className="overflow-hidden relative">
           <div
             className="flex gap-4 animate-infinite-scroll"
@@ -56,7 +54,7 @@ const KeyImpacts: React.FC = () => {
           >
             {duplicatedImpacts.map((impact, idx) => (
               <div key={`${impact.number}-${idx}`} className="flex-shrink-0">
-                <ImpactCard {...impact} />
+                <ImpactCard {...impact} index={idx % 6} />
               </div>
             ))}
           </div>

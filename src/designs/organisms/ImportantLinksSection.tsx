@@ -5,32 +5,38 @@ import Icon from "../atoms/ImpactCard/Icon";
 
 const dummyLinks = [
   {
-    title: "ehRMS 2.0",
+    title: "eHRMS 2.0",
+    url: "https://e-hrms.gov.in/login",
     postDate: "",
     lastDate: "",
   },
   {
     title: "DARE/ICAR e-Office",
+    url: "https://eoffice.icar.gov.in/SSOComponent/auth.php",
     postDate: "",
     lastDate: "",
   },
   {
     title: "DARE/ICAR Sparrow",
+    url: "https://sparrow.icar.gov.in/",
     postDate: "",
     lastDate: "",
   },
   {
     title: "NIC mail",
+    url: "email.gov.in / mail.gov.in",
     postDate: "",
     lastDate: "",
   },
   {
     title: "ICAR",
+    url: "https://icar.org.in/en",
     postDate: "",
     lastDate: "",
   },
   {
     title: "NHB",
+    url: "https://www.nhb.gov.in",
     postDate: "",
     lastDate: "",
   },

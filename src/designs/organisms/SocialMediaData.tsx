@@ -5,19 +5,19 @@ import iconEarth from "../public/images/SocialMedia/famicons_earth-outline.svg";
 const socialMediaData = [
   {
     title: "X",
-    images: ["/icons/Mask group.svg", "/icons/X1.svg", "/icons/Mask group.svg"],
+    images: ["/icons/Xnew.svg", "/icons/Xnew1.svg", "/icons/Xnew.svg"],
   },
   {
     title: "Facebook",
-    images: ["/icons/facebook.svg", "/icons/facebook1.svg", "/icons/facebook.svg"],
+    images: ["/icons/fb1.svg", "/icons/fb2.svg", "/icons/fb1.svg"],
   },
   {
     title: "Instagram",
-    images: ["/icons/insta.svg", "/icons/insta1.svg", "/icons/insta.svg"],
+    images: ["/icons/instanew.svg", "/icons/insta2.svg", "/icons/instanew.svg"],
   },
   {
     title: "YouTube",
-    images: ["/icons/youtube.svg", "/icons/youtube1.svg", "/icons/youtube.svg"],
+    images: ["/icons/youtubenew.svg", "/icons/youtubenew2.svg", "/icons/youtubenew.svg"],
   },
 ];
 
