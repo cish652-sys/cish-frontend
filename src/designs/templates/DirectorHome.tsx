@@ -5,7 +5,7 @@ import DirectorSection from "@/designs/organisms/DirectorSection";
 const HomeWithDirector: React.FC = () => {
   return (
     <main>
-      <DirectorSection imageSrc='/icons/directornew.jpeg' />
+      <DirectorSection imageSrc="/icons/directornew.jpeg" />
     </main>
   );
 };

@@ -28,7 +28,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, 
     >
       {/* Number + Text (Top aligned on same vertical line) */}
       <div className=" flex items-baseline justify-center gap-1 text-left w-full ml-4 pr-5 ">
-        <Typography  variant="contentTitle" className="leading-tight !text-white">
+        <Typography variant="contentTitle" className="leading-tight !text-white">
           {number}
         </Typography>
         <Typography variant="cardHeading" className="leading-tight !text-white uppercase">
@@ -38,7 +38,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, 
 
       {/* Icon (Bottom Part) */}
       <div className="flex items-center justify-center mt-2 ">
-        <Image src={icon} alt="image" width={48} height={48} className="!text-white"/>
+        <Image src={icon} alt="image" width={48} height={48} className="!text-white" />
       </div>
     </Card>
   );

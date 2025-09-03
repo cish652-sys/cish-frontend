@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const eventsData = [
-   {
+  {
     image: "/icons/Event 2.svg",
     date: "June 10, 2025",
     title: "Independence Day",
@@ -21,8 +21,6 @@ export const eventsData = [
       "Scientists at ICAR have developed a new crop variety that can withstand prolonged drought conditions.ICAR-CISH Rehmankhera, Kakori, Lucknow has participated in Uttar Pradesh Aam Mahotsav 2025 and exhibited >300 mango varieties and hybrids......",
   },
 
-   
-  
   {
     image: "/icons/Event 1.svg",
     date: "May 15, 2025",
