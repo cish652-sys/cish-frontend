@@ -57,7 +57,6 @@ export const getFontWeight = (weight?: FontWeight) => {
 
 export const getVariantStyle = (variant?: TypographyVariant) => {
   const baseStyle = {
-    fontFamily: "Noto Sans",
     fontWeight: 700,
     lineHeight: "157%",
     letterSpacing: "0%",
@@ -71,7 +70,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "16px",
@@ -85,7 +83,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "13px",
@@ -100,7 +97,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "25px",
@@ -116,7 +112,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
   return {
     className: "",
     style: {
-      fontFamily: "Inter, sans-serif",
       fontWeight: 600, 
       fontStyle: "italic",
       fontSize: "18px", 
@@ -132,7 +127,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "22px",
@@ -148,7 +142,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "18px",
@@ -164,7 +157,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 400,
           fontStyle: "normal",
           fontSize: "12px",
@@ -180,7 +172,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "19px",
@@ -196,7 +187,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "20px",
@@ -212,7 +202,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "12px",
@@ -228,7 +217,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "9px",
@@ -244,7 +232,6 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       return {
         className: "",
         style: {
-          fontFamily: "Noto Sans",
           fontWeight: 700,
           fontStyle: "normal",
           fontSize: "10px",
