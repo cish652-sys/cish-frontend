@@ -115,7 +115,9 @@ export const KeyOfferingsSection: React.FC = () => {
       </div>
 
       <div className="mt-2 flex-1 overflow-y-auto">
-        {activeTab === "Announcements" && <TenderTable tenders={announcementsData} tableType="announcement" />}
+        {activeTab === "Announcements" && (
+          <TenderTable tenders={announcementsData} tableType="announcement" />
+        )}
         {activeTab === "Jobs" && <TenderTable tenders={jobsData} tableType="job" />}
         {activeTab === "Tenders" && <TenderTable tenders={dummyTenders} tableType="tender" />}
       </div>

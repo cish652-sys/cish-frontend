@@ -6,29 +6,29 @@ import Typography from "../atoms/Typography";
 import Icon from "../atoms/ImpactCard/Icon";
 
 const impacts = [
-  { icon: "icons/E_SDG_Icons-02-removebg-preview.svg", number: "2", text: "ZERO HUNGER" },
+  { icon: "/icons/key1.svg", number: "2", text: "ZERO HUNGER" },
   {
-    icon: "icons/E_SDG_Icons-13-removebg-preview.svg",
+    icon: "icons/key2.svg",
     number: "13",
     text: "climate action",
   },
   {
-    icon: "/icons/E_SDG_Icons-09-removebg-preview.svg",
+    icon: "/icons/key3.svg",
     number: "9",
     text: "Industry, Innovation and Infrastructure",
   },
   {
-    icon: "/icons/E_SDG_Icons-15-removebg-preview.svg",
+    icon: "/icons/key4.svg",
     number: "15",
     text: "Life on land",
   },
   {
-    icon: "/icons/E_SDG_Icons-12-removebg-preview 2.svg",
+    icon: "/icons/key5.svg",
     number: "12",
     text: " Sustainable production and consumption.",
   },
   {
-    icon: "/icons/E_SDG_Icons-03-removebg-preview.svg",
+    icon: "/icons/key6.svg",
     number: "3",
     text: "Good Health & well being",
   },

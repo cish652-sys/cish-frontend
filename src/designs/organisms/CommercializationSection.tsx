@@ -5,7 +5,7 @@ import Icon from "../atoms/ImpactCard/Icon";
 import Typography from "../atoms/Typography";
 import { TechnologyItem } from "../molecules/TechnologyItem";
 import { VarietyCard } from "../molecules/VarietyCard";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 
 interface Variety {
   src: string;
@@ -30,11 +30,21 @@ export const CommercializationSection = ({
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollIndex, setScrollIndex] = useState(0);
 
+  // ✅ Remove duplicate technologies by `title`
+  const uniqueTechnologies = useMemo(() => {
+    const seen = new Set();
+    return technologies.filter((tech) => {
+      if (seen.has(tech.title)) return false;
+      seen.add(tech.title);
+      return true;
+    });
+  }, [technologies]);
+
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    const itemWidth = 200; 
+    const itemWidth = 200;
     const interval = setInterval(() => {
       setScrollIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % varieties.length;
@@ -46,7 +56,7 @@ export const CommercializationSection = ({
 
         return nextIndex;
       });
-    }, 2500); 
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [varieties.length]);
@@ -55,6 +65,7 @@ export const CommercializationSection = ({
     <section className="w-full px-2 sm:px-4 md:px-8 lg:px-16 py-6 sm:py-8 md:py-12 bg-[#FBFAF0]">
       <div className="container max-w-7xl mx-auto">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 md:gap-12 xl:gap-16">
+          {/* Varieties Section */}
           <div className="flex flex-col">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
@@ -90,13 +101,16 @@ export const CommercializationSection = ({
             </div>
           </div>
 
+          {/* Technologies Section */}
           <div className="flex flex-col">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <Icon
+                  width={25}
+                  height={25}
                   src="/icons/microscope.svg"
                   alt="Technologies"
-                  className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
+                  className="w-[25px] h-[25px] sm:w-6 sm:h-6 flex-shrink-0"
                 />
                 <Typography
                   variant="bodyLarge"
@@ -109,7 +123,7 @@ export const CommercializationSection = ({
 
               <div className="bg-white shadow-md overflow-hidden">
                 <div className="overflow-y-auto max-h-[208px]">
-                  {technologies.map((tech, idx) => (
+                  {uniqueTechnologies.map((tech, idx) => (
                     <TechnologyItem
                       key={idx}
                       title={tech.title}

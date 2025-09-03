@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
         <div className="w-full lg:w-[70%] min-h-[300px]">
           <KeyOfferingsSection />
         </div>
-         
+
         <div className="w-full lg:w-[30%] min-h-[300px]">
           <ImportantLinksSection />
         </div>

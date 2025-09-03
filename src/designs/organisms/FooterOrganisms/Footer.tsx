@@ -32,10 +32,26 @@ export function Footer() {
 
             {/* Social Icons */}
             <div className="flex gap-3">
-              <FooterIcon href="https://www.facebook.com/ICARCISH/" imgSrc="/icons/Facebook.svg" alt="Facebook" />
-              <FooterIcon href="https://x.com/i/flow/single_sign_on" imgSrc="/icons/Twitter.svg" alt="Twitter" />
-              <FooterIcon href="https://www.instagram.com/icar_cish/?hl=en" imgSrc="/icons/Instagram.svg" alt="Instagram" />
-              <FooterIcon href="https://www.youtube.com/channel/UCUvmB_0pBbCsUenY8Ckb4Ng" imgSrc="/icons/Youtube.svg" alt="YouTube" />
+              <FooterIcon
+                href="https://www.facebook.com/ICARCISH/"
+                imgSrc="/icons/Facebook.svg"
+                alt="Facebook"
+              />
+              <FooterIcon
+                href="https://x.com/i/flow/single_sign_on"
+                imgSrc="/icons/Twitter.svg"
+                alt="Twitter"
+              />
+              <FooterIcon
+                href="https://www.instagram.com/icar_cish/?hl=en"
+                imgSrc="/icons/Instagram.svg"
+                alt="Instagram"
+              />
+              <FooterIcon
+                href="https://www.youtube.com/channel/UCUvmB_0pBbCsUenY8Ckb4Ng"
+                imgSrc="/icons/Youtube.svg"
+                alt="YouTube"
+              />
             </div>
           </div>
 

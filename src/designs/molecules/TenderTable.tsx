@@ -4,11 +4,10 @@ import { Tender } from "../atoms/TableRow";
 
 interface TenderTableProps {
   tenders: Tender[];
-  tableType?: 'tender' | 'job' | 'announcement';
+  tableType?: "tender" | "job" | "announcement";
 }
 
-export const TenderTable: React.FC<TenderTableProps> = ({ tenders, tableType = 'tender' }) => {
-  
+export const TenderTable: React.FC<TenderTableProps> = ({ tenders, tableType = "tender" }) => {
   // Function to generate and download dummy PDF
   const downloadApplicationForm = () => {
     const pdfContent = `
@@ -37,25 +36,25 @@ Signature: _____________________
 
 Date: __________________________
     `;
-    
-    const blob = new Blob([pdfContent], { type: 'application/pdf' });
+
+    const blob = new Blob([pdfContent], { type: "application/pdf" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = 'application-form.pdf';
+    a.download = "application-form.pdf";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
 
-  if (tableType === 'job') {
+  if (tableType === "job") {
     return (
       <div className="overflow-y-auto border shadow-sm">
         <table className="w-full text-sm">
           <thead className="bg-gray-100 sticky top-0">
             <tr>
-              <th className="px-3 py-2 text-left">S.No</th>
+              <th className="px-3 py-2 text-left">Sr. No</th>
               <th className="px-3 py-2 text-left">Title</th>
               <th className="px-3 py-2 text-left">Form</th>
               <th className="px-3 py-2 text-left">Post Date</th>
@@ -67,9 +66,7 @@ Date: __________________________
             {tenders.map((tender, index) => (
               <tr key={tender.id} className="border-b hover:bg-gray-50">
                 <td className="px-3 py-2">{index + 1}</td>
-                <td className="px-3 py-2  hover:underline cursor-pointer">
-                  {tender.title}
-                </td>
+                <td className="px-3 py-2  hover:underline cursor-pointer">{tender.title}</td>
                 <td className="px-3 py-2">
                   {tender.form && (
                     <button
@@ -113,10 +110,8 @@ Date: __________________________
             <tr key={t.id} className="border-b hover:bg-gray-50">
               <td className="px-3 py-2">{t.id}</td>
               <td className="px-3 py-2">
-                <div className="flex items-center gap-2">
-                  <span className=" hover:underline cursor-pointer">
-                    {t.title}
-                  </span>
+                <div className="flex items-center gap-6">
+                  <span className=" hover:underline cursor-pointer">{t.title}</span>
                   {t.isNew && (
                     <span className="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">
                       NEW

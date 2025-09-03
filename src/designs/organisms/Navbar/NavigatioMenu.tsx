@@ -24,10 +24,10 @@ const ResponsiveNavbar: React.FC = () => {
       dropdownItems: [
         "Institute",
         "Field Gene Bank",
-        "Divisions (Full details, staff information, etc.)",
+        "Divisions",
         "PME",
         "ITMu/IPR Cells",
-        "Agri Business Incubation Center (ABI)",
+        "Agri Business Incubation Center",
         "AKMU",
         "Regional Research Station",
         "Krishi Vigyan Kendra",
@@ -230,7 +230,7 @@ const ResponsiveNavbar: React.FC = () => {
                   >
                     <div
                       className={`
-                        flex items-center justify-between px-6 cursor-pointer transition-colors duration-200
+                        flex items-center justify-between px-6 pl-[15px] py-4 cursor-pointer transition-colors duration-200
                         ${isActive ? "bg-[#67B96D] text-white" : "text-gray-700 hover:bg-[#67B96D] hover:text-white"}
                       `}
                     >

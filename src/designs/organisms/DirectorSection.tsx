@@ -23,7 +23,7 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({ imageSrc, className =
         </div>
 
         <div className="flex mb-[-8px] justify-center items-end lg:justify-end">
-          <ImageAtom src={imageSrc} alt="Director" className="max-w-full h-auto" />
+          <ImageAtom src={imageSrc} alt="Director" className="max-w-full p-2" />
         </div>
       </div>
     </section>
