@@ -1,7 +1,6 @@
 "use client";
 import plump from "../public/images/streamline-plump_announcement-megaphone.svg";
 import { Logo } from "../atoms/Logo";
-import Typography from "../atoms/Typography";
 
 interface AnnouncementBarProps {
   messages: string[];
@@ -12,7 +11,7 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
     <div className="w-full bg-white border-gray-200">
       <div className="container flex items-center py-4 overflow-hidden">
         <div className="flex items-center gap-2 whitespace-nowrap pr-6">
-          <Typography variant="headingSmall">Announcements</Typography>
+          <h2 className="text-[#1B5E20] font-semibold">ANNOUNCEMENTS</h2>
           <Logo src={plump} alt="Announcement Icon" width={24} height={24} />
         </div>
         <div className="relative flex-1 overflow-hidden">
