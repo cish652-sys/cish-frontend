@@ -15,7 +15,13 @@ function Varietiespage() {
       <Header />
       <ResponsiveNavbar />
       <section className="relative w-full">
-        <Image src={banner} alt="Website Banner" height={452} width={2000} className="w-full object-cover" />
+        <Image
+          src={banner}
+          alt="Website Banner"
+          height={452}
+          width={2000}
+          className="w-full object-cover"
+        />
       </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
