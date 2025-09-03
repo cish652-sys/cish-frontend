@@ -23,14 +23,12 @@ export const FruitResearch: React.FC = () => {
         {fruitItems.map((fruit) => (
           <div key={fruit.id} className="flex flex-col items-center p-2 group ">
             <div className="border hover:shadow-md p-2 flex items-center justify-center w-24 h-24 group-hover:bg-green-50 group-hover:border-green-600">
-               <Image
+              <Image
                 src={fruit.icon}
                 alt={fruit.label}
                 width={50}
                 height={fruit.id === "avocado" ? 50 : 60}
-                className={`object-contain ${
-                  fruit.id === "avocado" ? "h-[50px] w-auto" : ""
-                }`}
+                className={`object-contain ${fruit.id === "avocado" ? "h-[50px] w-auto" : ""}`}
               />
             </div>
             <p className="mt-3 text-sm font-semibold uppercase text-gray-700 group-hover:text-green-700">

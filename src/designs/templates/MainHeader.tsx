@@ -19,7 +19,7 @@ export const MainHeader = () => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [banners.length]);
 
   return (
     <main className="w-full">

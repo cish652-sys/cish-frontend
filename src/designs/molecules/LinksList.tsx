@@ -18,7 +18,7 @@ export const LinksList: React.FC<{ links: LinkItem[] }> = ({ links }) => (
           rel="noopener noreferrer"
           className="font-bold text-gray-800 text-sm flex items-center hover:text-blue-600 hover:underline"
         >
-           {l.title}
+          {l.title}
         </a>
       </div>
     ))}
