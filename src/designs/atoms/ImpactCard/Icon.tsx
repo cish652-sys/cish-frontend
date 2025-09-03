@@ -8,7 +8,7 @@ interface IconProps {
 }
 
 const Icon: React.FC<IconProps> = ({ src, alt }) => {
-  return <Logo src={src} alt={alt} width={10} height={10} />;
+  return <Logo src={src} alt={alt} width={20} height={20} />;
 };
 
 export default Icon;

@@ -9,6 +9,7 @@ import local from "../public/images/localisation.svg";
 import accessibility from "../public/images/accessibility.svg";
 import label from "../public/images/mainlabelhindi.svg";
 import label2 from "../public/images/mainlabel.svg";
+import Typography from "../atoms/Typography";
 
 export const Header = () => {
   const scrollToDirectors = () => {
@@ -19,8 +20,7 @@ export const Header = () => {
   return (
     <header className="w-full border-b bg-white shadow-sm">
       <div className="container py-3">
-        {/* Desktop Layout (768px and above) */}
-        <div className="hidden md:flex flex-row items-center justify-between gap-4">
+        <div className="hidden [@media(min-width:769px)]:flex flex-row items-center justify-between gap-4">
           <div className="flex flex-row items-center gap-3">
             <div className="flex justify-start">
               <Logo src={cish} alt="CISH Logo" width={81} height={109} />
@@ -45,7 +45,6 @@ export const Header = () => {
               <button onClick={scrollToDirectors} aria-label="Scroll to Directors">
                 <Logo src={access} alt="Redirect to Directors" width={20} height={20} />
               </button>
-
               <Logo src={next} alt="Next" width={20} height={20} />
               <Logo src={local} alt="Location" width={20} height={20} />
               <Logo src={accessibility} alt="Accessibility" width={20} height={20} />
@@ -53,41 +52,72 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Layout (below 768px) */}
-        <div className="flex md:hidden flex-col gap-3">
-          {/* First Row: Main logo with headings (left) + Accessibility icons (right) */}
-          <div className="flex items-start justify-between">
-            {/* Left side: Main logo with headings (shrunk) */}
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <div className="flex justify-start">
-                <Logo src={cish} alt="CISH Logo" width={50} height={67} />
-              </div>
-
-              <div className="flex flex-col gap-0.5">
-                <Logo src={label} alt="Hindi Label" width={200} height={18} />
-                <Logo src={label2} alt="English Label" width={220} height={12} />
-              </div>
-            </div>
-
-            {/* Right side: Accessibility icons */}
-            <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="hidden [@media(width:768px)]:flex flex-col gap-3">
+          <div className="flex justify-end">
+            <div className="flex items-center gap-3 flex-wrap">
               <button onClick={scrollToDirectors} aria-label="Scroll to Directors">
-                <Logo src={access} alt="Redirect to Directors" width={18} height={18} />
+                <Logo src={access} alt="Redirect to Directors" width={20} height={20} />
               </button>
-
-              <Logo src={next} alt="Next" width={18} height={18} />
-              <Logo src={local} alt="Location" width={18} height={18} />
-              <Logo src={accessibility} alt="Accessibility" width={18} height={18} />
+              <Logo src={next} alt="Next" width={20} height={20} />
+              <Logo src={local} alt="Location" width={20} height={20} />
+              <Logo src={accessibility} alt="Accessibility" width={20} height={20} />
             </div>
           </div>
 
-          {/* Second Row: ICAR logo (center aligned) */}
-          <div className="flex justify-center">
-            <Logo src={icar} alt="ICAR Logo" width={50} height={67} />
-          </div>
+          <div className="flex flex-row items-center justify-between gap-4">
+            <div className="flex flex-row items-center gap-3">
+              <div className="flex justify-start">
+                <Logo src={cish} alt="CISH Logo" width={81} height={109} />
+              </div>
 
-          {/* Third Row: Search bar (full width) */}
-          <div className="w-full">
+              <div className="flex flex-col items-start gap-1">
+                <Logo src={label} alt="Hindi Label" width={456} height={42} />
+                <Logo src={label2} alt="English Label" width={612} height={33} />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-3">
+              <div className="w-56">
+                <SearchBar />
+              </div>
+
+              <div className="flex justify-center">
+                <Logo src={icar} alt="ICAR Logo" width={160} height={200} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex md:hidden flex-col gap-3 px-2">
+          <div className="flex items-start justify-between gap-2">
+            <div className="flex pt-[20px] flex-1 min-w-0">
+              <div className="flex flex-col justify-end flex-shrink-0">
+                <Logo src={cish} alt="CISH Logo" width={80} height={100} />
+              </div>
+              <div className="flex flex-col ml-2 flex-1 min-w-0">
+                <div className="text-container">
+                  <h1 className="font-semibold text-sm leading-tight break-words hyphens-auto">
+                    भा.कृ.अनु.प.-केन्द्रीय उपोष्ण बागवानी सस्थान
+                  </h1>
+                  <h1 className="font-semibold text-xs leading-tight break-words hyphens-auto mt-1">
+                    ICAR-CENTRAL INSTITUTE OF SUBTROPICAL HORTICULTURE
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 flex-shrink-0 pt-[20px]">
+              <button onClick={scrollToDirectors} aria-label="Scroll to Directors">
+                <Logo src={access} alt="Redirect to Directors" width={16} height={16} />
+              </button>
+              <Logo src={next} alt="Next" width={16} height={16} />
+              <Logo src={local} alt="Location" width={16} height={16} />
+              <Logo src={accessibility} alt="Accessibility" width={16} height={16} />
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <Logo src={icar} alt="ICAR Logo" width={45} height={60} />
+          </div>
+          <div className="w-full px-1">
             <SearchBar />
           </div>
         </div>

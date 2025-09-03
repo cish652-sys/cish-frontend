@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Typography from "../atoms/Typography";
 import Image from "next/image";
 
 const fruitItems = [
@@ -16,10 +15,10 @@ const fruitItems = [
 export const FruitResearch: React.FC = () => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-12 text-center container">
-      <Typography variant="headingLarge">
-        We are pioneers in subtropical fruit research spanning from climate <br /> resilient
-        varieties to value chain research.
-      </Typography>
+      <p className="text-[#1B5E20] text-[25px] font-bold">
+        WE ARE PIONEERS IN SUBTROPICAL FRUIT RESEARCH SPANNING FROM CLIMATE <br /> RESILIENT
+        VARIETIES TO VALUE CHAIN RESEARCH.
+      </p>
       <div className="flex flex-wrap justify-center gap-15 mt-6">
         {fruitItems.map((fruit) => (
           <div key={fruit.id} className="flex flex-col items-center p-2 group ">
