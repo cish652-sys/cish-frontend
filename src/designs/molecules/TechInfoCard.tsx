@@ -48,13 +48,11 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
           </Typography>
         )}
 
-        <ul className="list-disc list-outside pl-5">
+        <ul className="list-disc list-outside">
           {description.map((line, idx) => (
-            <li key={idx} className="leading-snug">
-              <Typography variant="labelSmall" className="inline">
-                {line}
-              </Typography>
-            </li>
+            <Typography key={idx} variant="labelSmall">
+              {line}
+            </Typography>
           ))}
         </ul>
       </CardContent>

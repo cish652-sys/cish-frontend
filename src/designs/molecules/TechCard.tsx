@@ -41,7 +41,7 @@ const TechCard: React.FC<TechCardProps> = ({ title, description, image }) => {
 
         {/* Button hamesha bottom me chipka rahega */}
         <div className="mt-auto pt-4">
-          <ButtonLink label="SEE MORE" />
+          <ButtonLink label="VIEW MORE" />
         </div>
       </div>
     </div>
