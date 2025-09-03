@@ -21,7 +21,7 @@ const impacts = [
     text: "Life on land",
   },
   {
-    icon: "/icons/E_SDG_Icons-12-removebg-preview 1.svg",
+    icon: "/icons/E_SDG_Icons-12-removebg-preview 2.svg",
     number: "12",
     text: " Sustainable production and consumption.",
   },

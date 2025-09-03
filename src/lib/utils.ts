@@ -57,7 +57,7 @@ export const rearchData = [
 ];
 export const technoItems = [
   {
-    title: "ICAR-FUSICON",
+    title: "ICAR-FUSICONT",
     description: [
       "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
       "This Technology Utilizes A Novel Strain Of The Fungus Trichoderma Reesei (CSR-T-3) Cultivated In A Proprietary Medium. The Bio-Fungicide Has Shown Promising Results In Controlling The Disease, Reducing Production Losses, And Improving Yields",
@@ -78,8 +78,7 @@ export const technoItems = [
   {
     title: "CISH-METWASH",
     description: [
-      "CISH-Metwash Is An Anti-Senescence, Antifungal Bioactive Secondary Metabolite-Based Bio-Stimulant (Strain CSR M44 + Biopolymer + Adjuvants) Developed For Increasing The Shelf Life Of Mango 40-44 Day And Banana 50-52 Days At 13 °C And 85% Humidity In Reefer Container Used For Export Through Sea Route.",
-      "It Is Breakthrough Technology That Stands Distinct From The Regular Ethylene Absorbers Where The Maximum Reported Shelf Life In Mango 10 Days And Banana 15 Days.",
+      "CISH-Metwash is an anti-senescence, antifungal bioactive secondary metabolite-based bio-stimulant (strain CSR M44 + Biopolymer +adjuvants) developed for increasing the shelf life of mango 40-44 day and banana 50-52 days at 13 °C and 85% humidity in reefer container used for export through sea route. ]It is breakthrough technology that stands distinct from the regular ethylene absorbers where the maximum reported shelf life in mango 10 days and banana 15 days."
     ],
     href: "/tech/aonla",
     image: "/icons/Rectangle 780.svg",
@@ -88,30 +87,38 @@ export const technoItems = [
 
 export const varietiesItem = [
   {
-    title: "awadh abhaya",
+    title: "Awadh Abhaya",
     description: [
-      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
+      "Hybrid is regular bearer and very late maturing type. Fruit size is medium to large, and light yellow colour with red blush on peel. Fruits have strong stalk attachment. Fruit weigh about 300-400 g, pulp light yellow, very firm in texture, pulp about 80.76%, TSS 25.4°B. The hybrid has potential for both domestic and export markets because of firm texture and long shelf life.",
     ],
     href: "/tech/solanaceous",
     image: "/icons/Awadh Mango.svg",
   },
   {
-    title: "CISH ambika",
+    title: "CISH Ambika",
     description: [
-      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
+      "Mango hybrid Ambika is developed by crossing between Amrapali x Janardan Pasand.",
+      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
+      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
+      "Fruits weighs about 300–350 g, TSS is 21°B and rich in mangiferin content.",
     ],
     href: "/tech/leafy",
     image: "/icons/Ambika Mango.svg",
   },
   {
-    title: "CISH arunika",
+    title: "CISH Arunika",
     description: [
-      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc. CISH-Bioenhancer is CISH-Bioenhancer is a consortium of beneficial bacteria",
+      "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.",
+      "Dwarf, regular bearer, late in maturity, attractive fruit colour with excellent shelf-life.",
+      "Fruits are smooth, weighs about 190–210 g.",
+      "TSS 24.6°B, rich in mangiferin and β-carotene.",
+      "The hybrid has potential for both internal and export markets.",
     ],
     href: "/tech/aonla",
     image: "/icons/Arunika Mango.svg",
   },
 ];
+
 export const technologiesItems = [
   {
     id: "1",
@@ -207,15 +214,15 @@ export const technologiesVarietiesItems = [
     title: "CISH Lalit",
     image: "/icons/Lalit.svg",
     description: [
-      "In-vitro bio-induction of host plant tolerance is a first kind of its approach in tissue culture towards production of wilt tolerant disease free planting material.",
+      "CISH- Lalit is a superior seedling selection from Apple guava."
     ],
   },
   {
     id: "2",
     title: "CISH Shweta",
-    image: "/icons/Lalima.svg",
+    image: "/icons/Rectangle 739 (2).svg",
     description: [
-      "CISH-Bioenhancer is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, beejamrita, amritpanivermiwash etc.",
+      "CISH-Sweta is a one of the high yielding varieties, about 90 kg / plant at the age of 6 years."
     ],
   },
   {
@@ -223,15 +230,15 @@ export const technologiesVarietiesItems = [
     title: "CISH Dhawal",
     image: "/icons/Dhawal.svg",
     description: [
-      "ICAR- FUSICONT is a bio-pesticide for effective management of Panama Wilt (TR4) disease affecting Cavendish bananas causing production losses of more than 60 percent.",
+      "CISH-Dhawal has an average yield of 38.4 t/ha which is more than the double of national average of 15.6t/ha (2021-22) and more than CISH Lalima."
     ],
   },
   {
     id: "4",
-    title: "CISH Lalima",
-    image: "/icons/Lalima.svg",
+    title: "Awadh Samriddhi",
+    image: "/icons/Rectangle 743 (1).svg",
     description: [
-      "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.Dwarf, regular bearer, late in maturity, attractive fruit colour with excellent shelf-life.",
+      "Hybrid is regular bearer and late maturing type. Pulp dark yellow, firm pulp with scanty fibre, pulp about 71.8%, TSS 21.6°B. The hybrid has potential for both internal and export markets because of its attractive red fruit colour."
     ],
   },
 ];
@@ -252,7 +259,7 @@ export const varitiesTechnologies = [
     description: "",
     date: "",
   },
-  { title: "ICAR-FUSICON", description: "", date: "" },
+  { title: "ICAR-FUSICONT", description: "", date: "" },
   {
     title: "CISH-BIOENHANCER",
     description: "",
@@ -260,7 +267,7 @@ export const varitiesTechnologies = [
   },
   { title: "CISH-BIOZAPPER", description: "", date: "" },
   {
-    title: "ICAR-FUSICON",
+    title: "ICAR-FUSICONT",
     description: "",
     date: "",
   },
@@ -278,9 +285,8 @@ export const varitiesTechnologies = [
   },
   { title: "CISH Metwash", description: "", date: "" },
   {
-    title: "ICAR-FUSICON",
+    title: "ICAR-FUSICONT",
     description: "",
     date: "",
   },
 ];
-

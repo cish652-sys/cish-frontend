@@ -27,7 +27,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, 
     ${highlight ? "bg-green-50 shadow-md" : "bg-white"} ${hoverColors[index ?? 0]}`}
     >
       {/* Number + Text (Top aligned on same vertical line) */}
-      <div className="flex  items-baseline gap-1 text-left w-full ml-4">
+      <div className="flex items-baseline justify-center gap-1 text-left w-full ml-4 pr-5 ">
         <Typography variant="contentTitle" className="leading-tight">
           {number}
         </Typography>
@@ -38,7 +38,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ icon, number, text, highlight, 
 
       {/* Icon (Bottom Part) */}
       <div className="flex items-center justify-center mt-2">
-        <Image src={icon} alt="image" width={40} height={40} />
+        <Image src={icon} alt="image" width={48} height={48} />
       </div>
     </Card>
   );
