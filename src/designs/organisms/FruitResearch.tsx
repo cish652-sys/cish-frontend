@@ -3,13 +3,13 @@ import React from "react";
 import Image from "next/image";
 
 const fruitItems = [
-  { id: "mango", label: "Mango", icon: "/icons/Mango.svg" },
+  { id: "mango", label: "Mango", icon: "/icons/mangonew.svg" },
   { id: "guava", label: "Guava", icon: "/icons/guava.svg" },
-  { id: "wood-apple", label: "Bail", icon: "/icons/Apple.svg" },
-  { id: "black-plum", label: "Jamun", icon: "/icons/Plum.svg" },
-  { id: "gooseberry", label: "Indian Gooseberry", icon: "/icons/Gooseberry.svg" },
-  { id: "banana", label: "Banana", icon: "/icons/Banana.svg" },
-  { id: "avocado", label: "Avacardo", icon: "/icons/Avacardo.svg" },
+  { id: "wood-apple", label: "Bail", icon: "/icons/baelnew.svg" },
+  { id: "black-plum", label: "Jamun", icon: "/icons/cherrynew.svg" },
+  { id: "gooseberry", label: "Indian Gooseberry", icon: "/icons/onion.svg" },
+  { id: "banana", label: "Banana", icon: "/icons/banananew.svg" },
+  { id: "avocado", label: "Avocado", icon: "/icons/avocadonew.svg" },
 ];
 
 export const FruitResearch: React.FC = () => {
@@ -26,9 +26,9 @@ export const FruitResearch: React.FC = () => {
               <Image
                 src={fruit.icon}
                 alt={fruit.label}
-                width={78}
-                height={78}
-                className="object-contain"
+                width={50}
+                height={fruit.id === "avocado" ? 50 : 60}
+                className={`object-contain ${fruit.id === "avocado" ? "h-[50px] w-auto" : ""}`}
               />
             </div>
             <p className="mt-3 text-sm font-semibold uppercase text-gray-700 group-hover:text-green-700">

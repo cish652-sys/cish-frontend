@@ -1,7 +1,7 @@
 "use client";
 import { Logo } from "../atoms/Logo";
 import { SearchBar } from "../atoms/SearchBar";
-import cish from "../public/images/cish 1.svg";
+import cish from "../public/images/images (2) 2.svg";
 import icar from "../public/images/icar 2.svg";
 import access from "../public/images/uil_file-download-alt.svg";
 import next from "../public/images/nextpage.svg";

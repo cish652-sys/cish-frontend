@@ -49,6 +49,7 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
         )}
 
         <ul className="list-disc list-outside">
+        <ul className="list-disc list-outside">
           {description.map((line, idx) => (
             <Typography variant="labelSmall" key={idx}>{line}</Typography>
           ))}

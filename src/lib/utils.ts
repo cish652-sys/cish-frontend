@@ -7,13 +7,6 @@ export function cn(...inputs: ClassValue[]) {
 
 export const eventsData = [
   {
-    image: "/icons/Event 1.svg",
-    date: "May 15, 2025",
-    title: "Krishi Darshan Chaupal on common topic",
-    description:
-      "The 6th Krishi Darshan Chaupal on Mango topic was organized on 25th April 2025 at Central Institute for Subtropical Horticulture......",
-  },
-  {
     image: "/icons/Event 2.svg",
     date: "June 10, 2025",
     title: "Independence Day",
@@ -26,6 +19,14 @@ export const eventsData = [
     title: "lucknow aam mahotsav",
     description:
       "Scientists at ICAR have developed a new crop variety that can withstand prolonged drought conditions.ICAR-CISH Rehmankhera, Kakori, Lucknow has participated in Uttar Pradesh Aam Mahotsav 2025 and exhibited >300 mango varieties and hybrids......",
+  },
+
+  {
+    image: "/icons/Event 1.svg",
+    date: "May 15, 2025",
+    title: "Krishi Darshan Chaupal on common topic",
+    description:
+      "The 6th Krishi Darshan Chaupal on Mango topic was organized on 25th April 2025 at Central Institute for Subtropical Horticulture......",
   },
 ];
 
@@ -204,7 +205,7 @@ export const technologiesItems = [
     id: "11",
     title:
       "TECHNOLOGY FOR MASS MULTIPLICATION OF WILT TOLERANT GUAVA ROOTSTOCK (PSIDIUM MOLLE × PSIDIUM GUAJAVA)",
-    image: "/icons/Rectangle 889.svg",
+    image: "/icons/Rectangle 889 (1).svg",
     description: [""],
   },
 ];
