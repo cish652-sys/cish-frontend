@@ -2,8 +2,13 @@
 import React from "react";
 import HeadingAtom from "../atoms/HeadingDirectorsDesk";
 
-const DirectorHeader: React.FC = () => {
-  return <HeadingAtom className="py-8">FROM DIRECTOR&apos;S DESK</HeadingAtom>;
+export interface DirectorHeaderProps {
+  heading: string;
+  className?: string;
+}
+
+const DirectorHeader: React.FC<DirectorHeaderProps> = ({ heading, className = "" }) => {
+  return <HeadingAtom className={`py-8 ${className}`}>{heading}</HeadingAtom>;
 };
 
 export default DirectorHeader;

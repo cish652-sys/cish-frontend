@@ -2,9 +2,9 @@
 const routes: Record<string, string> = {
   // routes.ts
   HOME: "/",
-  "ABOUT US": "/", // fallback to home
-  RESEARCH: "/", // fallback to home
-  PUBLICATIONS: "/", // fallback to home
+  "ABOUT US": "/",
+  RESEARCH: "/",
+  PUBLICATIONS: "/",
   TECHNOLOGIES: "/technologies",
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
@@ -15,14 +15,14 @@ const routes: Record<string, string> = {
   "About Institute": "/about/institute",
   "Field Gene Bank": "/about/field-gene-bank",
   Divisions: "/about/divisions",
-  PME: "/about/pme",
+  PME: "/staffs",
   "ITMu/JPR Cells": "/about/itmu-jpr",
   "Agri Business Incubation Center (ABI)": "/about/abi",
   AKMU: "/about/akmu",
   "Regional Research Station": "/about/regional-research-station",
   "Krishi Vigyan Kendra": "/about/kvk",
   "Cadres Strength": "/about/cadres-strength",
-  Staff: "/about/staff",
+  Staff: "/staff",
   "Citizen Charter": "/about/citizen-charter",
 
   // RESEARCH dropdown

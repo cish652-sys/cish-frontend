@@ -1,10 +1,8 @@
-// src/components/molecules/TechInfoCard.tsx
 "use client";
 
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader } from "../atoms/card";
 import Typography from "../atoms/Typography";
-import ButtonLink from "../atoms/ButtonLink";
 
 interface TechInfoCardProps {
   title: string;
@@ -18,11 +16,11 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
   title,
   description,
   image,
+  onViewMore,
   showHeading,
 }) => {
   return (
     <Card className="flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden">
-      {/* Image */}
       <CardHeader className="p-2 bg-gray-100 flex items-center justify-center">
         {image ? (
           <Image
@@ -39,7 +37,6 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
         )}
       </CardHeader>
 
-      {/* Content */}
       <CardContent className="p-2 flex flex-col flex-1">
         <Typography variant="contentTitle">{title}</Typography>
         {!showHeading && (
@@ -57,9 +54,13 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
         </ul>
       </CardContent>
 
-      {/* Footer */}
       <CardFooter className="p-4 flex justify-end mt-auto">
-        <ButtonLink label="VIEW MORE" />
+        <button
+          onClick={onViewMore} // <-- now it works
+          className="text-green-700 hover:text-green-800 font-semibold"
+        >
+          VIEW MORE →
+        </button>
       </CardFooter>
     </Card>
   );

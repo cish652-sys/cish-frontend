@@ -5,6 +5,59 @@ import Link from "next/link";
 import { NavLink } from "@/designs/atoms/Navbar/Navlink";
 import { DropdownMenu } from "@/designs/molecules/Navbar/DropdownMenu";
 
+// Routes configuration
+const routes: Record<string, string> = {
+  // Main routes
+  HOME: "/",
+  "ABOUT US": "/",
+  RESEARCH: "/",
+  PUBLICATIONS: "/",
+  TECHNOLOGIES: "/staff",
+  VARIETIES: "/varieties",
+  "FOR FARMERS": "/",
+  NURSERY: "/",
+  MEDIA: "/",
+  "CONTACT US": "/",
+
+  // ABOUT US dropdown
+  Institute: "/about/institute",
+  "Field Gene Bank": "/about/field-gene-bank",
+  Divisions: "/about/divisions",
+  PME: "/staffs",
+  "ITMu/IPR Cells": "/about/itmu-jpr",
+  "Agri Business Incubation Center": "/about/abi",
+  AKMU: "/about/akmu",
+  "Regional Research Station": "/about/regional-research-station",
+  "Krishi Vigyan Kendra": "/about/kvk",
+  "Cadres Strength": "/about/cadres-strength",
+  Staff: "/staff", // This will now work properly
+  "Citizen Charter": "/about/citizen-charter",
+
+  // RESEARCH dropdown
+  "Institute Funded Project": "/research/institute-funded",
+  "Externally Funded Projects": "/research/external-funded",
+  Collaborations: "/research/collaborations",
+
+  // PUBLICATIONS dropdown
+  "Annual Reports": "/publications/annual-reports",
+  "Research Publications": "/publications/research",
+  "Newsletter (Subscription)": "/publications/newsletter",
+  "Udyan Rashmi (Subscription)": "/publications/udyan-rashmi",
+  "CISH Publications (Paid & Free)": "/publications/cish",
+  "Vision 2050": "/publications/vision-2050",
+
+  // VARIETIES dropdown
+  "Climate Resilient": "/varieties/climate-resilient",
+  "Nutraceutical Rich": "/varieties/nutraceutical-rich",
+
+  // FOR FARMERS dropdown
+  "Agro Advisory": "/farmers/agro-advisory",
+  "National Farmer Portal (NFP)": "/farmers/nfp",
+  "Plant Bookings": "/farmers/plant-bookings",
+  "Success Stories (of Farmers)": "/farmers/success-stories",
+  "Farmer Friendly Technologies": "/farmers/technologies",
+};
+
 interface NavItem {
   label: string;
   dropdownItems?: string[];
@@ -48,7 +101,7 @@ const ResponsiveNavbar: React.FC = () => {
         "Newsletter (Subscription)",
         "Udyan Rashmi (Subscription)",
         "CISH Publications (Paid & Free)",
-        "Vision 2050 ",
+        "Vision 2050",
       ],
     },
     { label: "TECHNOLOGIES" },
@@ -114,9 +167,43 @@ const ResponsiveNavbar: React.FC = () => {
   };
 
   const handleMobileSubItemClick = (item: string) => {
-    console.log(`Clicked: ${item}`);
+    console.log(`Navigating to: ${item} -> ${routes[item]}`);
     setIsMobileMenuOpen(false);
     setExpandedMobileItem("");
+    // The Link component will handle the actual navigation
+  };
+
+  const EnhancedDropdownMenu: React.FC<{
+    items: string[];
+    isVisible: boolean;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
+  }> = ({ items, isVisible, onMouseEnter, onMouseLeave }) => {
+    if (!isVisible) return null;
+
+    return (
+      <div
+        className="absolute top-full left-0 mt-1 w-64 bg-black/60  border border-white/10 shadow-lg z-50"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <div className="py-1">
+          {items.map((item) => (
+            <Link
+              key={item}
+              href={routes[item] || "#"}
+              className="block px-4 py-2 text-sm text-white/90 hover:bg-[#67B96D] hover:text-white transition-colors duration-150"
+              onClick={() => {
+                console.log(`Desktop navigation: ${item} -> ${routes[item]}`);
+                setHoveredItem("");
+              }}
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -128,11 +215,17 @@ const ResponsiveNavbar: React.FC = () => {
             const isHovered = hoveredItem === item.label;
             const isActive = activeItem === item.label;
 
-            if (item.label === "TECHNOLOGIES" || item.label === "VARIETIES") {
+            if (
+              item.label === "TECHNOLOGIES" ||
+              item.label === "NURSERY" ||
+              item.label === "MEDIA" ||
+              item.label === "CONTACT US" ||
+              item.label === "HOME"
+            ) {
               return (
                 <Link
                   key={item.label}
-                  href={`/${item.label.toLowerCase()}`}
+                  href={routes[item.label] || "#"}
                   onClick={() => setActiveItem(item.label)}
                 >
                   <NavLink
@@ -148,7 +241,6 @@ const ResponsiveNavbar: React.FC = () => {
               );
             }
 
-            // Default items
             return (
               <div key={item.label} className="relative">
                 <NavLink
@@ -163,7 +255,7 @@ const ResponsiveNavbar: React.FC = () => {
                 </NavLink>
 
                 {hasDropdown && item.dropdownItems && (
-                  <DropdownMenu
+                  <EnhancedDropdownMenu
                     items={item.dropdownItems}
                     isVisible={isHovered}
                     onMouseEnter={handleDropdownEnter}
@@ -175,7 +267,7 @@ const ResponsiveNavbar: React.FC = () => {
           })}
         </div>
 
-        {/* ✅ Mobile nav toggle */}
+        {/* Mobile nav toggle */}
         <div className="lg:hidden overflow-y-auto flex items-center justify-between h-16">
           <button
             onClick={toggleMobileMenu}
@@ -207,7 +299,7 @@ const ResponsiveNavbar: React.FC = () => {
           </button>
         </div>
 
-        {/* ✅ Mobile dropdown */}
+        {/* Mobile dropdown */}
         <div
           className={`
             lg:hidden transition-all duration-300 ease-in-out
@@ -220,13 +312,22 @@ const ResponsiveNavbar: React.FC = () => {
               const isExpanded = expandedMobileItem === item.label;
               const isActive = activeItem === item.label;
 
-              // ✅ TECHNOLOGIES + VARIETIES as links
-              if (item.label === "TECHNOLOGIES" || item.label === "VARIETIES") {
+              // Single page items as links
+              if (
+                item.label === "TECHNOLOGIES" ||
+                item.label === "NURSERY" ||
+                item.label === "MEDIA" ||
+                item.label === "CONTACT US" ||
+                item.label === "HOME"
+              ) {
                 return (
                   <Link
                     key={item.label}
-                    href={`/${item.label.toLowerCase()}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    href={routes[item.label] || "#"}
+                    onClick={() => {
+                      setActiveItem(item.label);
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     <div
                       className={`
@@ -240,7 +341,7 @@ const ResponsiveNavbar: React.FC = () => {
                 );
               }
 
-              // Default
+              // Items with dropdowns
               return (
                 <div key={item.label} className="border-b border-gray-200 last:border-b-0">
                   <div
@@ -281,13 +382,15 @@ const ResponsiveNavbar: React.FC = () => {
                     >
                       <div className="bg-white/50 max-h-[300px] overflow-y-auto">
                         {item.dropdownItems.map((subItem) => (
-                          <div
+                          <Link
                             key={subItem}
-                            className="pl-8 pr-4 py-3 text-sm text-gray-600 hover:bg-[#67B96D] hover:text-white cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0"
+                            href={routes[subItem] || "#"}
                             onClick={() => handleMobileSubItemClick(subItem)}
                           >
-                            {subItem}
-                          </div>
+                            <div className="pl-8 pr-4 py-3 text-sm text-gray-600 hover:bg-[#67B96D] hover:text-white cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0">
+                              {subItem}
+                            </div>
+                          </Link>
                         ))}
                       </div>
                     </div>

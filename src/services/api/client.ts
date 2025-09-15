@@ -134,14 +134,17 @@ class ApiClient {
   }
 
   // Convenience methods with proper typing
-  get<T = unknown>(endpoint: string, options: Omit<RequestConfig, 'body'> = {}): Promise<ApiResponse<T>> {
+  get<T = unknown>(
+    endpoint: string,
+    options: Omit<RequestConfig, "body"> = {}
+  ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, { ...options, method: "GET" });
   }
 
   post<T = unknown>(
     endpoint: string,
     body?: Record<string, unknown> | FormData | string | Blob | URLSearchParams,
-    options: Omit<RequestConfig, 'body' | 'method'> = {}
+    options: Omit<RequestConfig, "body" | "method"> = {}
   ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, { ...options, method: "POST", body });
   }
@@ -149,7 +152,7 @@ class ApiClient {
   put<T = unknown>(
     endpoint: string,
     body?: Record<string, unknown> | FormData | string | Blob | URLSearchParams,
-    options: Omit<RequestConfig, 'body' | 'method'> = {}
+    options: Omit<RequestConfig, "body" | "method"> = {}
   ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, { ...options, method: "PUT", body });
   }
@@ -157,12 +160,15 @@ class ApiClient {
   patch<T = unknown>(
     endpoint: string,
     body?: Record<string, unknown> | FormData | string | Blob | URLSearchParams,
-    options: Omit<RequestConfig, 'body' | 'method'> = {}
+    options: Omit<RequestConfig, "body" | "method"> = {}
   ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, { ...options, method: "PATCH", body });
   }
 
-  delete<T = unknown>(endpoint: string, options: Omit<RequestConfig, 'body'> = {}): Promise<ApiResponse<T>> {
+  delete<T = unknown>(
+    endpoint: string,
+    options: Omit<RequestConfig, "body"> = {}
+  ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, { ...options, method: "DELETE" });
   }
 }

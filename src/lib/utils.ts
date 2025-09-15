@@ -289,3 +289,149 @@ export const varitiesTechnologies = [
     date: "",
   },
 ];
+
+export const staffData = [
+  {
+    id: "crop-improvement",
+    title: "DIVISION OF CROP IMPROVEMENT",
+    description: [""],
+    image: "/icons/Staff1.svg",
+  },
+  {
+    id: "division-crop-improvement",
+    title: "DIVISION OF CROP PRODUCTION",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "division-technology",
+    title: "DIVISION OF CROP PROTECTION",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "division-extension",
+    title: "DIVISION OF POST HARVEST MANAGEMENT",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "division-technology",
+    title: "ICAR-CISH R R S, Malda (West Bengal)",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "division-technology",
+    title: "ICAR-CISH K V K, Malda (West Bengal)",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "division-technology",
+    title: "ADMINISTRATIVE",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "division-technology",
+    title: "FINANCE & ACCOUNTS",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "division-technology",
+    title: "TECHNICAL STAFF",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+];
+export const scientificStaffData = [
+  {
+    id: "crop-improvement",
+    title: "DIVISION OF CROP IMPROVEMENT",
+    description: [""],
+    image: "/icons/Staff1.svg",
+  },
+  {
+    id: "crop-production",
+    title: "DIVISION OF CROP PRODUCTION",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "crop-protection",
+    title: "DIVISION OF CROP PROTECTION",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "post-harvest",
+    title: "DIVISION OF POST HARVEST MANAGEMENT",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+];
+
+export const technicalStaffData = [
+  {
+    id: "tech-1",
+    title: "SENIOR TECHNICAL OFFICER - LAB",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "tech-2",
+    title: "TECHNICAL ASSISTANT - FIELD",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "tech-3",
+    title: "LABORATORY TECHNICIAN",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+];
+
+export const skilledSupportingStaffData = [
+  {
+    id: "support-1",
+    title: "FARM SUPERVISOR",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "support-2",
+    title: "GREENHOUSE MANAGER",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "support-3",
+    title: "EQUIPMENT OPERATOR",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+];
+
+export const administrativeStaffData = [
+  {
+    id: "admin-1",
+    title: "ADMINISTRATIVE OFFICER",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "admin-2",
+    title: "FINANCE & ACCOUNTS OFFICER",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "admin-3",
+    title: "HUMAN RESOURCES COORDINATOR",
+    description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+];
