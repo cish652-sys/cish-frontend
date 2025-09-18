@@ -22,6 +22,8 @@ export const MainHeader = () => {
     return () => clearInterval(interval);
   }, [banners.length]);
 
+  
+
   return (
     <main className="w-full">
       <Header />
