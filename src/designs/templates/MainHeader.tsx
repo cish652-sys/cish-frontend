@@ -9,9 +9,10 @@ import banner1 from "../public/images/banner1.svg";
 import banner2 from "../public/images/banner2.svg";
 import banner3 from "../public/images/banner3.svg";
 import banner4 from "../public/images/banner4.svg";
+import banner5 from "../public/images/banner5.jpg";
 
 export const MainHeader = () => {
-  const banners = [banner1, banner2, banner3, banner4];
+  const banners = [banner1, banner2, banner3, banner4, banner5];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
