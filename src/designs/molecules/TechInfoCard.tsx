@@ -10,6 +10,7 @@ interface TechInfoCardProps {
   image?: string;
   onViewMore?: () => void;
   showHeading: boolean;
+  showTechnologyDetails?: boolean;
 }
 
 export const TechInfoCard: React.FC<TechInfoCardProps> = ({
@@ -18,6 +19,7 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
   image,
   onViewMore,
   showHeading,
+  showTechnologyDetails = false,
 }) => {
   return (
     <Card className="flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden">
@@ -39,19 +41,20 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
 
       <CardContent className="p-2 flex flex-col flex-1">
         <Typography variant="contentTitle">{title}</Typography>
-        {!showHeading && (
+        {!showHeading && showTechnologyDetails && (
           <Typography variant="badgeStyle" className="mt-2">
             Technology Details:
           </Typography>
         )}
-
-        <ul className="list-disc list-outside">
-          {description.map((line, idx) => (
-            <Typography key={idx} variant="labelSmall">
-              {line}
-            </Typography>
-          ))}
-        </ul>
+        {showTechnologyDetails && (
+          <ul className="list-disc list-outside">
+            {description.map((line, idx) => (
+              <Typography key={idx} variant="labelSmall">
+                {line}
+              </Typography>
+            ))}
+          </ul>
+        )}
       </CardContent>
 
       <CardFooter className="p-4 flex justify-end mt-auto">

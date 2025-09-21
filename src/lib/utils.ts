@@ -292,60 +292,131 @@ export const varitiesTechnologies = [
 
 export const staffData = [
   {
-    id: "crop-improvement",
+    id: "crop-improvement", // This ID was correct
     title: "DIVISION OF CROP IMPROVEMENT",
-    description: [""],
+    headName: "DR SMT ANJU BAJPAI",
+    headTitle: "HEAD & PRINCIPAL SCIENTIST",
+    publications: [""],
+    description: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/Staff1.svg",
   },
   {
-    id: "division-crop-improvement",
+    id: "crop-production", // <-- CORRECTED ID (was "division-crop-improvement")
     title: "DIVISION OF CROP PRODUCTION",
-    description: [""],
+    headName: "DR KUNDAN KISHORE",
+    headTitle: "HEAD & PRINCIPAL SCIENTIST",
+    description: [
+      "The Division of Crop Production is dedicated to standardizing agro-techniques for sustainable and profitable cultivation of subtropical fruits. Under the leadership of Dr. Tarun Adak, Principal Scientist, the division develops comprehensive production technologies including planting systems, nutrition management, irrigation scheduling, and canopy management. The team works on precision farming, soil health management, and climate-resilient cultivation practices. Key contributions include development of high-density planting systems, fertigation protocols, and integrated nutrient management practices that have significantly improved productivity and quality of subtropical fruits.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "division-technology",
+    id: "crop-protection", // <-- CORRECTED ID (was "division-technology")
     title: "DIVISION OF CROP PROTECTION",
-    description: [""],
+    headName: "DR DEEPAK SINGH",
+    headTitle: "HEAD & PRINCIPAL SCIENTIST",
+    description: [
+      "The Division of Crop Protection, headed by Dr. Anil Kumar Singh, Principal Scientist, focuses on developing eco-friendly and sustainable pest management strategies for subtropical fruit crops. The division conducts research on integrated pest management (IPM), biological control, disease forecasting, and pesticide residue analysis. Major research areas include development of biopesticides, pheromone traps, biocontrol agents, and resistant varieties. The division has successfully developed several innovative solutions including CISH-Glue Traps, biological control programs for major pests, and disease management protocols that have reduced chemical pesticide dependency by 40-50% in horticultural crops.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "division-extension",
+    id: "post-harvest", // <-- CORRECTED ID (was "division-extension")
     title: "DIVISION OF POST HARVEST MANAGEMENT",
-    description: [""],
+    headName: "DR AKATH SINGH",
+    headTitle: "HEAD & PRINCIPAL SCIENTIST",
+    description: [
+      "The Division of Post Harvest Management, led by Dr. Manoj Kumar Mahawar, Principal Scientist, specializes in developing technologies for reducing post-harvest losses, value addition, and processing of subtropical fruits. The division works on innovative packaging, storage technologies, minimal processing, and product development. Notable achievements include development of CISH-Metwash for extending shelf life, various processed products, packaging technologies, and cold chain management systems. The division's technologies have helped in reducing post-harvest losses from 25-30% to less than 10% and have facilitated export of fresh fruits to international markets.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "division-technology",
+    id: "rrs-malda", // <-- CORRECTED ID (was "division-technology")
     title: "ICAR-CISH R R S, Malda (West Bengal)",
-    description: [""],
+    headName: "DR DIPAK NAYAK",
+    headTitle: "SENIOR SCIENTIST & INCHARGE RRS",
+    description: [
+      "The Regional Research Station at Malda, West Bengal, conducts location-specific research for the eastern region of India. The station focuses on varietal evaluation, production technology development, and technology transfer activities suitable for the agro-climatic conditions of eastern India.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "division-technology",
+    id: "kvk-malda", // <-- CORRECTED ID (was "division-technology")
     title: "ICAR-CISH K V K, Malda (West Bengal)",
-    description: [""],
+    headName: "DR DK RAGHAV",
+    headTitle: "SENIOR SCIENTIST CUM HEAD KVK",
+    description: [
+      "The Krishi Vigyan Kendra at Malda serves as the extension arm of ICAR-CISH, conducting front-line demonstrations, training programs for farmers, and technology dissemination activities in the eastern region.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "division-technology",
+    id: "administrative", // <-- CORRECTED ID (was "division-technology")
     title: "ADMINISTRATIVE",
-    description: [""],
+    description: [
+      "The Administrative section handles all administrative functions of the institute including personnel management, finance, procurement, and general administration to support smooth functioning of research activities.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "division-technology",
+    id: "finance-accounts", // <-- CORRECTED ID (was "division-technology")
     title: "FINANCE & ACCOUNTS",
-    description: [""],
+    description: [
+      "The Finance & Accounts section manages financial planning, budget allocation, expenditure monitoring, and accounting procedures ensuring transparent and efficient utilization of research funds.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "division-technology",
+    id: "technical-staff-main", // <-- CORRECTED ID (was "division-technology")
     title: "TECHNICAL STAFF",
-    description: [""],
+    description: [
+      "Technical staff provide essential support to research activities through laboratory assistance, field operations, equipment maintenance, and data collection across all research divisions.",
+    ],
+    descriptions: [
+      "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+      "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+    ],
     image: "/icons/dummyStaff.svg",
   },
 ];
+
+// In lib/utils.ts
+
 export const scientificStaffData = [
   {
     id: "crop-improvement",
@@ -369,6 +440,18 @@ export const scientificStaffData = [
     id: "post-harvest",
     title: "DIVISION OF POST HARVEST MANAGEMENT",
     description: [""],
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "rrs-malda",
+    title: "ICAR-CISH R R S, Malda (West Bengal)",
+    description: [""], // You can leave description empty for the card view
+    image: "/icons/dummyStaff.svg",
+  },
+  {
+    id: "kvk-malda",
+    title: "ICAR-CISH K V K, Malda (West Bengal)",
+    description: [""], // You can leave description empty for the card view
     image: "/icons/dummyStaff.svg",
   },
 ];
@@ -435,3 +518,176 @@ export const administrativeStaffData = [
     image: "/icons/dummyStaff.svg",
   },
 ];
+
+export const divisionStaffData = {
+  "crop-improvement": [
+    {
+      id: "ci-staff-1",
+      title: "Dr. Devendra Pandey",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. Devendra Pandey",
+      designation: "Principal Scientist",
+      icarEmail: "devendra.panday@icar.gov.in",
+      altEmail: "devendracish@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-2",
+      title: "Dr. Anju Bajpai",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. Anju Bajpai",
+      designation: "Principal Scientist",
+      icarEmail: "anju.bajpai@icar.gov.in",
+      altEmail: "anju.bajpai@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-3",
+      title: "Dr. A.K. Singh",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. A.K. Singh",
+      designation: "Principal Scientist",
+      icarEmail: "a.k.singh@icar.gov.in",
+      altEmail: "a.k.singh@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-4",
+      title: "Dr. H. Ravishankar",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. H. Ravishankar",
+      designation: "Principal Scientist",
+      icarEmail: "h.ravishankar@icar.gov.in",
+      altEmail: "h.ravishankar@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-5",
+      title: "Dr. H. Ravishankar",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. H. Ravishankar",
+      designation: "Principal Scientist",
+      icarEmail: "h.ravishankar@icar.gov.in",
+      altEmail: "h.ravishankar@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-6",
+      title: "Dr. H. Ravishankar",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. H. Ravishankar",
+      designation: "Principal Scientist",
+      icarEmail: "h.ravishankar@icar.gov.in",
+      altEmail: "h.ravishankar@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-7",
+      title: "Dr. H. Ravishankar",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. H. Ravishankar",
+      designation: "Principal Scientist",
+      icarEmail: "h.ravishankar@icar.gov.in",
+      altEmail: "h.ravishankar@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-8",
+      title: "Dr. H. Ravishankar",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. H. Ravishankar",
+      designation: "Principal Scientist",
+      icarEmail: "h.ravishankar@icar.gov.in",
+      altEmail: "h.ravishankar@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-9",
+      title: "Dr. H. Ravishankar",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. H. Ravishankar",
+      designation: "Principal Scientist",
+      icarEmail: "h.ravishankar@icar.gov.in",
+      altEmail: "h.ravishankar@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    {
+      id: "ci-staff-10",
+      title: "Dr. H. Ravishankar",
+      description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
+      image: "/icons/dummyStaff.svg",
+      name: "Dr. H. Ravishankar",
+      designation: "Principal Scientist",
+      icarEmail: "h.ravishankar@icar.gov.in",
+      altEmail: "h.ravishankar@gmail.com",
+      specialization: "Fruit Science",
+      joiningDate: "2/17/1986",
+      mscInstitute: "Narendra Dev University of Agriculture & Technology, Kumarganj, Ayodhya",
+      phdInstitute: "Indian Agricultural Research Institute, Pusa, New Delhi",
+    },
+    // ... other staff
+  ],
+  "crop-production": [
+    {
+      id: "cp-staff-1",
+      title: "Dr. Principal Scientist - Agronomy",
+      description: ["Expert in subtropical fruit production systems and crop management."],
+      image: "/icons/dummyStaff.svg",
+    },
+    // ... other staff
+  ],
+  "crop-protection": [
+    {
+      id: "cpr-staff-1",
+      title: "Dr. Senior Scientist - Entomology",
+      description: ["Leading research on integrated pest management in horticultural crops."],
+      image: "/icons/dummyStaff.svg",
+    },
+    // ... other staff
+  ],
+  "post-harvest": [
+    {
+      id: "ph-staff-1",
+      title: "Dr. Principal Scientist - Food Technology",
+      description: ["Expert in post-harvest technology and value addition of fruits."],
+      image: "/icons/dummyStaff.svg",
+    },
+    // ... other staff
+  ],
+};

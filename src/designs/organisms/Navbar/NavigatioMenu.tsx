@@ -3,11 +3,8 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { NavLink } from "@/designs/atoms/Navbar/Navlink";
-import { DropdownMenu } from "@/designs/molecules/Navbar/DropdownMenu";
 
-// Routes configuration
 const routes: Record<string, string> = {
-  // Main routes
   HOME: "/",
   "ABOUT US": "/",
   RESEARCH: "/",
@@ -15,20 +12,20 @@ const routes: Record<string, string> = {
   TECHNOLOGIES: "/staff",
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
-  NURSERY: "/",
+  NURSERY: "https://cish.org.in/nursery_n.php",
   MEDIA: "/",
-  "CONTACT US": "/",
+  "CONTACT US": "https://cish.org.in/contact_us.php",
 
   // ABOUT US dropdown
-  Institute: "/about/institute",
+  Institute: "https://cish.org.in/introduction.php",
   "Field Gene Bank": "/about/field-gene-bank",
-  Divisions: "/about/divisions",
+  Divisions: "https://cish.org.in/division.php",
   PME: "/staffs",
-  "ITMu/IPR Cells": "/about/itmu-jpr",
-  "Agri Business Incubation Center": "/about/abi",
+  "ITMu/IPR Cells": "https://cish.org.in/itmu.php",
+  "Agri Business Incubation Center": "https://cish.org.in/abi_n.php",
   AKMU: "/about/akmu",
-  "Regional Research Station": "/about/regional-research-station",
-  "Krishi Vigyan Kendra": "/about/kvk",
+  "Regional Research Station": "https://cish.org.in/malda_n.php",
+  "Krishi Vigyan Kendra": "https://cish.org.in/krishi-portal.php",
   "Cadres Strength": "/about/cadres-strength",
   Staff: "/staff", // This will now work properly
   "Citizen Charter": "/about/citizen-charter",
@@ -36,25 +33,25 @@ const routes: Record<string, string> = {
   // RESEARCH dropdown
   "Institute Funded Project": "/research/institute-funded",
   "Externally Funded Projects": "/research/external-funded",
-  Collaborations: "/research/collaborations",
+  Collaborations: "https://cish.org.in/collaboration_n.php",
 
   // PUBLICATIONS dropdown
   "Annual Reports": "/publications/annual-reports",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/publications/newsletter",
-  "Udyan Rashmi (Subscription)": "/publications/udyan-rashmi",
-  "CISH Publications (Paid & Free)": "/publications/cish",
-  "Vision 2050": "/publications/vision-2050",
+  "Udyan Rashmi (Subscription)": "https://cish.org.in/udyan-rashmi.php",
+  "CISH Publications (Paid & Free)": "https://cish.org.in/cish-publication.php",
+  "Vision 2050": "https://cish.org.in/vision-2030.php",
 
   // VARIETIES dropdown
   "Climate Resilient": "/varieties/climate-resilient",
   "Nutraceutical Rich": "/varieties/nutraceutical-rich",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "/farmers/agro-advisory",
+  "Agro Advisory": "https://cish.org.in/agro-advisory.php",
   "National Farmer Portal (NFP)": "/farmers/nfp",
   "Plant Bookings": "/farmers/plant-bookings",
-  "Success Stories (of Farmers)": "/farmers/success-stories",
+  "Success Stories (of Farmers)": "https://cish.org.in/success-stories.php",
   "Farmer Friendly Technologies": "/farmers/technologies",
 };
 
@@ -267,7 +264,7 @@ const ResponsiveNavbar: React.FC = () => {
           })}
         </div>
 
-        {/* Mobile nav toggle */}
+        {/* Mobile navbr*/}
         <div className="lg:hidden overflow-y-auto flex items-center justify-between h-16">
           <button
             onClick={toggleMobileMenu}
@@ -312,7 +309,6 @@ const ResponsiveNavbar: React.FC = () => {
               const isExpanded = expandedMobileItem === item.label;
               const isActive = activeItem === item.label;
 
-              // Single page items as links
               if (
                 item.label === "TECHNOLOGIES" ||
                 item.label === "NURSERY" ||

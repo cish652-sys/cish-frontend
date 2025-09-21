@@ -9,6 +9,8 @@ import { TechnologyGrid } from "../organisms/TechnologyGrid";
 import { Button } from "../atoms/button";
 import Image from "next/image";
 import { useState } from "react";
+import { Badge } from "../atoms/Badge";
+import { StaffFlipCard } from "../molecules/StaffFlipCard";
 
 type StaffsSectionProps = {
   staffsItems: StaffsItems[];
@@ -18,6 +20,7 @@ type StaffsSectionProps = {
   technicalStaff?: StaffsItems[];
   skilledSupportingStaff?: StaffsItems[];
   administrativeStaff?: StaffsItems[];
+  divisionStaff?: StaffsItems[]; // Added for specific division staff
 };
 
 type StaffCategory = "scientific" | "technical" | "skilled" | "administrative";
@@ -36,6 +39,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
   technicalStaff = [],
   skilledSupportingStaff = [],
   administrativeStaff = [],
+  divisionStaff = [], // Added for specific division staff
 }) => {
   const [activeTab, setActiveTab] = useState<StaffCategory>("scientific");
 
@@ -72,22 +76,100 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
       />
       <section className="w-full px-4 md:px-8 lg:px-16 py-10 bg-[#FBFAF0]">
         {selectedStaff ? (
-          <section id="staffDetail" className="my-14 py-6">
-            <div className="container flex flex-col lg:flex-row gap-6">
-              {selectedStaff.image && (
-                <Image
-                  src={selectedStaff.image}
-                  alt={selectedStaff.title}
-                  className="max-w-sm  shadow-md"
-                  width={200}
-                  height={200}
-                />
-              )}
-              <div className="flex-1 flex flex-col">
-                <p className="leading-loose">{selectedStaff.description.join(" ")}</p>
+          <>
+            {/* Division Head Section */}
+            <section id="divisionHeadSection" className="my-14 py-6">
+              <div className="container mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+                {/* Left Column: Image & Name */}
+                <div className="relative w-full lg:w-1/3 flex-shrink-0">
+                  {" "}
+                  {/* <-- 1. Set parent to 'relative' and remove text-center */}
+                  {selectedStaff.image && (
+                    <Image
+                      src={selectedStaff.image}
+                      alt={selectedStaff.headName || selectedStaff.title}
+                      className="shadow-lg mx-auto object-cover" // Image styles are unchanged
+                      width={360}
+                      height={360}
+                    />
+                  )}
+                  {selectedStaff.headName && (
+                    <Badge className="bg-green-700/95 text-lg">{selectedStaff.headName}</Badge>
+                  )}
+                </div>
+
+                {/* Right Column: Title, Publications, and Description */}
+                <div className="w-full lg:w-2/3 flex flex-col">
+                  {selectedStaff.headTitle && (
+                    <Typography variant="sectionHeading" className="text-green-800 font-bold mb-6">
+                      {selectedStaff.headTitle}
+                    </Typography>
+                  )}
+
+                  {/* Publications Section */}
+                  <div className="mt-4">
+                    <Typography
+                      variant="sectionHeading"
+                      className="text-green-700 mb-4 font-semibold text-lg"
+                    >
+                      PUBLICATIONS (TOP 10 PUBLICATIONS WITH FIRST OR CORRESPONDING AUTHOR ONLY):
+                    </Typography>
+                    <div className="space-y-5 text-gray-800">
+                      {selectedStaff.publications && selectedStaff.publications.length > 0 ? (
+                        selectedStaff.publications.map((pub, index) => (
+                          <p key={index} className="text-base leading-relaxed">
+                            {pub}
+                          </p>
+                        ))
+                      ) : (
+                        <p>No publications are currently listed.</p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* --- START: Added Description Section --- */}
+                  {selectedStaff.descriptions && selectedStaff.descriptions.length > 0 && (
+                    <div className="mt-10">
+                      <div className="space-y-4 text-gray-800 text-base leading-relaxed">
+                        {selectedStaff.descriptions.map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {/* --- END: Added Description Section --- */}
+
+                  <div className="mt-10">
+                    <Link href="#">
+                      <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 font-semibold text-base w-auto">
+                        VIEW MORE →
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+
+            {/* Division Staff Section (This section remains unchanged) */}
+            {divisionStaff.length > 0 && (
+              <section id="divisionStaffSection" className="my-14 py-6">
+                <div className="container">
+                  <div className="mb-8">
+                    <Typography variant="sectionHeading" className="text-green-700 mb-4">
+                      STAFF MEMBERS
+                    </Typography>
+                  </div>
+
+                  {/* Grid layout rendered directly here, using StaffFlipCard */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                    {divisionStaff.map((staffMember) => (
+                      <StaffFlipCard key={staffMember.id} staff={staffMember} />
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+          </>
         ) : (
           <section id="directorsSection" className={`my-14 py-6 `}>
             <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
@@ -149,7 +231,13 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
           </div>
         )}
 
-        <TechnologyGrid items={getCurrentStaffData()} showHeading={false} />
+        {showHeading && (
+          <TechnologyGrid
+            items={getCurrentStaffData()}
+            showTechnologyDetails={false}
+            showHeading={false}
+          />
+        )}
       </section>
     </>
   );

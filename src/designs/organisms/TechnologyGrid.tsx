@@ -14,14 +14,20 @@ export interface TechnologyItem {
 interface TechnologyGridProps {
   items: TechnologyItem[];
   showHeading: boolean;
+  showTechnologyDetails?: boolean;
 }
 
-export const TechnologyGrid: React.FC<TechnologyGridProps> = ({ items, showHeading }) => {
+export const TechnologyGrid: React.FC<TechnologyGridProps> = ({
+  items,
+  showHeading,
+  showTechnologyDetails,
+}) => {
   const router = useRouter();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 container">
       {items.map((tech) => (
         <TechInfoCard
+          showTechnologyDetails={showTechnologyDetails}
           key={tech.id}
           title={tech.title}
           description={tech.description}

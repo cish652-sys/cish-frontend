@@ -63,10 +63,10 @@ export function Footer() {
               { label: "Research", href: "#" },
               { label: "Publication", href: "#" },
               { label: "Careers", href: "#" },
-              { label: "Tenders", href: "#" },
+              { label: "Tenders", href: "https://cish.org.in/tenders.php" },
               { label: "RTI", href: "#" },
               { label: "Downloads", href: "#" },
-              { label: "Contact Us", href: "#" },
+              { label: "Contact Us", href: "https://cish.org.in/contact_us.php" },
             ]}
           />
 
@@ -74,14 +74,14 @@ export function Footer() {
           <FooterLinksGroup
             title="Services"
             links={[
-              { label: "Library", href: "#" },
-              { label: "Museum", href: "#" },
+              { label: "Library", href: "https://cish.org.in/library.php" },
+              { label: "Museum", href: "https://cish.org.in/museum.php" },
               { label: "Nursery", href: "#" },
-              { label: "Consultancy", href: "#" },
-              { label: "Contract Research", href: "#" },
-              { label: "Education", href: "#" },
-              { label: "Auditorium", href: "#" },
-              { label: "Guest House", href: "#" },
+              { label: "Consultancy", href: "https://cish.org.in/consultancy.php" },
+              { label: "Contract Research", href: "https://cish.org.in/contract-research.php" },
+              { label: "Education", href: "https://cish.org.in/education.php" },
+              { label: "Auditorium", href: "https://cish.org.in/auditorium.php" },
+              { label: "Guest House", href: "https://cish.org.in/guest_house.php" },
             ]}
           />
 
@@ -94,7 +94,11 @@ export function Footer() {
           <p>© 2025 Central Institute For Subtropical Horticulture. All Rights Reserved.</p>
           <div className="flex gap-4 mt-2 md:mt-0">
             {["Privacy Policy", "Terms Of Use", "Sitemap"].map((item) => (
-              <a key={item} href="#" className="hover:text-yellow-400">
+              <a
+                key={item}
+                href="https://cish.org.in/privacy.php"
+                className="hover:text-yellow-400"
+              >
                 {item}
               </a>
             ))}
