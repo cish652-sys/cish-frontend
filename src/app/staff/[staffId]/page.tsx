@@ -6,7 +6,7 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { StaffsSection } from "@/designs/templates/StaffsSection";
-import { staffData } from "@/lib/utils";
+import { staffData, divisionStaffData } from "@/lib/utils";
 import React from "react";
 
 export default function StaffDetailPage() {
@@ -14,7 +14,14 @@ export default function StaffDetailPage() {
   const staffId = params.staffId as string;
 
   const selectedStaff = staffData.find((staff) => staff.id === staffId);
-  const otherStaff = staffData.filter((staff) => staff.id !== staffId);
+
+  // Get division-specific staff based on the selected division
+  const getDivisionStaff = () => {
+    // Use the exact staffId as key since we've matched the division staff data keys to your existing IDs
+    return divisionStaffData[staffId as keyof typeof divisionStaffData] || [];
+  };
+
+  const divisionStaff = getDivisionStaff();
 
   if (!selectedStaff) {
     return <div className="p-10 text-center">Staff not found</div>;
@@ -28,7 +35,12 @@ export default function StaffDetailPage() {
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
 
-      <StaffsSection staffsItems={otherStaff} selectedStaff={selectedStaff} />
+      <StaffsSection
+        staffsItems={[]}
+        selectedStaff={selectedStaff}
+        showHeading={false}
+        divisionStaff={divisionStaff}
+      />
 
       <Footer />
     </div>

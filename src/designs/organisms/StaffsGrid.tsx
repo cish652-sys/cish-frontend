@@ -2,12 +2,27 @@
 
 import { TechInfoCard } from "../molecules/TechInfoCard";
 
-export interface StaffsItems {
+export type StaffsItems = {
   id: string;
+  image: string;
+
   title: string;
   description: string[];
-  image?: string;
-}
+
+  headName?: string;
+  headTitle?: string;
+  publications?: string[];
+
+  name?: string;
+  designation?: string;
+  icarEmail?: string;
+  altEmail?: string;
+  specialization?: string;
+  joiningDate?: string;
+  mscInstitute?: string;
+  phdInstitute?: string;
+  descriptions?: string[];
+};
 
 interface StaffsGridProps {
   items: StaffsItems[];

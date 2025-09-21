@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Badge } from "./Badge";
 import { ArrowRight } from "lucide-react";
 
 export interface Tender {
@@ -18,7 +17,7 @@ export const TableRow: React.FC<{ tender: Tender }> = ({ tender }) => (
     <td className="px-3 py-2">{tender.id}</td>
     <td className="px-3 py-2 font-medium text-gray-800 flex items-center">
       {tender.title}
-      {tender.isNew && <Badge text="NEW" />}
+      {/* {tender.isNew && <Badge text="NEW" />} */}
     </td>
     <td className="px-3 py-2 whitespace-nowrap">{tender.lastDate}</td>
     <td className="px-3 py-2 text-right">

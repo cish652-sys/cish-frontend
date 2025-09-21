@@ -45,7 +45,7 @@ export const Header = () => {
                 <Logo src={access} alt="Redirect to Directors" width={20} height={20} />
               </button>
               <Logo src={next} alt="Next" width={20} height={20} />
-              <Logo src={local} alt="Location" width={20} height={20} />
+              <Logo src={local} alt="Localizer" width={20} height={20} />
               <Logo src={accessibility} alt="Accessibility" width={20} height={20} />
             </div>
           </div>
