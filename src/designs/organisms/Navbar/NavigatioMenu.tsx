@@ -10,7 +10,7 @@ const routes: Record<string, string> = {
   // Main routes
   HOME: "/",
   "ABOUT US": "/",
-  RESEARCH: "/",
+  RESEARCH: "https://cish.org.in/cib_n.php",
   PUBLICATIONS: "/",
   TECHNOLOGIES: "/staff",
   VARIETIES: "/varieties",
@@ -39,7 +39,7 @@ const routes: Record<string, string> = {
   Collaborations: "/research/collaborations",
 
   // PUBLICATIONS dropdown
-  "Annual Reports": "/publications/annual-reports",
+  "Annual Reports": "https://cish.org.in/Annual.php",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/publications/newsletter",
   "Udyan Rashmi (Subscription)": "/publications/udyan-rashmi",
@@ -51,8 +51,8 @@ const routes: Record<string, string> = {
   "Nutraceutical Rich": "/varieties/nutraceutical-rich",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "/farmers/agro-advisory",
-  "National Farmer Portal (NFP)": "/farmers/nfp",
+  "Agro Advisory": "https://cish.org.in/agro-advisory.php",
+  "National Farmer Portal (NFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
   "Success Stories (of Farmers)": "/farmers/success-stories",
   "Farmer Friendly Technologies": "/farmers/technologies",
