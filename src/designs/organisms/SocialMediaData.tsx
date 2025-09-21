@@ -58,7 +58,7 @@ export default function SocialMediaSection() {
                           alt={`${item.title} post ${i + 1}`}
                           width={240}
                           height={160}
-                          className="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+                          className="w-full h-40 hover:scale-105 transition-transform duration-300 object-contain"
                         />
                       </div>
                     ))}
@@ -87,7 +87,7 @@ export default function SocialMediaSection() {
                         alt={`${item.title} post ${i + 1}`}
                         width={280}
                         height={200}
-                        className="w-full h-44 md:h-52 object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-44 md:h-52 object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   ))}
@@ -121,7 +121,7 @@ export default function SocialMediaSection() {
                         alt={`${item.title} post ${i + 1}`}
                         width={240}
                         height={180}
-                        className="w-full h-40 xl:h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-40 xl:h-44 object-contain group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   ))}

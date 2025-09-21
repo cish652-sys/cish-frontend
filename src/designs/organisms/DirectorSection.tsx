@@ -27,7 +27,7 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({ imageSrc, className =
         for conservation of biodiversity. consequently we were able to submit 34 farmers and
         community varieties to PPV&FRA for registration, established community nurseries and outside
         community nursery produced more than 10000 grafts of non-commercial varieties."
-            linkHref="#"
+            linkHref="https://cish.org.in/dir_message.php"
             linkText="SEE MORE"
           />
           <div className="mt-10">

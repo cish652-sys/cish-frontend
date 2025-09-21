@@ -63,7 +63,7 @@ export const technoItems = [
       "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
       "This Technology Utilizes A Novel Strain Of The Fungus Trichoderma Reesei (CSR-T-3) Cultivated In A Proprietary Medium. The Bio-Fungicide Has Shown Promising Results In Controlling The Disease, Reducing Production Losses, And Improving Yields",
     ],
-    href: "https://cish.org.in/technology/fusicont.php",
+    href: "https://cish.org.in/t_fusicont.php",
     image: "/icons/Rectangle 776.svg",
   },
   {
@@ -73,7 +73,7 @@ export const technoItems = [
       "An Innovative Tissue Culture Technique Mediated Through Bio-Engineering Of Metabolite-Based Biomolecule (Bioimmune) At In-Vitro Stage For The Production Of Fusarium Oxysporum Sp. Cubense TR-4 Tolerant Plantlets Of Banana.",
       "The Technology Of Bio-Immunization For Producing Fusarium Wilt Tolerant Banana Plantlets Was Tested For Its Bio-Efficacy Through Pot Culture Experiments Where The Immune Treated Plantlets Exhibited A Disease Index Of 0.24 Compared With The FOC TR-4 Treated Control That Showed 3.75 Signifying The Host Induced Tolerance Through Changing The Tissue Culture Protocol.",
     ],
-    href: "/tech/leafy",
+    href: "https://cish.org.in/technology/bioenhancer.php",
     image: "/icons/Rectangle 778.svg",
   },
   {
@@ -92,7 +92,7 @@ export const varietiesItem = [
     description: [
       "Hybrid is regular bearer and very late maturing type. Fruit size is medium to large, and light yellow colour with red blush on peel. Fruits have strong stalk attachment. Fruit weigh about 300-400 g, pulp light yellow, very firm in texture, pulp about 80.76%, TSS 25.4°B. The hybrid has potential for both domestic and export markets because of firm texture and long shelf life.",
     ],
-    href: "/tech/solanaceous",
+    href: "https://cish.org.in/v_abhaya.php",
     image: "/icons/Awadh Mango.svg",
   },
   {

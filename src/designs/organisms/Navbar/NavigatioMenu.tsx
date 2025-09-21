@@ -7,7 +7,7 @@ import { NavLink } from "@/designs/atoms/Navbar/Navlink";
 const routes: Record<string, string> = {
   HOME: "/",
   "ABOUT US": "/",
-  RESEARCH: "/",
+  RESEARCH: "https://cish.org.in/cib_n.php",
   PUBLICATIONS: "/",
   TECHNOLOGIES: "/staff",
   VARIETIES: "/varieties",
@@ -36,7 +36,7 @@ const routes: Record<string, string> = {
   Collaborations: "https://cish.org.in/collaboration_n.php",
 
   // PUBLICATIONS dropdown
-  "Annual Reports": "/publications/annual-reports",
+  "Annual Reports": "https://cish.org.in/Annual.php",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/publications/newsletter",
   "Udyan Rashmi (Subscription)": "https://cish.org.in/udyan-rashmi.php",
@@ -49,7 +49,7 @@ const routes: Record<string, string> = {
 
   // FOR FARMERS dropdown
   "Agro Advisory": "https://cish.org.in/agro-advisory.php",
-  "National Farmer Portal (NFP)": "/farmers/nfp",
+  "National Farmer Portal (NFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
   "Success Stories (of Farmers)": "https://cish.org.in/success-stories.php",
   "Farmer Friendly Technologies": "/farmers/technologies",
