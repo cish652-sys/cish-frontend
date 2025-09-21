@@ -63,7 +63,7 @@ export const technoItems = [
       "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
       "This Technology Utilizes A Novel Strain Of The Fungus Trichoderma Reesei (CSR-T-3) Cultivated In A Proprietary Medium. The Bio-Fungicide Has Shown Promising Results In Controlling The Disease, Reducing Production Losses, And Improving Yields",
     ],
-    href: "/tech/solanaceous",
+    href: "https://cish.org.in/technology/fusicont.php",
     image: "/icons/Rectangle 776.svg",
   },
   {
@@ -115,7 +115,7 @@ export const varietiesItem = [
       "TSS 24.6°B, rich in mangiferin and β-carotene.",
       "The hybrid has potential for both internal and export markets.",
     ],
-    href: "/tech/aonla",
+    href: "https://cish.org.in/technology/arunika.php",
     image: "/icons/Arunika Mango.svg",
   },
 ];
@@ -125,81 +125,71 @@ export const technologiesItems = [
     id: "1",
     title: "CISH-BIOENHANCER",
     image: "/icons/Rectangle 735.svg",
-    description: [
-      "CISH-Bioenhancer” is a consortium of beneficial bacteria isolated from indigenous natural farming products (indigenous cow based) like panchgavya, which having the attributes of high solubilization of nutrients like P, K, Zn, IAA production, siderophore etc. ",
-    ],
+    description: ["CISH-Bioenhancer” is a consortium of beneficial bacteria..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "2",
     title: "CISH-BIOZAPPER",
     image: "/icons/Mask group.svg",
-    description: [
-      "CISH-Biozapper showed best plant growth promotory properties like IAA, ammonia, HCN production, P, K, and Zn solubilization and soil health in terms of soil enzymes (Dehydrogenase, FDA etc.) and production.",
-    ],
+    description: ["CISH-Biozapper showed best plant growth promotory properties..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "3",
     title: "CISH-FASAL PRABHAT",
     image: "/icons/Mask group (1).svg",
-    description: [
-      "CISH-Fasal Prabhat is a water-soluble mixture of micronutrients (zinc, boron, magnesium, iron, and copper) and humic acid. ",
-    ],
+    description: ["CISH-Fasal Prabhat is a water-soluble mixture..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "4",
     title: "CISH-GLUE TRAP",
     image: "/icons/Mask group (2).svg",
-    description: [
-      "Four sheets (Blue/Yellow) applied with white oil based glue; sheets are foldable, seperated by butter paper. Can be used one by one by folding and removing the butter paper without replacement of sheet.",
-    ],
+    description: ["Four sheets (Blue/Yellow) applied with white oil based glue..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "5",
     title: "CISH-MANGO WINE SPECIAL",
     image: "/icons/Mask group (3).svg",
-    description: [
-      "CISH-Mango wine special offers a scope for production of mango wine round the year using preserved mango pulp",
-    ],
+    description: ["CISH-Mango wine special offers a scope for production of mango wine..."],
+    href: "hhttps://cish.in/t_bioenhancer.php",
   },
   {
     id: "6",
     title: "PRE-HARVEST BAGGING TECHNOLOGY",
     image: "/icons/Rectangle 749 (1).svg",
-    description: [
-      "Maximum fruit firmness of mature and ripe fruit (54.52 and 21.93N) was recorded in Double layer Brown/black",
-    ],
+    description: ["Maximum fruit firmness of mature and ripe fruit..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "7",
     title: "SMART FRUIT PRODUCTION SYSTEM",
     image: "/icons/Rectangle 750 (1).svg",
-    description: [
-      "Sensor-based soil moisture monitoring system for precise irrigation scheduling in mango and guava.",
-    ],
+    description: ["Sensor-based soil moisture monitoring system..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "8",
     title: "CISH-TRIANGULAR VERTICAL NFT HYDROPONICS DESIGN FOR VEGETABLES",
     image: "/icons/Rectangle 751.svg",
-    description: [
-      "CISH Triangular NFT Hydroponics produced 2.5 times more yield per unit area by utilizing space vertically...",
-    ],
+    description: ["CISH Triangular NFT Hydroponics produced 2.5 times more yield..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "9",
     title: "CISH-DOUBLE ROW VERTICAL HYDROPONICS DESIGN",
     image: "/icons/Mask group (4).svg",
-    description: [
-      "The hydroponics design structure produced 4 times more yield per unit area by utilizing space vertically as compared with normal NFT and 20 % more yield with single vertical NFT design.",
-    ],
+    description: ["The hydroponics design structure produced 4 times more yield..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "10",
     title: "ESPALIER ARCHITECTURE FOR HIGH AND QUALITY YIELD OF GUAVA",
     image: "/icons/Rectangle 888.svg",
-    description: [
-      "Espalier training system of guava is well standardized training system for high yield of quality fruits. In this system, fruiting starts 2nd year after planting (8.5 kg/tree)",
-    ],
+    description: ["Espalier training system of guava is well standardized..."],
+    href: "https://cish.in/t_bioenhancer.php",
   },
   {
     id: "11",
@@ -207,14 +197,17 @@ export const technologiesItems = [
       "TECHNOLOGY FOR MASS MULTIPLICATION OF WILT TOLERANT GUAVA ROOTSTOCK (PSIDIUM MOLLE × PSIDIUM GUAJAVA)",
     image: "/icons/Rectangle 889 (1).svg",
     description: [""],
+    href: "https://cish.org.in/t_fusicont.php",
   },
 ];
+
 export const technologiesVarietiesItems = [
   {
     id: "1",
     title: "CISH Lalit",
     image: "/icons/Lalit.svg",
     description: ["CISH- Lalit is a superior seedling selection from Apple guava."],
+    href: "https://cish.org.in/v_shweta.php",
   },
   {
     id: "2",
@@ -223,6 +216,7 @@ export const technologiesVarietiesItems = [
     description: [
       "CISH-Sweta is a one of the high yielding varieties, about 90 kg / plant at the age of 6 years.",
     ],
+    href: "https://cish.org.in/v_shweta.php",
   },
   {
     id: "3",
@@ -231,6 +225,7 @@ export const technologiesVarietiesItems = [
     description: [
       "CISH-Dhawal has an average yield of 38.4 t/ha which is more than the double of national average of 15.6t/ha (2021-22) and more than CISH Lalima.",
     ],
+    href: "https://cish.org.in/v_shweta.php",
   },
   {
     id: "4",
@@ -239,6 +234,7 @@ export const technologiesVarietiesItems = [
     description: [
       "Hybrid is regular bearer and late maturing type. Pulp dark yellow, firm pulp with scanty fibre, pulp about 71.8%, TSS 21.6°B. The hybrid has potential for both internal and export markets because of its attractive red fruit colour.",
     ],
+    href: "https://cish.org.in/v_shweta.php",
   },
 ];
 export const varieties = [

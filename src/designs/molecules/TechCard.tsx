@@ -10,7 +10,7 @@ export interface TechCardProps {
   image?: string;
 }
 
-const TechCard: React.FC<TechCardProps> = ({ title, description, image }) => {
+const TechCard: React.FC<TechCardProps> = ({ title, description, image, href }) => {
   return (
     <div className="flex flex-col md:flex-row bg-white shadow-md overflow-hidden hover:shadow-lg transition p-4 gap-4">
       {image && (
@@ -39,9 +39,8 @@ const TechCard: React.FC<TechCardProps> = ({ title, description, image }) => {
           ))}
         </ul>
 
-        {/* Button hamesha bottom me chipka rahega */}
         <div className="mt-auto pt-4">
-          <ButtonLink label="VIEW MORE" />
+          <ButtonLink label="VIEW MORE" href={href} />
         </div>
       </div>
     </div>

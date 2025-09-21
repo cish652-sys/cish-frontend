@@ -4,11 +4,11 @@ import { useRouter } from "next/navigation";
 import { TechInfoCard } from "../molecules/TechInfoCard";
 
 export interface TechnologyItem {
-  // <-- add export
   id: string;
   title: string;
   description: string[];
   image?: string;
+  href?: string; // ✅ custom/external link
 }
 
 interface TechnologyGridProps {
@@ -23,6 +23,7 @@ export const TechnologyGrid: React.FC<TechnologyGridProps> = ({
   showTechnologyDetails,
 }) => {
   const router = useRouter();
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 container">
       {items.map((tech) => (
@@ -33,7 +34,17 @@ export const TechnologyGrid: React.FC<TechnologyGridProps> = ({
           description={tech.description}
           image={tech.image}
           showHeading={showHeading}
-          onViewMore={() => router.push(`/staff/${tech.id}`)}
+          onViewMore={() => {
+            if (tech.href) {
+              if (tech.href.startsWith("http")) {
+                window.open(tech.href, "_blank");
+              } else {
+                router.push(tech.href);
+              }
+            } else {
+              router.push(`/staff/${tech.id}`);
+            }
+          }}
         />
       ))}
     </div>

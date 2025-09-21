@@ -58,10 +58,7 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
       </CardContent>
 
       <CardFooter className="p-4 flex justify-end mt-auto">
-        <button
-          onClick={onViewMore} // <-- now it works
-          className="text-green-700 hover:text-green-800 font-semibold"
-        >
+        <button onClick={onViewMore} className="text-green-700 hover:text-green-800 font-semibold">
           VIEW MORE →
         </button>
       </CardFooter>
