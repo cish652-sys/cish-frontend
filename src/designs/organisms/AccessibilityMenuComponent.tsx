@@ -16,12 +16,12 @@ export const AccessibilityMenu = ({ accessibility }: AccessibilityMenuProps) => 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const savedFontLevel = localStorage.getItem("fontSizeLevel");
-    
+
     if (savedTheme === "dark") {
       setIsDark(true);
       document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-      
+
       document.documentElement.style.backgroundColor = "#1a1a1a";
       document.body.style.backgroundColor = "#1a1a1a";
       document.body.style.color = "#ffffff";
@@ -29,16 +29,16 @@ export const AccessibilityMenu = ({ accessibility }: AccessibilityMenuProps) => 
       setIsDark(false);
       document.documentElement.classList.remove("dark");
       document.body.classList.remove("dark");
-      
+
       document.documentElement.style.backgroundColor = "#ffffff";
       document.body.style.backgroundColor = "#ffffff";
       document.body.style.color = "#000000";
-      
+
       if (!savedTheme) {
         localStorage.setItem("theme", "light");
       }
     }
-    
+
     if (savedFontLevel) {
       const level = parseInt(savedFontLevel);
       setFontSizeLevel(level);
@@ -63,26 +63,32 @@ export const AccessibilityMenu = ({ accessibility }: AccessibilityMenuProps) => 
   };
 
   const applyFontSize = (level: number) => {
-    document.documentElement.classList.remove('text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl');
-    
+    document.documentElement.classList.remove(
+      "text-xs",
+      "text-sm",
+      "text-base",
+      "text-lg",
+      "text-xl"
+    );
+
     switch (level) {
       case -2:
-        document.documentElement.classList.add('text-xs');
+        document.documentElement.classList.add("text-xs");
         break;
       case -1:
-        document.documentElement.classList.add('text-sm');
+        document.documentElement.classList.add("text-sm");
         break;
       case 0:
-        document.documentElement.classList.add('text-base');
+        document.documentElement.classList.add("text-base");
         break;
       case 1:
-        document.documentElement.classList.add('text-lg');
+        document.documentElement.classList.add("text-lg");
         break;
       case 2:
-        document.documentElement.classList.add('text-xl');
+        document.documentElement.classList.add("text-xl");
         break;
       default:
-        document.documentElement.classList.add('text-base');
+        document.documentElement.classList.add("text-base");
     }
   };
 
@@ -109,36 +115,42 @@ export const AccessibilityMenu = ({ accessibility }: AccessibilityMenuProps) => 
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
-    
+
     if (newTheme) {
       document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-      
+
       document.documentElement.style.backgroundColor = "#1a1a1a";
       document.body.style.backgroundColor = "#1a1a1a";
       document.body.style.color = "#ffffff";
-      
+
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
       document.body.classList.remove("dark");
-      
+
       document.documentElement.style.backgroundColor = "#ffffff";
       document.body.style.backgroundColor = "#ffffff";
       document.body.style.color = "#000000";
-      
+
       localStorage.setItem("theme", "light");
     }
   };
 
   const getFontSizeDisplay = () => {
     switch (fontSizeLevel) {
-      case -2: return 'XS';
-      case -1: return 'S';
-      case 0: return 'M';
-      case 1: return 'L';
-      case 2: return 'XL';
-      default: return 'M';
+      case -2:
+        return "XS";
+      case -1:
+        return "S";
+      case 0:
+        return "M";
+      case 1:
+        return "L";
+      case 2:
+        return "XL";
+      default:
+        return "M";
     }
   };
 
@@ -155,7 +167,7 @@ export const AccessibilityMenu = ({ accessibility }: AccessibilityMenuProps) => 
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-          
+
           <div className="absolute right-0 top-full mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 p-4">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
