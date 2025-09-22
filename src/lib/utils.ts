@@ -63,7 +63,7 @@ export const technoItems = [
       "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
       "This Technology Utilizes A Novel Strain Of The Fungus Trichoderma Reesei (CSR-T-3) Cultivated In A Proprietary Medium. The Bio-Fungicide Has Shown Promising Results In Controlling The Disease, Reducing Production Losses, And Improving Yields",
     ],
-    href: "https://cish.org.in/t_fusicont.php",
+    href: "https://cish.in/t_fusicont.php",
     image: "/icons/Rectangle 776.svg",
   },
   {
@@ -73,7 +73,7 @@ export const technoItems = [
       "An Innovative Tissue Culture Technique Mediated Through Bio-Engineering Of Metabolite-Based Biomolecule (Bioimmune) At In-Vitro Stage For The Production Of Fusarium Oxysporum Sp. Cubense TR-4 Tolerant Plantlets Of Banana.",
       "The Technology Of Bio-Immunization For Producing Fusarium Wilt Tolerant Banana Plantlets Was Tested For Its Bio-Efficacy Through Pot Culture Experiments Where The Immune Treated Plantlets Exhibited A Disease Index Of 0.24 Compared With The FOC TR-4 Treated Control That Showed 3.75 Signifying The Host Induced Tolerance Through Changing The Tissue Culture Protocol.",
     ],
-    href: "https://cish.org.in/technology/bioenhancer.php",
+    href: "https://cish.in/technology/bioimmunizer.php",
     image: "/icons/Rectangle 778.svg",
   },
   {

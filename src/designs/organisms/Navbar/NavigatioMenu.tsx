@@ -7,51 +7,51 @@ import { NavLink } from "@/designs/atoms/Navbar/Navlink";
 const routes: Record<string, string> = {
   HOME: "/",
   "ABOUT US": "/",
-  RESEARCH: "https://cish.org.in/cib_n.php",
+  RESEARCH: "https://cish.in/cib_n.php",
   PUBLICATIONS: "/",
   TECHNOLOGIES: "/staff",
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
-  NURSERY: "https://cish.org.in/nursery_n.php",
+  NURSERY: "https://cish.in/nursery_n.php",
   MEDIA: "/",
-  "CONTACT US": "https://cish.org.in/contact_us.php",
+  "CONTACT US": "https://cish.in/contact_us.php",
 
   // ABOUT US dropdown
-  Institute: "https://cish.org.in/introduction.php",
+  Institute: "https://cish.in/introduction.php",
   "Field Gene Bank": "/about/field-gene-bank",
-  Divisions: "https://cish.org.in/division.php",
+  Divisions: "https://cish.in/division.php",
   PME: "/staffs",
-  "ITMu/IPR Cells": "https://cish.org.in/itmu.php",
-  "Agri Business Incubation Center": "https://cish.org.in/abi_n.php",
+  "ITMu/IPR Cells": "https://cish.in/itmu.php",
+  "Agri Business Incubation Center": "https://cish.in/abi_n.php",
   AKMU: "/about/akmu",
-  "Regional Research Station": "https://cish.org.in/malda_n.php",
-  "Krishi Vigyan Kendra": "https://cish.org.in/krishi-portal.php",
+  "Regional Research Station": "https://cish.in/malda_n.php",
+  "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
   "Cadres Strength": "/about/cadres-strength",
-  Staff: "/staff", // This will now work properly
+  Staff: "https://cish.in/staff_n.php", // This will now work properly
   "Citizen Charter": "/about/citizen-charter",
 
   // RESEARCH dropdown
   "Institute Funded Project": "/research/institute-funded",
   "Externally Funded Projects": "/research/external-funded",
-  Collaborations: "https://cish.org.in/collaboration_n.php",
+  Collaborations: "https://cish.in/collaboration_n.php",
 
   // PUBLICATIONS dropdown
-  "Annual Reports": "https://cish.org.in/Annual.php",
+  "Annual Reports": "https://cish.in/Annual.php",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/publications/newsletter",
-  "Udyan Rashmi (Subscription)": "https://cish.org.in/udyan-rashmi.php",
-  "CISH Publications (Paid & Free)": "https://cish.org.in/cish-publication.php",
-  "Vision 2050": "https://cish.org.in/vision-2030.php",
+  "Udyan Rashmi (Subscription)": "https://cish.in/udyan-rashmi.php",
+  "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
+  "Vision 2050": "https://cish.in/vision-2030.php",
 
   // VARIETIES dropdown
   "Climate Resilient": "/varieties/climate-resilient",
   "Nutraceutical Rich": "/varieties/nutraceutical-rich",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "https://cish.org.in/agro-advisory.php",
+  "Agro Advisory": "https://cish.in/agro-advisory.php",
   "National Farmer Portal (NFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
-  "Success Stories (of Farmers)": "https://cish.org.in/success-stories.php",
+  "Success Stories (of Farmers)": "https://cish.in/success-stories.php",
   "Farmer Friendly Technologies": "/farmers/technologies",
 };
 

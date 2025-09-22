@@ -10,7 +10,7 @@ export const navigation: NavItem[] = [
     type: "dropdown",
     label: "ABOUT US",
     links: [
-      { href: "https://cish.org.in/introduction.php", label: "About Institute" },
+      { href: "https://cish.in/introduction.php", label: "About Institute" },
       { href: "/about/field-gene-bank", label: "Field Gene Bank" },
       { href: "/staffs", label: "Divisions" },
       { href: "/about/pme", label: "PME" },
