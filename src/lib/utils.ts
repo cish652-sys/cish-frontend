@@ -63,7 +63,7 @@ export const technoItems = [
       "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
       "This Technology Utilizes A Novel Strain Of The Fungus Trichoderma Reesei (CSR-T-3) Cultivated In A Proprietary Medium. The Bio-Fungicide Has Shown Promising Results In Controlling The Disease, Reducing Production Losses, And Improving Yields",
     ],
-    href: "https://cish.in/t_fusicont.php",
+    href: "https://cish.in/technology/fusicont.php",
     image: "/icons/Rectangle 776.svg",
   },
   {
@@ -92,7 +92,7 @@ export const varietiesItem = [
     description: [
       "Hybrid is regular bearer and very late maturing type. Fruit size is medium to large, and light yellow colour with red blush on peel. Fruits have strong stalk attachment. Fruit weigh about 300-400 g, pulp light yellow, very firm in texture, pulp about 80.76%, TSS 25.4°B. The hybrid has potential for both domestic and export markets because of firm texture and long shelf life.",
     ],
-    href: "https://cish.org.in/v_abhaya.php",
+    href: "https://cish.in/v_abhaya.php",
     image: "/icons/Awadh Mango.svg",
   },
   {
@@ -115,7 +115,7 @@ export const varietiesItem = [
       "TSS 24.6°B, rich in mangiferin and β-carotene.",
       "The hybrid has potential for both internal and export markets.",
     ],
-    href: "https://cish.org.in/technology/arunika.php",
+    href: "https://cish.in/technology/arunika.php",
     image: "/icons/Arunika Mango.svg",
   },
 ];
@@ -197,7 +197,7 @@ export const technologiesItems = [
       "TECHNOLOGY FOR MASS MULTIPLICATION OF WILT TOLERANT GUAVA ROOTSTOCK (PSIDIUM MOLLE × PSIDIUM GUAJAVA)",
     image: "/icons/Rectangle 889 (1).svg",
     description: [""],
-    href: "https://cish.org.in/t_fusicont.php",
+    href: "https://cish.in/technology/fusicont.php",
   },
 ];
 
@@ -216,7 +216,7 @@ export const technologiesVarietiesItems = [
     description: [
       "CISH-Sweta is a one of the high yielding varieties, about 90 kg / plant at the age of 6 years.",
     ],
-    href: "https://cish.org.in/v_shweta.php",
+    href: "https://cish.in/v_shweta.php",
   },
   {
     id: "3",
