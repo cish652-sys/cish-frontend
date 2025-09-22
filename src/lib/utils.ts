@@ -118,7 +118,6 @@ export const varietiesItem = [
     href: "https://cish.org.in/technology/arunika.php",
     image: "/icons/Arunika Mango.svg",
   },
-  
 ];
 
 export const technologiesItems = [
