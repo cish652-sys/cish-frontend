@@ -94,11 +94,7 @@ export function Footer() {
           <p>© 2025 Central Institute For Subtropical Horticulture. All Rights Reserved.</p>
           <div className="flex gap-4 mt-2 md:mt-0">
             {["Privacy Policy", "Terms Of Use", "Sitemap"].map((item) => (
-              <a
-                key={item}
-                href="https://cish.in/privacy.php"
-                className="hover:text-yellow-400"
-              >
+              <a key={item} href="https://cish.in/privacy.php" className="hover:text-yellow-400">
                 {item}
               </a>
             ))}

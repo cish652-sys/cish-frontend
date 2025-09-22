@@ -42,6 +42,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(100%);
@@ -135,7 +136,138 @@
   }
 }
 
-/* Global container */
 .container {
   @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
+}
+
+.dark {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.dark html {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.dark body {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.dark * {
+  color: #ffffff !important;
+}
+
+/* Headers and headings */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #ffffff !important;
+}
+
+.dark p,
+.dark span,
+.dark div,
+.dark text,
+.dark label,
+.dark li,
+.dark td,
+.dark th {
+  color: #ffffff !important;
+}
+
+.dark header {
+  background-color: #2d2d2d !important;
+  border-bottom-color: #404040 !important;
+}
+
+.dark .bg-white,
+.dark [class*="bg-white"] {
+  background-color: #2d2d2d !important;
+}
+
+.dark .border,
+.dark [class*="border-"] {
+  border-color: #404040 !important;
+}
+
+/* Form elements */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-color: #404040 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #a0a0a0 !important;
+}
+
+.dark button {
+  color: #ffffff !important;
+}
+
+.dark button:not(.bg-primary):not([class*="bg-"]) {
+  background-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+.dark a {
+  color: #60a5fa !important;
+}
+
+.dark a:hover {
+  color: #93c5fd !important;
+}
+
+.dark .shadow,
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark img {
+  filter: brightness(0.9);
+}
+
+.dark .search-bar,
+.dark [class*="search"] {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-color: #404040 !important;
+}
+
+.dark .dropdown,
+.dark .menu {
+  background-color: #2d2d2d !important;
+  border-color: #404040 !important;
+}
+
+.dark table {
+  background-color: #2d2d2d !important;
+}
+
+.dark table tr {
+  border-bottom-color: #404040 !important;
+}
+
+.dark [style*="background-color: white"],
+.dark [style*="background-color: #ffffff"],
+.dark [style*="background-color: #fff"] {
+  background-color: #2d2d2d !important;
+}
+
+/* Override any specific black text */
+.dark [style*="color: black"],
+.dark [style*="color: #000000"],
+.dark [style*="color: #000"] {
+  color: #ffffff !important;
 }
