@@ -9,7 +9,7 @@ const routes: Record<string, string> = {
   "ABOUT US": "/",
   RESEARCH: "https://cish.in/cib_n.php",
   PUBLICATIONS: "/",
-  TECHNOLOGIES: "/staff",
+  TECHNOLOGIES: "/technologies",
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
   NURSERY: "https://cish.in/nursery_n.php",
@@ -27,7 +27,7 @@ const routes: Record<string, string> = {
   "Regional Research Station": "https://cish.in/malda_n.php",
   "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
   "Cadres Strength": "/about/cadres-strength",
-  Staff: "https://cish.in/staff_n.php", // This will now work properly
+  Staff: "/staff", 
   "Citizen Charter": "/about/citizen-charter",
 
   // RESEARCH dropdown
