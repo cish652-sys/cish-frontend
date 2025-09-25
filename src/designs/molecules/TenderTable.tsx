@@ -13,12 +13,12 @@ const AnimatedNewBadge: React.FC = () => {
   return (
     <span className="relative inline-flex items-center">
       <span
-        className="inline-flex items-center px-2 py-1 rounded text-xs font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 shadow-sm"
+        className="inline-flex items-center px-2 py-1 rounded text-xs font-bold text-white bg-gradient-to-r from-green-500 to-green-500 shadow-sm"
         style={{ animation: "pulse 5s ease-in-out infinite" }}
       >
         NEW
       </span>
-      <span className="absolute inset-0 rounded bg-gradient-to-r from-red-500 to-pink-500 opacity-40 animate-ping"></span>
+      <span className="absolute inset-0 rounded bg-gradient-to-r from-green-500 to-green-500 opacity-40 animate-ping"></span>
     </span>
   );
 };
@@ -64,6 +64,43 @@ Date: __________________________
     URL.revokeObjectURL(url);
   };
 
+  // Function to render title with optional link
+  const renderTitle = (tender: Tender) => {
+    if (tender.link) {
+      return (
+        <a
+          href={tender.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green-600 hover:text-green-700 no-underline hover:underline transition-colors cursor-pointer"
+        >
+          {tender.title}
+        </a>
+      );
+    }
+    return <span className="hover:underline cursor-pointer">{tender.title}</span>;
+  };
+
+  // Function to render result with optional link
+  const renderResult = (tender: Tender) => {
+    if (tender.result) {
+      if (tender.link) {
+        return (
+          <a
+            href={tender.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-600 hover:text-green-700 no-underline hover:underline cursor-pointer"
+          >
+            {tender.result}
+          </a>
+        );
+      }
+      return <span className="text-green-600 hover:underline cursor-pointer">{tender.result}</span>;
+    }
+    return null;
+  };
+
   if (tableType === "job") {
     return (
       <div className="overflow-y-auto border shadow-sm">
@@ -84,29 +121,36 @@ Date: __________________________
                 <td className="px-3 py-2">{index + 1}</td>
                 <td className="px-3 py-2">
                   <div className="flex items-center gap-3">
-                    <span className="hover:underline cursor-pointer">{tender.title}</span>
+                    {renderTitle(tender)}
                     {tender.isNew && <AnimatedNewBadge />}
                   </div>
                 </td>
                 <td className="px-3 py-2">
                   {tender.form && (
-                    <button
-                      onClick={downloadApplicationForm}
-                      className="bg-green-800 text-white text-xs hover:bg-green-900 cursor-pointer px-2 py-1 rounded"
-                    >
-                      {tender.form}
-                    </button>
+                    <>
+                      {tender.link ? (
+                        <a
+                          href={tender.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-green-800 text-white text-xs hover:bg-green-900 cursor-pointer px-2 py-1 rounded inline-block no-underline"
+                        >
+                          {tender.form}
+                        </a>
+                      ) : (
+                        <button
+                          onClick={downloadApplicationForm}
+                          className="bg-green-800 text-white text-xs hover:bg-green-900 cursor-pointer px-2 py-1 rounded"
+                        >
+                          {tender.form}
+                        </button>
+                      )}
+                    </>
                   )}
                 </td>
                 <td className="px-3 py-2">{tender.postDate}</td>
                 <td className="px-3 py-2">{tender.lastDate}</td>
-                <td className="px-3 py-2">
-                  {tender.result && (
-                    <span className="text-green-600 hover:underline cursor-pointer">
-                      {tender.result}
-                    </span>
-                  )}
-                </td>
+                <td className="px-3 py-2">{renderResult(tender)}</td>
               </tr>
             ))}
           </tbody>
@@ -132,7 +176,7 @@ Date: __________________________
               <td className="px-3 py-2">{t.id}</td>
               <td className="px-3 py-2">
                 <div className="flex items-center gap-6">
-                  <span className="hover:underline cursor-pointer">{t.title}</span>
+                  {renderTitle(t)}
                   {t.isNew && <AnimatedNewBadge />}
                 </div>
               </td>

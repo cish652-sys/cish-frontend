@@ -28,9 +28,10 @@ function Varietiespage() {
         iconProps={false}
         title="Varieties For COMMERCIALIZATION"
         description={[
-          "Bring Farmers High-Yield, Resilient, And Quality Crop Options.",
-          "These Varieties Are Designed To Fight Pests, Withstand Climate Challenges, And Ensure Better Harvests.",
-          "They Empower Farmers With More Profit, Stability, And A Brighter Future In Farming.",
+          // "Bring Farmers High-Yield, Resilient, And Quality Crop Options.",
+          // "These Varieties Are Designed To Fight Pests, Withstand Climate Challenges, And Ensure Better Harvests.",
+          // "They Empower Farmers With More Profit, Stability, And A Brighter Future In Farming.",
+          "",
         ]}
       />
       <div className="py-0 bg-[#FBFAF0]">

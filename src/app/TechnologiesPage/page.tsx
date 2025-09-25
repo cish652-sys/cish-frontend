@@ -24,9 +24,10 @@ function TechnologiesPage() {
         iconProps={true}
         title="TECHNOLOGIES FOR COMMERCIALIZATION"
         description={[
-          "Bring Advanced Tools And Practices From Research To The Fields.",
-          "They Help Farmers Improve Productivity, Reduce Costs, And Ensure Better Quality Yields.",
-          "The Goal Is To Make Farming More Sustainable, Profitable, And Accessible To All.",
+          // "Bring Advanced Tools And Practices From Research To The Fields.",
+          // "They Help Farmers Improve Productivity, Reduce Costs, And Ensure Better Quality Yields.",
+          // "The Goal Is To Make Farming More Sustainable, Profitable, And Accessible To All.",
+          "",
         ]}
       />
       <TrendingTechnologies technologies={technoItems} />

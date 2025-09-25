@@ -33,7 +33,7 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
           href={msg.link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${baseClasses} text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors cursor-pointer`}
+          className={`${baseClasses} text-green-600 hover:text-green-700 no-underline hover:underline transition-colors cursor-pointer`}
           style={fontStyle}
         >
           {msg.text}
