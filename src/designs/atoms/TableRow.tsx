@@ -3,6 +3,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 
 export interface Tender {
+  // formLink: any;
   id: number;
   title: string;
   lastDate: string;
@@ -10,6 +11,7 @@ export interface Tender {
   form?: string;
   postDate?: string;
   result?: string;
+  link?: string;
 }
 
 export const TableRow: React.FC<{ tender: Tender }> = ({ tender }) => (

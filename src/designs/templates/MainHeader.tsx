@@ -5,13 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "../organisms/Header";
 import { AnnouncementBar } from "../molecules/AnnouncementBar";
 import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
-import banner2 from "../public/images/banner2.svg";
-import banner3 from "../public/images/banner3.svg";
-import banner4 from "../public/images/banner4.svg";
+// import banner2 from "../public/images/banner2.svg";
+import banner3 from "../public/images/banner3.jpg";
+import banner4 from "../public/images/banner4.jpg";
 import banner5 from "../public/images/banner5.jpg";
+import banner6 from "../public/images/banner6.jpg";
+import banner2 from "../public/images/banner2.jpg";
 
 export const MainHeader = () => {
-  const banners = [banner2, banner3, banner4, banner5];
+  const banners = [banner2, banner3, banner4, banner5, banner6];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

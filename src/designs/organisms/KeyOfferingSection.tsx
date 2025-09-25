@@ -13,6 +13,7 @@ const jobsData: Tender[] = [
     postDate: "19-08-2025",
     lastDate: "28-08-2025",
     isNew: false,
+    link: "https://cish.org.in/jobs/Notification1908205.pdf",
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const jobsData: Tender[] = [
     postDate: "25-07-2025",
     lastDate: "01-08-2025",
     result: "Result",
-    isNew: true, // Made this new for demo
+    isNew: true,
+    link: "https://cish.org.in/jobs/Notice25072025.pdf", // Add your job link here
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const jobsData: Tender[] = [
     lastDate: "30-07-2025",
     result: "Result",
     isNew: false,
+    link: "", // Add your job link here
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const jobsData: Tender[] = [
     lastDate: "22-07-2025",
     result: "Result",
     isNew: false,
+    link: "", // Add your job link here
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ const jobsData: Tender[] = [
     lastDate: "17-07-2025",
     result: "Result",
     isNew: false,
+    link: "", // Add your job link here
   },
 ];
 
@@ -58,6 +63,7 @@ const announcementsData: Tender[] = [
     title: "Foundation Day",
     lastDate: "04-09-2025",
     isNew: true,
+    link: "", // Add your announcement link here
   },
 ];
 
@@ -67,30 +73,35 @@ const dummyTenders: Tender[] = [
     title: "Tender Notice For Portable Handheld Ethylene Analyser",
     lastDate: "09-09-2025",
     isNew: true,
+    link: "https://cish.org.in/tenders/Ethylene_Analyser.pdf", // Add your tender link here
   },
   {
     id: 2,
     title: "GeM Bid For Purchase Of Lab Scale Honey Processing Plant",
     lastDate: "02-09-2025",
     isNew: true,
+    link: "https://cish.org.in/tenders/GeM_Bid6547327.pdf", // Add your tender link here
   },
   {
     id: 3,
     title: "GeM Bid For Purchase Of Stationery Items",
     lastDate: "06-08-2025",
     isNew: true,
+    link: "https://cish.org.in/tenders/Gem_stationery.pdf", // Add your tender link here
   },
   {
     id: 4,
     title: "GeM Bid For Purchase Of 01 No Central Air Conditioning System Corrigendum Letter",
     lastDate: "07-07-2025",
     isNew: true,
+    link: "https://cish.org.in/tenders/GEM16062025.pdf", // Add your tender link here
   },
   {
     id: 5,
     title: "GeM Bid For Purchase Of Real Time PCR Machine",
     lastDate: "27-08-2025",
     isNew: true,
+    link: "https://cish.org.in/tenders/RTPCR_Bid.pdf", // Add your tender link here
   },
 ];
 

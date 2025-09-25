@@ -65,14 +65,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
         ]}
         iconProps={true}
         title={selectedStaff ? selectedStaff.title : "OUR STAFF"}
-        description={
-          selectedStaff
-            ? selectedStaff.description
-            : [
-                "Staff Play A Crucial Role In Building Trust And Efficiency Within Any Service System...",
-                "Clear Communication By Staff Significantly Improve User Satisfaction...",
-              ]
-        }
+        description={selectedStaff ? selectedStaff.description : [""]}
       />
       <section className="w-full px-4 md:px-8 lg:px-16 py-10 bg-[#FBFAF0]">
         {selectedStaff ? (
@@ -107,7 +100,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   )}
 
                   {/* Publications Section */}
-                  <div className="mt-4">
+                  {/* <div className="mt-4">
                     <Typography
                       variant="sectionHeading"
                       className="text-green-700 mb-4 font-semibold text-lg"
@@ -125,7 +118,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                         <p>No publications are currently listed.</p>
                       )}
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* --- START: Added Description Section --- */}
                   {selectedStaff.descriptions && selectedStaff.descriptions.length > 0 && (
@@ -183,16 +176,16 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
               <div className="flex-1 flex flex-col">
                 <DirectorContent
                   className="leading-loose"
-                  content="Dr. Damodaran Thukkaram, Born On October 2nd, 1973 In Chennai, Did His M.Sc. And Ph.D. From Tamil Nadu Agricultural University, Coimbatore (1998-2003). Joined The Agricultural Research Service (ARS) Of ICAR At Central Agricultural Research Institute, Port Blair In 1999 As A Scientist, Later Got Selected As Senior Scientist At ICAR-Central Soil Salinity Research Institute (CSSRI), Regional Research Station (RRS), Lucknow, In The Year 2008. Further, Placed As Principal Scientist In The Same Institute And Later Served As Head In-Charge Of The Station Since 2020. On 23rd January 2023, He Assumed Charge As The Regular Director Of ICAR Central Institute For Subtropical Horticulture, Lucknow, And Is Currently Leading The Institute."
+                  content="Dr. Damodaran Thukkaram, born on October 2nd, 1973, in Chennai, did his M.Sc. and Ph.D. from Tamil Nadu Agricultural University, Coimbatore (1998–2003). He joined the Agricultural Research Service (ARS) of ICAR at the Central Agricultural Research Institute, Port Blair, in 1999 as a Scientist. Later, he was selected as Senior Scientist at ICAR–Central Soil Salinity Research Institute (CSSRI), Regional Research Station (RRS), Lucknow, in the year 2008. Further, he was placed as Principal Scientist in the same institute and later served as Head In-charge of the station since 2020. On 23rd January 2023, he assumed charge as the regular Director of ICAR–Central Institute for Subtropical Horticulture, Lucknow, and is currently leading the institute."
                   linkHref="#"
                   linkText=""
                 />
                 <div className="mt-auto pb-2">
-                  <Link href="/varieties">
-                    <Button className="bg-green-700 hover:bg-green-800 text-white px-4 sm:px-6 md:px-8 py-8 font-semibold text-sm sm:text-base w-full sm:w-auto">
-                      OUR DIRECTOR →
-                    </Button>
-                  </Link>
+                  {/* <Link href="#"> */}
+                  <Button className="bg-green-700 hover:bg-green-800 text-white px-4 sm:px-6 md:px-8 py-8 font-semibold text-sm sm:text-base w-full sm:w-auto">
+                    OUR DIRECTOR
+                  </Button>
+                  {/* </Link> */}
                 </div>
               </div>
             </div>

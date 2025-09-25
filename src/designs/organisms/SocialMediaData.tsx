@@ -1,23 +1,28 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import iconEarth from "../public/images/SocialMedia/famicons_earth-outline.svg";
 
 const socialMediaData = [
   {
     title: "X / Twitter",
     images: ["/icons/Xnew.svg", "/icons/Xnew1.svg", "/icons/Xnew.svg"],
+    link: "https://x.com/ICAR_CISH",
   },
   {
     title: "Facebook",
     images: ["/icons/fb1.svg", "/icons/fb2.svg", "/icons/fb1.svg"],
+    link: "https://www.facebook.com/ICARCISH/",
   },
   {
     title: "Instagram",
     images: ["/icons/instanew.svg", "/icons/insta2.svg", "/icons/instanew.svg"],
+    link: "https://www.instagram.com/icar_cish/?hl=en",
   },
   {
     title: "YouTube",
     images: ["/icons/youtubenew.svg", "/icons/youtubenew2.svg", "/icons/youtubenew.svg"],
+    link: "https://www.youtube.com/channel/UCUvmB_0pBbCsUenY8Ckb4Ng",
   },
 ];
 
@@ -38,12 +43,16 @@ export default function SocialMediaSection() {
       </div>
 
       <div className="max-w-7xl container mx-auto">
+        {/* Mobile view */}
         <div className="block sm:hidden">
           <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
             {socialMediaData.map((item, idx) => (
-              <div
+              <Link
                 key={idx}
-                className="flex-none w-72 bg-white shadow-lg  border border-gray-200 overflow-hidden snap-start"
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-none w-72 bg-white shadow-lg border border-gray-200 overflow-hidden snap-start hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               >
                 <div className="p-4 border-b border-gray-100">
                   <h3 className="text-green-900 font-semibold text-center text-lg">{item.title}</h3>
@@ -52,7 +61,7 @@ export default function SocialMediaSection() {
                 <div className="h-80 overflow-y-auto p-4">
                   <div className="space-y-3">
                     {item.images.map((src, i) => (
-                      <div key={i} className="bg-gray-50 border border-gray-200  overflow-hidden">
+                      <div key={i} className="bg-gray-50 border border-gray-200 overflow-hidden">
                         <Image
                           src={src}
                           alt={`${item.title} post ${i + 1}`}
@@ -64,14 +73,21 @@ export default function SocialMediaSection() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
 
+        {/* Tablet view */}
         <div className="hidden sm:grid lg:hidden grid-cols-2 gap-4 md:gap-6">
           {socialMediaData.map((item, idx) => (
-            <div key={idx} className="bg-white shadow-lg border border-gray-200 overflow-hidden">
+            <Link
+              key={idx}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            >
               <div className="p-4 md:p-5 border-b border-gray-100">
                 <h3 className="text-green-900 font-semibold text-center text-lg md:text-xl">
                   {item.title}
@@ -81,7 +97,7 @@ export default function SocialMediaSection() {
               <div className="h-80 md:h-96 overflow-y-auto p-4 md:p-5">
                 <div className="space-y-3 md:space-y-4">
                   {item.images.map((src, i) => (
-                    <div key={i} className="bg-gray-50 border border-gray-200  overflow-hidden">
+                    <div key={i} className="bg-gray-50 border border-gray-200 overflow-hidden">
                       <Image
                         src={src}
                         alt={`${item.title} post ${i + 1}`}
@@ -93,18 +109,22 @@ export default function SocialMediaSection() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
+        {/* Desktop view */}
         <div className="hidden lg:grid grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-6">
           {socialMediaData.map((item, idx) => (
-            <div
+            <Link
               key={idx}
-              className="bg-white shadow-lg  border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
             >
               <div className="p-4 xl:p-5 border-b border-gray-100">
-                <h3 className="text-green-900 font-semibold text-center text-lg xl:text-xl">
+                <h3 className="text-green-900 font-semibold text-center text-lg xl:text-xl group-hover:text-green-700 transition-colors duration-300">
                   {item.title}
                 </h3>
               </div>
@@ -112,10 +132,7 @@ export default function SocialMediaSection() {
               <div className="h-80 xl:h-96 overflow-y-auto p-4 xl:p-5 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                 <div className="space-y-3 xl:space-y-4">
                   {item.images.map((src, i) => (
-                    <div
-                      key={i}
-                      className="bg-gray-50 border border-gray-200  overflow-hidden group"
-                    >
+                    <div key={i} className="bg-gray-50 border border-gray-200 overflow-hidden">
                       <Image
                         src={src}
                         alt={`${item.title} post ${i + 1}`}
@@ -127,7 +144,7 @@ export default function SocialMediaSection() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
