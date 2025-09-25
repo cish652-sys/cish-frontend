@@ -12,9 +12,9 @@ interface TenderTableProps {
 const AnimatedNewBadge: React.FC = () => {
   return (
     <span className="relative inline-flex items-center">
-      <span 
+      <span
         className="inline-flex items-center px-2 py-1 rounded text-xs font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 shadow-sm"
-        style={{ animation: 'pulse 5s ease-in-out infinite' }}
+        style={{ animation: "pulse 5s ease-in-out infinite" }}
       >
         NEW
       </span>

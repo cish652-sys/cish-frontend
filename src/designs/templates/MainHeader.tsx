@@ -12,7 +12,7 @@ import banner4 from "../public/images/banner4.svg";
 import banner5 from "../public/images/banner5.jpg";
 
 export const MainHeader = () => {
-  const banners = [ banner2, banner3, banner4, banner5];
+  const banners = [banner2, banner3, banner4, banner5];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

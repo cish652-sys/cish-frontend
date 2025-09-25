@@ -17,13 +17,9 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
     const fontStyle = { fontFamily: "Noto Sans" };
 
     // If it's a string, render as plain text
-    if (typeof msg === 'string') {
+    if (typeof msg === "string") {
       return (
-        <span
-          key={index}
-          className={baseClasses}
-          style={fontStyle}
-        >
+        <span key={index} className={baseClasses} style={fontStyle}>
           {msg}
         </span>
       );
@@ -47,11 +43,7 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
 
     // If it's an object without a link, render as plain text
     return (
-      <span
-        key={index}
-        className={baseClasses}
-        style={fontStyle}
-      >
+      <span key={index} className={baseClasses} style={fontStyle}>
         {msg.text}
       </span>
     );
