@@ -2,11 +2,61 @@
 import plump from "../public/images/streamline-plump_announcement-megaphone.svg";
 import { Logo } from "../atoms/Logo";
 
+interface AnnouncementItem {
+  text: string;
+  link?: string;
+}
+
 interface AnnouncementBarProps {
-  messages: string[];
+  messages: (string | AnnouncementItem)[];
 }
 
 export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
+  const renderMessage = (msg: string | AnnouncementItem, index: number) => {
+    const baseClasses = "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
+    const fontStyle = { fontFamily: "Noto Sans" };
+
+    // If it's a string, render as plain text
+    if (typeof msg === 'string') {
+      return (
+        <span
+          key={index}
+          className={baseClasses}
+          style={fontStyle}
+        >
+          {msg}
+        </span>
+      );
+    }
+
+    // If it's an object with a link, render as hyperlink
+    if (msg.link) {
+      return (
+        <a
+          key={index}
+          href={msg.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${baseClasses} text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors cursor-pointer`}
+          style={fontStyle}
+        >
+          {msg.text}
+        </a>
+      );
+    }
+
+    // If it's an object without a link, render as plain text
+    return (
+      <span
+        key={index}
+        className={baseClasses}
+        style={fontStyle}
+      >
+        {msg.text}
+      </span>
+    );
+  };
+
   return (
     <div className="w-full bg-[#FBFAF0] border-gray-200">
       <div className="container flex items-center py-4 overflow-hidden">
@@ -16,15 +66,7 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
         </div>
         <div className="relative flex-1 overflow-hidden">
           <div className="flex whitespace-nowrap animate-marquee">
-            {messages.map((msg, index) => (
-              <span
-                key={index}
-                className="mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize"
-                style={{ fontFamily: "Noto Sans" }}
-              >
-                {msg}
-              </span>
-            ))}
+            {messages.map((msg, index) => renderMessage(msg, index))}
           </div>
         </div>
       </div>

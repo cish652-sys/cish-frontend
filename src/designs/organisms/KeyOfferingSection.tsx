@@ -21,7 +21,7 @@ const jobsData: Tender[] = [
     postDate: "25-07-2025",
     lastDate: "01-08-2025",
     result: "Result",
-    isNew: false,
+    isNew: true, // Made this new for demo
   },
   {
     id: 3,
@@ -94,15 +94,85 @@ const dummyTenders: Tender[] = [
   },
 ];
 
+// Animated NEW Badge Component
+const AnimatedNewBadge: React.FC = () => {
+  return (
+    <div className="relative">
+      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 shadow-lg animate-pulse">
+        NEW
+        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-red-500 to-pink-500 opacity-75 animate-ping"></span>
+      </span>
+    </div>
+  );
+};
+
+// View More Button Component
+const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
+  const handleViewMore = () => {
+    switch (activeTab) {
+      case "Tenders":
+        window.open("https://cish.in/tender.php", "_blank");
+        break;
+      case "Jobs":
+        // Placeholder - you'll add the URL later
+        console.log("Jobs URL to be added");
+        // window.open("YOUR_JOBS_URL_HERE", "_blank");
+        break;
+      case "Announcements":
+        // Placeholder - you'll add the URL later
+        console.log("Announcements URL to be added");
+        // window.open("YOUR_ANNOUNCEMENTS_URL_HERE", "_blank");
+        break;
+      default:
+        break;
+    }
+  };
+
+  const getButtonText = () => {
+    switch (activeTab) {
+      case "Tenders":
+        return "View Tenders";
+      case "Jobs":
+        return "View Jobs";
+      case "Announcements":
+        return "View Announcements";
+      default:
+        return "View More";
+    }
+  };
+
+  return (
+    <button
+      onClick={handleViewMore}
+      className="group inline-flex items-center px-4 py-2 bg-green-800 text-white text-sm font-medium hover:bg-green-900 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+    >
+      {getButtonText()}
+      <svg
+        className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  );
+};
+
 export const KeyOfferingsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Tenders");
 
   return (
     <div className="flex flex-col w-full h-[300px]">
-      <div className="flex items-center gap-2">
-        <Icon src="/icons/nfc-magnifying-glass 1.svg" alt="Trending" />
-        <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
+      <div className="flex items-center justify-between mb-2.5">
+        <div className="flex items-center gap-2">
+          <Icon src="/icons/nfc-magnifying-glass 1.svg" alt="Trending" />
+          <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
+        </div>
+        <ViewMoreButton activeTab={activeTab} />
       </div>
+
       <div className="flex overflow-hidden border">
         {["Announcements", "Jobs", "Tenders"].map((tab) => (
           <TabButton

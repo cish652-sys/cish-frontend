@@ -8,17 +8,17 @@ export function cn(...inputs: ClassValue[]) {
 export const eventsData = [
   {
     image: "/icons/Event 2.svg",
-    date: "June 10, 2025",
+    date: "August 15, 2025",
     title: "Independence Day",
     description:
       "The 79th Independence Day was celebrated with great pomp on 15 August 2025 at the Central Institute of Subtropical Horticulture......",
   },
   {
-    image: "/icons/Event 3.svg",
-    date: "April 28, 2025",
+    image: "/icons/Event 3.png",
+    date: "July 28, 2025",
     title: "lucknow aam mahotsav",
     description:
-      "Scientists at ICAR have developed a new crop variety that can withstand prolonged drought conditions.ICAR-CISH Rehmankhera, Kakori, Lucknow has participated in Uttar Pradesh Aam Mahotsav 2025 and exhibited >300 mango varieties and hybrids......",
+      "ICAR-CISH Rehmankhera, Kakori, Lucknow has participated in Uttar Pradesh Aam Mahotsav 2025 and exhibited >300 mango varieties and hybrids......",
   },
 
   {
@@ -244,11 +244,11 @@ export const varieties = [
 ];
 
 export const varitiesTechnologies = [
-  {
-    title: "CISH metwash",
-    description: "",
-    date: "",
-  },
+  // {
+  //   title: "CISH metwash",
+  //   description: "",
+  //   date: "",
+  // },
   {
     title: "ICAR-BIOIMMUNIZER",
     description: "",
