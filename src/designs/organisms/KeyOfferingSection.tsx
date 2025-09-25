@@ -94,18 +94,6 @@ const dummyTenders: Tender[] = [
   },
 ];
 
-// Animated NEW Badge Component
-const AnimatedNewBadge: React.FC = () => {
-  return (
-    <div className="relative">
-      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 shadow-lg animate-pulse">
-        NEW
-        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-red-500 to-pink-500 opacity-75 animate-ping"></span>
-      </span>
-    </div>
-  );
-};
-
 // View More Button Component
 const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
   const handleViewMore = () => {
