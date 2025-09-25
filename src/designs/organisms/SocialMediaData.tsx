@@ -4,7 +4,7 @@ import iconEarth from "../public/images/SocialMedia/famicons_earth-outline.svg";
 
 const socialMediaData = [
   {
-    title: "X",
+    title: "X / Twitter",
     images: ["/icons/Xnew.svg", "/icons/Xnew1.svg", "/icons/Xnew.svg"],
   },
   {

@@ -27,7 +27,7 @@ const routes: Record<string, string> = {
   "Regional Research Station": "https://cish.in/malda_n.php",
   "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
   "Cadres Strength": "/about/cadres-strength",
-  Staff: "/staff", 
+  Staff: "/staff",
   "Citizen Charter": "/about/citizen-charter",
 
   // RESEARCH dropdown

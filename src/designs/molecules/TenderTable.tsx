@@ -7,6 +7,22 @@ interface TenderTableProps {
   tableType?: "tender" | "job" | "announcement";
 }
 
+// Animated NEW Badge Component for table items
+// Animated NEW Badge Component for table items with slow blink
+const AnimatedNewBadge: React.FC = () => {
+  return (
+    <span className="relative inline-flex items-center">
+      <span
+        className="inline-flex items-center px-2 py-1 rounded text-xs font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 shadow-sm"
+        style={{ animation: "pulse 5s ease-in-out infinite" }}
+      >
+        NEW
+      </span>
+      <span className="absolute inset-0 rounded bg-gradient-to-r from-red-500 to-pink-500 opacity-40 animate-ping"></span>
+    </span>
+  );
+};
+
 export const TenderTable: React.FC<TenderTableProps> = ({ tenders, tableType = "tender" }) => {
   // Function to generate and download dummy PDF
   const downloadApplicationForm = () => {
@@ -66,12 +82,17 @@ Date: __________________________
             {tenders.map((tender, index) => (
               <tr key={tender.id} className="border-b hover:bg-gray-50">
                 <td className="px-3 py-2">{index + 1}</td>
-                <td className="px-3 py-2  hover:underline cursor-pointer">{tender.title}</td>
+                <td className="px-3 py-2">
+                  <div className="flex items-center gap-3">
+                    <span className="hover:underline cursor-pointer">{tender.title}</span>
+                    {tender.isNew && <AnimatedNewBadge />}
+                  </div>
+                </td>
                 <td className="px-3 py-2">
                   {tender.form && (
                     <button
                       onClick={downloadApplicationForm}
-                      className="bg-green-800 text-white text-xs hover:bg-green-900 cursor-pointer"
+                      className="bg-green-800 text-white text-xs hover:bg-green-900 cursor-pointer px-2 py-1 rounded"
                     >
                       {tender.form}
                     </button>
@@ -111,12 +132,8 @@ Date: __________________________
               <td className="px-3 py-2">{t.id}</td>
               <td className="px-3 py-2">
                 <div className="flex items-center gap-6">
-                  <span className=" hover:underline cursor-pointer">{t.title}</span>
-                  {t.isNew && (
-                    <span className="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">
-                      NEW
-                    </span>
-                  )}
+                  <span className="hover:underline cursor-pointer">{t.title}</span>
+                  {t.isNew && <AnimatedNewBadge />}
                 </div>
               </td>
               <td className="px-3 py-2">{t.lastDate}</td>
