@@ -40,7 +40,7 @@ export const rearchData = [
   {
     image: "/icons/Rectangle 709.svg",
     date: "June 10, 2025",
-    titleResearch: "DIGITL ORCHARDS, SUSTAINABLE HARVEST AND RESOURCE CONSERVATION",
+    titleResearch: "DIGITAL ORCHARDS, SUSTAINABLE HARVEST AND RESOURCE CONSERVATION",
     description: "",
   },
   {
@@ -339,7 +339,7 @@ export const staffData = [
     image: "/icons/dummyStaff.svg",
   },
   {
-    id: "post-harvest", // <-- CORRECTED ID (was "division-extension")
+    id: "post-harvest",
     title: "DIVISION OF POST HARVEST MANAGEMENT",
     headName: "DR AKATH SINGH",
     headTitle: "HEAD & PRINCIPAL SCIENTIST",

@@ -38,7 +38,7 @@ export function Footer() {
                 alt="Facebook"
               />
               <FooterIcon
-                href="https://x.com/i/flow/single_sign_on"
+                href="https://x.com/ICAR_CISH"
                 imgSrc="/icons/Twitter.svg"
                 alt="Twitter"
               />
