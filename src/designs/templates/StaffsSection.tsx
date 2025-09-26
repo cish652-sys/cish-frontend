@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Badge } from "../atoms/Badge";
 import { StaffFlipCard } from "../molecules/StaffFlipCard";
+import { StaffModal } from "../molecules/StaffModal";
 
 type StaffsSectionProps = {
   staffsItems: StaffsItems[];
@@ -20,7 +21,7 @@ type StaffsSectionProps = {
   technicalStaff?: StaffsItems[];
   skilledSupportingStaff?: StaffsItems[];
   administrativeStaff?: StaffsItems[];
-  divisionStaff?: StaffsItems[]; // Added for specific division staff
+  divisionStaff?: StaffsItems[];
 };
 
 type StaffCategory = "scientific" | "technical" | "skilled" | "administrative";
@@ -39,9 +40,10 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
   technicalStaff = [],
   skilledSupportingStaff = [],
   administrativeStaff = [],
-  divisionStaff = [], // Added for specific division staff
+  divisionStaff = [],
 }) => {
   const [activeTab, setActiveTab] = useState<StaffCategory>("scientific");
+  const [modalStaff, setModalStaff] = useState<StaffsItems | null>(null);
 
   const staffTabs: StaffTab[] = [
     { id: "scientific", label: "SCIENTIFIC STAFF", data: scientificStaff },
@@ -70,13 +72,10 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
       <section className="w-full px-4 md:px-8 lg:px-16 py-10 bg-[#FBFAF0]">
         {selectedStaff ? (
           <>
-            {/* Division Head Section */}
             <section id="divisionHeadSection" className="my-14 py-6">
               <div className="container mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-                {/* Left Column: Image & Name */}
                 <div className="relative w-full lg:w-1/3 flex-shrink-0">
                   {" "}
-                  {/* <-- 1. Set parent to 'relative' and remove text-center */}
                   {selectedStaff.image && (
                     <Image
                       src={selectedStaff.image}
@@ -91,7 +90,6 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   )}
                 </div>
 
-                {/* Right Column: Title, Publications, and Description */}
                 <div className="w-full lg:w-2/3 flex flex-col">
                   {selectedStaff.headTitle && (
                     <Typography variant="sectionHeading" className="text-green-800 font-bold mb-6">
@@ -99,28 +97,6 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                     </Typography>
                   )}
 
-                  {/* Publications Section */}
-                  {/* <div className="mt-4">
-                    <Typography
-                      variant="sectionHeading"
-                      className="text-green-700 mb-4 font-semibold text-lg"
-                    >
-                      PUBLICATIONS (TOP 10 PUBLICATIONS WITH FIRST OR CORRESPONDING AUTHOR ONLY):
-                    </Typography>
-                    <div className="space-y-5 text-gray-800">
-                      {selectedStaff.publications && selectedStaff.publications.length > 0 ? (
-                        selectedStaff.publications.map((pub, index) => (
-                          <p key={index} className="text-base leading-relaxed">
-                            {pub}
-                          </p>
-                        ))
-                      ) : (
-                        <p>No publications are currently listed.</p>
-                      )}
-                    </div>
-                  </div> */}
-
-                  {/* --- START: Added Description Section --- */}
                   {selectedStaff.descriptions && selectedStaff.descriptions.length > 0 && (
                     <div className="mt-10">
                       <div className="space-y-4 text-gray-800 text-base leading-relaxed">
@@ -130,7 +106,6 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                       </div>
                     </div>
                   )}
-                  {/* --- END: Added Description Section --- */}
 
                   <div className="mt-10">
                     <Link href="#">
@@ -143,7 +118,6 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
               </div>
             </section>
 
-            {/* Division Staff Section (This section remains unchanged) */}
             {divisionStaff.length > 0 && (
               <section id="divisionStaffSection" className="my-14 py-6">
                 <div className="container">
@@ -153,10 +127,13 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                     </Typography>
                   </div>
 
-                  {/* Grid layout rendered directly here, using StaffFlipCard */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                     {divisionStaff.map((staffMember) => (
-                      <StaffFlipCard key={staffMember.id} staff={staffMember} />
+                      <StaffFlipCard
+                        key={staffMember.id}
+                        staff={staffMember}
+                        onViewMore={setModalStaff} // This will set the state to the clicked staff member
+                      />
                     ))}
                   </div>
                 </div>
@@ -181,11 +158,9 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   linkText=""
                 />
                 <div className="mt-auto pb-2">
-                  {/* <Link href="#"> */}
                   <Button className="bg-green-700 hover:bg-green-800 text-white px-4 sm:px-6 md:px-8 py-8 font-semibold text-sm sm:text-base w-full sm:w-auto">
                     OUR DIRECTOR
                   </Button>
-                  {/* </Link> */}
                 </div>
               </div>
             </div>
@@ -215,7 +190,6 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
               ))}
             </div>
 
-            {/* Active Tab Content */}
             <div className="mb-8">
               <Typography variant="sectionHeading" className="text-green-700 mb-4">
                 {staffTabs.find((tab) => tab.id === activeTab)?.label}
@@ -232,6 +206,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
           />
         )}
       </section>
+      {modalStaff && <StaffModal staff={modalStaff} onClose={() => setModalStaff(null)} />}
     </>
   );
 };

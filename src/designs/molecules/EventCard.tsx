@@ -37,7 +37,11 @@ export default function EventCard({
           </Typography>
         )}
         <Typography variant="paragraphSmall">{description}</Typography>
-        {titleResearch && <h1 className="text-[#1B5E20] font-bold">{titleResearch}</h1>}
+        {titleResearch && (
+          <h1 className="text-[#1B5E20] flex align-center justify-evenly text-sm font-bold">
+            {titleResearch}
+          </h1>
+        )}
       </CardContent>
       {showFooter && (
         <CardFooter className="flex justify-end">
