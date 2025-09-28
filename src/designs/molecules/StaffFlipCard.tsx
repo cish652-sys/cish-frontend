@@ -55,10 +55,13 @@ export const StaffFlipCard: React.FC<StaffFlipCardProps> = ({ staff, onViewMore 
               </p>
             </div>
 
-            <div onClick={() => onViewMore(staff)} className="border-t p-3 text-center">
+            <div className="border-t p-3 text-center">
               <button
-                
-                className="text-green-600 font-semibold hover:underline cursor-pointer flex items-center justify-center gap-2 w-full"
+                onClick={(e) => {
+                  e.stopPropagation(); // ✅ prevent parent flip/card capturing the click
+                  onViewMore(staff);
+                }}
+                className="text-green-600 font-semibold hover:underline cursor-pointer flex items-center justify-center gap-2 w-full relative z-10"
               >
                 VIEW MORE →
               </button>
