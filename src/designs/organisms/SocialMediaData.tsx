@@ -110,9 +110,7 @@ export default function SocialMediaSection() {
                   height={28}
                   className="w-6 h-6 absolute left-5 top-1/2 -translate-y-1/2"
                 />
-                <h3 className="text-green-900 font-semibold text-lg md:text-xl">
-                  {item.title}
-                </h3>
+                <h3 className="text-green-900 font-semibold text-lg md:text-xl">{item.title}</h3>
               </div>
               {/* MODIFICATION END */}
 

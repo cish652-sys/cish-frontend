@@ -727,7 +727,7 @@ export const divisionStaffData = {
       mscInstitute: "N/A",
       phdInstitute: "N/A",
     },
-     {
+    {
       id: "cp-staff-1",
       title: "DR PL SAROJ",
       description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
@@ -825,7 +825,7 @@ export const divisionStaffData = {
       mscInstitute: "N/A",
       phdInstitute: "N/A",
     },
-     {
+    {
       id: "cp-staff-8",
       title: "DR TARUN ADAK",
       description: ["Specializes in mango and guava breeding programs with 15+ years experience."],
