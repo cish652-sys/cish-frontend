@@ -15,7 +15,7 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({ imageSrc, className =
     <section id="directorsSection" className={`mb-12 ${className}`}>
       <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
         <div className="flex-1">
-          <DirectorHeader heading="From Director's Desk" />
+          <DirectorHeader className="text-[#1B5E20]" heading="FROM DIRECTOR'S DESK" />
           <DirectorContent
             content="Central Institute for Subtropical Horticulture Institute with a unique distinction of
         working on the mango the king of fruit on one hand and guava the poor man’s apple on the

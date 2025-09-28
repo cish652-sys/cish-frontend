@@ -70,7 +70,7 @@ export const CommercializationSection = ({
                   className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
                 />
                 <h2 className="text-[22px] font-bold text-[#1B5E20]">
-                  Varieties for Commercialization
+                  VARIETIES FOR COMMERCIALIZATION
                 </h2>
               </div>
 
@@ -107,13 +107,10 @@ export const CommercializationSection = ({
                   alt="Technologies"
                   className="w-[25px] h-[25px] sm:w-6 sm:h-6 flex-shrink-0"
                 />
-                <Typography
-                  variant="bodyLarge"
-                  weight="bold"
-                  className="text-sm sm:text-base md:text-lg text-green-900 uppercase"
-                >
-                  Technologies for Commercialization
-                </Typography>
+                <h2                   className="text-[22px] font-bold text-[#1B5E20]">
+                
+                  TECHNOLOGIES FOR COMMERCIALIZATION
+                </h2>
               </div>
 
               <div className="bg-white shadow-md overflow-hidden">

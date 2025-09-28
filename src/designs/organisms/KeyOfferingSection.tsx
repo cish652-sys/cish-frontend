@@ -167,7 +167,7 @@ export const KeyOfferingsSection: React.FC = () => {
       <div className="flex items-center justify-between mb-2.5">
         <div className="flex items-center gap-2">
           <Icon src="/icons/nfc-magnifying-glass 1.svg" alt="Trending" />
-          <h2 className="text-lg font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
+          <h2 className="text-[22px] font-bold text-green-800 mb-2 flex items-center">KEY OFFERINGS</h2>
         </div>
         <ViewMoreButton activeTab={activeTab} />
       </div>

@@ -23,14 +23,14 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
 }) => {
   return (
     <Card className="flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden">
-      <CardHeader className="p-2 bg-gray-100 flex items-center justify-center">
+      <CardHeader className="p-2 flex items-center justify-center">
         {image ? (
           <Image
             src={image}
             alt={title}
             width={400}
             height={160}
-            className="object-cover w-full h-full"
+            className="object-fill w-full h-full min-h-[200px]"
           />
         ) : (
           <div className="w-full h-[160px] flex items-center justify-center bg-gray-200 text-gray-500">
@@ -58,7 +58,13 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
       </CardContent>
 
       <CardFooter className="p-4 flex justify-end mt-auto">
-        <button onClick={onViewMore} className="text-green-700 hover:text-green-800 font-semibold">
+        <button
+          onClick={(e) => {
+            e.stopPropagation(); // prevent parent intercept
+            onViewMore?.();
+          }}
+          className="text-green-700 hover:text-green-800 font-semibold cursor-pointer"
+        >
           VIEW MORE →
         </button>
       </CardFooter>
