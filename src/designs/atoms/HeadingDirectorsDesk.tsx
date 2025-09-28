@@ -10,7 +10,7 @@ export interface HeadingAtomProps {
 const HeadingAtom: React.FC<HeadingAtomProps> = ({ children, className = "" }) => {
   return (
     <h2
-      className={`flex items-center gap-2 text-green-700 font-semibold text-lg md:text-xl ${className}`}
+      className={`flex items-center gap-2 text-green-700 font-bold text-lg md:text-xl ${className}`}
     >
       <Icon src="/icons/torch-inspiration-leader 1.svg" alt="block" className="w-6 h-6" />
       {children}

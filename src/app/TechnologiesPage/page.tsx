@@ -23,9 +23,7 @@ function TechnologiesPage() {
         ]}
         iconProps={true}
         title="TECHNOLOGIES FOR COMMERCIALIZATION"
-        description={[
-          "",
-        ]}
+        description={[""]}
       />
       <TrendingTechnologies technologies={technoItems} />
       <OtherTechnologies technologiesItems={technologiesItems} />

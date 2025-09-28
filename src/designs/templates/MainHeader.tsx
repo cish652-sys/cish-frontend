@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react"; 
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "../organisms/Header";
 import { AnnouncementBar } from "../molecules/AnnouncementBar";
@@ -23,12 +23,10 @@ export const MainHeader = () => {
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % banners.length);
-  }, []); 
+  }, []);
 
   const goToPrevious = useCallback(() => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? banners.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
   }, []);
 
   const goToSlide = useCallback((slideIndex: number) => {
@@ -87,8 +85,19 @@ export const MainHeader = () => {
               className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
               aria-label="Previous slide"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
             <button
@@ -96,8 +105,19 @@ export const MainHeader = () => {
               className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
               aria-label="Next slide"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>
@@ -108,7 +128,7 @@ export const MainHeader = () => {
                 key={slideIndex}
                 onClick={() => goToSlide(slideIndex)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  currentIndex === slideIndex ? 'bg-white' : 'bg-white/50'
+                  currentIndex === slideIndex ? "bg-white" : "bg-white/50"
                 }`}
                 aria-label={`Go to slide ${slideIndex + 1}`}
               ></button>
