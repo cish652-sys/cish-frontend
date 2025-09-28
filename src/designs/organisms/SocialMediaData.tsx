@@ -8,21 +8,25 @@ const socialMediaData = [
     title: "X / Twitter",
     images: ["/icons/Xnew.svg", "/icons/Xnew1.svg", "/icons/Xnew.svg"],
     link: "https://x.com/ICAR_CISH",
+    icons: "/icons/Twitter.svg",
   },
   {
     title: "Facebook",
     images: ["/icons/fb1.svg", "/icons/fb2.svg", "/icons/fb1.svg"],
     link: "https://www.facebook.com/ICARCISH/",
+    icons: "/icons/Facebook.svg",
   },
   {
     title: "Instagram",
     images: ["/icons/instanew.svg", "/icons/insta2.svg", "/icons/instanew.svg"],
     link: "https://www.instagram.com/icar_cish/?hl=en",
+    icons: "/icons/Instagram.svg",
   },
   {
     title: "YouTube",
     images: ["/icons/youtubenew.svg", "/icons/youtubenew2.svg", "/icons/youtubenew.svg"],
     link: "https://www.youtube.com/channel/UCUvmB_0pBbCsUenY8Ckb4Ng",
+    icons: "/icons/ytsocialmedia.png",
   },
 ];
 
@@ -54,9 +58,18 @@ export default function SocialMediaSection() {
                 rel="noopener noreferrer"
                 className="flex-none w-72 bg-white shadow-lg border border-gray-200 overflow-hidden snap-start hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               >
-                <div className="p-4 border-b border-gray-100">
-                  <h3 className="text-green-900 font-semibold text-center text-lg">{item.title}</h3>
+                {/* MODIFICATION START */}
+                <div className="relative p-4 border-b border-gray-100 flex items-center justify-center">
+                  <Image
+                    src={item.icons}
+                    alt={`${item.title} icon`}
+                    width={24}
+                    height={24}
+                    className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2"
+                  />
+                  <h3 className="text-green-900 font-semibold text-lg">{item.title}</h3>
                 </div>
+                {/* MODIFICATION END */}
 
                 <div className="h-80 overflow-y-auto p-4">
                   <div className="space-y-3">
@@ -88,11 +101,20 @@ export default function SocialMediaSection() {
               rel="noopener noreferrer"
               className="bg-white shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             >
-              <div className="p-4 md:p-5 border-b border-gray-100">
-                <h3 className="text-green-900 font-semibold text-center text-lg md:text-xl">
+              {/* MODIFICATION START */}
+              <div className="relative p-4 md:p-5 border-b border-gray-100 flex items-center justify-center">
+                <Image
+                  src={item.icons}
+                  alt={`${item.title} icon`}
+                  width={28}
+                  height={28}
+                  className="w-6 h-6 absolute left-5 top-1/2 -translate-y-1/2"
+                />
+                <h3 className="text-green-900 font-semibold text-lg md:text-xl">
                   {item.title}
                 </h3>
               </div>
+              {/* MODIFICATION END */}
 
               <div className="h-80 md:h-96 overflow-y-auto p-4 md:p-5">
                 <div className="space-y-3 md:space-y-4">
@@ -123,11 +145,20 @@ export default function SocialMediaSection() {
               rel="noopener noreferrer"
               className="bg-white shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
             >
-              <div className="p-4 xl:p-5 border-b border-gray-100">
-                <h3 className="text-green-900 font-semibold text-center text-lg xl:text-xl group-hover:text-green-700 transition-colors duration-300">
+              {/* MODIFICATION START */}
+              <div className="relative p-4 xl:p-5 border-b border-gray-100 flex items-center justify-center">
+                <Image
+                  src={item.icons}
+                  alt={`${item.title} icon`}
+                  width={28}
+                  height={28}
+                  className="w-6 h-6 absolute left-5 top-1/2 -translate-y-1/2"
+                />
+                <h3 className="text-green-900 font-semibold text-lg xl:text-xl group-hover:text-green-700 transition-colors duration-300">
                   {item.title}
                 </h3>
               </div>
+              {/* MODIFICATION END */}
 
               <div className="h-80 xl:h-96 overflow-y-auto p-4 xl:p-5 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                 <div className="space-y-3 xl:space-y-4">

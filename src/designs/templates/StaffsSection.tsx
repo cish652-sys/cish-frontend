@@ -69,57 +69,11 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
         title={selectedStaff ? selectedStaff.title : "OUR STAFF"}
         description={selectedStaff ? selectedStaff.description : [""]}
       />
-      <section className="w-full px-4 md:px-8 lg:px-16 py-10 bg-[#FBFAF0]">
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         {selectedStaff ? (
           <>
-            <section id="divisionHeadSection" className="my-14 py-6">
-              <div className="container mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-                <div className="relative w-full lg:w-1/3 flex-shrink-0">
-                  {" "}
-                  {selectedStaff.image && (
-                    <Image
-                      src={selectedStaff.image}
-                      alt={selectedStaff.headName || selectedStaff.title}
-                      className="shadow-lg mx-auto object-cover" // Image styles are unchanged
-                      width={360}
-                      height={360}
-                    />
-                  )}
-                  {selectedStaff.headName && (
-                    <Badge className="bg-green-700/95 text-lg">{selectedStaff.headName}</Badge>
-                  )}
-                </div>
-
-                <div className="w-full lg:w-2/3 flex flex-col">
-                  {selectedStaff.headTitle && (
-                    <Typography variant="sectionHeading" className="text-green-800 font-bold mb-6">
-                      {selectedStaff.headTitle}
-                    </Typography>
-                  )}
-
-                  {selectedStaff.descriptions && selectedStaff.descriptions.length > 0 && (
-                    <div className="mt-10">
-                      <div className="space-y-4 text-gray-800 text-base leading-relaxed">
-                        {selectedStaff.descriptions.map((paragraph, index) => (
-                          <p key={index}>{paragraph}</p>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="mt-10">
-                    <Link href="#">
-                      <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 font-semibold text-base w-auto">
-                        VIEW MORE →
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             {divisionStaff.length > 0 && (
-              <section id="divisionStaffSection" className="my-14 py-6">
+              <section id="divisionStaffSection" className="py-12">
                 <div className="container">
                   <div className="mb-8">
                     <Typography variant="sectionHeading" className="text-green-700 mb-4">
@@ -127,12 +81,12 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                     </Typography>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {divisionStaff.map((staffMember) => (
                       <StaffFlipCard
                         key={staffMember.id}
                         staff={staffMember}
-                        onViewMore={setModalStaff} // This will set the state to the clicked staff member
+                        onViewMore={setModalStaff}
                       />
                     ))}
                   </div>
@@ -141,14 +95,17 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
             )}
           </>
         ) : (
-          <section id="directorsSection" className={`my-14 py-6 `}>
+          <section id="directorsSection">
             <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
-              <div className="flex mb-[-8px] justify-center items-end lg:justify-end">
+              <div className="relative flex  justify-center items-end lg:justify-end">
                 <ImageAtom
                   src="/icons/directorStaff.svg"
                   alt="Director"
                   className="max-w-full p-2 "
                 />
+                <Badge className="bg-green-800/95 width-[217px] text-sm">
+                  Dr. Damodaran Thukkaram
+                </Badge>
               </div>
               <div className="flex-1 flex flex-col">
                 <DirectorContent
@@ -157,11 +114,6 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   linkHref="#"
                   linkText=""
                 />
-                <div className="mt-auto pb-2">
-                  <Button className="bg-green-700 hover:bg-green-800 text-white px-4 sm:px-6 md:px-8 py-8 font-semibold text-sm sm:text-base w-full sm:w-auto">
-                    OUR DIRECTOR
-                  </Button>
-                </div>
               </div>
             </div>
           </section>
@@ -169,21 +121,16 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
 
         {showHeading && (
           <div className="container">
-            <div className="flex flex-wrap items-center py-10 gap-4">
+            <div className="flex flex-wrap justify-center items-center py-12 gap-6">
               {staffTabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 mb-8 px-6 py-6 transition-colors duration-200 ${
-                    activeTab === tab.id
-                      ? "bg-green-600 text-white"
-                      : "hover:bg-green-600 hover:text-white bg-gray-100 text-gray-700"
+                  className={`w-full sm:w-auto flex items-center justify-center text-center font-semibold px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300 ease-in-out bg-green-700 text-white ${
+                    activeTab === tab.id ? "shadow-lg" : "hover:bg-green-600 hover:shadow-md"
                   }`}
                 >
-                  <Typography
-                    variant="sectionHeading"
-                    className={activeTab === tab.id ? "text-white" : ""}
-                  >
+                  <Typography variant="sectionHeading" className="!text-white text-sm sm:text-base">
                     {tab.label}
                   </Typography>
                 </button>
@@ -191,7 +138,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
             </div>
 
             <div className="mb-8">
-              <Typography variant="sectionHeading" className="text-green-700 mb-4">
+              <Typography variant="sectionHeading" className=" mb-4">
                 {staffTabs.find((tab) => tab.id === activeTab)?.label}
               </Typography>
             </div>

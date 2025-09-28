@@ -23,7 +23,7 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
 }) => {
   return (
     <Card className="flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden">
-      <CardHeader className="p-2 bg-gray-100 flex items-center justify-center">
+      <CardHeader className="p-2 flex items-center justify-center">
         {image ? (
           <Image
             src={image}
