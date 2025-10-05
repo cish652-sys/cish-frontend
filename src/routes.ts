@@ -9,7 +9,7 @@ const routes: Record<string, string> = {
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
   NURSERY: "https://cish.in/nursery_n.php",
-  MEDIA: "/",
+  MEDIA: "/Events",
   "CONTACT US": "https://cish.in/contact_us.php",
   // ABOUT US dropdown
   "About Institute": "https://cish.in/introduction.php",

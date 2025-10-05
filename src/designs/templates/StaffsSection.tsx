@@ -1,13 +1,10 @@
 "use client";
-import Link from "next/link";
 import ImageAtom from "../atoms/ImageDirectorDesk";
 import Typography from "../atoms/Typography";
 import DirectorContent from "../molecules/DirectorsContent";
 import { SectionHeader } from "../organisms/SectionHeader";
 import { StaffsItems } from "../organisms/StaffsGrid";
 import { TechnologyGrid } from "../organisms/TechnologyGrid";
-import { Button } from "../atoms/button";
-import Image from "next/image";
 import { useState } from "react";
 import { Badge } from "../atoms/Badge";
 import { StaffFlipCard } from "../molecules/StaffFlipCard";
