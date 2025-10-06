@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { Button } from "../atoms/button";
 import Icon from "../atoms/ImpactCard/Icon";
-import Typography from "../atoms/Typography";
 import { TechnologyItem } from "../molecules/TechnologyItem";
 import { VarietyCard } from "../molecules/VarietyCard";
 import { useRef, useEffect, useMemo } from "react";

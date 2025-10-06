@@ -63,7 +63,7 @@ export function Footer() {
               { label: "Publication", href: "https://cish.in/cish-publication.php" },
               { label: "Careers", href: "#" },
               { label: "Tenders", href: "https://cish.in/tenders.php" },
-              { label: "VKSA", href: "https://cish.in/vksa.php" },
+              { label: "VKSA", href: "/VKSA" },
 
               { label: "RTI", href: "#" },
               { label: "Downloads", href: "#" },
