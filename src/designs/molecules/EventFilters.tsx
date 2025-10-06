@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 // Define the props the component will accept from its parent
 interface EventFiltersProps {
@@ -22,7 +22,20 @@ const EventFilters: React.FC<EventFiltersProps> = ({
   setActiveView,
   onFindEvents,
 }) => {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const views = ["List", "Month", "Day"];
 
   return (
@@ -82,8 +95,8 @@ const EventFilters: React.FC<EventFiltersProps> = ({
             className={`px-4 py-2 text-sm font-semibold transition-all duration-200 ease-in-out border-r border-gray-200 last:border-r-0
               ${
                 activeMonth === month
-                  ? 'bg-[#3a643b] text-white shadow-md'
-                  : 'bg-white text-gray-800 hover:bg-gray-50'
+                  ? "bg-[#3a643b] text-white shadow-md"
+                  : "bg-white text-gray-800 hover:bg-gray-50"
               }`}
           >
             {month}

@@ -1,22 +1,30 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
+"use client";
+import React from "react";
+import Link from "next/link";
 
 interface ViksitKrishiCardProps {
   id: number;
   title: string;
   description: string;
-  isDetailView?: boolean; 
+  isDetailView?: boolean;
 }
 
-const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({ id, title, description, isDetailView = false }) => {
+const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
+  id,
+  title,
+  description,
+  isDetailView = false,
+}) => {
   return (
     <div className="w-full max-w-6xl p-6 mb-8 bg-white border border-gray-200 shadow-sm">
       <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
       <p className="text-gray-700 text-base leading-relaxed">
         {description}
         {!isDetailView && (
-          <Link href={`/viksit-krishi/${id}`} className="text-green-700 font-semibold cursor-pointer hover:underline ml-1">
+          <Link
+            href={`/viksit-krishi/${id}`}
+            className="text-green-700 font-semibold cursor-pointer hover:underline ml-1"
+          >
             View More →
           </Link>
         )}

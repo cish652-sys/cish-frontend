@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -20,7 +20,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
   const event = eventsData.find((e) => e.id === id);
 
   if (!event) {
-    notFound(); 
+    notFound();
   }
 
   return (
@@ -33,7 +33,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/Events" }, { label: "NEWS AND EVENTS" }]}
         iconProps={true}
-        title= {event.title}
+        title={event.title}
         description={[""]}
       />
       <div className="min-h-screen bg-[#FBFAF0] text-gray-800 py-10 px-4 sm:px-6 lg:px-8">

@@ -1,12 +1,12 @@
-import JobsPage from '@/designs/templates/JobsPage'
-import React from 'react'
+import JobsPage from "@/designs/templates/JobsPage";
+import React from "react";
 
 const Jobs = () => {
   return (
     <div>
-        <JobsPage />
+      <JobsPage />
     </div>
-  )
-}
+  );
+};
 
-export default Jobs
+export default Jobs;

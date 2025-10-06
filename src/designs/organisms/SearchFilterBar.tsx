@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button } from '../atoms/button';
-import { ImageSearchBar } from '../molecules/ImageSearchBar';
-import { FilterGroup } from '../molecules/FilterGroup';
+import React from "react";
+import { Button } from "../atoms/button";
+import { ImageSearchBar } from "../molecules/ImageSearchBar";
+import { FilterGroup } from "../molecules/FilterGroup";
 
 export const SearchFilterBar = () => {
   return (
@@ -12,7 +12,7 @@ export const SearchFilterBar = () => {
       </div>
 
       <div>
-        <Button 
+        <Button
           className="bg-[#1B5E20] hover:bg-[#15381F] text-white font-bold uppercase tracking-wider "
           size="lg"
         >

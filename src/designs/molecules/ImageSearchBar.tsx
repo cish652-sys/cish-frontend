@@ -1,13 +1,9 @@
 import React from "react";
 import { Search } from "lucide-react";
 
-const Input = ({
-  className,
-  ...props
-}: React.InputHTMLAttributes<HTMLInputElement>) => {
+const Input = ({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) => {
   return <input className={`outline-none ${className}`} {...props} />;
 };
-
 
 export const ImageSearchBar = () => {
   return (

@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { Job } from '@/types'
+import { Job } from "@/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -876,100 +876,109 @@ export const jobData: Job[] = [
   {
     id: 1,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL II",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional II.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional II.",
     lastDateText: "Last Date Of Application 28th August 2025.",
     publishedDate: "19-08-2025",
     startDate: "19-08-2025",
     interviewDate: "28-08-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form'],
+    buttons: ["form"],
   },
   {
     id: 2,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional I.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional I.",
     lastDateText: "Last Date Of Application 01th August 2025.",
     publishedDate: "22-07-2025",
     startDate: "22-07-2025",
     interviewDate: "01-08-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form', 'result'],
+    buttons: ["form", "result"],
   },
   {
     id: 3,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional I.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional I.",
     lastDateText: "Last Date Of Application 30th July 2025.",
     publishedDate: "22-07-2025",
     startDate: "22-07-2025",
     interviewDate: "30-07-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form', 'result'],
+    buttons: ["form", "result"],
   },
   {
     id: 4,
     title: "VACANCY NOTIFICATION FOR THE POST OF PART TIME MEDICAL DOCTOR",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Specific Period Of Young Professional-I (YP-I, ) For A Short Duration At ICAR-CISH.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Specific Period Of Young Professional-I (YP-I, ) For A Short Duration At ICAR-CISH.",
     lastDateText: "Last Date Of Application 16th Jun 2025.",
     publishedDate: "29-05-2025",
     startDate: "29-05-2025",
     interviewDate: "16-06-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form', 'result'],
+    buttons: ["form", "result"],
   },
   {
     id: 5,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Specific Period Of Young Professional-I (YP-I, ) For A Short Duration At ICAR-CISH.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Specific Period Of Young Professional-I (YP-I, ) For A Short Duration At ICAR-CISH.",
     lastDateText: "Last Date Of Application 13th Jun 2025.",
     publishedDate: "27-05-2025",
     startDate: "27-05-2025",
     interviewDate: "13-06-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form', 'result'],
+    buttons: ["form", "result"],
   },
   {
     id: 6,
     title: "WALK IN INTERVIEW FOR THE CONTRACTUAL POSITION OF PROJECT ASSISTANT",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Project Assistant For A Short Duration At ICAR-CISH.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Project Assistant For A Short Duration At ICAR-CISH.",
     lastDateText: "Last Date Of Application 13th Jun 2025.",
     publishedDate: "27-05-2025",
     startDate: "27-05-2025",
     interviewDate: "13-06-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form'],
+    buttons: ["form"],
   },
   {
     id: 7,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL II",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional II.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional II.",
     lastDateText: "Last Date Of Application 22th July 2025.",
     publishedDate: "15-07-2025",
     startDate: "15-07-2025",
     interviewDate: "22-07-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form', 'result'],
+    buttons: ["form", "result"],
   },
   {
     id: 8,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
     lastDateText: "Last Date Of Application 10th July 2025.",
     publishedDate: "12-07-2025",
     startDate: "12-07-2025",
     interviewDate: "17-07-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form', 'result'],
+    buttons: ["form", "result"],
   },
   {
     id: 9,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
-    description: "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
     lastDateText: "Last Date Of Application 04th April 2025.",
     publishedDate: "04-06-2025",
     startDate: "04-06-2025",
     interviewDate: "10-06-2025",
     latestUpdate: "APPLICATION FORM",
-    buttons: ['form'],
+    buttons: ["form"],
   },
 ];
