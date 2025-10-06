@@ -1,5 +1,5 @@
-import { Job } from '@/types'; // Adjust import path if needed
-import { CalendarDays } from 'lucide-react';
+import { Job } from "@/types"; // Adjust import path if needed
+import { CalendarDays } from "lucide-react";
 
 // Define props for the DateRow component right here
 type DateRowProps = {
@@ -27,7 +27,7 @@ const JobCard = ({ job }: JobCardProps) => {
       <header className="bg-green-700 text-white text-center py-4 px-4">
         <h2 className="font-semibold text-sm uppercase">{job.title}</h2>
       </header>
-      
+
       <main className="p-6 flex-grow">
         <p className="text-sm text-gray-600 mb-5">{job.description}</p>
         <h3 className="font-bold text-gray-900 mb-4">{job.lastDateText}</h3>
@@ -38,15 +38,15 @@ const JobCard = ({ job }: JobCardProps) => {
           <DateRow label="Latest Update" date={job.latestUpdate} />
         </ul>
       </main>
-      
+
       <footer className="px-6 pb-6 pt-2">
         <div className="flex items-center gap-2">
-          {job.buttons.includes('form') && (
+          {job.buttons.includes("form") && (
             <button className="bg-green-700 text-white px-4 py-2 text-xs font-semibold rounded-sm hover:bg-green-800 transition-colors">
               APPLICATION FORM
             </button>
           )}
-          {job.buttons.includes('result') && (
+          {job.buttons.includes("result") && (
             <button className="bg-green-700 text-white px-4 py-2 text-xs font-semibold rounded-sm hover:bg-green-800 transition-colors">
               RESULT
             </button>

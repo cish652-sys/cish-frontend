@@ -76,7 +76,6 @@ const SelectItem = React.forwardRef<
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
-
 // Export the parts you'll use
 export const Select = SelectPrimitive.Root;
 export { SelectTrigger, SelectContent, SelectItem };

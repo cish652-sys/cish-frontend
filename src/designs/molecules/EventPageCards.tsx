@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { Event } from "@/app/Events/data"; // Ensure this path is correct
 
 interface EventPageCardsProps {
   event: Event;
-   image?: string;        // optional if some events don't have images
+  image?: string; // optional if some events don't have images
   date?: string;
   title?: string;
   description?: string;
@@ -16,10 +16,7 @@ interface EventPageCardsProps {
   showTitle?: boolean;
 }
 
-const EventPageCards: React.FC<EventPageCardsProps> = ({ 
-  event,
-  
- }) => {
+const EventPageCards: React.FC<EventPageCardsProps> = ({ event }) => {
   return (
     <Link href={`/Events/${event.id}`} className="block">
       <div className="flex bg-white shadow-sm border border-[#e0e0e0] overflow-hidden hover:shadow-md transition-shadow duration-200">

@@ -1,19 +1,16 @@
-import React from 'react';
-import { jobData } from '@/lib/utils';
-import JobCard from '../organisms/JobsCard'; 
-import { SearchFilterBar } from '../organisms/SearchFilterBar';
-import { MainHeader } from './MainHeader';
-import { SectionHeader } from '../organisms/SectionHeader';
+import React from "react";
+import { jobData } from "@/lib/utils";
+import JobCard from "../organisms/JobsCard";
+import { SearchFilterBar } from "../organisms/SearchFilterBar";
+import { MainHeader } from "./MainHeader";
+import { SectionHeader } from "../organisms/SectionHeader";
 
 const JobsPage = () => {
   return (
     <>
       <MainHeader />
       <SectionHeader
-        breadcrumbItems={[
-          { label: "Home", href: "/" },
-          { label: "JOBS" },
-        ]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "JOBS" }]}
         iconProps={true}
         title="JOBS"
         description={[""]}
