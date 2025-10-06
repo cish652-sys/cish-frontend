@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { Header } from "../organisms/Header";
 import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
@@ -31,7 +32,12 @@ const VKSAPage = () => {
 
         <div className="flex flex-col items-center w-full">
           {viksitKrishiData.map((card, index) => (
-            <ViksitKrishiCard key={index} title={card.title} description={card.description} />
+            <ViksitKrishiCard
+              key={index}
+              id={index} // Pass the index as the id prop
+              title={card.title}
+              description={card.description}
+            />
           ))}
         </div>
       </div>
