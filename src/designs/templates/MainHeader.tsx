@@ -1,12 +1,20 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
 import { Header } from "../organisms/Header";
 import { AnnouncementBar } from "../molecules/AnnouncementBar";
 import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
 
-const banners = [
+interface FileInfo {
+  id: number;
+  fileUrl: string;
+  isDirector: boolean | null;
+  isActive: boolean;
+}
+
+const staticBanners = [
   { type: "video", src: "/icons/HomeVideo.mp4" },
   { type: "image", src: "/icons/Home1.JPG" },
   { type: "image", src: "/icons/Home2.JPG" },
@@ -18,20 +26,50 @@ const banners = [
   { type: "image", src: "/icons/Home8.JPG" },
 ];
 
+const getBannerData = async (): Promise<FileInfo[]> => {
+  const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/files/getAll");
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+};
+
 export const MainHeader = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Fetch data using React Query
+  const { data: apiData, isLoading } = useQuery<FileInfo[]>({
+    queryKey: ["bannerFiles"],
+    queryFn: getBannerData,
+  });
+
+  const banners = useMemo(() => {
+    if (!apiData) return staticBanners;
+
+    const activeBanners = apiData
+      .filter((item) => item.isDirector === null && item.isActive === true)
+      .sort((a, b) => b.id - a.id);
+
+    const firstBanner =
+      activeBanners.length > 0 ? { type: "image", src: activeBanners[0].fileUrl } : null;
+
+    const carouselBanners = apiData
+      .filter((item) => item.isDirector === null && item.isActive === false)
+      .sort((a, b) => b.id - a.id)
+      .map((item) => ({ type: "image", src: item.fileUrl }));
+
+    const dynamicBanners = [];
+    if (firstBanner) {
+      dynamicBanners.push(firstBanner);
+    }
+    dynamicBanners.push(...carouselBanners);
+
+    return dynamicBanners.length > 0 ? dynamicBanners : staticBanners;
+  }, [apiData]);
+
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % banners.length);
-  }, []);
-
-  const goToPrevious = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
-  }, []);
-
-  const goToSlide = useCallback((slideIndex: number) => {
-    setCurrentIndex(slideIndex);
-  }, []);
+  }, [banners.length]);
 
   useEffect(() => {
     const currentItem = banners[currentIndex];
@@ -39,7 +77,15 @@ export const MainHeader = () => {
       const timer = setTimeout(goToNext, 4000);
       return () => clearTimeout(timer);
     }
-  }, [currentIndex, goToNext]);
+  }, [currentIndex, goToNext, banners]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
+  };
+
+  const goToSlide = (slideIndex: number) => {
+    setCurrentIndex(slideIndex);
+  };
 
   return (
     <main className="w-full">
@@ -48,92 +94,102 @@ export const MainHeader = () => {
 
       <section className="relative w-full overflow-hidden">
         <div className="relative w-full h-[40vh] sm:h-[50vh] md:h-[65vh] lg:h-[75vh] xl:h-[85vh] overflow-hidden">
-          <AnimatePresence initial={false} mode="sync">
-            {banners[currentIndex].type === "video" ? (
-              <motion.video
-                key={currentIndex}
-                src={banners[currentIndex].src}
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                playsInline
-                onEnded={goToNext}
-                initial={{ scale: 1.05, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              />
-            ) : (
-              <motion.img
-                key={currentIndex}
-                src={banners[currentIndex].src}
-                alt={`Website Banner ${currentIndex + 1}`}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
-                initial={{ scale: 1.05, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              />
-            )}
-          </AnimatePresence>
-
-          <div className="absolute inset-0 flex items-center justify-between p-4">
-            <button
-              onClick={goToPrevious}
-              className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
-              aria-label="Previous slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
+          {isLoading ? (
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+              Loading Banners...
+            </div>
+          ) : (
+            <AnimatePresence initial={false} mode="sync">
+              {banners[currentIndex].type === "video" ? (
+                <motion.video
+                  key={currentIndex}
+                  src={banners[currentIndex].src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ scale: 1.05, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 />
-              </svg>
-            </button>
-            <button
-              onClick={goToNext}
-              className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
-              aria-label="Next slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
+              ) : (
+                <motion.img
+                  key={currentIndex}
+                  src={banners[currentIndex].src}
+                  alt={`Website Banner ${currentIndex + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, 100vw"
+                  initial={{ scale: 1.05, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 />
-              </svg>
-            </button>
-          </div>
+              )}
+            </AnimatePresence>
+          )}
 
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2">
-            {banners.map((_, slideIndex) => (
-              <button
-                key={slideIndex}
-                onClick={() => goToSlide(slideIndex)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  currentIndex === slideIndex ? "bg-white" : "bg-white/50"
-                }`}
-                aria-label={`Go to slide ${slideIndex + 1}`}
-              ></button>
-            ))}
-          </div>
+          {!isLoading && (
+            <>
+              <div className="absolute inset-0 flex items-center justify-between p-4">
+                <button
+                  onClick={goToPrevious}
+                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                  aria-label="Previous slide"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button
+                  onClick={goToNext}
+                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                  aria-label="Next slide"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2">
+                {banners.map((_, slideIndex) => (
+                  <button
+                    key={slideIndex}
+                    onClick={() => goToSlide(slideIndex)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      currentIndex === slideIndex ? "bg-white" : "bg-white/50"
+                    }`}
+                    aria-label={`Go to slide ${slideIndex + 1}`}
+                  ></button>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
 

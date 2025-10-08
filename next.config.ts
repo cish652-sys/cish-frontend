@@ -25,3 +25,19 @@
 //     ]
 //   },
 // }
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '13.234.154.152',
+        port: '9000',
+        pathname: '/nfp-bucket/**', // Allows any image from this bucket
+      },
+    ],
+  },
+};
+
+module.exports = nextConfig;
