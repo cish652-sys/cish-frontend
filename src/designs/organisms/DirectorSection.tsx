@@ -22,35 +22,36 @@ interface DirectorInfo {
 
 // UPDATED: Fetches ALL files without query parameters
 const getDirectorData = async (): Promise<DirectorInfo[]> => {
-  const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/files/getAll');
+  const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/files/getAll");
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error("Network response was not ok");
   }
   return response.json();
 };
 
-const DirectorSection: React.FC<DirectorSectionProps> = ({ 
-  imageSrc: fallbackImageSrc, 
-  className = "" 
+const DirectorSection: React.FC<DirectorSectionProps> = ({
+  imageSrc: fallbackImageSrc,
+  className = "",
 }) => {
   const { data, isLoading, isError } = useQuery<DirectorInfo[]>({
-    queryKey: ['allFilesData'], // Using a new query key for the full dataset
+    queryKey: ["allFilesData"], // Using a new query key for the full dataset
     queryFn: getDirectorData,
   });
 
   // UPDATED LOGIC:
   // 1. Filter the full response to get only the items marked as a director.
-  const allDirectors = data?.filter(item => item.isDirector === true);
+  const allDirectors = data?.filter((item) => item.isDirector === true);
 
   // 2. From that filtered list, find the one with the highest 'id'.
   const directorInfo = allDirectors?.length
     ? allDirectors.reduce((latest, current) => (current.id > latest.id ? current : latest))
     : undefined;
 
-  const content = directorInfo?.description ?? 
+  const content =
+    directorInfo?.description ??
     `Central Institute for Subtropical Horticulture Institute with a unique distinction of
     working on the mango the king of fruit on one hand and guava the poor man’s apple on the
-    other...`; 
+    other...`;
 
   const imageSrc = directorInfo?.fileUrl ?? fallbackImageSrc;
 
@@ -61,17 +62,13 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({
       <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
         <div className="flex-1">
           <DirectorHeader className="text-[#1B5E20]" heading="FROM DIRECTOR'S DESK" />
-          
+
           {isLoading ? (
             <div>Loading directors message...</div>
           ) : isError ? (
             <div>Error: Could not load directors message.</div>
           ) : (
-            <DirectorContent
-              content={content}
-              linkHref={linkHref}
-              linkText="SEE MORE"
-            />
+            <DirectorContent content={content} linkHref={linkHref} linkText="SEE MORE" />
           )}
 
           <div className="mt-10">

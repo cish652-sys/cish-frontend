@@ -24,14 +24,16 @@ const VKSAPage = () => {
   useEffect(() => {
     const fetchVksaData = async () => {
       try {
-        const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa');
+        const response = await fetch(
+          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa"
+        );
         if (!response.ok) throw new Error("API fetch failed");
-        
+
         const apiData: VksaApiItem[] = await response.json();
 
         // If API returns valid data, format and use it
         if (apiData && apiData.length > 0) {
-          const formattedData = apiData.map(item => ({
+          const formattedData = apiData.map((item) => ({
             id: item.id,
             title: item.title,
             description: item.name, // We map the API's 'name' to our 'description'

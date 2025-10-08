@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
@@ -39,7 +38,9 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
     const fetchVksaDetails = async () => {
       let dataToSearch: VksaItem[] = viksitKrishiData;
       try {
-        const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa');
+        const response = await fetch(
+          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa"
+        );
         if (response.ok) {
           const apiData: VksaApiItem[] = await response.json();
           if (apiData && apiData.length > 0) {
@@ -56,14 +57,14 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
         console.error("Failed to fetch VKSA details, using fallback.", error);
       }
 
-      const foundCard = dataToSearch.find(card => card.id === cardId);
+      const foundCard = dataToSearch.find((card) => card.id === cardId);
       setCardData(foundCard || null);
       setIsLoading(false);
     };
 
     fetchVksaDetails();
   }, [cardId]);
-  
+
   if (isLoading) {
     return <div className="flex justify-center items-center h-screen">Loading...</div>;
   }

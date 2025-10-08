@@ -2,12 +2,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SocialIcon from "@/designs/atoms/SocialIcon"; 
-import { Event } from "@/app/Events/data"; 
+import SocialIcon from "@/designs/atoms/SocialIcon";
+import { Event } from "@/app/Events/data";
 
 interface EventPageCardsProps {
   event: Event;
-  image?: string; 
+  image?: string;
   date?: string;
   title?: string;
   description?: string;
@@ -66,8 +66,8 @@ const EventPageCards: React.FC<EventPageCardsProps> = ({ event }) => {
           <Image
             src={event.cardImage}
             alt={event.title}
-            width={288} 
-            height={200} 
+            width={288}
+            height={200}
             className="w-full h-full object-cover"
           />
         </div>
