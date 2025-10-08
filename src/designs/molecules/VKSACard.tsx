@@ -19,9 +19,8 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
   isDetailView = false,
 }) => {
   // Show a shorter description on the main list page
-  const shortDescription = description.length > 150 && !isDetailView
-    ? `${description.substring(0, 150)}...`
-    : description;
+  const shortDescription =
+    description.length > 150 && !isDetailView ? `${description.substring(0, 150)}...` : description;
 
   return (
     <div className="w-full max-w-6xl p-6 mb-8 bg-white border border-gray-200 shadow-sm">
@@ -43,9 +42,9 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
         <div className="grid pt-8 grid-cols-2 sm:grid-cols-3 mb-4 md:grid-cols-5 gap-4">
           {images.map((src, index) => (
             <div key={index} className="relative h-32 w-full overflow-hidden rounded-md">
-              <Image 
-                src={src} 
-                alt={`${title} image ${index + 1}`} 
+              <Image
+                src={src}
+                alt={`${title} image ${index + 1}`}
                 layout="fill"
                 objectFit="cover"
                 className="bg-gray-200"

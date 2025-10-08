@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { eventsData, Event } from "@/app/Events/data"; 
+import { eventsData, Event } from "@/app/Events/data";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Logo } from "@/designs/atoms/Logo";
@@ -28,28 +28,34 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
   const { id } = params;
   const [event, setEvent] = useState<Event | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
     const fetchEventDetails = async () => {
       let dataToSearch: Event[] = eventsData; // Start with fallback
       try {
-        const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent');
+        const response = await fetch(
+          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"
+        );
         if (response.ok) {
           const apiData: ApiEvent[] = await response.json();
           if (apiData && apiData.length > 0) {
             // Transform API data to match the Event structure
-            dataToSearch = apiData.map(item => {
+            dataToSearch = apiData.map((item) => {
               const eventDate = new Date(item.date);
               return {
                 id: String(item.id),
-                date: `${eventDate.getDate()} ${eventDate.toLocaleString('en-US', { month: 'short' })}.`,
+                date: `${eventDate.getDate()} ${eventDate.toLocaleString("en-US", { month: "short" })}.`,
                 day: eventDate.getDate(),
-                month: eventDate.toLocaleString('en-US', { month: 'short' }),
-                timeRange: eventDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),
+                month: eventDate.toLocaleString("en-US", { month: "short" }),
+                timeRange: eventDate.toLocaleTimeString("en-US", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                }),
                 title: item.title,
                 shortDescription: item.name,
                 fullDescription: item.name,
-                cardImage: item.images?.[0] || '/icons/default-event.jpg',
+                cardImage: item.images?.[0] || "/icons/default-event.jpg",
                 detailImages: item.images || [],
                 socialLinks: [],
               };
@@ -59,7 +65,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
       } catch (error) {
         console.error("Failed to fetch event details, using fallback data.", error);
       }
-      
+
       const foundEvent = dataToSearch.find((e) => e.id === id);
       setEvent(foundEvent || null);
       setIsLoading(false);
@@ -84,7 +90,11 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "NEWS AND EVENTS", href: "/Events" }, { label: event.title }]}
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "NEWS AND EVENTS", href: "/Events" },
+          { label: event.title },
+        ]}
         iconProps={true}
         title={event.title}
         description={[""]}

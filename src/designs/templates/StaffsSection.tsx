@@ -5,7 +5,7 @@ import DirectorContent from "../molecules/DirectorsContent";
 import { SectionHeader } from "../organisms/SectionHeader";
 import { StaffsItems } from "../organisms/StaffsGrid";
 import { TechnologyGrid } from "../organisms/TechnologyGrid";
-                                                                                                                                                                                                                                          import { useState } from "react";
+import { useState } from "react";
 import { Badge } from "../atoms/Badge";
 import { StaffFlipCard } from "../molecules/StaffFlipCard";
 import { StaffModal } from "../molecules/StaffModal";
