@@ -1,30 +1,84 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EventPageCards from "@/designs/molecules/EventPageCards";
 import EventFilters from "@/designs/molecules/EventFilters";
-import { eventsData } from "@/app/Events/data";
+import { eventsData, Event } from "@/app/Events/data";// Import Event type and fallback data
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Logo } from "@/designs/atoms/Logo";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Header } from "@/designs/organisms/Header";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// Define the structure of the API response
+interface ApiEvent {
+  id: number;
+  date: string; // This is a full timestamp e.g., "2025-10-06T18:30:00.000+00:00"
+  title: string;
+  name: string; // Will be used for descriptions
+  images: string[];
+}
+
+// Helper function to transform API data into the structure your components need
+const transformApiData = (apiData: ApiEvent[]): Event[] => {
+  return apiData.map(item => {
+    const eventDate = new Date(item.date);
+    const day = eventDate.getDate();
+    const month = eventDate.toLocaleString('en-US', { month: 'short' }); // e.g., "Aug"
+    const time = eventDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    return {
+      id: String(item.id), // Convert numeric ID to string for consistency
+      date: `${day} ${month}.`,
+      day: day,
+      month: month,
+      timeRange: time, // API doesn't provide a range, so we use the start time
+      title: item.title,
+      shortDescription: item.name,
+      fullDescription: item.name, // Using 'name' for both descriptions
+      cardImage: item.images?.[0] || '/icons/default-event.jpg', // Use first image or a default
+      detailImages: item.images || [],
+      socialLinks: [], // API doesn't provide social links
+    };
+  });
+};
+
+
 const EventsPage = () => {
+  const [allEvents, setAllEvents] = useState<Event[]>(eventsData);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [activeMonth, setActiveMonth] = useState("Aug");
   const [activeView, setActiveView] = useState("Month");
 
-  const filteredEvents = eventsData.filter(
-    (event) =>
-      (event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.shortDescription.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      event.month === activeMonth
-  );
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent');
+        if (!response.ok) throw new Error("API fetch failed");
+        
+        const apiData: ApiEvent[] = await response.json();
 
-  const handleFindEvents = () => {
-    console.log("Searching for:", searchTerm);
-  };
+        if (apiData && apiData.length > 0) {
+          const formattedEvents = transformApiData(apiData);
+          setAllEvents(formattedEvents);
+        }
+      } catch (error) {
+        console.error("Failed to fetch events, using fallback data.", error);
+        // Fallback data is already the initial state
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchEvents();
+  }, []);
+
+  const filteredEvents = allEvents.filter(event =>
+    (event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    event.shortDescription.toLowerCase().includes(searchTerm.toLowerCase())) &&
+    event.month === activeMonth
+  );
 
   return (
     <main>
@@ -39,7 +93,7 @@ const EventsPage = () => {
         title="NEWS AND EVENTS"
         description={[""]}
       />
-      <div className="min-h-screen bg-[#fcfbf8] text-gray-800">
+       <div className="min-h-screen bg-[#fcfbf8] text-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <h1 className="text-3xl font-bold text-green-900 mb-6">NEWS AND EVENTS</h1>
 
@@ -50,20 +104,24 @@ const EventsPage = () => {
             setActiveMonth={setActiveMonth}
             activeView={activeView}
             setActiveView={setActiveView}
-            onFindEvents={handleFindEvents}
+            onFindEvents={() => {}}
           />
 
           <div className="mt-8">
-            <h2 className="text-xl font-semibold text-gray-700 mb-6">{activeMonth} 2025</h2>
-            <div className="space-y-6">
-              {filteredEvents.length > 0 ? (
-                filteredEvents.map((event) => <EventPageCards key={event.id} event={event} />)
-              ) : (
-                <p className="text-center text-gray-500 py-10">
-                  No events found for &quot;{searchTerm}&quot; in {activeMonth}.
-                </p>
-              )}
-            </div>
+              <h2 className="text-xl font-semibold text-gray-700 mb-6">{activeMonth} 2025</h2>
+              <div className="space-y-6">
+                {isLoading ? (
+                   <p className="text-center text-gray-500 py-10">Loading events...</p>
+                ) : filteredEvents.length > 0 ? (
+                  filteredEvents.map((event) => (
+                    <EventPageCards key={event.id} event={event} />
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500 py-10">
+                    No events found for &quot;{searchTerm}&quot; in {activeMonth}.
+                  </p>
+                )}
+              </div>
           </div>
         </div>
       </div>

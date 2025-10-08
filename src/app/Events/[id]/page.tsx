@@ -1,13 +1,22 @@
-"use client";
-import React from "react";
+'use client';
+
+import React, { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { eventsData } from "@/app/Events/data";
+import { eventsData, Event } from "@/app/Events/data"; 
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
+
+interface ApiEvent {
+  id: number;
+  date: string;
+  title: string;
+  name: string;
+  images: string[];
+}
 
 interface EventDetailPageProps {
   params: {
@@ -17,7 +26,51 @@ interface EventDetailPageProps {
 
 const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
   const { id } = params;
-  const event = eventsData.find((e) => e.id === id);
+  const [event, setEvent] = useState<Event | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    const fetchEventDetails = async () => {
+      let dataToSearch: Event[] = eventsData; // Start with fallback
+      try {
+        const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent');
+        if (response.ok) {
+          const apiData: ApiEvent[] = await response.json();
+          if (apiData && apiData.length > 0) {
+            // Transform API data to match the Event structure
+            dataToSearch = apiData.map(item => {
+              const eventDate = new Date(item.date);
+              return {
+                id: String(item.id),
+                date: `${eventDate.getDate()} ${eventDate.toLocaleString('en-US', { month: 'short' })}.`,
+                day: eventDate.getDate(),
+                month: eventDate.toLocaleString('en-US', { month: 'short' }),
+                timeRange: eventDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),
+                title: item.title,
+                shortDescription: item.name,
+                fullDescription: item.name,
+                cardImage: item.images?.[0] || '/icons/default-event.jpg',
+                detailImages: item.images || [],
+                socialLinks: [],
+              };
+            });
+          }
+        }
+      } catch (error) {
+        console.error("Failed to fetch event details, using fallback data.", error);
+      }
+      
+      const foundEvent = dataToSearch.find((e) => e.id === id);
+      setEvent(foundEvent || null);
+      setIsLoading(false);
+    };
+
+    fetchEventDetails();
+  }, [id]);
+
+  if (isLoading) {
+    return <div className="flex justify-center items-center h-screen">Loading Event...</div>;
+  }
 
   if (!event) {
     notFound();
@@ -31,7 +84,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/Events" }, { label: "NEWS AND EVENTS" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "NEWS AND EVENTS", href: "/Events" }, { label: event.title }]}
         iconProps={true}
         title={event.title}
         description={[""]}
@@ -61,7 +114,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
                 alt={event.title}
                 width={1200}
                 height={600}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-lg"
                 priority
               />
             </div>
@@ -80,7 +133,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
                     alt={`${event.title} image ${index + 2}`}
                     width={600}
                     height={400}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover rounded-lg"
                   />
                 </div>
               ))}
