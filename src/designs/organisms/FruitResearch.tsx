@@ -5,7 +5,7 @@ import Image from "next/image";
 const fruitItems = [
   { id: "mango", label: "Mango", icon: "/icons/mangonew.svg" },
   { id: "guava", label: "Guava", icon: "/icons/guava.svg" },
-  { id: "wood-apple", label: "Bail", icon: "/icons/baelnew.svg" },
+  { id: "wood-apple", label: "Bael", icon: "/icons/baelnew.svg" },
   { id: "black-plum", label: "Jamun", icon: "/icons/cherrynew.svg" },
   { id: "gooseberry", label: "Indian Gooseberry", icon: "/icons/onion.svg" },
   { id: "banana", label: "Banana", icon: "/icons/banananew.svg" },
