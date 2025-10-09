@@ -40,7 +40,6 @@
 //   );
 // }
 
-
 "use client";
 import { eventsData } from "@/lib/utils";
 import EventCard from "../molecules/EventCard";
@@ -66,7 +65,9 @@ export default function EventsSection() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent");
+        const response = await fetch(
+          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"
+        );
         const data: ApiEvent[] = await response.json();
 
         if (data && data.length > 0) {
