@@ -26,12 +26,37 @@ const staticBanners = [
   { type: "image", src: "/icons/Home8.JPG" },
 ];
 
+// const getBannerData = async (): Promise<FileInfo[]> => {
+//   const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/files/getAll");
+//   if (!response.ok) {
+//     throw new Error("Network response was not ok");
+//   }
+//   return response.json();
+// };
+
+// ✅ Step 1: keep this helper at the bottom or in a utils file
+function fixImageUrl(url: string): string {
+  if (url.startsWith("http://13.234.154.152:9000/")) {
+    const path = url.replace("http://13.234.154.152:9000/", "");
+    return `https://api.nationalfarmerportal.org/nfp-portal/files/proxy?path=${encodeURIComponent(path)}`;
+  }
+  return url;
+}
+
+// ✅ Step 2: modify your getBannerData function
 const getBannerData = async (): Promise<FileInfo[]> => {
   const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/files/getAll");
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  return response.json();
+
+  const data = await response.json();
+
+  // Map & fix image URLs before returning
+  return data.map((item: FileInfo) => ({
+    ...item,
+    fileUrl: fixImageUrl(item.fileUrl),
+  }));
 };
 
 export const MainHeader = () => {
