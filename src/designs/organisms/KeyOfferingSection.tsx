@@ -110,17 +110,15 @@ const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
   const handleViewMore = () => {
     switch (activeTab) {
       case "Tenders":
-        window.open("https://cish.in/tender.php", "_blank");
+        window.open("https://cish.in/tenders.php", "_blank");
         break;
       case "Jobs":
         // Placeholder - you'll add the URL later
-        console.log("Jobs URL to be added");
-        // window.open("YOUR_JOBS_URL_HERE", "_blank");
+        window.open("https://cish.in/jobs.php", "_blank");
+
         break;
       case "Announcements":
-        // Placeholder - you'll add the URL later
         console.log("Announcements URL to be added");
-        // window.open("YOUR_ANNOUNCEMENTS_URL_HERE", "_blank");
         break;
       default:
         break;
