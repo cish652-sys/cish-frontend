@@ -64,7 +64,7 @@ export const technoItems = [
       "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
       "This Technology Utilizes A Novel Strain Of The Fungus Trichoderma Reesei (CSR-T-3) Cultivated In A Proprietary Medium. The Bio-Fungicide Has Shown Promising Results In Controlling The Disease, Reducing Production Losses, And Improving Yields",
     ],
-    href: "https://cish.in/technology/fusicont.php",
+    href: "https://cish.in/t_fusicont.php",
     image: "/icons/Rectangle 776.svg",
   },
   {
@@ -74,7 +74,7 @@ export const technoItems = [
       "An Innovative Tissue Culture Technique Mediated Through Bio-Engineering Of Metabolite-Based Biomolecule (Bioimmune) At In-Vitro Stage For The Production Of Fusarium Oxysporum Sp. Cubense TR-4 Tolerant Plantlets Of Banana.",
       "The Technology Of Bio-Immunization For Producing Fusarium Wilt Tolerant Banana Plantlets Was Tested For Its Bio-Efficacy Through Pot Culture Experiments Where The Immune Treated Plantlets Exhibited A Disease Index Of 0.24 Compared With The FOC TR-4 Treated Control That Showed 3.75 Signifying The Host Induced Tolerance Through Changing The Tissue Culture Protocol.",
     ],
-    href: "https://cish.in/technology/bioimmunizer.php",
+    href: "https://cish.in/t_bioimmunizer.php",
     image: "/icons/Rectangle 778.svg",
   },
   {
@@ -104,7 +104,7 @@ export const varietiesItem = [
       "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
       "Fruits weighs about 300–350 g, TSS is 21°B and rich in mangiferin content.",
     ],
-    href: "/tech/leafy",
+    href: "https://cish.in/v_ambika.php",
     image: "/icons/Ambika Mango.svg",
   },
   {
@@ -116,7 +116,7 @@ export const varietiesItem = [
       "TSS 24.6°B, rich in mangiferin and β-carotene.",
       "The hybrid has potential for both internal and export markets.",
     ],
-    href: "https://cish.in/technology/arunika.php",
+    href: "https://cish.in/v_arunika.php",
     image: "/icons/Arunika Mango.svg",
   },
 ];
@@ -208,7 +208,7 @@ export const technologiesVarietiesItems = [
     title: "CISH Lalit",
     image: "/icons/Lalit.svg",
     description: ["CISH- Lalit is a superior seedling selection from Apple guava."],
-    href: "https://cish.org.in/v_shweta.php",
+    href: "https://cish.in/v_lalit.php",
   },
   {
     id: "2",
@@ -226,7 +226,7 @@ export const technologiesVarietiesItems = [
     description: [
       "CISH-Dhawal has an average yield of 38.4 t/ha which is more than the double of national average of 15.6t/ha (2021-22) and more than CISH Lalima.",
     ],
-    href: "https://cish.org.in/v_shweta.php",
+    href: "https://cish.in/v_dhawal.php",
   },
   {
     id: "4",
@@ -235,7 +235,7 @@ export const technologiesVarietiesItems = [
     description: [
       "Hybrid is regular bearer and late maturing type. Pulp dark yellow, firm pulp with scanty fibre, pulp about 71.8%, TSS 21.6°B. The hybrid has potential for both internal and export markets because of its attractive red fruit colour.",
     ],
-    href: "https://cish.org.in/v_shweta.php",
+    href: "https://cish.in/v_samriddhi.php",
   },
 ];
 export const varieties = [
