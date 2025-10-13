@@ -42,7 +42,8 @@ export const TechnologyGrid: React.FC<TechnologyGridProps> = ({
                 router.push(tech.href);
               }
             } else {
-              router.push(`/staff/${tech.id}`);
+              // router.push(`/staff/${tech.id}`);
+               '';
             }
           }}
         />

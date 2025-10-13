@@ -46,6 +46,7 @@ const routes: Record<string, string> = {
   // VARIETIES dropdown
   "Climate Resilient": "/varieties/climate-resilient",
   "Nutraceutical Rich": "/varieties/nutraceutical-rich",
+  Varieties: "/varieties",
 
   // FOR FARMERS dropdown
   "Agro Advisory": "https://cish.in/agro-advisory.php",
@@ -104,7 +105,7 @@ const ResponsiveNavbar: React.FC = () => {
     { label: "TECHNOLOGIES" },
     {
       label: "VARIETIES",
-      dropdownItems: ["Climate Resilient", "Nutraceutical Rich"],
+      dropdownItems: ["Varieties", "Climate Resilient", "Nutraceutical Rich"],
     },
     {
       label: "FOR FARMERS",
