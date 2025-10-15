@@ -49,8 +49,8 @@ const routes: Record<string, string> = {
   Varieties: "/varieties",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "https://cish.in/agro-advisory.php",
-  "National Farmer Portal (NFP)": "https://www.nationalfarmerportal.org/?lang=en",
+  "Agro Advisory": "https://cish.in/agro_advisory.php",
+  "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
   "Success Stories (of Farmers)": "https://cish.in/success-stories.php",
   "Farmer Friendly Technologies": "/farmers/technologies",
@@ -111,7 +111,7 @@ const ResponsiveNavbar: React.FC = () => {
       label: "FOR FARMERS",
       dropdownItems: [
         "Agro Advisory",
-        "National Farmer Portal (NFP)",
+        "CISH Farmer Portal (CFP)",
         "Plant Bookings",
         "Success Stories (of Farmers)",
         "Farmer Friendly Technologies",

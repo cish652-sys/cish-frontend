@@ -981,4 +981,52 @@ export const jobData: Job[] = [
     latestUpdate: "APPLICATION FORM",
     buttons: ["form"],
   },
+  {
+    id:10,
+    title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
+    lastDateText: "Last Date Of Application 04th April 2025.",
+    publishedDate: "04-06-2025",
+    startDate: "04-06-2025",
+    interviewDate: "10-06-2025",
+    latestUpdate: "APPLICATION FORM",
+    buttons: ["form"],
+  },
+  {
+    id: 11,
+    title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
+    lastDateText: "Last Date Of Application 04th April 2025.",
+    publishedDate: "04-06-2025",
+    startDate: "04-06-2025",
+    interviewDate: "10-06-2025",
+    latestUpdate: "APPLICATION FORM",
+    buttons: ["form"],
+  },
+  {
+    id: 12,
+    title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
+    lastDateText: "Last Date Of Application 04th April 2025.",
+    publishedDate: "04-06-2025",
+    startDate: "04-06-2025",
+    interviewDate: "10-06-2025",
+    latestUpdate: "APPLICATION FORM",
+    buttons: ["form"],
+  },
+  {
+    id: 13,
+    title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
+    description:
+      "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",
+    lastDateText: "Last Date Of Application 04th April 2025.",
+    publishedDate: "04-06-2025",
+    startDate: "04-06-2025",
+    interviewDate: "10-06-2025",
+    latestUpdate: "APPLICATION FORM",
+    buttons: ["form"],
+  },
 ];

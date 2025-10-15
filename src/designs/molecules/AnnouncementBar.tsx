@@ -1,4 +1,6 @@
 "use client";
+
+import React from "react";
 import plump from "../public/images/streamline-plump_announcement-megaphone.svg";
 import { Logo } from "../atoms/Logo";
 
@@ -12,24 +14,19 @@ interface AnnouncementBarProps {
 }
 
 export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
-  const renderMessage = (msg: string | AnnouncementItem, index: number) => {
-    const baseClasses = "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
+  const normalizedMessages: AnnouncementItem[] = messages.map((msg) =>
+    typeof msg === "string" ? { text: msg } : msg
+  );
+
+  const renderMessage = (msg: AnnouncementItem, key: React.Key) => {
+    const baseClasses =
+      "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
     const fontStyle = { fontFamily: "Noto Sans" };
 
-    // If it's a string, render as plain text
-    if (typeof msg === "string") {
-      return (
-        <span key={index} className={baseClasses} style={fontStyle}>
-          {msg}
-        </span>
-      );
-    }
-
-    // If it's an object with a link, render as hyperlink
     if (msg.link) {
       return (
         <a
-          key={index}
+          key={key}
           href={msg.link}
           target="_blank"
           rel="noopener noreferrer"
@@ -41,9 +38,8 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
       );
     }
 
-    // If it's an object without a link, render as plain text
     return (
-      <span key={index} className={baseClasses} style={fontStyle}>
+      <span key={key} className={baseClasses} style={fontStyle}>
         {msg.text}
       </span>
     );
@@ -58,7 +54,10 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
         </div>
         <div className="relative flex-1 overflow-hidden">
           <div className="flex whitespace-nowrap animate-marquee">
-            {messages.map((msg, index) => renderMessage(msg, index))}
+            {normalizedMessages.map((msg, index) => renderMessage(msg, index))}
+            {normalizedMessages.map((msg, index) =>
+              renderMessage(msg, `dup-${index}`)
+            )}
           </div>
         </div>
       </div>

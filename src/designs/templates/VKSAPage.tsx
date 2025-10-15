@@ -5,45 +5,40 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import ViksitKrishiCard from "@/designs/molecules/VKSACard";
-import { viksitKrishiData } from "@/app/VKSA/data"; // Used as a fallback if API fails
+import { viksitKrishiData } from "@/app/VKSA/data"; 
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import Typography from "@/designs/atoms/Typography";
 
-// Define the structure of an item from the API
 interface VksaApiItem {
   id: number;
   title: string;
-  name: string; // The API's 'name' field
+  name: string; 
   images: string[];
 }
 
 const VKSAPage = () => {
-  const [vksaItems, setVksaItems] = useState(viksitKrishiData); // Start with fallback data
+  const [vksaItems, setVksaItems] = useState(viksitKrishiData); 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchVksaData = async () => {
       try {
-        const response = await fetch(
-          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa"
-        );
+        const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa');
         if (!response.ok) throw new Error("API fetch failed");
 
         const apiData: VksaApiItem[] = await response.json();
 
-        // If API returns valid data, format and use it
         if (apiData && apiData.length > 0) {
           const formattedData = apiData.map((item) => ({
             id: item.id,
             title: item.title,
-            description: item.name, // We map the API's 'name' to our 'description'
+            description: item.name, 
             images: item.images,
           }));
           setVksaItems(formattedData);
         }
       } catch (error) {
         console.error("Failed to fetch VKSA data, using fallback data.", error);
-        // If an error occurs, the component will just keep the fallback data
       } finally {
         setIsLoading(false);
       }

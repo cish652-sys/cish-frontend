@@ -16,5 +16,5 @@ export type Job = {
   startDate: string;
   interviewDate: string;
   latestUpdate: string;
-  buttons: ("form" | "result")[]; // An array of specific strings
+  buttons: ("form" | "result")[]; 
 };

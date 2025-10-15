@@ -34,7 +34,19 @@ const nextConfig = {
         protocol: 'http',
         hostname: '13.234.154.152',
         port: '9000',
-        pathname: '/nfp-bucket/**', // Allows any image from this bucket
+        pathname: '/nfp-bucket/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '13.234.154.152',
+        port: '8081',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+        port: '',
+        pathname: '/**',
       },
     ],
   },

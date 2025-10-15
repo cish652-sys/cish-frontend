@@ -14,6 +14,12 @@ interface FileInfo {
   isActive: boolean;
 }
 
+interface ApiAnnouncement {
+  id: number;
+  title: string;
+  contentKey: string;
+}
+
 const staticBanners = [
   { type: "video", src: "/icons/HomeVideo.mp4" },
   { type: "image", src: "/icons/Home1.JPG" },
@@ -26,71 +32,92 @@ const staticBanners = [
   { type: "image", src: "/icons/Home8.JPG" },
 ];
 
-// const getBannerData = async (): Promise<FileInfo[]> => {
-//   const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/files/getAll");
-//   if (!response.ok) {
-//     throw new Error("Network response was not ok");
-//   }
-//   return response.json();
-// };
-
-// ✅ Step 1: keep this helper at the bottom or in a utils file
 function fixImageUrl(url: string): string {
   if (url.startsWith("http://13.234.154.152:9000/")) {
     const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.nationalfarmerportal.org/nfp-portal/files/proxy?path=${encodeURIComponent(path)}`;
+    return `https://api.nationalfarmerportal.org/nfp-portal/files/proxy?path=${encodeURIComponent(
+      path
+    )}`;
   }
   return url;
 }
 
-// ✅ Step 2: modify your getBannerData function
 const getBannerData = async (): Promise<FileInfo[]> => {
-  const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/files/getAll");
+  const response = await fetch("https://api.cish.org.in/files/getAll");
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-
   const data = await response.json();
-
-  // Map & fix image URLs before returning
   return data.map((item: FileInfo) => ({
     ...item,
     fileUrl: fixImageUrl(item.fileUrl),
   }));
 };
 
+const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
+  const response = await fetch("https://api.cish.org.in/api/content/announcement");
+  if (!response.ok) {
+    throw new Error("Network response was not ok for announcements");
+  }
+  return response.json();
+};
+
 export const MainHeader = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Fetch data using React Query
-  const { data: apiData, isLoading } = useQuery<FileInfo[]>({
+  const { data: apiData, isLoading: isBannersLoading } = useQuery<FileInfo[]>({
     queryKey: ["bannerFiles"],
     queryFn: getBannerData,
   });
 
+  const {
+    data: apiAnnouncements,
+    isPending: isAnnouncementsPending,
+    isError: isAnnouncementsError,
+  } = useQuery({
+    queryKey: ["announcements-bar"],
+    queryFn: fetchAnnouncements,
+  });
+
+  // Memoize banner data processing
   const banners = useMemo(() => {
     if (!apiData) return staticBanners;
 
     const activeBanners = apiData
       .filter((item) => item.isDirector === null && item.isActive === true)
       .sort((a, b) => b.id - a.id);
-
     const firstBanner =
       activeBanners.length > 0 ? { type: "image", src: activeBanners[0].fileUrl } : null;
-
     const carouselBanners = apiData
       .filter((item) => item.isDirector === null && item.isActive === false)
       .sort((a, b) => b.id - a.id)
       .map((item) => ({ type: "image", src: item.fileUrl }));
 
     const dynamicBanners = [];
-    if (firstBanner) {
-      dynamicBanners.push(firstBanner);
-    }
+    if (firstBanner) dynamicBanners.push(firstBanner);
     dynamicBanners.push(...carouselBanners);
 
     return dynamicBanners.length > 0 ? dynamicBanners : staticBanners;
   }, [apiData]);
+
+  // Memoize announcement data processing
+  const announcementMessages = useMemo(() => {
+    if (isAnnouncementsPending) {
+      return ["Loading announcements..."];
+    }
+    if (isAnnouncementsError || !apiAnnouncements || apiAnnouncements.length === 0) {
+      return [
+        "Central Institute For Subtropical Horticulture Institute",
+        "Upcoming Seminar on Sustainable Horticulture Practices",
+        {
+          text: "Viksit Krishi Sankalp Abhiyan",
+          link: "https://cish.in/vksa.php",
+        },
+      ];
+    }
+    return apiAnnouncements.map((item) => item.title);
+  }, [apiAnnouncements, isAnnouncementsPending, isAnnouncementsError]);
+
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % banners.length);
@@ -119,7 +146,7 @@ export const MainHeader = () => {
 
       <section className="relative w-full overflow-hidden">
         <div className="relative w-full h-[40vh] sm:h-[50vh] md:h-[65vh] lg:h-[75vh] xl:h-[85vh] overflow-hidden">
-          {isLoading ? (
+          {isBannersLoading ? (
             <div className="w-full h-full bg-gray-200 flex items-center justify-center">
               Loading Banners...
             </div>
@@ -156,7 +183,7 @@ export const MainHeader = () => {
             </AnimatePresence>
           )}
 
-          {!isLoading && (
+          {!isBannersLoading && (
             <>
               <div className="absolute inset-0 flex items-center justify-between p-4">
                 <button
@@ -164,19 +191,8 @@ export const MainHeader = () => {
                   className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
                   aria-label="Previous slide"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
+                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 <button
@@ -184,19 +200,8 @@ export const MainHeader = () => {
                   className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
                   aria-label="Next slide"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
@@ -217,17 +222,8 @@ export const MainHeader = () => {
           )}
         </div>
       </section>
-
-      <AnnouncementBar
-        messages={[
-          "Central Institute For Subtropical Horticulture Institute",
-          "Upcoming Seminar on Sustainable Horticulture Practices",
-          {
-            text: "Viksit Krishi Sankalp Abhiyan",
-            link: "https://cish.in/vksa.php",
-          },
-        ]}
-      />
+      
+      <AnnouncementBar messages={announcementMessages} />
     </main>
   );
 };
