@@ -8,7 +8,7 @@ export interface TechnologyItem {
   title: string;
   description: string[];
   image?: string;
-  href?: string; // ✅ custom/external link
+  href?: string; 
 }
 
 interface TechnologyGridProps {
@@ -35,17 +35,14 @@ export const TechnologyGrid: React.FC<TechnologyGridProps> = ({
           image={tech.image}
           showHeading={showHeading}
           onViewMore={() => {
-            if (tech.href) {
-              if (tech.href.startsWith("http")) {
-                window.open(tech.href, "_blank");
-              } else {
-                router.push(tech.href);
-              }
-            } else {
-              // router.push(`/staff/${tech.id}`);
-               '';
-            }
-          }}
+  if (tech.href) {
+    if (tech.href.startsWith("http")) {
+      window.open(tech.href, "_blank");
+    } else {
+      router.push(tech.href);
+    }
+  }
+}}
         />
       ))}
     </div>

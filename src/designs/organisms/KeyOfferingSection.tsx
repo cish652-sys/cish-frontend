@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { TabButton } from "../atoms/TabButton";
 import { Tender } from "../atoms/TableRow";
 import { TenderTable } from "../molecules/TenderTable";
@@ -23,7 +24,7 @@ const jobsData: Tender[] = [
     lastDate: "01-08-2025",
     result: "Result",
     isNew: true,
-    link: "https://cish.org.in/jobs/Notice25072025.pdf", // Add your job link here
+    link: "https://cish.org.in/jobs/Notice25072025.pdf",
   },
   {
     id: 3,
@@ -33,7 +34,7 @@ const jobsData: Tender[] = [
     lastDate: "30-07-2025",
     result: "Result",
     isNew: false,
-    link: "", // Add your job link here
+    link: "",
   },
   {
     id: 4,
@@ -43,7 +44,7 @@ const jobsData: Tender[] = [
     lastDate: "22-07-2025",
     result: "Result",
     isNew: false,
-    link: "", // Add your job link here
+    link: "",
   },
   {
     id: 5,
@@ -53,60 +54,88 @@ const jobsData: Tender[] = [
     lastDate: "17-07-2025",
     result: "Result",
     isNew: false,
-    link: "", // Add your job link here
+    link: "",
   },
 ];
-
 const announcementsData: Tender[] = [
   {
     id: 1,
     title: "Foundation Day",
     lastDate: "04-09-2025",
     isNew: true,
-    link: "", // Add your announcement link here
+    link: "",
   },
 ];
-
 const dummyTenders: Tender[] = [
   {
     id: 1,
     title: "Tender Notice For Portable Handheld Ethylene Analyser",
     lastDate: "09-09-2025",
     isNew: true,
-    link: "https://cish.org.in/tenders/Ethylene_Analyser.pdf", // Add your tender link here
+    link: "https://cish.org.in/tenders/Ethylene_Analyser.pdf",
   },
   {
     id: 2,
     title: "GeM Bid For Purchase Of Lab Scale Honey Processing Plant",
     lastDate: "02-09-2025",
     isNew: true,
-    link: "https://cish.org.in/tenders/GeM_Bid6547327.pdf", // Add your tender link here
+    link: "https://cish.org.in/tenders/GeM_Bid6547327.pdf",
   },
   {
     id: 3,
     title: "GeM Bid For Purchase Of Stationery Items",
     lastDate: "06-08-2025",
     isNew: true,
-    link: "https://cish.org.in/tenders/Gem_stationery.pdf", // Add your tender link here
+    link: "https://cish.org.in/tenders/Gem_stationery.pdf",
   },
   {
     id: 4,
     title: "GeM Bid For Purchase Of 01 No Central Air Conditioning System Corrigendum Letter",
     lastDate: "07-07-2025",
     isNew: true,
-    link: "https://cish.org.in/tenders/GEM16062025.pdf", // Add your tender link here
+    link: "https://cish.org.in/tenders/GEM16062025.pdf",
   },
   {
     id: 5,
     title: "GeM Bid For Purchase Of Real Time PCR Machine",
     lastDate: "27-08-2025",
     isNew: true,
-    link: "https://cish.org.in/tenders/RTPCR_Bid.pdf", // Add your tender link here
+    link: "https://cish.org.in/tenders/RTPCR_Bid.pdf",
   },
 ];
 
-// View More Button Component
+type ApiAnnouncement = { id: number; title: string; date: string };
+type ApiJob = { id: number; title: string; postDate: string | null; lastDate: string | null };
+type ApiTender = { id: number; title: string; date: string };
+
+const BASE_URL = "https://api.cish.org.in/api/content";
+
+const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
+  const res = await fetch(`${BASE_URL}/keyOfferingsAnnouncement`);
+  if (!res.ok) throw new Error("Failed to fetch announcements");
+  return res.json();
+};
+const fetchJobs = async (): Promise<ApiJob[]> => {
+  const res = await fetch(`${BASE_URL}/jobs`);
+  if (!res.ok) throw new Error("Failed to fetch jobs");
+  return res.json();
+};
+const fetchTenders = async (): Promise<ApiTender[]> => {
+  const res = await fetch(`${BASE_URL}/tenders`);
+  if (!res.ok) throw new Error("Failed to fetch tenders");
+  return res.json();
+};
+
+const formatDate = (dateString: string | null): string => {
+  if (!dateString) return "";
+  const parts = dateString.split("-");
+  if (parts.length !== 3) return dateString;
+  const [year, month, day] = parts;
+  return `${day}-${month}-${year}`;
+};
+
 const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
+
   const handleViewMore = () => {
     switch (activeTab) {
       case "Tenders":
@@ -160,6 +189,51 @@ const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
 export const KeyOfferingsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Tenders");
 
+  const {
+    data: apiAnnouncements,
+    isPending: isAnnouncementsPending,
+    isError: isAnnouncementsError,
+  } = useQuery({ queryKey: ["announcements"], queryFn: fetchAnnouncements });
+  const normalizedAnnouncements: Tender[] = (apiAnnouncements || []).map((item) => ({
+    id: item.id,
+    title: item.title,
+    lastDate: formatDate(item.date),
+    isNew: false,
+    link: "",
+  }));
+  const announcementsToDisplay =
+    isAnnouncementsError || normalizedAnnouncements.length === 0
+      ? announcementsData
+      : normalizedAnnouncements;
+  const {
+    data: apiJobs,
+    isPending: isJobsPending,
+    isError: isJobsError,
+  } = useQuery({ queryKey: ["jobs"], queryFn: fetchJobs });
+  const normalizedJobs: Tender[] = (apiJobs || []).map((item) => ({
+    id: item.id,
+    title: item.title,
+    postDate: formatDate(item.postDate),
+    lastDate: formatDate(item.lastDate),
+    isNew: false,
+    link: "",
+  }));
+  const jobsToDisplay = isJobsError || normalizedJobs.length === 0 ? jobsData : normalizedJobs;
+  const {
+    data: apiTenders,
+    isPending: isTendersPending,
+    isError: isTendersError,
+  } = useQuery({ queryKey: ["tenders"], queryFn: fetchTenders });
+  const normalizedTenders: Tender[] = (apiTenders || []).map((item) => ({
+    id: item.id,
+    title: item.title,
+    lastDate: formatDate(item.date),
+    isNew: false,
+    link: "",
+  }));
+  const tendersToDisplay =
+    isTendersError || normalizedTenders.length === 0 ? dummyTenders : normalizedTenders;
+
   return (
     <div className="flex flex-col w-full h-[300px]">
       <div className="flex items-center justify-between mb-2.5">
@@ -184,11 +258,24 @@ export const KeyOfferingsSection: React.FC = () => {
       </div>
 
       <div className="mt-2 flex-1 overflow-y-auto">
-        {activeTab === "Announcements" && (
-          <TenderTable tenders={announcementsData} tableType="announcement" />
-        )}
-        {activeTab === "Jobs" && <TenderTable tenders={jobsData} tableType="job" />}
-        {activeTab === "Tenders" && <TenderTable tenders={dummyTenders} tableType="tender" />}
+        {activeTab === "Announcements" &&
+          (isAnnouncementsPending ? (
+            <p className="p-4">Loading announcements...</p>
+          ) : (
+            <TenderTable tenders={announcementsToDisplay} tableType="announcement" />
+          ))}
+        {activeTab === "Jobs" &&
+          (isJobsPending ? (
+            <p className="p-4">Loading jobs...</p>
+          ) : (
+            <TenderTable tenders={jobsToDisplay} tableType="job" />
+          ))}
+        {activeTab === "Tenders" &&
+          (isTendersPending ? (
+            <p className="p-4">Loading tenders...</p>
+          ) : (
+            <TenderTable tenders={tendersToDisplay} tableType="tender" />
+          ))}
       </div>
     </div>
   );

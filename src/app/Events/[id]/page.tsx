@@ -31,7 +31,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
 
   useEffect(() => {
     const fetchEventDetails = async () => {
-      let dataToSearch: Event[] = eventsData; // Start with fallback
+      let dataToSearch: Event[] = eventsData; 
       try {
         const response = await fetch(
           "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"
@@ -39,7 +39,6 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
         if (response.ok) {
           const apiData: ApiEvent[] = await response.json();
           if (apiData && apiData.length > 0) {
-            // Transform API data to match the Event structure
             dataToSearch = apiData.map((item) => {
               const eventDate = new Date(item.date);
               return {

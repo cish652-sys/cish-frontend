@@ -7,8 +7,6 @@ interface TenderTableProps {
   tableType?: "tender" | "job" | "announcement";
 }
 
-// Animated NEW Badge Component for table items
-// Animated NEW Badge Component for table items with slow blink
 const AnimatedNewBadge: React.FC = () => {
   return (
     <span className="relative inline-flex items-center">
@@ -24,7 +22,6 @@ const AnimatedNewBadge: React.FC = () => {
 };
 
 export const TenderTable: React.FC<TenderTableProps> = ({ tenders, tableType = "tender" }) => {
-  // Function to generate and download dummy PDF
   const downloadApplicationForm = () => {
     const pdfContent = `
 APPLICATION FORM
@@ -64,7 +61,6 @@ Date: __________________________
     URL.revokeObjectURL(url);
   };
 
-  // Function to render title with optional link
   const renderTitle = (tender: Tender) => {
     if (tender.link) {
       return (
@@ -81,7 +77,6 @@ Date: __________________________
     return <span className="hover:underline cursor-pointer">{tender.title}</span>;
   };
 
-  // Function to render result with optional link
   const renderResult = (tender: Tender) => {
     if (tender.result) {
       if (tender.link) {
