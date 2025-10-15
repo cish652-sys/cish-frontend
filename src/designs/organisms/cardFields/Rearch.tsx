@@ -56,7 +56,8 @@ export default function Rearch() {
     description: item.description,
   }));
 
-  const dataToRender = isError ? normalizedDummyData : normalizedApiData;
+  const dataToRender =
+    isError || !normalizedApiData.length ? normalizedDummyData : normalizedApiData;
 
   return (
     <section className="py-12 px-6 md:px-16" style={{ backgroundColor: "#FBFAF0" }}>
