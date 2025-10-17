@@ -12,7 +12,7 @@ export const navigation: NavItem[] = [
     links: [
       { href: "https://cish.in/introduction.php", label: "About Institute" },
       { href: "/about/field-gene-bank", label: "Field Gene Bank" },
-      { href: "/staffs", label: "Divisions" },
+      { href: "/Division", label: "Divisions" },
       { href: "/about/pme", label: "PME" },
       { href: "/about/itmu-jpr", label: "ITMU/JPR Cells" },
       { href: "https://cish.in/abi_n.php", label: "Agri Business Incubation Center (ABI)" },

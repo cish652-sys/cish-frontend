@@ -147,13 +147,12 @@ const AboutUsPage = () => {
       </div>
       <Rearch />
       <div className="py-12">
-<div className="flex container items-center gap-3 mb-4">
-        <Icon src="/icons/staffs.svg" alt="objectives icon" />
-        <Typography variant="sectionHeading">STAFF</Typography>
+        <div className="flex container items-center gap-3 mb-4">
+          <Icon src="/icons/staffs.svg" alt="objectives icon" />
+          <Typography variant="sectionHeading">STAFF</Typography>
+        </div>
+        <StaffCarousel />
       </div>
-      <StaffCarousel />
-      </div>
-      
       <Footer />
     </main>
   );

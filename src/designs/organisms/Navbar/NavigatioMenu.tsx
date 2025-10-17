@@ -17,9 +17,9 @@ const routes: Record<string, string> = {
   "CONTACT US": "https://cish.in/contact_us.php",
 
   // ABOUT US dropdown
-  "About Institute": "https://cish.in/introduction.php",
+  "About Institute": "/AboutUs",
   "Field Gene Bank": "/about/field-gene-bank",
-  Divisions: "https://cish.in/division.php",
+  Divisions: "/Division",
   PME: "/staffs",
   "ITMu/IPR Cells": "https://cish.in/itmu.php",
   "Agri Business Incubation Center": "https://cish.in/abi_n.php",

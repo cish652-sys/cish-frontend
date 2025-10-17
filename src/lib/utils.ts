@@ -87,6 +87,53 @@ export const technoItems = [
   },
 ];
 
+export const divItems = [
+  {
+    title: "DIVISION OF CROP IMPROVEMENT AND BIO-TECHONOLOGY",
+    description: [
+      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
+      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
+      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
+      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+    ],
+    href: "https://cish.in/v_ambika.php",
+    image: "/icons/div1.svg",
+  },
+  {
+    title: "CROP PRODUCTION",
+    description: [
+      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
+      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
+      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
+      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+    ],
+    href: "https://cish.in/v_ambika.php",
+    image: "/icons/div2.svg",
+  },
+  {
+    title: "CROP PROTECTION",
+    description: [
+      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
+      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
+      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
+      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+    ],
+    href: "https://cish.in/v_ambika.php",
+    image: "/icons/div3.svg",
+  },
+  {
+    title: "POSTHARVEST MANAGEMENT",
+    description: [
+      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
+      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
+      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
+      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+    ],
+    href: "https://cish.in/v_ambika.php",
+    image: "/icons/div4.svg",
+  },
+    ]
+
 export const varietiesItem = [
   {
     title: "Awadh Abhaya",
