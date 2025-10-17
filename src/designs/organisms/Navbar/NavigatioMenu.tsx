@@ -17,7 +17,7 @@ const routes: Record<string, string> = {
   "CONTACT US": "https://cish.in/contact_us.php",
 
   // ABOUT US dropdown
-  Institute: "https://cish.in/introduction.php",
+  "About Institute": "https://cish.in/introduction.php",
   "Field Gene Bank": "/about/field-gene-bank",
   Divisions: "https://cish.in/division.php",
   PME: "/staffs",
@@ -73,7 +73,7 @@ const ResponsiveNavbar: React.FC = () => {
     {
       label: "ABOUT US",
       dropdownItems: [
-        "Institute",
+        "About Institute",
         "Field Gene Bank",
         "Divisions",
         "PME",

@@ -433,36 +433,42 @@ export const scientificStaffData = [
     title: "DIVISION OF CROP IMPROVEMENT",
     description: [""],
     image: "/icons/Division of Crop Improvement.png",
+    href: "/staff/crop-improvement", // <-- ADDED
   },
   {
     id: "crop-production",
     title: "DIVISION OF CROP PRODUCTION",
     description: [""],
     image: "/icons/Division of Crop Production.png",
+    href: "/staff/crop-production", // <-- ADDED
   },
   {
     id: "crop-protection",
     title: "DIVISION OF CROP PROTECTION",
     description: [""],
     image: "/icons/Division of Crop Protection.png",
+    href: "/staff/crop-protection", // <-- ADDED
   },
   {
     id: "post-harvest",
     title: "DIVISION OF POST HARVEST MANAGEMENT",
     description: [""],
     image: "/icons/Division of Post-Harvest Management.png",
+    href: "/staff/post-harvest", // <-- ADDED
   },
   {
     id: "rrs-malda",
     title: "ICAR-CISH R R S, Malda (West Bengal)",
-    description: [""], // You can leave description empty for the card view
+    description: [""],
     image: "/icons/rrs.png",
+    href: "/staff/rrs-malda", // <-- ADDED
   },
   {
     id: "kvk-malda",
     title: "ICAR-CISH K V K, Malda (West Bengal)",
-    description: [""], // You can leave description empty for the card view
+    description: [""],
     image: "/icons/kvk.png",
+    href: "/staff/kvk-malda", // <-- ADDED
   },
 ];
 
@@ -472,18 +478,21 @@ export const technicalStaffData = [
     title: "SENIOR TECHNICAL OFFICER - LAB",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/tech-1", // <-- ADDED
   },
   {
     id: "tech-2",
     title: "TECHNICAL ASSISTANT - FIELD",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/tech-2", // <-- ADDED
   },
   {
     id: "tech-3",
     title: "LABORATORY TECHNICIAN",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/tech-3", // <-- ADDED
   },
 ];
 
@@ -493,18 +502,21 @@ export const skilledSupportingStaffData = [
     title: "FARM SUPERVISOR",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/support-1", // <-- ADDED
   },
   {
     id: "support-2",
     title: "GREENHOUSE MANAGER",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/support-2", // <-- ADDED
   },
   {
     id: "support-3",
     title: "EQUIPMENT OPERATOR",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/support-3", // <-- ADDED
   },
 ];
 
@@ -514,20 +526,24 @@ export const administrativeStaffData = [
     title: "ADMINISTRATIVE OFFICER",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/admin-1", // <-- ADDED
   },
   {
     id: "admin-2",
     title: "FINANCE & ACCOUNTS OFFICER",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/admin-2", // <-- ADDED
   },
   {
     id: "admin-3",
     title: "HUMAN RESOURCES COORDINATOR",
     description: [""],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/admin-3", // <-- ADDED
   },
 ];
+
 
 export const divisionStaffData = {
   "crop-improvement": [

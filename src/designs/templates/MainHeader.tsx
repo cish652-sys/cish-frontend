@@ -79,7 +79,6 @@ export const MainHeader = () => {
     queryFn: fetchAnnouncements,
   });
 
-  // Memoize banner data processing
   const banners = useMemo(() => {
     if (!apiData) return staticBanners;
 

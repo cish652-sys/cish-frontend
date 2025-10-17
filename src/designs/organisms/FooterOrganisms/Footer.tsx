@@ -58,7 +58,7 @@ export function Footer() {
           <FooterLinksGroup
             title="Quick Links"
             links={[
-              { label: "About Us", href: "#" },
+              { label: "About Us", href: "/AboutUs" },
               { label: "Research", href: "https://cish.in/cib_n.php" },
               { label: "Publication", href: "https://cish.in/cish-publication.php" },
               { label: "Careers", href: "#" },

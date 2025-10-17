@@ -15,9 +15,7 @@ export default function StaffDetailPage() {
 
   const selectedStaff = staffData.find((staff) => staff.id === staffId);
 
-  // Get division-specific staff based on the selected division
   const getDivisionStaff = () => {
-    // Use the exact staffId as key since we've matched the division staff data keys to your existing IDs
     return divisionStaffData[staffId as keyof typeof divisionStaffData] || [];
   };
 
