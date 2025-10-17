@@ -12,7 +12,6 @@ type TrendingTechnologiesProps = {
 const TrendingTechnologies: React.FC<TrendingTechnologiesProps> = ({
   technologies,
   showVerieties = true,
-  className,
 }) => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0] ">
