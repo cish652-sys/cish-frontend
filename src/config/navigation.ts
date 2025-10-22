@@ -46,6 +46,7 @@ export const navigation: NavItem[] = [
   },
 
   { type: "link", label: "TECHNOLOGIES", href: "/technologies" },
+
   {
     type: "dropdown",
     label: "FOR FARMERS",
@@ -54,6 +55,7 @@ export const navigation: NavItem[] = [
       { href: "/farmers/training", label: "Training Programs" },
     ],
   },
+
   {
     type: "dropdown",
     label: "VARIETIES",
@@ -62,7 +64,18 @@ export const navigation: NavItem[] = [
       { href: "/varieties/guava", label: "Guava Varieties" },
     ],
   },
+
   { type: "link", label: "NURSERY", href: "/nursery" },
-  { type: "link", label: "MEDIA", href: "/media" },
+
+  {
+    type: "dropdown",
+    label: "MEDIA",
+    links: [
+      { href: "/Gallery", label: "Photos" },
+      { href: "/Gallery", label: "Videos" },
+      { href: "/Events", label: "Events" },
+    ],
+  },
+
   { type: "link", label: "CONTACT US", href: "/contact" },
 ];

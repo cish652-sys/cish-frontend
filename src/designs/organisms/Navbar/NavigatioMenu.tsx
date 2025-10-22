@@ -29,6 +29,8 @@ const routes: Record<string, string> = {
   "Cadres Strength": "/about/cadres-strength",
   Staff: "/staff",
   "Citizen Charter": "/about/citizen-charter",
+  "Photos": '/Gallery',
+  "Videos": '/Gallery',
 
   // RESEARCH dropdown
   "Institute Funded Project": "/research/institute-funded",
@@ -118,7 +120,14 @@ const ResponsiveNavbar: React.FC = () => {
       ],
     },
     { label: "NURSERY" },
-    { label: "MEDIA" },
+     {
+      label: "MEDIA",
+      dropdownItems: [
+        "Photos",
+        "Videos",
+        "Events",
+      ],
+    },
     { label: "CONTACT US" },
   ];
 
@@ -216,7 +225,7 @@ const ResponsiveNavbar: React.FC = () => {
             if (
               item.label === "TECHNOLOGIES" ||
               item.label === "NURSERY" ||
-              item.label === "MEDIA" ||
+              // item.label === "MEDIA" ||
               item.label === "CONTACT US" ||
               item.label === "HOME"
             ) {
@@ -309,7 +318,7 @@ const ResponsiveNavbar: React.FC = () => {
               if (
                 item.label === "TECHNOLOGIES" ||
                 item.label === "NURSERY" ||
-                item.label === "MEDIA" ||
+                // item.label === "MEDIA" ||
                 item.label === "CONTACT US" ||
                 item.label === "HOME"
               ) {
