@@ -10,12 +10,32 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 // Data for the committee table, transcribed from the image
 const committeeData = [
   { sl: "1.", name: "Dr. T. Damodaran", designation: "Director", membership: "Chairman" },
-  { sl: "2.", name: "Dr. Maneesh Mishra", designation: "I/C Head, Division Of Crop Improvement", membership: "Member" },
-  { sl: "3.", name: "Dr. P. L. Saroj", designation: "I/C Head, Division Of Crop Production", membership: "Member" },
-  { sl: "4.", name: "Dr. P.K.Shukla", designation: "I/C Head, Division Of Crop Protection", membership: "Member" },
+  {
+    sl: "2.",
+    name: "Dr. Maneesh Mishra",
+    designation: "I/C Head, Division Of Crop Improvement",
+    membership: "Member",
+  },
+  {
+    sl: "3.",
+    name: "Dr. P. L. Saroj",
+    designation: "I/C Head, Division Of Crop Production",
+    membership: "Member",
+  },
+  {
+    sl: "4.",
+    name: "Dr. P.K.Shukla",
+    designation: "I/C Head, Division Of Crop Protection",
+    membership: "Member",
+  },
   { sl: "5.", name: "Dr. H.S.Singh", designation: "Principal Scientist", membership: "Member" },
   { sl: "7.", name: "Dr. Anju Bajpai", designation: "Principal Scientist", membership: "Member" },
-  { sl: "6.", name: "Dr. Muthukumar M.", designation: "Senior Scientist", membership: "Member Secretary" }
+  {
+    sl: "6.",
+    name: "Dr. Muthukumar M.",
+    designation: "Senior Scientist",
+    membership: "Member Secretary",
+  },
 ];
 
 const ItmuIprCellPage = () => {
@@ -26,7 +46,6 @@ const ItmuIprCellPage = () => {
       <section className="relative w-full">
         <Logo src="/icons/bannerblank.svg" alt="Website Banner" responsive />
       </section>
-      
       {/* --- Breadcrumb and Title --- */}
       <SectionHeader
         breadcrumbItems={[
@@ -38,9 +57,6 @@ const ItmuIprCellPage = () => {
         title="CISH ITMU / IPR CELL"
         description={[""]}
       />
-      
-      
-
       <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <Typography variant="sectionHeading" className="text-green-800 font-bold">
@@ -54,20 +70,16 @@ const ItmuIprCellPage = () => {
                 </Typography>
               </li>
               <li>
-                <Typography variant="paragraphSmall">
-                  COMMERCIALIZATION OF TECHNOLOGIES
-                </Typography>
+                <Typography variant="paragraphSmall">COMMERCIALIZATION OF TECHNOLOGIES</Typography>
               </li>
               <li>
                 <Typography variant="paragraphSmall">
-                  PROFESSIONAL SERVICE FUNCTION(CONTRACT RESEARCH/ CONSULTANCY
-                  SERVICE/ CONTRACT SERVICE)
+                  PROFESSIONAL SERVICE FUNCTION(CONTRACT RESEARCH/ CONSULTANCY SERVICE/ CONTRACT
+                  SERVICE)
                 </Typography>
               </li>
               <li>
-                <Typography variant="paragraphSmall">
-                  COPYRIGHT REGISTRATION
-                </Typography>
+                <Typography variant="paragraphSmall">COPYRIGHT REGISTRATION</Typography>
               </li>
               <li>
                 <Typography variant="paragraphSmall">
@@ -78,7 +90,6 @@ const ItmuIprCellPage = () => {
           </div>
         </div>
       </section>
-      
       {/* --- Committee Table --- */}
       <section className="w-full bg-white px-4 md:px-8 lg:px-16 py-12">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
@@ -109,7 +120,6 @@ const ItmuIprCellPage = () => {
           </div>
         </div>
       </section>
-
       {/* --- Button Grid --- */}
       <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12">
         <div className="container max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -139,7 +149,6 @@ const ItmuIprCellPage = () => {
           </a>
         </div>
       </section>
-
       <Footer />
     </main>
   );

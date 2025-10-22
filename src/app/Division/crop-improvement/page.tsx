@@ -43,16 +43,10 @@ const CropImprovementPage = () => {
               <div className="w-full md:w-1/4 h-48 bg-gray-200  flex-shrink-0"></div>
 
               <div className="flex-1">
-                <Typography
-                  variant="contentTitle"
-                  className=" font-bold "
-                >
+                <Typography variant="contentTitle" className=" font-bold ">
                   {item.title}
                 </Typography>
-                <Typography
-                  variant="paragraphSmall"
-                  className="mt-4 text-gray-700"
-                >
+                <Typography variant="paragraphSmall" className="mt-4 text-gray-700">
                   {item.description[0]}
                 </Typography>
               </div>
@@ -69,21 +63,15 @@ const CropImprovementPage = () => {
           <VarietiesCarousel />
         </div>
       </section>
-      
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container">
-          <h3 className="text-start text-green-800 mb-8 font-bold ">
-            Guava (Psidium Guajava L.)
-          </h3>
+          <h3 className="text-start text-green-800 mb-8 font-bold ">Guava (Psidium Guajava L.)</h3>
           <VarietyGrid items={guavaVarietiesData} cols={4} />
         </div>
       </section>
-
-     
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
             <div>
               <h3 className="text-start text-green-800 mb-8 font-bold ">
                 Jamun (Syzygium Cumini Skeel)
@@ -97,11 +85,9 @@ const CropImprovementPage = () => {
               </h3>
               <VarietyGrid items={baelVarietiesData} cols={2} />
             </div>
-
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );

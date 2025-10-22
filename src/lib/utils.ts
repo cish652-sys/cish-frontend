@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Job } from "@/types";
-import type {DivisionStaffData} from "@/types";
+import type { DivisionStaffData } from "@/types";
 import { TechnologyCardItem } from "@/types";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -136,10 +136,9 @@ export const divItems = [
     href: "https://cish.in/v_ambika.php",
     image: "/icons/div4.svg",
   },
-    ]
+];
 
-
-    export const cropImprovementData = [
+export const cropImprovementData = [
   {
     title: "GENETIC RESOURCE MANAGEMENT",
     description: [
@@ -179,8 +178,8 @@ export const divisionVarietiesData = [
     description: [
       "This Is A Cross Between Amrapali And Vanraj With Firm Flesh, Attractive Dark Red Colour On The Peel And Better Shelf Life. This Hybrid Has Regular Bearing Character And Late In Season.",
     ],
-    image: "/icons/Rectangle 941.svg", 
-    href: "/varieties/hybrid-949", 
+    image: "/icons/Rectangle 941.svg",
+    href: "/varieties/hybrid-949",
   },
   {
     id: "v2",
@@ -216,7 +215,7 @@ export const divisionVarietiesData = [
       "A Cross Between Dashehari X Chausa. Fruits Of This Hybrid Are Also Medium With An Average Weight 260 G And Oblong In Shape. Skin Is Smooth, Tough And Yellowish Green When Ripe. Flesh Is Firm, Yeloish Orange In Colour With Scanty Fibre, TSS 22.6 Brix. This Hybrid Has Commercial Potential Because Of Its Sooty Mould Free Fruit Surface Even After Exposure To Heavy Rains. The Fruits Are Similar To Those Of Dashehari, A Leading Variety Of North India, But Mature 15 Days After Dashehari.",
     ],
     image: "/icons/Rectangle 947.svg",
-    href: "/varieties/cish-m-2", 
+    href: "/varieties/cish-m-2",
   },
 ];
 
@@ -442,7 +441,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/Staff1.svg",
-    href: "/staff/crop-improvement"
+    href: "/staff/crop-improvement",
   },
   {
     id: "crop-production", // <-- CORRECTED ID (was "division-crop-improvement")
@@ -459,7 +458,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/crop-production"
+    href: "/staff/crop-production",
   },
   {
     id: "crop-protection", // <-- CORRECTED ID (was "division-technology")
@@ -476,7 +475,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/crop-protection"
+    href: "/staff/crop-protection",
   },
   {
     id: "post-harvest",
@@ -493,7 +492,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/crop-post-harvest"
+    href: "/staff/crop-post-harvest",
   },
   {
     id: "rrs-malda", // <-- CORRECTED ID (was "division-technology")
@@ -508,7 +507,7 @@ export const dummyStaffData = [
       "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/rrs-malda" // <-- ADD THIS
+    href: "/staff/rrs-malda", // <-- ADD THIS
   },
   {
     id: "kvk-malda", // <-- CORRECTED ID (was "division-technology")
@@ -524,7 +523,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/kvk-malda" // <-- ADD THIS
+    href: "/staff/kvk-malda", // <-- ADD THIS
   },
   {
     id: "administrative", // <-- CORRECTED ID (was "division-technology")
@@ -538,7 +537,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/administrative" // <-- ADD THIS
+    href: "/staff/administrative", // <-- ADD THIS
   },
   {
     id: "finance-accounts", // <-- CORRECTED ID (was "division-technology")
@@ -552,7 +551,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/finance-accounts" // <-- ADD THIS
+    href: "/staff/finance-accounts", // <-- ADD THIS
   },
   {
     id: "technical-staff-main", // <-- CORRECTED ID (was "division-technology")
@@ -566,7 +565,7 @@ export const dummyStaffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
-    href: "/staff/technical-staff-main" // <-- ADD THIS
+    href: "/staff/technical-staff-main", // <-- ADD THIS
   },
 ];
 
@@ -688,7 +687,6 @@ export const administrativeStaffData = [
     href: "/staff/admin-3", // <-- ADDED
   },
 ];
-
 
 export const dummyDivisionStaffData: DivisionStaffData = {
   "crop-improvement": [
@@ -1029,7 +1027,7 @@ export const dummyDivisionStaffData: DivisionStaffData = {
       specialization: "Entomology",
       joiningDate: "N/A",
       mscInstitute: "N/A",
-      phdInstitute: "N/A"
+      phdInstitute: "N/A",
     },
   ],
   "post-harvest": [
@@ -1046,7 +1044,7 @@ export const dummyDivisionStaffData: DivisionStaffData = {
       specialization: "Food Technology",
       joiningDate: "N/A",
       mscInstitute: "N/A",
-      phdInstitute: "N/A"
+      phdInstitute: "N/A",
     },
   ],
 };
@@ -1241,7 +1239,7 @@ export const jobData: Job[] = [
     buttons: ["form"],
   },
   {
-    id:10,
+    id: 10,
     title: "WALK IN INTERVIEW NOTICE FOR THE POST OF YOUNG PROFESSIONAL I",
     description:
       "The ICAR-CISH, Lucknow Will Conduct “Walk-In-Interview” For The Contractual Position Purely On Temporary Basis And Co-terminus With The Project Of Young Professional-I (One Post) For A Short Duration At ICAR-CISH.",

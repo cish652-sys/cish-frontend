@@ -192,7 +192,6 @@ const ResponsiveNavbar: React.FC = () => {
               href={routes[item] || "#"}
               className="block px-4 py-2 text-sm text-white/90 hover:bg-[#67B96D] hover:text-white transition-colors duration-150"
               onClick={() => {
-              
                 console.log(`Desktop navigation: ${item} -> ${routes[item]}`);
                 setHoveredItem("");
               }}
@@ -222,18 +221,18 @@ const ResponsiveNavbar: React.FC = () => {
               item.label === "HOME"
             ) {
               return (
-    <NavLink
-      key={item.label} // Move the key here
-      hasDropdown={false}
-      isActive={isActive}
-      isHovered={isHovered}
-      onMouseEnter={() => handleMouseEnter(item.label)}
-      onMouseLeave={handleMouseLeave}
-      onClick={() => setActiveItem(item.label)} // Pass the onClick here
-    >
-      {item.label}
-    </NavLink>
-  );
+                <NavLink
+                  key={item.label} // Move the key here
+                  hasDropdown={false}
+                  isActive={isActive}
+                  isHovered={isHovered}
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={() => setActiveItem(item.label)} // Pass the onClick here
+                >
+                  {item.label}
+                </NavLink>
+              );
             }
 
             return (

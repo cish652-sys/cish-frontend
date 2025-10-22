@@ -21,8 +21,7 @@ const DivisionPage = () => {
         title="DIVISION"
         description={[""]}
       />
-      <TrendingTechnologies
-      className="bg-white"  showVerieties={false} technologies={divItems} />
+      <TrendingTechnologies className="bg-white" showVerieties={false} technologies={divItems} />
       <Footer />
     </main>
   );

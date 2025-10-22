@@ -16,24 +16,17 @@ interface VarietyGridProps {
   cols?: number;
 }
 
-export const VarietyGrid: React.FC<VarietyGridProps> = ({
-  items,
-  cols = 4, 
-}) => {
-  const gridColsClass = {
-    1: "lg:grid-cols-1",
-    2: "lg:grid-cols-2",
-    3: "lg:grid-cols-3",
-    4: "lg:grid-cols-4",
-  }[cols] || "lg:grid-cols-4"; 
+export const VarietyGrid: React.FC<VarietyGridProps> = ({ items, cols = 4 }) => {
+  const gridColsClass =
+    {
+      1: "lg:grid-cols-1",
+      2: "lg:grid-cols-2",
+      3: "lg:grid-cols-3",
+      4: "lg:grid-cols-4",
+    }[cols] || "lg:grid-cols-4";
 
   return (
-    <div
-      className={cn(
-        "grid grid-cols-1 sm:grid-cols-2 gap-6",
-        gridColsClass 
-      )}
-    >
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-6", gridColsClass)}>
       {items.map((item) => (
         <DivisionVarietyCard
           key={item.id}

@@ -1,12 +1,12 @@
-import HortIndAbiCentrePage from '@/designs/templates/AbiPage'
-import React from 'react'
+import HortIndAbiCentrePage from "@/designs/templates/AbiPage";
+import React from "react";
 
 const page = () => {
   return (
     <div>
-        <HortIndAbiCentrePage />
+      <HortIndAbiCentrePage />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

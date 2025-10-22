@@ -16,10 +16,8 @@ export type Job = {
   startDate: string;
   interviewDate: string;
   latestUpdate: string;
-  buttons: ("form" | "result")[]; 
+  buttons: ("form" | "result")[];
 };
-
-
 
 export interface Employee {
   id: number;
@@ -43,7 +41,6 @@ export interface SubDepartment {
   description?: string;
 }
 
-
 export interface StaffDivision {
   id: string;
   title: string;
@@ -56,8 +53,8 @@ export interface StaffDivision {
 
 export interface MappedEmployee {
   id: string;
-  title: string; 
-  description: string[]; 
+  title: string;
+  description: string[];
   image: string;
   name: string;
   designation: string;

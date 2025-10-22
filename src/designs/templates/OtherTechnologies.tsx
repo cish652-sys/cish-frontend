@@ -2,7 +2,7 @@
 import Icon from "../atoms/ImpactCard/Icon";
 import Typography from "../atoms/Typography";
 import { TechnologyGrid } from "../organisms/TechnologyGrid";
-import { TechnologyCardItem } from "@/types"
+import { TechnologyCardItem } from "@/types";
 
 type OtherTechnologiesProps = {
   technologiesItems: TechnologyCardItem[]; // <-- USE the correct type here
@@ -23,11 +23,7 @@ export const OtherTechnologies: React.FC<OtherTechnologiesProps> = ({
           <Typography variant="sectionHeading">Other Technologies</Typography>
         </div>
       )}
-      <TechnologyGrid 
-        items={technologiesItems} 
-        showHeading={showHeading} 
-        onViewMore={onViewMore} 
-      />
+      <TechnologyGrid items={technologiesItems} showHeading={showHeading} onViewMore={onViewMore} />
     </section>
   );
 };

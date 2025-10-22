@@ -1,13 +1,13 @@
 "use client";
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 
-import useEmblaCarousel from 'embla-carousel-react';
+import useEmblaCarousel from "embla-carousel-react";
 
-import { type EmblaCarouselType } from 'embla-carousel';
+import { type EmblaCarouselType } from "embla-carousel";
 
-import { useRouter } from 'next/navigation';
-import { dummyScientificStaffData } from '@/lib/utils';
-import { TechInfoCard } from '../molecules/TechInfoCard';
+import { useRouter } from "next/navigation";
+import { dummyScientificStaffData } from "@/lib/utils";
+import { TechInfoCard } from "../molecules/TechInfoCard";
 
 type StaffDivision = {
   id: string;
@@ -18,9 +18,9 @@ type StaffDivision = {
 
 export const StaffCarousel: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
+    align: "start",
     loop: true,
-    containScroll: 'trimSnaps'
+    containScroll: "trimSnaps",
   });
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const router = useRouter();
@@ -33,10 +33,10 @@ export const StaffCarousel: React.FC = () => {
     if (!emblaApi) return;
 
     updateSelectedIndex(emblaApi);
-    emblaApi.on('select', updateSelectedIndex);
+    emblaApi.on("select", updateSelectedIndex);
 
     return () => {
-      emblaApi.off('select', updateSelectedIndex);
+      emblaApi.off("select", updateSelectedIndex);
     };
   }, [emblaApi, updateSelectedIndex]);
 
@@ -53,7 +53,7 @@ export const StaffCarousel: React.FC = () => {
           {staffItems.map((staff) => (
             <div className="embla__slide" key={staff.id}>
               <TechInfoCard
-              href={""}
+                href={""}
                 title={staff.title}
                 image={staff.image}
                 description={[]}
@@ -70,7 +70,7 @@ export const StaffCarousel: React.FC = () => {
           <button
             key={index}
             onClick={() => scrollTo(index)}
-            className={`embla__dot ${index === selectedIndex ? 'embla__dot--selected' : ''}`}
+            className={`embla__dot ${index === selectedIndex ? "embla__dot--selected" : ""}`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

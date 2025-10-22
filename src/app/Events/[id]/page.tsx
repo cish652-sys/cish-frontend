@@ -31,7 +31,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
 
   useEffect(() => {
     const fetchEventDetails = async () => {
-      let dataToSearch: Event[] = eventsData; 
+      let dataToSearch: Event[] = eventsData;
       try {
         const response = await fetch(
           "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"

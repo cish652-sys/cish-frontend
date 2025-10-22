@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useEffect, useState } from "react";
 import { Header } from "@/designs/organisms/Header";
 import { OtherTechnologies } from "@/designs/templates/OtherTechnologies";
@@ -9,7 +9,7 @@ import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { TechnologyModal } from "@/designs/organisms/TechnologyModal";
 import { technoItems, technologiesItems } from "@/lib/utils"; // Fallback data
-import { ApiTechnology, TechnologyCardItem } from "@/types"
+import { ApiTechnology, TechnologyCardItem } from "@/types";
 
 function TechnologiesPage() {
   const [trendingTech, setTrendingTech] = useState<TechnologyCardItem[]>(technoItems);
@@ -20,43 +20,47 @@ function TechnologiesPage() {
   useEffect(() => {
     const fetchTechnologies = async () => {
       try {
-        const trendingApiUrl = 'https://api.cish.org.in/api/innovation?key=technology&isTrending=true';
-        const otherApiUrl = 'https://api.cish.org.in/api/innovation?key=technology';
+        const trendingApiUrl =
+          "https://api.cish.org.in/api/innovation?key=technology&isTrending=true";
+        const otherApiUrl = "https://api.cish.org.in/api/innovation?key=technology";
 
         const [trendingRes, otherRes] = await Promise.all([
           fetch(trendingApiUrl),
           fetch(otherApiUrl),
         ]);
-        
+
         const trendingData: ApiTechnology[] = trendingRes.ok ? await trendingRes.json() : [];
         const allData: ApiTechnology[] = otherRes.ok ? await otherRes.json() : [];
-        
+
         setAllTechData(allData);
 
         if (Array.isArray(trendingData) && trendingData.length > 0) {
-         
-          const mappedTrending = trendingData.map((item): TechnologyCardItem => ({
-            id: item.id, 
-            title: item.title,
-            description: [item.details],
-            image: item.image,
-            href: `/technologies/${item.id}`,
-          }));
+          const mappedTrending = trendingData.map(
+            (item): TechnologyCardItem => ({
+              id: item.id,
+              title: item.title,
+              description: [item.details],
+              image: item.image,
+              href: `/technologies/${item.id}`,
+            })
+          );
           setTrendingTech(mappedTrending);
         }
 
-        const otherOnlyData = allData.filter(item => 
-            !trendingData.some(trendingItem => trendingItem.id === item.id)
+        const otherOnlyData = allData.filter(
+          (item) => !trendingData.some((trendingItem) => trendingItem.id === item.id)
         );
-        
+
         if (Array.isArray(otherOnlyData) && otherOnlyData.length > 0) {
-          const mappedOther = otherOnlyData.map((item): TechnologyCardItem => ({
-            id: item.id, 
-            title: item.title,
-            image: item.image,
-            description: [item.details],
-            href: `/technologies/${item.id}`,
-          }));
+          const mappedOther = otherOnlyData.map(
+            (item): TechnologyCardItem => ({
+              id: item.id,
+              title: item.title,
+              image: item.image,
+              description: [item.details],
+              href: `/technologies/${item.id}`,
+            })
+          );
           setOtherTech(mappedOther);
         }
       } catch (error) {
@@ -68,7 +72,7 @@ function TechnologiesPage() {
   }, []);
 
   const handleViewMore = (id: number) => {
-    const tech = allTechData.find(t => t.id === id);
+    const tech = allTechData.find((t) => t.id === id);
     if (tech) setSelectedTech(tech);
   };
 
@@ -88,10 +92,10 @@ function TechnologiesPage() {
         description={[""]}
       />
 
-      <TrendingTechnologies technologies={trendingTech}  />
+      <TrendingTechnologies technologies={trendingTech} />
       <OtherTechnologies technologiesItems={otherTech} onViewMore={handleViewMore} />
       <Footer />
-      
+
       {selectedTech && <TechnologyModal technology={selectedTech} onClose={closeModal} />}
     </div>
   );

@@ -26,8 +26,7 @@ const CropProductionPage = () => {
         description={[""]}
       />
       <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12 ">
-<div className="container border border-[#162F6A]/40 bg-white shadow-md max-w-4xl mx-auto flex flex-col gap-8 ">
-         
+        <div className="container border border-[#162F6A]/40 bg-white shadow-md max-w-4xl mx-auto flex flex-col gap-8 ">
           <ul className="list-disc list-outside pl-5 flex flex-col gap-4 mt-6">
             <li>
               <Typography variant="paragraphSmall">

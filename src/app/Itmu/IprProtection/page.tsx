@@ -1,12 +1,12 @@
-import IprProtectionPage from '@/designs/templates/IprProtection'
-import React from 'react'
+import IprProtectionPage from "@/designs/templates/IprProtection";
+import React from "react";
 
 const page = () => {
   return (
     <div>
-        <IprProtectionPage />
+      <IprProtectionPage />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

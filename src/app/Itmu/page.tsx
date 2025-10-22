@@ -1,12 +1,12 @@
-import ItmuIprCellPage from '@/designs/templates/ItmuPage'
-import React from 'react'
+import ItmuIprCellPage from "@/designs/templates/ItmuPage";
+import React from "react";
 
 const page = () => {
   return (
-<main>
-    <ItmuIprCellPage />
-</main>
-  )
-}
+    <main>
+      <ItmuIprCellPage />
+    </main>
+  );
+};
 
-export default page
+export default page;

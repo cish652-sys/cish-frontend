@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { type EmblaCarouselType } from "embla-carousel";
-import { divisionVarietiesData } from "@/lib/utils"; 
+import { divisionVarietiesData } from "@/lib/utils";
 import { DivisionVarietyCard } from "../molecules/DivisionVarietyCard";
 
 type Variety = {
@@ -40,7 +40,7 @@ export const VarietiesCarousel: React.FC = () => {
     emblaApi?.scrollTo(index);
   };
 
-  const varietyItems: Variety[] = divisionVarietiesData; 
+  const varietyItems: Variety[] = divisionVarietiesData;
 
   return (
     <div className="container embla w-full">
@@ -52,7 +52,7 @@ export const VarietiesCarousel: React.FC = () => {
                 title={variety.title}
                 image={variety.image}
                 description={variety.description}
-                href={variety.href} 
+                href={variety.href}
               />
             </div>
           ))}
@@ -64,9 +64,7 @@ export const VarietiesCarousel: React.FC = () => {
           <button
             key={index}
             onClick={() => scrollTo(index)}
-            className={`embla__dot ${
-              index === selectedIndex ? "embla__dot--selected" : ""
-            }`}
+            className={`embla__dot ${index === selectedIndex ? "embla__dot--selected" : ""}`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

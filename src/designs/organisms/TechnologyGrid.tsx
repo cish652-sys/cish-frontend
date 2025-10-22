@@ -1,6 +1,6 @@
 "use client";
 import { TechInfoCard } from "../molecules/TechInfoCard";
-import { TechnologyCardItem } from "@/types"
+import { TechnologyCardItem } from "@/types";
 
 // REMOVE the old interface:
 // export interface TechnologyItem {
@@ -26,7 +26,7 @@ export const TechnologyGrid: React.FC<TechnologyGridProps> = ({
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 container">
       {items.map((tech) => (
         <TechInfoCard
-          key={tech.id.toString()} 
+          key={tech.id.toString()}
           title={tech.title}
           description={tech.description}
           image={tech.image}

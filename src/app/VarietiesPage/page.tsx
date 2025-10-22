@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
@@ -10,16 +10,16 @@ import Image from "next/image";
 import { ApiTechnology, TechnologyCardItem } from "@/types";
 import { varietiesItem, technologiesVarietiesItems } from "@/lib/utils";
 
-
-
 function VarietiesPage() {
   const [topVariety, setTopVariety] = useState<TechnologyCardItem[]>(varietiesItem);
-  const [otherVarieties, setOtherVarieties] = useState<TechnologyCardItem[]>(technologiesVarietiesItems);
+  const [otherVarieties, setOtherVarieties] = useState<TechnologyCardItem[]>(
+    technologiesVarietiesItems
+  );
 
   useEffect(() => {
     const fetchVarieties = async () => {
       try {
-        const apiUrl = 'https://api.cish.org.in/api/innovation?key=varities';
+        const apiUrl = "https://api.cish.org.in/api/innovation?key=varities";
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
@@ -30,23 +30,27 @@ function VarietiesPage() {
 
         if (Array.isArray(data) && data.length > 0) {
           const topItemData = data.slice(0, 1);
-          const mappedTopVariety = topItemData.map((item): TechnologyCardItem => ({
-            id: item.id,
-            title: item.title,
-            description: [item.details],
-            image: item.image,
-            href: `/varieties/${item.id}`,
-          }));
+          const mappedTopVariety = topItemData.map(
+            (item): TechnologyCardItem => ({
+              id: item.id,
+              title: item.title,
+              description: [item.details],
+              image: item.image,
+              href: `/varieties/${item.id}`,
+            })
+          );
           setTopVariety(mappedTopVariety);
 
           const otherItemsData = data.slice(1);
-          const mappedOtherVarieties = otherItemsData.map((item): TechnologyCardItem => ({
-            id: item.id,
-            title: item.title,
-            image: item.image,
-            description: [item.details],
-            href: `/varieties/${item.id}`,
-          }));
+          const mappedOtherVarieties = otherItemsData.map(
+            (item): TechnologyCardItem => ({
+              id: item.id,
+              title: item.title,
+              image: item.image,
+              description: [item.details],
+              href: `/varieties/${item.id}`,
+            })
+          );
           setOtherVarieties(mappedOtherVarieties);
         }
       } catch (error) {
@@ -64,7 +68,7 @@ function VarietiesPage() {
       <ResponsiveNavbar />
       <section className="relative w-full">
         <Image
-          src={'/icons/bannerblank.svg'}
+          src={"/icons/bannerblank.svg"}
           alt="Website Banner"
           height={452}
           width={2000}
@@ -79,14 +83,8 @@ function VarietiesPage() {
         description={[""]}
       />
       <div className="py-0 bg-[#FBFAF0]">
-        <TrendingTechnologies 
-          technologies={topVariety} 
-          showVerieties={false} 
-        />
-        <OtherTechnologies 
-          technologiesItems={otherVarieties} 
-          showHeading={false} 
-        />
+        <TrendingTechnologies technologies={topVariety} showVerieties={false} />
+        <OtherTechnologies technologiesItems={otherVarieties} showHeading={false} />
       </div>
       <Footer />
     </div>

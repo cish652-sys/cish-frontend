@@ -19,8 +19,7 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
   );
 
   const renderMessage = (msg: AnnouncementItem, key: React.Key) => {
-    const baseClasses =
-      "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
+    const baseClasses = "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
     const fontStyle = { fontFamily: "Noto Sans" };
 
     if (msg.link) {
@@ -55,9 +54,7 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
         <div className="relative flex-1 overflow-hidden">
           <div className="flex whitespace-nowrap animate-marquee">
             {normalizedMessages.map((msg, index) => renderMessage(msg, index))}
-            {normalizedMessages.map((msg, index) =>
-              renderMessage(msg, `dup-${index}`)
-            )}
+            {normalizedMessages.map((msg, index) => renderMessage(msg, `dup-${index}`))}
           </div>
         </div>
       </div>

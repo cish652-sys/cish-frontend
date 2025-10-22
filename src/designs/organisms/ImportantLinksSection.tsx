@@ -9,37 +9,37 @@ const dummyLinks = [
     title: "eHRMS 2.0",
     url: "https://e-hrms.gov.in/login",
     postDate: "",
-    lastDate: ""
+    lastDate: "",
   },
   {
     title: "DARE/ICAR e-Office",
     url: "https://eoffice.icar.gov.in/SSOComponent/auth.php",
     postDate: "",
-    lastDate: ""
+    lastDate: "",
   },
   {
     title: "DARE/ICAR Sparrow",
     url: "https://sparrow.icar.gov.in/",
     postDate: "",
-    lastDate: ""
+    lastDate: "",
   },
   {
     title: "NIC mail",
     url: "email.gov.in / mail.gov.in",
     postDate: "",
-    lastDate: ""
+    lastDate: "",
   },
   {
     title: "ICAR",
     url: "https://icar.org.in/en",
     postDate: "",
-    lastDate: ""
+    lastDate: "",
   },
   {
     title: "NHB",
     url: "https://www.nhb.gov.in",
     postDate: "",
-    lastDate: ""
+    lastDate: "",
   },
 ];
 
@@ -58,18 +58,18 @@ const fetchUsefulLinks = async (): Promise<ApiLink[]> => {
 };
 
 export const ImportantLinksSection: React.FC = () => {
-  const { 
-    data: apiLinks, 
-    isPending, 
-    isError 
+  const {
+    data: apiLinks,
+    isPending,
+    isError,
   } = useQuery({
     queryKey: ["usefulLinks"],
     queryFn: fetchUsefulLinks,
   });
 
-  const normalizedLinks = (apiLinks || []).map(link => ({
+  const normalizedLinks = (apiLinks || []).map((link) => ({
     title: link.title,
-    url: link.contentKey, 
+    url: link.contentKey,
     postDate: "",
     lastDate: "",
   }));

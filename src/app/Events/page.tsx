@@ -12,7 +12,7 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
 interface ApiEvent {
   id: number;
-  date: string; 
+  date: string;
   title: string;
   name: string;
   images: string[];
@@ -22,7 +22,7 @@ const transformApiData = (apiData: ApiEvent[]): Event[] => {
   return apiData.map((item) => {
     const eventDate = new Date(item.date);
     const day = eventDate.getDate();
-    const month = eventDate.toLocaleString("en-US", { month: "short" }); 
+    const month = eventDate.toLocaleString("en-US", { month: "short" });
     const time = eventDate.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
@@ -30,17 +30,17 @@ const transformApiData = (apiData: ApiEvent[]): Event[] => {
     });
 
     return {
-      id: String(item.id), 
+      id: String(item.id),
       date: `${day} ${month}.`,
       day: day,
       month: month,
-      timeRange: time, 
+      timeRange: time,
       title: item.title,
       shortDescription: item.name,
-      fullDescription: item.name, 
-      cardImage: item.images?.[0] || "/icons/default-event.jpg", 
+      fullDescription: item.name,
+      cardImage: item.images?.[0] || "/icons/default-event.jpg",
       detailImages: item.images || [],
-      socialLinks: [], 
+      socialLinks: [],
     };
   });
 };

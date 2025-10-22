@@ -26,7 +26,7 @@ export const DivisionVarietyCard: React.FC<DivisionVarietyCardProps> = ({
   const handleViewMore = () => {
     if (href) {
       if (href.startsWith("http")) {
-        window.open(href, "_blank"); 
+        window.open(href, "_blank");
       } else {
         router.push(href);
       }

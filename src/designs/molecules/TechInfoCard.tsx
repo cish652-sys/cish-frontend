@@ -26,7 +26,12 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
   className,
 }) => {
   return (
-    <Card className={cn("flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden", className)}>
+    <Card
+      className={cn(
+        "flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden",
+        className
+      )}
+    >
       <CardHeader className="p-2 flex items-center justify-center">
         {image ? (
           <Image
@@ -64,7 +69,7 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
       <CardFooter className="p-4 flex justify-end mt-auto">
         <button
           onClick={(e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             onViewMore?.();
           }}
           className="text-green-700 hover:text-green-800 font-semibold cursor-pointer"
