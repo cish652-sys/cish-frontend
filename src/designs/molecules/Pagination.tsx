@@ -25,7 +25,12 @@ const generatePagination = (currentPage: number, totalPages: number) => {
   return [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages];
 };
 
-export const Pagination = ({ currentPage, totalPages, onPageChange, className = "" }: PaginationProps) => {
+export const Pagination = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+  className = "",
+}: PaginationProps) => {
   const pages = generatePagination(currentPage, totalPages);
 
   const handlePrevious = () => {
@@ -41,7 +46,10 @@ export const Pagination = ({ currentPage, totalPages, onPageChange, className = 
   };
 
   return (
-    <nav aria-label="Pagination" className={`flex items-center justify-center space-x-2 ${className}`}>
+    <nav
+      aria-label="Pagination"
+      className={`flex items-center justify-center space-x-2 ${className}`}
+    >
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}

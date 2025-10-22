@@ -17,12 +17,12 @@ const routes: Record<string, string> = {
   "CONTACT US": "https://cish.in/contact_us.php",
 
   // ABOUT US dropdown
-  Institute: "https://cish.in/introduction.php",
+  "About Institute": "/AboutUs",
   "Field Gene Bank": "/about/field-gene-bank",
-  Divisions: "https://cish.in/division.php",
+  Divisions: "/Division",
   PME: "/staffs",
-  "ITMu/IPR Cells": "https://cish.in/itmu.php",
-  "Agri Business Incubation Center": "https://cish.in/abi_n.php",
+  "ITMu/IPR Cells": "/Itmu",
+  "Agri Business Incubation Center": "/Abi",
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/malda_n.php",
   "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
@@ -73,7 +73,7 @@ const ResponsiveNavbar: React.FC = () => {
     {
       label: "ABOUT US",
       dropdownItems: [
-        "Institute",
+        "About Institute",
         "Field Gene Bank",
         "Divisions",
         "PME",
@@ -221,21 +221,17 @@ const ResponsiveNavbar: React.FC = () => {
               item.label === "HOME"
             ) {
               return (
-                <Link
-                  key={item.label}
-                  href={routes[item.label] || "#"}
-                  onClick={() => setActiveItem(item.label)}
+                <NavLink
+                  key={item.label} // Move the key here
+                  hasDropdown={false}
+                  isActive={isActive}
+                  isHovered={isHovered}
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={() => setActiveItem(item.label)} // Pass the onClick here
                 >
-                  <NavLink
-                    hasDropdown={false}
-                    isActive={isActive}
-                    isHovered={isHovered}
-                    onMouseEnter={() => handleMouseEnter(item.label)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {item.label}
-                  </NavLink>
-                </Link>
+                  {item.label}
+                </NavLink>
               );
             }
 

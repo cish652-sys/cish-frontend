@@ -3,8 +3,7 @@ import ImageAtom from "../atoms/ImageDirectorDesk";
 import Typography from "../atoms/Typography";
 import DirectorContent from "../molecules/DirectorsContent";
 import { SectionHeader } from "../organisms/SectionHeader";
-import { StaffsItems } from "../organisms/StaffsGrid";
-import { TechnologyGrid } from "../organisms/TechnologyGrid";
+import { StaffsItems, StaffsGrid } from "../organisms/StaffsGrid"; // Import StaffsGrid
 import { useState } from "react";
 import { Badge } from "../atoms/Badge";
 import { StaffFlipCard } from "../molecules/StaffFlipCard";
@@ -142,13 +141,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
           </div>
         )}
 
-        {showHeading && (
-          <TechnologyGrid
-            items={getCurrentStaffData()}
-            showTechnologyDetails={false}
-            showHeading={false}
-          />
-        )}
+        {showHeading && <StaffsGrid items={getCurrentStaffData()} showHeading={false} />}
       </section>
       {modalStaff && <StaffModal staff={modalStaff} onClose={() => setModalStaff(null)} />}
     </>

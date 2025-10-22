@@ -135,7 +135,6 @@ const formatDate = (dateString: string | null): string => {
 };
 
 const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
-
   const handleViewMore = () => {
     switch (activeTab) {
       case "Tenders":

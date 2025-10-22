@@ -5,25 +5,27 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import ViksitKrishiCard from "@/designs/molecules/VKSACard";
-import { viksitKrishiData } from "@/app/VKSA/data"; 
+import { viksitKrishiData } from "@/app/VKSA/data";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import Typography from "@/designs/atoms/Typography";
 
 interface VksaApiItem {
   id: number;
   title: string;
-  name: string; 
+  name: string;
   images: string[];
 }
 
 const VKSAPage = () => {
-  const [vksaItems, setVksaItems] = useState(viksitKrishiData); 
+  const [vksaItems, setVksaItems] = useState(viksitKrishiData);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchVksaData = async () => {
       try {
-        const response = await fetch('https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa');
+        const response = await fetch(
+          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa"
+        );
         if (!response.ok) throw new Error("API fetch failed");
 
         const apiData: VksaApiItem[] = await response.json();
@@ -32,7 +34,7 @@ const VKSAPage = () => {
           const formattedData = apiData.map((item) => ({
             id: item.id,
             title: item.title,
-            description: item.name, 
+            description: item.name,
             images: item.images,
           }));
           setVksaItems(formattedData);

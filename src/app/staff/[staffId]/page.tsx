@@ -6,19 +6,17 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { StaffsSection } from "@/designs/templates/StaffsSection";
-import { staffData, divisionStaffData } from "@/lib/utils";
+import { dummyStaffData, dummyDivisionStaffData } from "@/lib/utils";
 import React from "react";
 
 export default function StaffDetailPage() {
   const params = useParams();
   const staffId = params.staffId as string;
 
-  const selectedStaff = staffData.find((staff) => staff.id === staffId);
+  const selectedStaff = dummyStaffData.find((staff) => staff.id === staffId);
 
-  // Get division-specific staff based on the selected division
   const getDivisionStaff = () => {
-    // Use the exact staffId as key since we've matched the division staff data keys to your existing IDs
-    return divisionStaffData[staffId as keyof typeof divisionStaffData] || [];
+    return dummyDivisionStaffData[staffId as keyof typeof dummyDivisionStaffData] || [];
   };
 
   const divisionStaff = getDivisionStaff();

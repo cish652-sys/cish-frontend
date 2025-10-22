@@ -6,7 +6,7 @@ const Jobs = () => {
   return (
     <div>
       <JobsPage />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -10,21 +10,19 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Header } from "@/designs/organisms/Header";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
-// Define the structure of the API response
 interface ApiEvent {
   id: number;
-  date: string; // This is a full timestamp e.g., "2025-10-06T18:30:00.000+00:00"
+  date: string;
   title: string;
-  name: string; // Will be used for descriptions
+  name: string;
   images: string[];
 }
 
-// Helper function to transform API data into the structure your components need
 const transformApiData = (apiData: ApiEvent[]): Event[] => {
   return apiData.map((item) => {
     const eventDate = new Date(item.date);
     const day = eventDate.getDate();
-    const month = eventDate.toLocaleString("en-US", { month: "short" }); // e.g., "Aug"
+    const month = eventDate.toLocaleString("en-US", { month: "short" });
     const time = eventDate.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
@@ -32,17 +30,17 @@ const transformApiData = (apiData: ApiEvent[]): Event[] => {
     });
 
     return {
-      id: String(item.id), // Convert numeric ID to string for consistency
+      id: String(item.id),
       date: `${day} ${month}.`,
       day: day,
       month: month,
-      timeRange: time, // API doesn't provide a range, so we use the start time
+      timeRange: time,
       title: item.title,
       shortDescription: item.name,
-      fullDescription: item.name, // Using 'name' for both descriptions
-      cardImage: item.images?.[0] || "/icons/default-event.jpg", // Use first image or a default
+      fullDescription: item.name,
+      cardImage: item.images?.[0] || "/icons/default-event.jpg",
       detailImages: item.images || [],
-      socialLinks: [], // API doesn't provide social links
+      socialLinks: [],
     };
   });
 };
@@ -71,7 +69,6 @@ const EventsPage = () => {
         }
       } catch (error) {
         console.error("Failed to fetch events, using fallback data.", error);
-        // Fallback data is already the initial state
       } finally {
         setIsLoading(false);
       }

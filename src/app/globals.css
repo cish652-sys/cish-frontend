@@ -271,3 +271,70 @@
 .dark [style*="color: #000"] {
   color: #ffffff !important;
 }
+/* Carousel Styles */
+.embla {
+  position: relative;
+  padding-bottom: 2.5rem; /* Space for the dots */
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin-left: -1rem;
+}
+
+.embla__slide {
+  /* This is the key style that makes the cards appear side-by-side */
+  flex: 0 0 25%;
+  min-width: 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .embla__slide {
+    flex: 0 0 33.33%;
+  }
+}
+@media (max-width: 768px) {
+  .embla__slide {
+    flex: 0 0 50%;
+  }
+}
+@media (max-width: 640px) {
+  .embla__slide {
+    flex: 0 0 80%;
+  }
+}
+
+/* Dots Pagination */
+.embla__dots {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.embla__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: #dbece2;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.embla__dot--selected {
+  background-color: #166534;
+}

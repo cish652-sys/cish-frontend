@@ -5,8 +5,8 @@ import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { StaffsSection } from "@/designs/templates/StaffsSection";
 import {
-  staffData,
-  scientificStaffData,
+  dummyStaffData,
+  dummyScientificStaffData,
   technicalStaffData,
   skilledSupportingStaffData,
   administrativeStaffData,
@@ -22,8 +22,8 @@ const StaffPage = () => {
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
       <StaffsSection
-        staffsItems={staffData}
-        scientificStaff={scientificStaffData}
+        staffsItems={dummyStaffData}
+        scientificStaff={dummyScientificStaffData}
         technicalStaff={technicalStaffData}
         skilledSupportingStaff={skilledSupportingStaffData}
         administrativeStaff={administrativeStaffData}

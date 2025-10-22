@@ -79,7 +79,6 @@ export const MainHeader = () => {
     queryFn: fetchAnnouncements,
   });
 
-  // Memoize banner data processing
   const banners = useMemo(() => {
     if (!apiData) return staticBanners;
 
@@ -117,7 +116,6 @@ export const MainHeader = () => {
     }
     return apiAnnouncements.map((item) => item.title);
   }, [apiAnnouncements, isAnnouncementsPending, isAnnouncementsError]);
-
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % banners.length);
@@ -191,8 +189,19 @@ export const MainHeader = () => {
                   className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
                   aria-label="Previous slide"
                 >
-                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
                 <button
@@ -200,8 +209,19 @@ export const MainHeader = () => {
                   className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
                   aria-label="Next slide"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </div>
@@ -222,7 +242,7 @@ export const MainHeader = () => {
           )}
         </div>
       </section>
-      
+
       <AnnouncementBar messages={announcementMessages} />
     </main>
   );
