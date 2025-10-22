@@ -31,22 +31,28 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '13.234.154.152',
-        port: '9000',
-        pathname: '/nfp-bucket/**',
+        protocol: 'https',
+        hostname: 'api.nationalfarmerportal.org',
+        port: '',
+        pathname: '/uploads/**',
       },
       {
         protocol: 'http',
         hostname: '13.234.154.152',
-        port: '8081',
-        pathname: '/**',
+        port: '9000', 
+        pathname: '/nfp-bucket/**',
       },
       {
         protocol: 'https',
         hostname: 'example.com',
         port: '',
-        pathname: '/**',
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+        port: '9000',
+        pathname: '/nfp-bucket/**',
       },
     ],
   },

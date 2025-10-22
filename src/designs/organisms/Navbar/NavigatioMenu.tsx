@@ -21,8 +21,8 @@ const routes: Record<string, string> = {
   "Field Gene Bank": "/about/field-gene-bank",
   Divisions: "/Division",
   PME: "/staffs",
-  "ITMu/IPR Cells": "https://cish.in/itmu.php",
-  "Agri Business Incubation Center": "https://cish.in/abi_n.php",
+  "ITMu/IPR Cells": "/Itmu",
+  "Agri Business Incubation Center": "/Abi",
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/malda_n.php",
   "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
@@ -192,6 +192,7 @@ const ResponsiveNavbar: React.FC = () => {
               href={routes[item] || "#"}
               className="block px-4 py-2 text-sm text-white/90 hover:bg-[#67B96D] hover:text-white transition-colors duration-150"
               onClick={() => {
+              
                 console.log(`Desktop navigation: ${item} -> ${routes[item]}`);
                 setHoveredItem("");
               }}
@@ -221,22 +222,18 @@ const ResponsiveNavbar: React.FC = () => {
               item.label === "HOME"
             ) {
               return (
-                <Link
-                  key={item.label}
-                  href={routes[item.label] || "#"}
-                  onClick={() => setActiveItem(item.label)}
-                >
-                  <NavLink
-                    hasDropdown={false}
-                    isActive={isActive}
-                    isHovered={isHovered}
-                    onMouseEnter={() => handleMouseEnter(item.label)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {item.label}
-                  </NavLink>
-                </Link>
-              );
+    <NavLink
+      key={item.label} // Move the key here
+      hasDropdown={false}
+      isActive={isActive}
+      isHovered={isHovered}
+      onMouseEnter={() => handleMouseEnter(item.label)}
+      onMouseLeave={handleMouseLeave}
+      onClick={() => setActiveItem(item.label)} // Pass the onClick here
+    >
+      {item.label}
+    </NavLink>
+  );
             }
 
             return (

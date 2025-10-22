@@ -1,32 +1,45 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Card, CardContent, CardFooter, CardHeader } from "../atoms/card";
 import Typography from "../atoms/Typography";
 import { cn } from "@/lib/utils";
 
-interface TechInfoCardProps {
+interface DivisionVarietyCardProps {
   title: string;
   description: string[];
   image?: string;
-  onViewMore?: () => void;
-  showHeading: boolean;
-  showTechnologyDetails?: boolean;
+  href?: string;
   className?: string;
-  href: string;
 }
 
-export const TechInfoCard: React.FC<TechInfoCardProps> = ({
+export const DivisionVarietyCard: React.FC<DivisionVarietyCardProps> = ({
   title,
   description,
   image,
-  onViewMore,
-  showHeading,
-  showTechnologyDetails = false,
+  href,
   className,
 }) => {
+  const router = useRouter();
+
+  const handleViewMore = () => {
+    if (href) {
+      if (href.startsWith("http")) {
+        window.open(href, "_blank"); 
+      } else {
+        router.push(href);
+      }
+    }
+  };
+
   return (
-    <Card className={cn("flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden", className)}>
+    <Card
+      className={cn(
+        "flex flex-col justify-between h-[600px] shadow-sm hover:shadow-md transition overflow-hidden",
+        className
+      )}
+    >
       <CardHeader className="p-2 flex items-center justify-center">
         {image ? (
           <Image
@@ -45,27 +58,23 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
 
       <CardContent className="p-2 flex flex-col flex-1">
         <Typography variant="contentTitle">{title}</Typography>
-        {!showHeading && showTechnologyDetails && (
-          <Typography variant="badgeStyle" className="mt-2">
-            Technology Details:
-          </Typography>
-        )}
-        {showTechnologyDetails && (
-          <ul className="list-disc list-outside">
+
+        <div className="mt-2">
+          <ul className="list-disc list-outside pl-5">
             {description.map((line, idx) => (
-              <Typography key={idx} variant="labelSmall">
-                {line}
-              </Typography>
+              <ul key={idx}>
+                <Typography variant="paragraphSmall">{line}</Typography>
+              </ul>
             ))}
           </ul>
-        )}
+        </div>
       </CardContent>
 
       <CardFooter className="p-4 flex justify-end mt-auto">
         <button
           onClick={(e) => {
-            e.stopPropagation(); 
-            onViewMore?.();
+            e.stopPropagation();
+            handleViewMore();
           }}
           className="text-green-700 hover:text-green-800 font-semibold cursor-pointer"
         >

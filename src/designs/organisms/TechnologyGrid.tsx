@@ -1,48 +1,39 @@
 "use client";
-
-import { useRouter } from "next/navigation";
 import { TechInfoCard } from "../molecules/TechInfoCard";
+import { TechnologyCardItem } from "@/types"
 
-export interface TechnologyItem {
-  id: string;
-  title: string;
-  description: string[];
-  image?: string;
-  href?: string; 
-}
+// REMOVE the old interface:
+// export interface TechnologyItem {
+//   id: string;
+//   title: string;
+//   ...
+// }
 
 interface TechnologyGridProps {
-  items: TechnologyItem[];
+  items: TechnologyCardItem[]; // <-- USE the correct type here
   showHeading: boolean;
   showTechnologyDetails?: boolean;
+  onViewMore?: (id: number) => void; // Make onViewMore optional for VarietiesPage
 }
 
 export const TechnologyGrid: React.FC<TechnologyGridProps> = ({
   items,
   showHeading,
   showTechnologyDetails,
+  onViewMore,
 }) => {
-  const router = useRouter();
-
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 container">
       {items.map((tech) => (
         <TechInfoCard
-          showTechnologyDetails={showTechnologyDetails}
-          key={tech.id}
+          key={tech.id.toString()} 
           title={tech.title}
           description={tech.description}
           image={tech.image}
+          href={tech.href}
           showHeading={showHeading}
-          onViewMore={() => {
-  if (tech.href) {
-    if (tech.href.startsWith("http")) {
-      window.open(tech.href, "_blank");
-    } else {
-      router.push(tech.href);
-    }
-  }
-}}
+          showTechnologyDetails={showTechnologyDetails}
+          onViewMore={onViewMore ? () => onViewMore(tech.id) : undefined}
         />
       ))}
     </div>

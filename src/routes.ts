@@ -17,7 +17,7 @@ const routes: Record<string, string> = {
   Divisions: "/Division",
   PME: "/staffs",
   "ITMu/JPR Cells": "/about/itmu-jpr",
-  "Agri Business Incubation Center (ABI)": "https://cish.in/abi_n.php",
+  "Agri Business Incubation Center (ABI)": "/Abi",
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/cib_n.php",
   "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",

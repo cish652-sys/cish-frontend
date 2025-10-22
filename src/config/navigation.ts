@@ -15,7 +15,7 @@ export const navigation: NavItem[] = [
       { href: "/Division", label: "Divisions" },
       { href: "/about/pme", label: "PME" },
       { href: "/about/itmu-jpr", label: "ITMU/JPR Cells" },
-      { href: "https://cish.in/abi_n.php", label: "Agri Business Incubation Center (ABI)" },
+      { href: "/Abi", label: "Agri Business Incubation Center (ABI)" },
       { href: "/about/akmu", label: "AKMU" },
       { href: "https://cish.in/cib_n.php", label: "Regional Research Station" },
       { href: "https://cish.in/krishi-portal.php", label: "Krishi Vigyan Kendra" },

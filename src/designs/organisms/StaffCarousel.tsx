@@ -6,7 +6,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { type EmblaCarouselType } from 'embla-carousel';
 
 import { useRouter } from 'next/navigation';
-import { scientificStaffData } from '@/lib/utils';
+import { dummyScientificStaffData } from '@/lib/utils';
 import { TechInfoCard } from '../molecules/TechInfoCard';
 
 type StaffDivision = {
@@ -44,7 +44,7 @@ export const StaffCarousel: React.FC = () => {
     emblaApi?.scrollTo(index);
   };
 
-  const staffItems: StaffDivision[] = scientificStaffData;
+  const staffItems: StaffDivision[] = dummyScientificStaffData;
 
   return (
     <div className="container  embla w-full">
@@ -53,6 +53,7 @@ export const StaffCarousel: React.FC = () => {
           {staffItems.map((staff) => (
             <div className="embla__slide" key={staff.id}>
               <TechInfoCard
+              href={""}
                 title={staff.title}
                 image={staff.image}
                 description={[]}

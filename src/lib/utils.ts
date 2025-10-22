@@ -1,7 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Job } from "@/types";
-
+import type {DivisionStaffData} from "@/types";
+import { TechnologyCardItem } from "@/types";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -57,8 +58,9 @@ export const rearchData = [
     description: "",
   },
 ];
-export const technoItems = [
+export const technoItems: TechnologyCardItem[] = [
   {
+    id: 9001,
     title: "ICAR-FUSICONT",
     description: [
       "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
@@ -68,6 +70,7 @@ export const technoItems = [
     image: "/icons/Rectangle 776.svg",
   },
   {
+    id: 9002,
     title: "ICAR-BIOIMMUNIZER",
     description: [
       "ICAR-FUSICONT Is A Bio-Fungicide, For Managing Banana Wilt Disease, Specifically The Panama Wilt (TR4) Caused By Fusarium Oxysporum F. Sp. Cubense.",
@@ -78,6 +81,7 @@ export const technoItems = [
     image: "/icons/Rectangle 778.svg",
   },
   {
+    id: 9003,
     title: "CISH-METWASH",
     description: [
       "CISH-Metwash is an anti-senescence, antifungal bioactive secondary metabolite-based bio-stimulant (strain CSR M44 + Biopolymer +adjuvants) developed for increasing the shelf life of mango 40-44 day and banana 50-52 days at 13 °C and 85% humidity in reefer container used for export through sea route. ]It is breakthrough technology that stands distinct from the regular ethylene absorbers where the maximum reported shelf life in mango 10 days and banana 15 days.",
@@ -96,7 +100,7 @@ export const divItems = [
       "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
       "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
     ],
-    href: "https://cish.in/v_ambika.php",
+    href: "/Division/crop-improvement",
     image: "/icons/div1.svg",
   },
   {
@@ -107,7 +111,7 @@ export const divItems = [
       "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
       "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
     ],
-    href: "https://cish.in/v_ambika.php",
+    href: "/Division/crop-production",
     image: "/icons/div2.svg",
   },
   {
@@ -118,7 +122,7 @@ export const divItems = [
       "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
       "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
     ],
-    href: "https://cish.in/v_ambika.php",
+    href: "/Division/crop-protection",
     image: "/icons/div3.svg",
   },
   {
@@ -134,8 +138,91 @@ export const divItems = [
   },
     ]
 
-export const varietiesItem = [
+
+    export const cropImprovementData = [
   {
+    title: "GENETIC RESOURCE MANAGEMENT",
+    description: [
+      "The Institute has Field Gene Bank Of Mandated Crops Such As Mango (745), Guava (120), Papaya (17), Bael (54), Litchi (35), Aonla (35), Jamun (38), Khirnee (17), Mahua (25), Tamarind (20), Wood Apple (17), Custard Apple (8), Mulberry (10), Hog Plum (3), Lasora (5), Carambola (3), Karonda (30), Grape (4) And Cape Gooseberry (4). A Catalogue Of 184 Accessions (Including Morphological And Molecular Characterization) Was Published In 2011 And An Interactive CD Was Prepared.",
+    ],
+  },
+  {
+    title: "MOLECULAR CHARACTERIZATION AND GENOMICS",
+    description: [
+      "Characterization Of Mango Accessions (c. 200 Cvs) Using SSR Markers Was Done Towards Fingerprinting And Diversity Assessment Based On 30 Loci. The Fingerprint Development Of The Indian Varieties By Converting The Genotypic Data Into Barcodes Has Been Published. Clonal Variability Among Commercial Indian Mango Varieties Is Being Assessed. Gene Expression Studies Are Being Done At CISH. The Transcriptome Data Has Been Generated In Mango For Fruit Colour, Regulation Of Flowering And Abiotic Stresses. Primer Designing And Its Validation In Diverse Genotypes For Genes Involved In Anthocyanin Pigmentation And Flowering Have Been Done. In Guava, Efforts Are Being Made To Study The Molecular Basis Of Seediness, Fruit Colour And Wilt Resistance. Genes For Regulation VIZ., COs (Constans), LFY (Leafy), FLT (Flowering Time) Has Been Completed To Elucidate The Molecular Mechanisms Underlying The Trait Expression.",
+    ],
+  },
+  {
+    title: "GUAVA (PSIDIUM GUAJAVA L.)",
+    description: [
+      "Molecular Characterization And Genetic Diversity Analysis Of Guava Cultivars (22), Psidium Sp. (6) And Intervarietal Hybrids Was Done Using Microsatellites (SSR And ISSR), Minisatellites (RAMPO) And Dominant Markers (RAPD). Diversity Analysis Based On Allelic Data Generated By RAPD And RAMPO Markers Revealed Differentiation Of Exotic Types From Cultivars Originated In Northern Plains. SSR Markers Were Found Suitable To Discriminate Between Half Sib Populations Of Guava And To Produce Cell Specific Fingerprints. RAPD Markers Were Found To Be The Best Descriptors And Tools For Fingerprinting Of Closely Related Accessions. Cp DNA Gene Sequences Were Used In Mapping The Chloroplast Genome.",
+    ],
+  },
+  {
+    title: "LITCHI (LITCHI CHINENSIS L.)",
+    description: [
+      "Mini Protocol Was Developed For DNA Isolation Using DNeasy Extraction With 3.5% CTAB Buffer And Purification By Spin Columns. Twenty-Seven Accessions Of Litchi And Muzaffarpur Were Characterized Using Microsatellites (SSR And ISSR) And RAPD Markers. Based On The Discrimination And Resolving Power, ISSR Markers Were Found To Be Suitably SSR Markers For Generation Of Cultivar Barcode And Clustering Analyses. Phylogenetic Analysis Using UPGMA Method Grouped All The Varieties In Two Clusters. Reports Available On Molecular Characterization Of Litchi Germplasm Using RAPD And ISSR Markers Revealed That The Microsatellites Have Exposed Narrow Genetic Background Of Litchi Cultivars From India, Rationalizing Cross Breeding And Widening Of Genetic Base Towards Its Improvement.",
+    ],
+  },
+  {
+    title: "JAMUN (SYZYGIUM CUMINI SKEELS.)",
+    description: [
+      "Eight Jamun Accessions J 34, J 36, J 37, J 21, J 32, J 39, J 40 And J 10 Characterized By RAPD And ISSR Come. SSR Cross Amplification Markers J 36 And J 37 Which Are Selections From CISH Showed Highest Similarity As Per The Matrix Generated By Jaccard's Coefficient. J 36 And J 22 Are Distant Branches Showing The Least Similarity With The Other Genotypes. Cross Species Amplification Of Guava SSR Markers Was Verified In Jamun.",
+    ],
+  },
+];
+
+export const divisionVarietiesData = [
+  {
+    id: "v1",
+    title: "Hybrid-949:",
+    description: [
+      "This Is A Cross Between Amrapali And Vanraj With Firm Flesh, Attractive Dark Red Colour On The Peel And Better Shelf Life. This Hybrid Has Regular Bearing Character And Late In Season.",
+    ],
+    image: "/icons/Rectangle 941.svg", 
+    href: "/varieties/hybrid-949", 
+  },
+  {
+    id: "v2",
+    title: "Ambika:",
+    description: [
+      "A Cross Between Amrapali And Janardhan Pasand, Fruits Oblong Oval, Colour Bright Yellow With Dark Red Blush, Pulp Dark Yellow, Firm With Scanty Fibre. Fruit Weight 250-350 G, TSS 21.0 Brix. It Is A Regular Bearing Variety And Late In Maturity. The Hybrid Has Potential For Both Internal And Export Markets Because Of Its Attractive Fruit Colour. Yields About 40 Kg/Plant By About 10 Years Of Planting Under Improved Cultural Practices.",
+    ],
+    image: "/icons/Rectangle 947.svg", // Placeholder path
+    href: "/varieties/ambika", // Placeholder path
+  },
+  {
+    id: "v3",
+    title: "Arunika:",
+    description: [
+      "A Cross Between Amrapali And Vanraj, The Tree Prolific Dwarf And Compact. Fruits Are Smooth, Everage Yellow And Red Blush, Weight About 190-210g, TSS 24.0 Brix. Stone Is Thin, Pulp Orange, Firm With Scanty Fibre, Pulp 68%, TSS 24.0 Brix. The Hybrid Has Potential For Both Internal And Export Markets Because Of Its Attractive Fruit Colour. Average Fruit Yield Is About 60 Kg/Plant At 8 Years Of Planting. It Has Demonstrated Wider Adaptability And Is Performing Well Under Northern Plains. It Is A Regular Bearer And Has Red Peel Colour.",
+    ],
+    image: "/icons/Rectangle 941.svg", // Placeholder path
+    href: "/varieties/arunika", // Placeholder path
+  },
+  {
+    id: "v4",
+    title: "Hybrid-1084:",
+    description: [
+      "A Cross Between Amrapali And Janardhan Pasand Was Found Promising With Attractive Dark Red Colour On The Peel And Better Shelf Life. This Hybrid Has Regular Bearing Character.",
+    ],
+    image: "/icons/Rectangle 941.svg", // Placeholder path
+    href: "/varieties/hybrid-1084", // Placeholder path
+  },
+  {
+    id: "v5",
+    title: "CISH-M-2:",
+    description: [
+      "A Cross Between Dashehari X Chausa. Fruits Of This Hybrid Are Also Medium With An Average Weight 260 G And Oblong In Shape. Skin Is Smooth, Tough And Yellowish Green When Ripe. Flesh Is Firm, Yeloish Orange In Colour With Scanty Fibre, TSS 22.6 Brix. This Hybrid Has Commercial Potential Because Of Its Sooty Mould Free Fruit Surface Even After Exposure To Heavy Rains. The Fruits Are Similar To Those Of Dashehari, A Leading Variety Of North India, But Mature 15 Days After Dashehari.",
+    ],
+    image: "/icons/Rectangle 947.svg",
+    href: "/varieties/cish-m-2", 
+  },
+];
+
+export const varietiesItem: TechnologyCardItem[] = [
+  {
+    id: 1,
     title: "Awadh Abhaya",
     description: [
       "Hybrid is regular bearer and very late maturing type. Fruit size is medium to large, and light yellow colour with red blush on peel. Fruits have strong stalk attachment. Fruit weigh about 300-400 g, pulp light yellow, very firm in texture, pulp about 80.76%, TSS 25.4°B. The hybrid has potential for both domestic and export markets because of firm texture and long shelf life.",
@@ -144,6 +231,7 @@ export const varietiesItem = [
     image: "/icons/Awadh Mango.svg",
   },
   {
+    id: 2,
     title: "CISH Ambika",
     description: [
       "Mango hybrid Ambika is developed by crossing between Amrapali x Janardan Pasand.",
@@ -155,6 +243,7 @@ export const varietiesItem = [
     image: "/icons/Ambika Mango.svg",
   },
   {
+    id: 3,
     title: "CISH Arunika",
     description: [
       "Mango hybrid Arunika is developed by crossing between Amrapali x Vanraj.",
@@ -168,79 +257,79 @@ export const varietiesItem = [
   },
 ];
 
-export const technologiesItems = [
+export const technologiesItems: TechnologyCardItem[] = [
   {
-    id: "1",
+    id: 1,
     title: "CISH-BIOENHANCER",
     image: "/icons/Rectangle 735.svg",
     description: ["CISH-Bioenhancer” is a consortium of beneficial bacteria..."],
     href: "https://cish.in/t_bioenhancer.php",
   },
   {
-    id: "2",
+    id: 2,
     title: "CISH-BIOZAPPER",
     image: "/icons/Mask group.svg",
     description: ["CISH-Biozapper showed best plant growth promotory properties..."],
     href: "",
   },
   {
-    id: "3",
+    id: 3,
     title: "CISH-FASAL PRABHAT",
     image: "/icons/Mask group (1).svg",
     description: ["CISH-Fasal Prabhat is a water-soluble mixture..."],
     href: "",
   },
   {
-    id: "4",
+    id: 4,
     title: "CISH-GLUE TRAP",
     image: "/icons/Mask group (2).svg",
     description: ["Four sheets (Blue/Yellow) applied with white oil based glue..."],
     href: "",
   },
   {
-    id: "5",
+    id: 5,
     title: "CISH-MANGO WINE SPECIAL",
     image: "/icons/Mask group (3).svg",
     description: ["CISH-Mango wine special offers a scope for production of mango wine..."],
     href: "https://cish.in/t_mango_wine_special.php",
   },
   {
-    id: "6",
+    id: 6,
     title: "PRE-HARVEST BAGGING TECHNOLOGY",
     image: "/icons/Rectangle 749 (1).svg",
     description: ["Maximum fruit firmness of mature and ripe fruit..."],
     href: "",
   },
   {
-    id: "7",
+    id: 7,
     title: "SMART FRUIT PRODUCTION SYSTEM",
     image: "/icons/Rectangle 750 (1).svg",
     description: ["Sensor-based soil moisture monitoring system..."],
     href: "",
   },
   {
-    id: "8",
+    id: 8,
     title: "CISH-TRIANGULAR VERTICAL NFT HYDROPONICS DESIGN FOR VEGETABLES",
     image: "/icons/Rectangle 751.svg",
     description: ["CISH Triangular NFT Hydroponics produced 2.5 times more yield..."],
     href: "",
   },
   {
-    id: "9",
+    id: 9,
     title: "CISH-DOUBLE ROW VERTICAL HYDROPONICS DESIGN",
     image: "/icons/Mask group (4).svg",
     description: ["The hydroponics design structure produced 4 times more yield..."],
     href: "",
   },
   {
-    id: "10",
+    id: 10,
     title: "ESPALIER ARCHITECTURE FOR HIGH AND QUALITY YIELD OF GUAVA",
     image: "/icons/Rectangle 888.svg",
     description: ["Espalier training system of guava is well standardized..."],
     href: "",
   },
   {
-    id: "11",
+    id: 11,
     title:
       "TECHNOLOGY FOR MASS MULTIPLICATION OF WILT TOLERANT GUAVA ROOTSTOCK (PSIDIUM MOLLE × PSIDIUM GUAJAVA)",
     image: "/icons/Rectangle 889 (1).svg",
@@ -249,16 +338,16 @@ export const technologiesItems = [
   },
 ];
 
-export const technologiesVarietiesItems = [
+export const technologiesVarietiesItems: TechnologyCardItem[] = [
   {
-    id: "1",
+    id: 1,
     title: "CISH Lalit",
     image: "/icons/Lalit.svg",
     description: ["CISH- Lalit is a superior seedling selection from Apple guava."],
     href: "https://cish.in/v_lalit.php",
   },
   {
-    id: "2",
+    id: 2,
     title: "CISH Shweta",
     image: "/icons/Rectangle 739 (2).svg",
     description: [
@@ -267,7 +356,7 @@ export const technologiesVarietiesItems = [
     href: "https://cish.in/v_shweta.php",
   },
   {
-    id: "3",
+    id: 3,
     title: "CISH Dhawal",
     image: "/icons/Dhawal.svg",
     description: [
@@ -276,7 +365,7 @@ export const technologiesVarietiesItems = [
     href: "https://cish.in/v_dhawal.php",
   },
   {
-    id: "4",
+    id: 4,
     title: "Awadh Samriddhi",
     image: "/icons/Rectangle 743 (1).svg",
     description: [
@@ -334,7 +423,7 @@ export const varitiesTechnologies = [
   },
 ];
 
-export const staffData = [
+export const dummyStaffData = [
   {
     id: "crop-improvement", // This ID was correct
     title: "DIVISION OF CROP IMPROVEMENT",
@@ -353,6 +442,7 @@ export const staffData = [
       "",
     ],
     image: "/icons/Staff1.svg",
+    href: "/staff/crop-improvement"
   },
   {
     id: "crop-production", // <-- CORRECTED ID (was "division-crop-improvement")
@@ -369,6 +459,7 @@ export const staffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/crop-production"
   },
   {
     id: "crop-protection", // <-- CORRECTED ID (was "division-technology")
@@ -385,6 +476,7 @@ export const staffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/crop-protection"
   },
   {
     id: "post-harvest",
@@ -401,6 +493,7 @@ export const staffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/crop-post-harvest"
   },
   {
     id: "rrs-malda", // <-- CORRECTED ID (was "division-technology")
@@ -415,6 +508,7 @@ export const staffData = [
       "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/rrs-malda" // <-- ADD THIS
   },
   {
     id: "kvk-malda", // <-- CORRECTED ID (was "division-technology")
@@ -430,6 +524,7 @@ export const staffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/kvk-malda" // <-- ADD THIS
   },
   {
     id: "administrative", // <-- CORRECTED ID (was "division-technology")
@@ -443,6 +538,7 @@ export const staffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/administrative" // <-- ADD THIS
   },
   {
     id: "finance-accounts", // <-- CORRECTED ID (was "division-technology")
@@ -456,6 +552,7 @@ export const staffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/finance-accounts" // <-- ADD THIS
   },
   {
     id: "technical-staff-main", // <-- CORRECTED ID (was "division-technology")
@@ -469,12 +566,13 @@ export const staffData = [
       "",
     ],
     image: "/icons/dummyStaff.svg",
+    href: "/staff/technical-staff-main" // <-- ADD THIS
   },
 ];
 
 // In lib/utils.ts
 
-export const scientificStaffData = [
+export const dummyScientificStaffData = [
   {
     id: "crop-improvement",
     title: "DIVISION OF CROP IMPROVEMENT",
@@ -592,9 +690,8 @@ export const administrativeStaffData = [
 ];
 
 
-export const divisionStaffData = {
+export const dummyDivisionStaffData: DivisionStaffData = {
   "crop-improvement": [
-    // MODIFIED: Dr. Anju Bajpai moved to the top and her designation updated
     {
       id: "ci-staff-2",
       title: "Dr. Anju Bajpai",
@@ -924,6 +1021,15 @@ export const divisionStaffData = {
       title: "Dr. Senior Scientist - Entomology",
       description: ["Leading research on integrated pest management in horticultural crops."],
       image: "/icons/Ci9.svg",
+      // --- ADD ALL THESE ---
+      name: "Dr. Senior Scientist",
+      designation: "Senior Scientist - Entomology",
+      icarEmail: "dummy.email@icar.gov.in",
+      altEmail: "dummy.email@gmail.com",
+      specialization: "Entomology",
+      joiningDate: "N/A",
+      mscInstitute: "N/A",
+      phdInstitute: "N/A"
     },
   ],
   "post-harvest": [
@@ -932,9 +1038,99 @@ export const divisionStaffData = {
       title: "Dr. Principal Scientist - Food Technology",
       description: ["Expert in post-harvest technology and value addition of fruits."],
       image: "/icons/dummyStaff.svg",
+      // --- ADD ALL THESE ---
+      name: "Dr. Principal Scientist",
+      designation: "Principal Scientist - Food Technology",
+      icarEmail: "dummy.email@icar.gov.in",
+      altEmail: "dummy.email@gmail.com",
+      specialization: "Food Technology",
+      joiningDate: "N/A",
+      mscInstitute: "N/A",
+      phdInstitute: "N/A"
     },
   ],
 };
+
+export const guavaVarietiesData = [
+  {
+    id: "g1",
+    title: "Lalit:",
+    description: [
+      "Selection From Half Sib Population Of Apple Guava Suitable For Both Fresh As Well As Processing Purposes. Highly Responsive To Pruning, Yields About 100kg/Plant By About 6 Years Of Planting Under High Density (3x6m). Salient Features Are Red Fleshed Fruits With Attractive Saffron Yellow Top Skin With Red Blush. Fruits Medium, Pulp Firm Pink And Fruits Weigh 185-200g With Good Blend Of Sugar And Acid. It Has High TSS (12.0 Brix) And Vitamin C Content. The Pink Color In The Beverage Remains Stable For More Than A Year In Storage.",
+    ],
+    image: "/icons/var3.svg", // Placeholder path
+    href: "/varieties/lalit", // Placeholder path
+  },
+  {
+    id: "g2",
+    title: "Shweta:",
+    description: [
+      "Selection From Half Sib Population Of Apple Guava Variety With Globose Fruits, Medium Size, Weight 225g, Creamy White Exocarp, Snow White Flesh, Soft Seeded (<100/Fruit), Good Keeping Quality, High TSS (12.5 Brix), High Yielding (100kg Pulp). With Good Keeping Quality, High TSS, Good Yield. Tree Is Vigorous In Appearance, Medium Size, Creamy White Exocarp With Red Spots Or Blush. 90 Kg/Plant At The Age Of 6 Years.",
+    ],
+    image: "/icons/var4.svg", // Placeholder path
+    href: "/varieties/shweta", // Placeholder path
+  },
+  {
+    id: "g3",
+    title: "Dhawal:",
+    description: [
+      "Fruits Are Deep Red Coloured With Soft Seeds, Attractive Shape, High TSS (11.0 Brix) And Long Shelf Life. Fruits Of This Selection Recorded Higher Ascorbic Acid Content (185 Mg/100g Pulp) And Shelf Life. Analysis Of The Pigments In Various Portions Of The Same Fruits Has Shown Less Variation In This Selection.",
+    ],
+    image: "/icons/var5.svg", // Placeholder path
+    href: "/varieties/dhawal", // Placeholder path
+  },
+  {
+    id: "g4",
+    title: "Lalima:",
+    description: [
+      "A Selection From Open Pollinated Seedling Guava Population Raised At Lucknow Has Been Found Promising (Fruit Weight 180g & TSS 13.0 Brix). It Has Attractive Skin Colour (Red Blush), Higher Proportion Of Coloured Fruit, Good Yield And Responsiveness To Pruning.",
+    ],
+    image: "/icons/var6.svg", // Placeholder path
+    href: "/varieties/lalima-guava", // Placeholder path
+  },
+];
+
+export const jamunVarietiesData = [
+  {
+    id: "j1",
+    title: "CISH J-42:",
+    description: [
+      "seedless accession obtained from a land race of thane district of MH. Fruit are oblong in shape with good taste. Average fruit weight is 8.0g, fruit length 2.57 cm, breadth 2.18 cm, average. pulp 85 per cent, tss 14.0 brix, acidity 1.0 per, 34.14mg/100g, sugar 0.231 per cent, anthocyanin 1.56 per cent, has a total antioxidant value 5.54 mg AAE/g. Besides, it is rich in total phonolics content (26.78 mg/g fresh weight) and flavonoids (11.2mg/g fresh weight), the selected type has great potential for processing and value added products due to absence of seed.",
+    ],
+    image: "/icons/var1.svg", // Placeholder path
+    href: "/varieties/cish-j-42", // Placeholder path
+  },
+  {
+    id: "j2",
+    title: "CISH B-2:",
+    description: [
+      "Selection Made From Land Race Of Lucknow District On Fruit And Seedling Type. Fruit Ripens During Last Week Of June. Average Fruit Weight Is 22.04 G, Length 3.90 Cm And Diameter 3.03 Cm. Pulp Is 91.56 Per Cent, TSS 13.0 Brix, Acidity Is 0.58, 49.88 Mg/100g And Has A Total Antioxidant Value 38.38 Mg AEAC/G.",
+    ],
+    image: "/icons/var1.svg", // Placeholder path
+    href: "/varieties/cish-b-2-jamun", // Placeholder path
+  },
+];
+
+export const baelVarietiesData = [
+  {
+    id: "b1",
+    title: "CISH B-1:",
+    description: [
+      "It Is A Selection From Open Pollinated Seedlings. It Is A Mid Season Variety Which Matures During April-May. Tree Is Semi Vigorous With Dense Canopy, Erect Growth Habit, Precocious And Heavy Bearer. Fruits Are Ovate In Shape, Fruit Size 15-17.8cm In Length And 39.2-41.0 Cm In Circumference, Average Fruit Weight 1.01 Kg. Fruit Has Thin Rind (0.18cm), Orange Yellow Pulp And Less Mucilage Content. It Has A Very Good Taste And Flavour. Fruits Have 63.57 Per Cent Pulp, TSS 31.7 Brix, Acidity 0.49 Per Cent, Sugar 18.63%, Total Carotenoids 1.18 Mg/100g Pulp, Total Sugar 20.54 Per Cent And Tannin Content 2.5 Per Cent.",
+    ],
+    image: "/icons/var1.svg", // Placeholder path
+    href: "/varieties/cish-b-1", // Placeholder path
+  },
+  {
+    id: "b2",
+    title: "Lalima:",
+    description: [
+      "It Is Also A Selection From Open Pollinated Seedlings. Tree Is Dwarf With A Medium Spreading Habit. It Is Also Regular And Annual Bearer And Precocious With Moderate Bearing Habit. Fruits Are Roundish In Shape With An Average Weight Of 1.01 kg, Length Of 14.80 Cm And Circumference Of 52.54 Cm. Fruit Weight Is From 1.80-2.70 Kg/Fruit. Fruit Pulp Is Orange Yellow With TSS 31.0 Brix, Acidity 0.56, Seed And Fibre Contents Are Low With Average Seed Number 50-121 Fruit And Average Seed Weight 4.02g. Seed To Pulp Ratio Is 1:270.",
+    ],
+    image: "/icons/var1.svg", // Placeholder path
+    href: "/varieties/lalima-bael", // Placeholder path
+  },
+];
 export const jobData: Job[] = [
   {
     id: 1,
