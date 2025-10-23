@@ -22,6 +22,16 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
     const baseClasses = "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
     const fontStyle = { fontFamily: "Noto Sans" };
 
+    // If it's a string, render as plain text
+    if (typeof msg === "string") {
+      return (
+        <span className={baseClasses} style={fontStyle}>
+          {msg}
+        </span>
+      );
+    }
+
+    // If it's an object with a link, render as hyperlink
     if (msg.link) {
       return (
         <a

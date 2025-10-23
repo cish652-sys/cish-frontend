@@ -5,6 +5,7 @@ import { TabButton } from "../atoms/TabButton";
 import { Tender } from "../atoms/TableRow";
 import { TenderTable } from "../molecules/TenderTable";
 import Icon from "../atoms/ImpactCard/Icon";
+import { useRouter } from "next/navigation";
 
 const jobsData: Tender[] = [
   {
@@ -135,18 +136,19 @@ const formatDate = (dateString: string | null): string => {
 };
 
 const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
+  const router = useRouter();
+
   const handleViewMore = () => {
     switch (activeTab) {
       case "Tenders":
-        window.open("https://cish.in/tenders.php", "_blank");
+        router.push("/Tenders");
         break;
       case "Jobs":
-        // Placeholder - you'll add the URL later
-        window.open("https://cish.in/jobs.php", "_blank");
+        router.push("/Jobs");
 
         break;
       case "Announcements":
-        console.log("Announcements URL to be added");
+        router.push("/Announcement");
         break;
       default:
         break;

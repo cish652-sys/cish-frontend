@@ -3,6 +3,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { LinksList } from "../molecules/LinksList";
 import Icon from "../atoms/ImpactCard/Icon";
+import { useRouter } from "next/navigation";
 
 const dummyLinks = [
   {
@@ -58,6 +59,7 @@ const fetchUsefulLinks = async (): Promise<ApiLink[]> => {
 };
 
 export const ImportantLinksSection: React.FC = () => {
+  const router = useRouter();
   const {
     data: apiLinks,
     isPending,
@@ -75,10 +77,12 @@ export const ImportantLinksSection: React.FC = () => {
   }));
 
   const linksToDisplay = isError || normalizedLinks.length === 0 ? dummyLinks : normalizedLinks;
-
+  const handleClick = () => {
+    router.push("/UsefulLinks");
+  };
   return (
-    <div className="flex flex-col w-full h-[299px] ">
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col cursor-pointer w-full h-[299px] ">
+      <div onClick={handleClick} className="flex items-center gap-2">
         <Icon src="/icons/plant-care (1) 1.svg" alt="Trending" />
         <h2 className="text-[22px] font-bold text-green-800 mb-2 flex items-center">
           USEFUL LINKS

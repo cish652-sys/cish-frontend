@@ -12,44 +12,47 @@ const routes: Record<string, string> = {
   TECHNOLOGIES: "/technologies",
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
-  NURSERY: "https://cish.in/nursery_n.php",
+  NURSERY: "/Nursery",
   MEDIA: "/",
   "CONTACT US": "https://cish.in/contact_us.php",
 
   // ABOUT US dropdown
   "About Institute": "/AboutUs",
-  "Field Gene Bank": "/about/field-gene-bank",
+  "Field Gene Bank": "/FieldGeneBank",
   Divisions: "/Division",
   PME: "/staffs",
   "ITMu/IPR Cells": "/Itmu",
   "Agri Business Incubation Center": "/Abi",
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/malda_n.php",
-  "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
+  "Krishi Vigyan Kendra": "/RssKvk",
   "Cadres Strength": "/about/cadres-strength",
   Staff: "/staff",
-  "Citizen Charter": "/about/citizen-charter",
+  // "Citizen Charter": "/about/citizen-charter",
+  "Citizen Charter": "/citizenCharter", // ← Keep this one
+  Photos: "/Gallery",
+  Videos: "/Gallery",
 
   // RESEARCH dropdown
   "Institute Funded Project": "/research/institute-funded",
-  "Externally Funded Projects": "/research/external-funded",
+  "Externally Funded Projects": "/ResearchFunded",
   Collaborations: "https://cish.in/collaboration_n.php",
 
   // PUBLICATIONS dropdown
-  "Annual Reports": "https://cish.in/Annual.php",
+  "Annual Reports": "/AnnualReport",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/publications/newsletter",
-  "Udyan Rashmi (Subscription)": "https://cish.in/udyan-rashmi.php",
+  "Udyan Rashmi (Subscription)": "/UdyanRashmi",
   "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
-  "Vision 2050": "https://cish.in/vision-2030.php",
+  "Vision 2050": "/vision2050",
 
   // VARIETIES dropdown
-  "Climate Resilient": "/varieties/climate-resilient",
-  "Nutraceutical Rich": "/varieties/nutraceutical-rich",
+  "Climate Resilient": "/ClimateResilient",
+  "Nutraceutical Rich": "/Nutraceutical",
   Varieties: "/varieties",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "https://cish.in/agro_advisory.php",
+  "Agro Advisory": "/AgroAdvisory",
   "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
   "Success Stories (of Farmers)": "https://cish.in/success-stories.php",
@@ -118,7 +121,10 @@ const ResponsiveNavbar: React.FC = () => {
       ],
     },
     { label: "NURSERY" },
-    { label: "MEDIA" },
+    {
+      label: "MEDIA",
+      dropdownItems: ["Photos", "Videos", "Events"],
+    },
     { label: "CONTACT US" },
   ];
 
@@ -216,7 +222,7 @@ const ResponsiveNavbar: React.FC = () => {
             if (
               item.label === "TECHNOLOGIES" ||
               item.label === "NURSERY" ||
-              item.label === "MEDIA" ||
+              // item.label === "MEDIA" ||
               item.label === "CONTACT US" ||
               item.label === "HOME"
             ) {
@@ -309,7 +315,7 @@ const ResponsiveNavbar: React.FC = () => {
               if (
                 item.label === "TECHNOLOGIES" ||
                 item.label === "NURSERY" ||
-                item.label === "MEDIA" ||
+                // item.label === "MEDIA" ||
                 item.label === "CONTACT US" ||
                 item.label === "HOME"
               ) {

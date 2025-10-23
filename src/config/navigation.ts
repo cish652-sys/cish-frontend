@@ -18,7 +18,7 @@ export const navigation: NavItem[] = [
       { href: "/Abi", label: "Agri Business Incubation Center (ABI)" },
       { href: "/about/akmu", label: "AKMU" },
       { href: "https://cish.in/cib_n.php", label: "Regional Research Station" },
-      { href: "https://cish.in/krishi-portal.php", label: "Krishi Vigyan Kendra" },
+      { href: "/RssKvk", label: "Krishi Vigyan Kendra" },
       { href: "/about/cadres-strength", label: "Cadres Strength" },
       { href: "/staff", label: "Staff" },
       { href: "/about/citizen-charter", label: "Citizen Charter" },
@@ -42,10 +42,12 @@ export const navigation: NavItem[] = [
       { href: "/publications/journals", label: "Journals" },
       { href: "/publications/reports", label: "Reports" },
       { href: "/publications/newsletters", label: "Newsletters" },
+      { href: "/publications/vision2050", label: "Vision 2050" },
     ],
   },
 
   { type: "link", label: "TECHNOLOGIES", href: "/technologies" },
+
   {
     type: "dropdown",
     label: "FOR FARMERS",
@@ -54,6 +56,7 @@ export const navigation: NavItem[] = [
       { href: "/farmers/training", label: "Training Programs" },
     ],
   },
+
   {
     type: "dropdown",
     label: "VARIETIES",
@@ -62,7 +65,18 @@ export const navigation: NavItem[] = [
       { href: "/varieties/guava", label: "Guava Varieties" },
     ],
   },
-  { type: "link", label: "NURSERY", href: "/nursery" },
-  { type: "link", label: "MEDIA", href: "/media" },
+
+  { type: "link", label: "NURSERY", href: "/Nursery" },
+
+  {
+    type: "dropdown",
+    label: "MEDIA",
+    links: [
+      { href: "/Gallery", label: "Photos" },
+      { href: "/Gallery", label: "Videos" },
+      { href: "/Events", label: "Events" },
+    ],
+  },
+
   { type: "link", label: "CONTACT US", href: "/contact" },
 ];

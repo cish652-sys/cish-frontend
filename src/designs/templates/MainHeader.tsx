@@ -63,6 +63,7 @@ const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
 };
 
 export const MainHeader = () => {
+  // const banners = [ banner2, banner3, banner4, banner5];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { data: apiData, isLoading: isBannersLoading } = useQuery<FileInfo[]>({

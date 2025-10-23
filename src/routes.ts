@@ -8,8 +8,8 @@ const routes: Record<string, string> = {
   TECHNOLOGIES: "/technologies",
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
-  NURSERY: "https://cish.in/nursery_n.php",
-  MEDIA: "",
+  NURSERY: "/Nursery",
+  // MEDIA: "",
   "CONTACT US": "https://cish.in/contact_us.php",
   // ABOUT US dropdown
   "About Institute": "/AboutUs",
@@ -20,11 +20,12 @@ const routes: Record<string, string> = {
   "Agri Business Incubation Center (ABI)": "/Abi",
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/cib_n.php",
-  "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
+  "Krishi Vigyan Kendra": "/RssKvk",
   "Cadres Strength": "/about/cadres-strength",
   Staff: "/staff",
-  "Citizen Charter": "/about/citizen-charter",
-
+  // "Citizen Charter": "/about/citizen-charter",
+  Vision2050: "/vision2050",
+  "Citizen Charter": "/citizenCharter",
   // RESEARCH dropdown
   "Mango Cultivation": "/research/mango-cultivation",
   "Mango Nutrition": "/research/mango-nutrition",
@@ -38,6 +39,14 @@ const routes: Record<string, string> = {
   "Mango Diseases Publications": "/publications/mango-diseases",
   "Mango Genomics Publications": "/publications/mango-genomics",
   "Mango Genetics Publications": "/publications/mango-genetics",
+
+  // PUBLICATIONS dropdown
+  "Annual Reports": "/AnnualReport",
+  "Research Publications": "/publications/research",
+  "Newsletter (Subscription)": "/newsletter",
+  "Udyan Rashmi (Subscription)": "/UdyanRashmi",
+  "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
+  "Vision 2050": "/vision2050",
 
   // VARIETIES dropdown
   "Mango Cultivation Varieties": "/varieties/mango-cultivation",

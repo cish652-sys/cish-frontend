@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image"; // Using next/image for optimization
+import Image from "next/image";
 
 interface ViksitKrishiCardProps {
   id: number;
   title: string;
   description: string;
-  images?: string[]; // New optional prop for images
+  images?: string[];
   isDetailView?: boolean;
+  basePath?: string; // <-- New optional prop to make route dynamic
 }
 
 const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
@@ -17,19 +18,21 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
   description,
   images,
   isDetailView = false,
+  basePath = "VKSA", // Default route if not provided
 }) => {
-  // Show a shorter description on the main list page
+  // Shorten description for non-detail views
   const shortDescription =
     description.length > 150 && !isDetailView ? `${description.substring(0, 150)}...` : description;
 
   return (
     <div className="w-full max-w-6xl p-6 mb-8 bg-white border border-gray-200 shadow-sm">
       <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
+
       <p className="text-gray-700 text-base leading-relaxed">
         {shortDescription}
         {!isDetailView && (
           <Link
-            href={`/VKSA/${id}`} // This link takes the user to the detail page
+            href={`/${basePath}/${id}`} // <-- Dynamic route
             className="text-green-700 font-semibold cursor-pointer hover:underline ml-1"
           >
             View More →
@@ -37,7 +40,7 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
         )}
       </p>
 
-      {/* This section renders the images from the API */}
+      {/* Image Grid */}
       {images && images.length > 0 && (
         <div className="grid pt-8 grid-cols-2 sm:grid-cols-3 mb-4 md:grid-cols-5 gap-4">
           {images.map((src, index) => (
