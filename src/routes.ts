@@ -44,7 +44,7 @@ const routes: Record<string, string> = {
   "Annual Reports": "https://cish.in/Annual.php",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/newsletter",
-  "Udyan Rashmi (Subscription)": "https://cish.in/udyan-rashmi.php",
+  "Udyan Rashmi (Subscription)": "/UdyanRashmi",
   "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
   "Vision 2050": "/vision2050",
 

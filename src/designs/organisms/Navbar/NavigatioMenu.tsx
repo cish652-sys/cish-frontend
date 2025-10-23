@@ -18,7 +18,7 @@ const routes: Record<string, string> = {
 
   // ABOUT US dropdown
   "About Institute": "/AboutUs",
-  "Field Gene Bank": "/about/field-gene-bank",
+  "Field Gene Bank": "/FieldGeneBank",
   Divisions: "/Division",
   PME: "/staffs",
   "ITMu/IPR Cells": "/Itmu",
@@ -42,7 +42,7 @@ const routes: Record<string, string> = {
   "Annual Reports": "https://cish.in/Annual.php",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/publications/newsletter",
-  "Udyan Rashmi (Subscription)": "https://cish.in/udyan-rashmi.php",
+  "Udyan Rashmi (Subscription)": "/UdyanRashmi",
   "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
   "Vision 2050": "/vision2050",
 
@@ -52,7 +52,7 @@ const routes: Record<string, string> = {
   Varieties: "/varieties",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "https://cish.in/agro_advisory.php",
+  "Agro Advisory": "/AgroAdvisory",
   "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
   "Success Stories (of Farmers)": "https://cish.in/success-stories.php",
