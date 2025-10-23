@@ -28,7 +28,7 @@ export default function CitizenCharter() {
   ];
 
   // Handle view action
-  const handleView = (row: TableRow, index: number) => {
+  const handleView = (row: TableRow) => {
     console.log("View clicked for:", row);
     // Open PDF in new tab or implement your view logic
     if (row.fileUrl) {
@@ -37,7 +37,7 @@ export default function CitizenCharter() {
   };
 
   // Handle download action
-  const handleDownload = (row: TableRow, index: number) => {
+  const handleDownload = (row: TableRow) => {
     console.log("Download clicked for:", row);
     // Implement download logic
     if (row.fileUrl) {

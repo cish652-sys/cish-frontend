@@ -1,8 +1,13 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import iconEarth from "../public/images/SocialMedia/famicons_earth-outline.svg";
-import { useRouter } from 'next/navigation'
+'use client'
+import React from 'react'
+import Typography from '../atoms/Typography'
+import { SectionHeader } from '../organisms/SectionHeader'
+import { Logo } from '../atoms/Logo'
+import ResponsiveNavbar from '../organisms/Navbar/NavigatioMenu'
+import { Header } from '../organisms/Header'
+import { Footer } from '../organisms/FooterOrganisms/Footer'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const socialMediaData = [
   {
@@ -30,26 +35,32 @@ const socialMediaData = [
     icons: "/icons/ytsocialmedia.png",
   },
 ];
-
-export default function SocialMediaSection() {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push('/SocialMedia')
-  }
+const SocialMediaPage = () => {
   return (
-    <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 py-8 sm:py-10 md:py-12 bg-white">
-      <div onClick={handleClick} className="cursor-pointer container max-w-7xl mx-auto flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-10">
-        <Image
-          src={iconEarth}
-          alt="social"
-          width={24}
-          height={24}
-          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
-        />
-        <h2 className="text-green-900 font-bold text-sm sm:text-base md:text-lg lg:text-xl uppercase tracking-wide">
-          IN SOCIAL MEDIA
-        </h2>
-      </div>
+    <main>
+        <Header />
+      <ResponsiveNavbar />
+      <section className="relative w-full">
+        <Logo src="/icons/bannerblank.svg" alt="Website Banner" responsive />
+      </section>
+      
+      <SectionHeader
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "SOCIAL MEDIA" },
+        ]}
+        iconProps={true}
+        title="SOCIAL MEDIA"
+        description={[""]}
+      />
+      
+      <div>
+        <div className="flex  container items-center pt-2 gap-3 mb-6">
+            <Typography variant="sectionHeading">SOCIAL MEDIA</Typography>
+        </div>
+        </div>
+        <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 py-8 sm:py-10 md:py-12 bg-white">
+      
 
       <div className="max-w-7xl container mx-auto">
         {/* Mobile view */}
@@ -200,5 +211,9 @@ export default function SocialMediaSection() {
         }
       `}</style>
     </section>
-  );
+    <Footer />
+    </main>
+  )
 }
+
+export default SocialMediaPage

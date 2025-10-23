@@ -23,14 +23,14 @@ export default function CitizenCharter() {
     },
   ];
 
-  const handleView = (row: TableRow, index: number) => {
+  const handleView = (row: TableRow) => {
     console.log("View clicked for:", row);
     if (row.fileUrl) {
       window.open(row.fileUrl as string, "_blank");
     }
   };
 
-  const handleDownload = (row: TableRow, index: number) => {
+  const handleDownload = (row: TableRow) => {
     console.log("Download clicked for:", row);
     if (row.fileUrl) {
       const link = document.createElement("a");

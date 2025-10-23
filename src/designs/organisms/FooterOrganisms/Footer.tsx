@@ -77,7 +77,7 @@ export function Footer() {
             links={[
               { label: "Library", href: "https://cish.in/library.php" },
               { label: "Museum", href: "https://cish.in/museum.php" },
-              { label: "Nursery", href: "#" },
+              { label: "Nursery", href: "/Nursery" },
               { label: "Consultancy", href: "https://cish.in/consultancy.php" },
               { label: "Contract Research", href: "https://cish.in/contract-research.php" },
               { label: "Education", href: "https://cish.in/education.php" },

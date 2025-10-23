@@ -12,7 +12,7 @@ const routes: Record<string, string> = {
   TECHNOLOGIES: "/technologies",
   VARIETIES: "/varieties",
   "FOR FARMERS": "/",
-  NURSERY: "https://cish.in/nursery_n.php",
+  NURSERY: "/Nursery",
   MEDIA: "/",
   "CONTACT US": "https://cish.in/contact_us.php",
 
@@ -25,7 +25,7 @@ const routes: Record<string, string> = {
   "Agri Business Incubation Center": "/Abi",
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/malda_n.php",
-  "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
+  "Krishi Vigyan Kendra": "/RssKvk",
   "Cadres Strength": "/about/cadres-strength",
   Staff: "/staff",
   // "Citizen Charter": "/about/citizen-charter",
@@ -39,7 +39,7 @@ const routes: Record<string, string> = {
   Collaborations: "https://cish.in/collaboration_n.php",
 
   // PUBLICATIONS dropdown
-  "Annual Reports": "https://cish.in/Annual.php",
+  "Annual Reports": "/AnnualReport",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/publications/newsletter",
   "Udyan Rashmi (Subscription)": "https://cish.in/udyan-rashmi.php",
