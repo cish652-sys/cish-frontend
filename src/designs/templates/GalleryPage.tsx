@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import { MainHeader } from "./MainHeader"; // Adjust path as per your project structure
-import { SectionHeader } from "../organisms/SectionHeader"; // Adjust path
-import { Footer } from "../organisms/FooterOrganisms/Footer"; // Adjust path
+import React, { useState, useEffect } from "react";
+import axios from "axios"; // Import axios
+import { MainHeader } from "./MainHeader";
+import { SectionHeader } from "../organisms/SectionHeader";
+import { Footer } from "../organisms/FooterOrganisms/Footer";
 import {
   Search,
   ChevronDown,
@@ -13,18 +14,18 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-// --- DUMMY DATA ---
-// Structure for a gallery item (image or video)
+// --- (GalleryItem type is unchanged) ---
 type GalleryItem = {
   id: number;
   type: "image" | "video";
   title: string;
-  date: string; // e.g., "15/08/2025"
-  itemsCount: number; // Number of images/videos in this album/event
-  imageUrl: string; // For images, or thumbnail for videos
-  videoUrl?: string; // Only for videos
+  date: string;
+  itemsCount: number;
+  imageUrl: string;
+  videoUrl?: string;
 };
 
+// --- (Dummy data is unchanged, used for fallback) ---
 const dummyImageData: GalleryItem[] = [
   {
     id: 1,
@@ -106,9 +107,33 @@ const dummyVideoData: GalleryItem[] = [
   },
 ];
 
-// --- Sub-Components ---
+// 1. Define the API response type
+interface ApiMediaItem {
+  id: number;
+  type: "image" | "video";
+  url: string;
+}
 
-// Gallery Filter Bar with Search and Tabs
+// 2. Transformation function to "fake" missing data
+const transformMedia = (
+  items: ApiMediaItem[],
+  type: "image" | "video"
+): GalleryItem[] => {
+  return items.map((item, index) => ({
+    id: item.id,
+    type: type,
+    // --- Faked Data ---
+    title: `${type === "image" ? "Image" : "Video"} ${index + 1}`,
+    date: "01/01/2025", // Sorting will not work correctly with this
+    itemsCount: 1,
+    // --- End Faked Data ---
+    imageUrl:
+      type === "image" ? item.url : "/assets/gallery/video_thumb1.jpg", // Use a default thumb for videos
+    videoUrl: type === "video" ? item.url : undefined,
+  }));
+};
+
+// --- (GalleryFilterBar component is unchanged) ---
 const GalleryFilterBar: React.FC<{
   activeTab: "images" | "videos";
   setActiveTab: (tab: "images" | "videos") => void;
@@ -134,7 +159,9 @@ const GalleryFilterBar: React.FC<{
     <div className="flex bg-gray-100 p-1 ">
       <button
         className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "images" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
+          activeTab === "images"
+            ? "bg-[#5b9a5d] text-white"
+            : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => setActiveTab("images")}
       >
@@ -142,7 +169,9 @@ const GalleryFilterBar: React.FC<{
       </button>
       <button
         className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "videos" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
+          activeTab === "videos"
+            ? "bg-[#5b9a5d] text-white"
+            : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => setActiveTab("videos")}
       >
@@ -167,6 +196,7 @@ const GalleryFilterBar: React.FC<{
   </div>
 );
 
+// --- (GalleryCard component is unchanged) ---
 const GalleryCard: React.FC<{ item: GalleryItem }> = ({ item }) => (
   <div className=" shadow-md hover:shadow-lg transition-shadow duration-300  overflow-hidden group">
     <div className="relative w-full h-48 sm:h-56 overflow-hidden">
@@ -200,7 +230,7 @@ const GalleryCard: React.FC<{ item: GalleryItem }> = ({ item }) => (
   </div>
 );
 
-// Gallery Grid that displays all cards
+// --- (GalleryGrid component is unchanged) ---
 const GalleryGrid: React.FC<{ items: GalleryItem[] }> = ({ items }) => (
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -216,15 +246,61 @@ const GalleryGrid: React.FC<{ items: GalleryItem[] }> = ({ items }) => (
   </div>
 );
 
-// --- Main Gallery Page Component ---
 const GalleryPage = () => {
+  // --- (Filter state is unchanged) ---
   const [activeTab, setActiveTab] = useState<"images" | "videos">("images");
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("date-desc"); // Default sort by newest date
+  const [sortBy, setSortBy] = useState("date-desc");
 
-  // Filter and Sort Logic
+  // 3. Add state for API data, initialized with fallback data
+  const [imageData, setImageData] = useState<GalleryItem[]>(dummyImageData);
+  const [videoData, setVideoData] = useState<GalleryItem[]>(dummyVideoData);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // 4. useEffect to fetch data on mount
+  useEffect(() => {
+    const fetchMedia = async () => {
+      setIsLoading(true);
+
+      const imageEndpoint = "https://api.cish.org.in/api/media/get/image";
+      const videoEndpoint = "https://api.cish.org.in/api/media/get/video"; // Assuming this endpoint
+
+      const [imageResult, videoResult] = await Promise.allSettled([
+        axios.get<ApiMediaItem[]>(imageEndpoint),
+        axios.get<ApiMediaItem[]>(videoEndpoint),
+      ]);
+
+      // Process Image Data
+      if (
+        imageResult.status === "fulfilled" &&
+        imageResult.value.data.length > 0
+      ) {
+        setImageData(transformMedia(imageResult.value.data, "image"));
+      } else {
+        console.error("Failed to fetch images, using fallback data.");
+        // Fallback is already in state, so do nothing
+      }
+
+      // Process Video Data
+      if (
+        videoResult.status === "fulfilled" &&
+        videoResult.value.data.length > 0
+      ) {
+        setVideoData(transformMedia(videoResult.value.data, "video"));
+      } else {
+        console.error("Failed to fetch videos, using fallback data.");
+        // Fallback is already in state, so do nothing
+      }
+
+      setIsLoading(false);
+    };
+
+    fetchMedia();
+  }, []); // Empty array runs this only once on mount
+
+  // 5. useMemo now reads from state (which is either API or fallback)
   const filteredAndSortedItems = React.useMemo(() => {
-    const dataToFilter = activeTab === "images" ? dummyImageData : dummyVideoData;
+    const dataToFilter = activeTab === "images" ? imageData : videoData;
 
     const filtered = dataToFilter.filter(
       (item) =>
@@ -232,21 +308,19 @@ const GalleryPage = () => {
         item.date.includes(searchTerm)
     );
 
-    // Date parsing helper for DD/MM/YYYY
     const parseDate = (dateString: string) => {
       const [day, month, year] = dateString.split("/").map(Number);
       return new Date(year, month - 1, day); // Month is 0-indexed
     };
 
-    // Sort logic
     filtered.sort((a, b) => {
       const dateA = parseDate(a.date);
       const dateB = parseDate(b.date);
 
       if (sortBy === "date-desc") {
-        return dateB.getTime() - dateA.getTime(); // Newest first
+        return dateB.getTime() - dateA.getTime();
       } else if (sortBy === "date-asc") {
-        return dateA.getTime() - dateB.getTime(); // Oldest first
+        return dateA.getTime() - dateB.getTime();
       } else if (sortBy === "title-asc") {
         return a.title.localeCompare(b.title);
       } else if (sortBy === "title-desc") {
@@ -256,15 +330,14 @@ const GalleryPage = () => {
     });
 
     return filtered;
-  }, [activeTab, searchTerm, sortBy]);
+  }, [activeTab, searchTerm, sortBy, imageData, videoData]); // Add state dependencies
 
   return (
     <>
       <MainHeader />
-      {/* Reusing your SectionHeader for the top title */}
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "GALLERY" }]}
-        iconProps={true} // Assuming this prop controls visibility or style of an icon
+        iconProps={true}
         title="GALLERY"
         description={[""]}
       />
@@ -282,7 +355,15 @@ const GalleryPage = () => {
           sortBy={sortBy}
           setSortBy={setSortBy}
         />
-        <GalleryGrid items={filteredAndSortedItems} />
+
+        {/* 6. Add Loading State */}
+        {isLoading ? (
+          <div className="text-center text-gray-600 text-lg py-10">
+            Loading Gallery...
+          </div>
+        ) : (
+          <GalleryGrid items={filteredAndSortedItems} />
+        )}
       </main>
       <Footer />
     </>

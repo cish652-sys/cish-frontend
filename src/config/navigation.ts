@@ -18,7 +18,7 @@ export const navigation: NavItem[] = [
       { href: "/Abi", label: "Agri Business Incubation Center (ABI)" },
       { href: "/about/akmu", label: "AKMU" },
       { href: "https://cish.in/cib_n.php", label: "Regional Research Station" },
-      { href: "https://cish.in/krishi-portal.php", label: "Krishi Vigyan Kendra" },
+      { href: "/RssKvk", label: "Krishi Vigyan Kendra" },
       { href: "/about/cadres-strength", label: "Cadres Strength" },
       { href: "/staff", label: "Staff" },
       { href: "/about/citizen-charter", label: "Citizen Charter" },
@@ -66,7 +66,7 @@ export const navigation: NavItem[] = [
     ],
   },
 
-  { type: "link", label: "NURSERY", href: "/nursery" },
+  { type: "link", label: "NURSERY", href: "/Nursery" },
 
   {
     type: "dropdown",
