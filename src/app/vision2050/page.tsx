@@ -22,7 +22,7 @@ export default function Vision2050() {
       title: "vision 2050",
       publishedDate: "04-03-2025",
       fileSize: "1.19 MB",
-      fileUrl: "/path/to/vision2050.pdf", // Add any additional data you need
+      fileUrl: "path/to/vision2050.pdf", // Add any additional data you need
     },
     // Add more rows as needed
   ];
