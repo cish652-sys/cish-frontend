@@ -32,7 +32,7 @@ const routes: Record<string, string> = {
 
   // RESEARCH dropdown
   "Institute Funded Project": "/research/institute-funded",
-  "Externally Funded Projects": "/research/external-funded",
+  "Externally Funded Projects": "/ResearchFunded",
   Collaborations: "https://cish.in/collaboration_n.php",
 
   // PUBLICATIONS dropdown
