@@ -1,12 +1,12 @@
-import GalleryPage from '@/designs/templates/GalleryPage'
-import React from 'react'
+import GalleryPage from "@/designs/templates/GalleryPage";
+import React from "react";
 
 const page = () => {
   return (
     <div>
-        <GalleryPage />
+      <GalleryPage />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

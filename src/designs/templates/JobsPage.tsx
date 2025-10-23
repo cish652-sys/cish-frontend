@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { jobData } from "@/lib/utils"; 
+import { jobData } from "@/lib/utils";
 import JobCard from "../organisms/JobsCard";
 import { SearchFilterBar } from "../organisms/SearchFilterBar";
 import { MainHeader } from "./MainHeader";
@@ -31,17 +31,20 @@ const fetchJobs = async (): Promise<ApiJob[]> => {
 const JobsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data: apiJobs, isLoading, isError } = useQuery<ApiJob[], Error>({
+  const {
+    data: apiJobs,
+    isLoading,
+    isError,
+  } = useQuery<ApiJob[], Error>({
     queryKey: ["jobs"],
     queryFn: fetchJobs,
-    retry: 1, 
+    retry: 1,
   });
 
-  
   const jobsToDisplay: Job[] = useMemo(() => {
-        if (isError || !apiJobs || apiJobs.length === 0) {
+    if (isError || !apiJobs || apiJobs.length === 0) {
       console.log("API failed or returned no data. Using fallback dummy data.");
-      return jobData; 
+      return jobData;
     }
 
     return apiJobs.map((job) => ({
@@ -50,13 +53,12 @@ const JobsPage = () => {
       description: job.description || "No description available for this position.",
       lastDateText: ``,
       publishedDate: job.postDate,
-      startDate:job.date || 'N/A', 
+      startDate: job.date || "N/A",
       interviewDate: job.lastDate,
       latestUpdate: job.createdAt || job.postDate,
-      buttons: ["form"], 
+      buttons: ["form"],
     }));
   }, [apiJobs, isError]);
-
 
   const totalPages = Math.ceil(jobsToDisplay.length / JOBS_PER_PAGE);
 

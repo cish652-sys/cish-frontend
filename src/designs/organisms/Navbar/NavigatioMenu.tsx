@@ -28,9 +28,10 @@ const routes: Record<string, string> = {
   "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
   "Cadres Strength": "/about/cadres-strength",
   Staff: "/staff",
-  "Citizen Charter": "/about/citizen-charter",
-  "Photos": '/Gallery',
-  "Videos": '/Gallery',
+  // "Citizen Charter": "/about/citizen-charter",
+  "Citizen Charter": "/citizenCharter", // ← Keep this one
+  Photos: "/Gallery",
+  Videos: "/Gallery",
 
   // RESEARCH dropdown
   "Institute Funded Project": "/research/institute-funded",
@@ -43,7 +44,7 @@ const routes: Record<string, string> = {
   "Newsletter (Subscription)": "/publications/newsletter",
   "Udyan Rashmi (Subscription)": "https://cish.in/udyan-rashmi.php",
   "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
-  "Vision 2050": "https://cish.in/vision-2030.php",
+  "Vision 2050": "/vision2050",
 
   // VARIETIES dropdown
   "Climate Resilient": "/varieties/climate-resilient",
@@ -120,13 +121,9 @@ const ResponsiveNavbar: React.FC = () => {
       ],
     },
     { label: "NURSERY" },
-     {
+    {
       label: "MEDIA",
-      dropdownItems: [
-        "Photos",
-        "Videos",
-        "Events",
-      ],
+      dropdownItems: ["Photos", "Videos", "Events"],
     },
     { label: "CONTACT US" },
   ];

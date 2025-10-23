@@ -7,7 +7,6 @@ import { TenderTable } from "../molecules/TenderTable";
 import Icon from "../atoms/ImpactCard/Icon";
 import { useRouter } from "next/navigation";
 
-
 const jobsData: Tender[] = [
   {
     id: 1,
@@ -137,12 +136,12 @@ const formatDate = (dateString: string | null): string => {
 };
 
 const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
-    const router = useRouter();
+  const router = useRouter();
 
   const handleViewMore = () => {
     switch (activeTab) {
       case "Tenders":
-        router.push('/Tenders');
+        router.push("/Tenders");
         break;
       case "Jobs":
         router.push("/Jobs");

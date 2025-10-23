@@ -1,14 +1,12 @@
-import TendersPage from '@/designs/templates/TendersPage'
-import React from 'react'
+import TendersPage from "@/designs/templates/TendersPage";
+import React from "react";
 
 const page = () => {
   return (
     <>
-        <TendersPage />
-        
-        
+      <TendersPage />
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;

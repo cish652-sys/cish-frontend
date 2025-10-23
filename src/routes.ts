@@ -23,8 +23,9 @@ const routes: Record<string, string> = {
   "Krishi Vigyan Kendra": "https://cish.in/krishi-portal.php",
   "Cadres Strength": "/about/cadres-strength",
   Staff: "/staff",
-  "Citizen Charter": "/about/citizen-charter",
-
+  // "Citizen Charter": "/about/citizen-charter",
+  Vision2050: "/vision2050",
+  "Citizen Charter": "/citizenCharter",
   // RESEARCH dropdown
   "Mango Cultivation": "/research/mango-cultivation",
   "Mango Nutrition": "/research/mango-nutrition",
@@ -38,6 +39,14 @@ const routes: Record<string, string> = {
   "Mango Diseases Publications": "/publications/mango-diseases",
   "Mango Genomics Publications": "/publications/mango-genomics",
   "Mango Genetics Publications": "/publications/mango-genetics",
+
+  // PUBLICATIONS dropdown
+  "Annual Reports": "https://cish.in/Annual.php",
+  "Research Publications": "/publications/research",
+  "Newsletter (Subscription)": "/newsletter",
+  "Udyan Rashmi (Subscription)": "https://cish.in/udyan-rashmi.php",
+  "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
+  "Vision 2050": "/vision2050",
 
   // VARIETIES dropdown
   "Mango Cultivation Varieties": "/varieties/mango-cultivation",
