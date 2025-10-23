@@ -47,7 +47,7 @@ export default function CitizenCharter() {
     if (row.fileUrl) {
       const link = document.createElement("a");
       link.href = row.fileUrl as string;
-      link.download = row.title as string + ".pdf";
+      link.download = (row.title as string) + ".pdf";
       link.click();
     }
   };
@@ -93,11 +93,7 @@ export default function CitizenCharter() {
             >
               &times;
             </button>
-            <iframe
-              src={selectedPdf}
-              className="w-full h-full rounded-lg"
-              title="PDF Viewer"
-            />
+            <iframe src={selectedPdf} className="w-full h-full rounded-lg" title="PDF Viewer" />
           </div>
         </div>
       )}
