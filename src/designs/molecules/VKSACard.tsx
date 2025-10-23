@@ -22,9 +22,7 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
 }) => {
   // Shorten description for non-detail views
   const shortDescription =
-    description.length > 150 && !isDetailView
-      ? `${description.substring(0, 150)}...`
-      : description;
+    description.length > 150 && !isDetailView ? `${description.substring(0, 150)}...` : description;
 
   return (
     <div className="w-full max-w-6xl p-6 mb-8 bg-white border border-gray-200 shadow-sm">

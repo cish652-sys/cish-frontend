@@ -15,9 +15,7 @@ interface CardDetailPageProps {
 
 const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
   const cardId = parseInt(params.id, 10);
-  const [cardData, setCardData] = useState(
-    UdyogData.find((card) => card.id === cardId) || null
-  );
+  const [cardData, setCardData] = useState(UdyogData.find((card) => card.id === cardId) || null);
 
   if (!cardData) notFound();
 
