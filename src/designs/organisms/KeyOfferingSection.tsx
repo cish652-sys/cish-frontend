@@ -148,7 +148,7 @@ const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
 
         break;
       case "Announcements":
-        router.push('/Announcement')
+        router.push("/Announcement");
         break;
       default:
         break;

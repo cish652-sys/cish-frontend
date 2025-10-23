@@ -8,7 +8,7 @@ import { SectionHeader } from "../organisms/SectionHeader";
 import { Footer } from "../organisms/FooterOrganisms/Footer";
 import { DataTable, Column, TableRow } from "../molecules/DataTable";
 import { Pagination } from "../molecules/Pagination";
-import { ChevronDown,   Search } from "lucide-react"; // Imports from your code
+import { ChevronDown, Search } from "lucide-react"; // Imports from your code
 import Typography from "../atoms/Typography";
 
 const columns: Column[] = [
@@ -18,25 +18,65 @@ const columns: Column[] = [
 ];
 
 const baseReportsData: TableRow[] = [
-  { title: "Annual Report 2024", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2024.pdf" },
-  { title: "Annual Report 2023", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2023.pdf" },
-  { title: "Annual Report 2022", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2022.pdf" },
-  { title: "Annual Report 2021", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2021.pdf" },
-  { title: "Annual Report 2020", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2020.pdf" },
-  { title: "Annual Report 2019-20", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2019-20.pdf" },
-  { title: "Annual Report 2018-19", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2018-19.pdf" },
-  { title: "Annual Report 2017-18", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2017-18.pdf" },
-  { title: "Annual Report 2016-17", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2016-17.pdf" },
-  { title: "Annual Report 2015-16", fileSize: "228.97 KB", viewUrl: "/reports/annual-report-2015-16.pdf" },
+  {
+    title: "Annual Report 2024",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2024.pdf",
+  },
+  {
+    title: "Annual Report 2023",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2023.pdf",
+  },
+  {
+    title: "Annual Report 2022",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2022.pdf",
+  },
+  {
+    title: "Annual Report 2021",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2021.pdf",
+  },
+  {
+    title: "Annual Report 2020",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2020.pdf",
+  },
+  {
+    title: "Annual Report 2019-20",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2019-20.pdf",
+  },
+  {
+    title: "Annual Report 2018-19",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2018-19.pdf",
+  },
+  {
+    title: "Annual Report 2017-18",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2017-18.pdf",
+  },
+  {
+    title: "Annual Report 2016-17",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2016-17.pdf",
+  },
+  {
+    title: "Annual Report 2015-16",
+    fileSize: "228.97 KB",
+    viewUrl: "/reports/annual-report-2015-16.pdf",
+  },
 ];
 
 const allReportsData: TableRow[] = [
   ...baseReportsData,
-  ...baseReportsData.map(d => ({...d, title: `${d.title} (Demo Page 2)`})),
-  ...baseReportsData.map(d => ({...d, title: `${d.title} (Demo Page 3)`})),
+  ...baseReportsData.map((d) => ({ ...d, title: `${d.title} (Demo Page 2)` })),
+  ...baseReportsData.map((d) => ({ ...d, title: `${d.title} (Demo Page 3)` })),
 ].map((item, index) => ({
   ...item,
-  sno: (index + 1).toString().padStart(2, '0'),
+  sno: (index + 1).toString().padStart(2, "0"),
 }));
 
 // --- GalleryFilterBar Component (As provided) ---
@@ -82,7 +122,7 @@ const AnnualReportPage = () => {
   // 2. Add state for filters
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("date-desc"); // Default sort
-  
+
   const ITEMS_PER_PAGE = 10;
 
   // 3. Process data based on filters and sorting
@@ -96,10 +136,10 @@ const AnnualReportPage = () => {
     const sortedData = [...filteredData].sort((a, b) => {
       const titleA = a.title as string;
       const titleB = b.title as string;
-      
+
       // Extract year from title (e.g., "Annual Report 2024" -> 2024)
-      const yearA = parseInt(titleA.match(/\d{4}/)?.[0] || '0');
-      const yearB = parseInt(titleB.match(/\d{4}/)?.[0] || '0');
+      const yearA = parseInt(titleA.match(/\d{4}/)?.[0] || "0");
+      const yearB = parseInt(titleB.match(/\d{4}/)?.[0] || "0");
 
       switch (sortBy) {
         case "date-asc":
@@ -131,7 +171,7 @@ const AnnualReportPage = () => {
   // --- Handlers (Unchanged) ---
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 500, behavior: 'smooth' }); 
+    window.scrollTo({ top: 500, behavior: "smooth" });
   };
 
   const handleView = (row: TableRow) => {
@@ -148,53 +188,49 @@ const AnnualReportPage = () => {
         <Logo src="/icons/bannerblank.svg" alt="Website Banner" responsive />
       </section>
       <SectionHeader
-        breadcrumbItems={[
-          { label: "Home", href: "/" },
-          { label: "ANNUAL REPORTS" },
-        ]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "ANNUAL REPORTS" }]}
         iconProps={true}
         title="ANNUAL REPORTS"
         description={[""]}
       />
       <div className="bg-[#FBFBF8] ">
- <div className="flex  container items-center pt-2 gap-3 mb-6">
-            <Typography variant="sectionHeading">ANNUAL REPORTS</Typography>
-          </div>
+        <div className="flex  container items-center pt-2 gap-3 mb-6">
+          <Typography variant="sectionHeading">ANNUAL REPORTS</Typography>
+        </div>
 
-      {/* 6. Add the Filter Bar */}
-      <GalleryFilterBar
-        activeTab="images" // This prop isn't used by the bar, but we pass it
-        setActiveTab={() => {}} // Dummy function
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        sortBy={sortBy}
-        setSortBy={setSortBy}
-      />
-
-      <section className="bg-[#FBFBF8] py-12">
-        <DataTable
-          columns={columns}
-          data={paginatedData} // 7. Pass the processed (filtered/sorted/paginated) data
-          onView={handleView}
-          rowGap={2}
+        {/* 6. Add the Filter Bar */}
+        <GalleryFilterBar
+          activeTab="images" // This prop isn't used by the bar, but we pass it
+          setActiveTab={() => {}} // Dummy function
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
         />
 
-        {/* 8. Pagination and "No Results" message */}
-        {totalPages > 0 ? (
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-            className="mt-8"
+        <section className="bg-[#FBFBF8] py-12">
+          <DataTable
+            columns={columns}
+            data={paginatedData} // 7. Pass the processed (filtered/sorted/paginated) data
+            onView={handleView}
+            rowGap={2}
           />
-        ) : (
-          <p className="text-center text-gray-500 mt-8">
-            No reports found matching your criteria.
-          </p>
-        )}
-      </section>
+
+          {/* 8. Pagination and "No Results" message */}
+          {totalPages > 0 ? (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              className="mt-8"
+            />
+          ) : (
+            <p className="text-center text-gray-500 mt-8">
+              No reports found matching your criteria.
+            </p>
+          )}
+        </section>
       </div>
-     
 
       <Footer />
     </main>

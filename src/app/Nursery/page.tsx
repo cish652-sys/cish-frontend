@@ -1,13 +1,12 @@
-import NurseryPage from '@/designs/templates/NurseryPage'
-import React from 'react'
+import NurseryPage from "@/designs/templates/NurseryPage";
+import React from "react";
 
 const page = () => {
   return (
     <main>
-        <NurseryPage />
-        
+      <NurseryPage />
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;

@@ -32,9 +32,7 @@ export const DataList: React.FC<DataListProps> = ({ data, onView }) => {
       {/* 2. The List Body */}
       <div className="w-full">
         {data.length === 0 ? (
-          <div className="bg-white shadow-sm p-8 text-center text-gray-500">
-            No data available
-          </div>
+          <div className="bg-white shadow-sm p-8 text-center text-gray-500">No data available</div>
         ) : (
           // Map over data and render one "card row" per item
           data.map((row, rowIndex) => (
@@ -51,9 +49,7 @@ export const DataList: React.FC<DataListProps> = ({ data, onView }) => {
 
               {/* Published Date (w-25%) */}
               <div className="w-[25%] text-center">
-                <span className="font-mono text-gray-600">
-                  {row.publishedDate}
-                </span>
+                <span className="font-mono text-gray-600">{row.publishedDate}</span>
               </div>
 
               {/* Action Button (w-15%) */}

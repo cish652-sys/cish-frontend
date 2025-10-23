@@ -1,13 +1,12 @@
-import AnnualReportPage from '@/designs/templates/AnnualReportPage'
-import React from 'react'
+import AnnualReportPage from "@/designs/templates/AnnualReportPage";
+import React from "react";
 
 const page = () => {
   return (
     <main>
-        <AnnualReportPage />
-
+      <AnnualReportPage />
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;

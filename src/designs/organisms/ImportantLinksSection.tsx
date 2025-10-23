@@ -77,9 +77,9 @@ export const ImportantLinksSection: React.FC = () => {
   }));
 
   const linksToDisplay = isError || normalizedLinks.length === 0 ? dummyLinks : normalizedLinks;
-const handleClick = () => {
-  router.push('/UsefulLinks')
-}
+  const handleClick = () => {
+    router.push("/UsefulLinks");
+  };
   return (
     <div className="flex flex-col cursor-pointer w-full h-[299px] ">
       <div onClick={handleClick} className="flex items-center gap-2">

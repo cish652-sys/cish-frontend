@@ -1,12 +1,12 @@
-import SocialMediaPage from '@/designs/templates/SocialMediaPage'
-import React from 'react'
+import SocialMediaPage from "@/designs/templates/SocialMediaPage";
+import React from "react";
 
 const page = () => {
   return (
     <main>
-        <SocialMediaPage />
+      <SocialMediaPage />
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;

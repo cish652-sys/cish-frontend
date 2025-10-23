@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import iconEarth from "../public/images/SocialMedia/famicons_earth-outline.svg";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 const socialMediaData = [
   {
@@ -34,11 +34,14 @@ const socialMediaData = [
 export default function SocialMediaSection() {
   const router = useRouter();
   const handleClick = () => {
-    router.push('/SocialMedia')
-  }
+    router.push("/SocialMedia");
+  };
   return (
     <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-16 py-8 sm:py-10 md:py-12 bg-white">
-      <div onClick={handleClick} className="cursor-pointer container max-w-7xl mx-auto flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-10">
+      <div
+        onClick={handleClick}
+        className="cursor-pointer container max-w-7xl mx-auto flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-10"
+      >
         <Image
           src={iconEarth}
           alt="social"

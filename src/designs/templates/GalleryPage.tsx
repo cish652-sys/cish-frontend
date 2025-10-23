@@ -115,10 +115,7 @@ interface ApiMediaItem {
 }
 
 // 2. Transformation function to "fake" missing data
-const transformMedia = (
-  items: ApiMediaItem[],
-  type: "image" | "video"
-): GalleryItem[] => {
+const transformMedia = (items: ApiMediaItem[], type: "image" | "video"): GalleryItem[] => {
   return items.map((item, index) => ({
     id: item.id,
     type: type,
@@ -127,8 +124,7 @@ const transformMedia = (
     date: "01/01/2025", // Sorting will not work correctly with this
     itemsCount: 1,
     // --- End Faked Data ---
-    imageUrl:
-      type === "image" ? item.url : "/assets/gallery/video_thumb1.jpg", // Use a default thumb for videos
+    imageUrl: type === "image" ? item.url : "/assets/gallery/video_thumb1.jpg", // Use a default thumb for videos
     videoUrl: type === "video" ? item.url : undefined,
   }));
 };
@@ -159,9 +155,7 @@ const GalleryFilterBar: React.FC<{
     <div className="flex bg-gray-100 p-1 ">
       <button
         className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "images"
-            ? "bg-[#5b9a5d] text-white"
-            : "text-gray-700 hover:bg-gray-200"
+          activeTab === "images" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => setActiveTab("images")}
       >
@@ -169,9 +163,7 @@ const GalleryFilterBar: React.FC<{
       </button>
       <button
         className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "videos"
-            ? "bg-[#5b9a5d] text-white"
-            : "text-gray-700 hover:bg-gray-200"
+          activeTab === "videos" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => setActiveTab("videos")}
       >
@@ -271,10 +263,7 @@ const GalleryPage = () => {
       ]);
 
       // Process Image Data
-      if (
-        imageResult.status === "fulfilled" &&
-        imageResult.value.data.length > 0
-      ) {
+      if (imageResult.status === "fulfilled" && imageResult.value.data.length > 0) {
         setImageData(transformMedia(imageResult.value.data, "image"));
       } else {
         console.error("Failed to fetch images, using fallback data.");
@@ -282,10 +271,7 @@ const GalleryPage = () => {
       }
 
       // Process Video Data
-      if (
-        videoResult.status === "fulfilled" &&
-        videoResult.value.data.length > 0
-      ) {
+      if (videoResult.status === "fulfilled" && videoResult.value.data.length > 0) {
         setVideoData(transformMedia(videoResult.value.data, "video"));
       } else {
         console.error("Failed to fetch videos, using fallback data.");
@@ -358,9 +344,7 @@ const GalleryPage = () => {
 
         {/* 6. Add Loading State */}
         {isLoading ? (
-          <div className="text-center text-gray-600 text-lg py-10">
-            Loading Gallery...
-          </div>
+          <div className="text-center text-gray-600 text-lg py-10">Loading Gallery...</div>
         ) : (
           <GalleryGrid items={filteredAndSortedItems} />
         )}
