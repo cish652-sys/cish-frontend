@@ -11,6 +11,8 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 // DATA ARRAYS
 // ==========================
 
+const carouselItems = [1, 2, 3, 4];
+
 // Categories with books
 const libraryCategories = [
   {
@@ -208,31 +210,55 @@ const Library = () => {
         </div>
       </section>
 
+      <section className="bg-[#FBFBF8] py-12">
+        <div className="container mx-auto px-4">
+          <div className="w-full mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-gray-300 h-64 rounded"></div>
+              <div className="bg-gray-300 h-64 rounded"></div>
+              <div className="bg-gray-300 h-64 rounded"></div>
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center gap-2">
+            {carouselItems.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === 0 ? "bg-[#3A6B35]" : "bg-gray-300"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Library Resources Table */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold">LIBRARY RESOURCES</h2>
-          <div className="overflow-x-auto border border-amber-300">
+          <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse">
-              <thead className="bg-amber-200">
+              <thead className="bg-lime-200">
                 <tr>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-amber-300">
+                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
                     Sr. No.
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-amber-300">
+                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
                     Title
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-amber-300">
+                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
                     Number of Copies
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {libraryResources.map((item, index) => (
-                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-amber-50"}>
-                    <td className="p-3 border-t border-amber-300 text-gray-700">{item.sr}</td>
-                    <td className="p-3 border-t border-amber-300 text-gray-700">{item.title}</td>
-                    <td className="p-3 border-t border-amber-300 text-gray-700">{item.copies}</td>
+                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-lime-50"}>
+                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.sr}</td>
+                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.title}</td>
+                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.copies}</td>
                   </tr>
                 ))}
               </tbody>

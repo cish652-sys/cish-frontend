@@ -59,15 +59,15 @@ export function Footer() {
             title="Quick Links"
             links={[
               { label: "About Us", href: "/AboutUs" },
-              { label: "Research", href: "https://cish.in/cib_n.php" },
-              { label: "Publication", href: "https://cish.in/cish-publication.php" },
-              { label: "Careers", href: "#" },
-              { label: "Tenders", href: "https://cish.in/tenders.php" },
+              { label: "Research", href: "/ResearchFunded" },
+              { label: "Publication", href: "#" },
+              { label: "Careers", href: "/Jobs" },
+              { label: "Tenders", href: "/Tenders" },
               { label: "VKSA", href: "/VKSA" },
 
-              { label: "RTI", href: "#" },
+              { label: "RTI", href: "https://rtionline.gov.in/" },
               { label: "Downloads", href: "#" },
-              { label: "Contact Us", href: "https://cish.in/contact_us.php" },
+              { label: "Contact Us", href: "/ContactUs" },
             ]}
           />
 
@@ -76,13 +76,13 @@ export function Footer() {
             title="Services"
             links={[
               { label: "Library", href: "/Library" },
-              { label: "Museum", href: "https://cish.in/museum.php" },
+              { label: "Museum", href: "/Museum" },
               { label: "Nursery", href: "/Nursery" },
-              { label: "Consultancy", href: "https://cish.in/consultancy.php" },
+              { label: "Consultancy", href: "/Consultancy" },
               { label: "Contract Research", href: "https://cish.in/contract-research.php" },
-              { label: "Education", href: "https://cish.in/education.php" },
-              { label: "Auditorium", href: "https://cish.in/auditorium.php" },
-              { label: "Guest House", href: "https://cish.in/guest_house.php" },
+              { label: "Education", href: "/Education" },
+              { label: "Auditorium", href: "/Auditorium" },
+              { label: "Guest House", href: "/GuestHouse" },
             ]}
           />
 
