@@ -17,9 +17,9 @@ const NurseryPage = () => {
     <main>
       <Header />
       <ResponsiveNavbar />
-      <section className="relative w-full">
+      {/* <section className="relative w-full">
         <Logo src="/icons/bannerblank.svg" alt="Website Banner" responsive />
-      </section>
+      </section> */}
 
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "NURSERY" }]}
@@ -33,18 +33,35 @@ const NurseryPage = () => {
           <Typography variant="sectionHeading">NURSERY</Typography>
         </div>
       </div>
-
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
+        <div className="container max-w-4xl mx-auto flex flex-col gap-8">
+          <h2 className="text-gray-700">
+            ICAR-CISH have world class scientific nursery (located at state highway -25 at
+            Rehmankhera, Kakori, Lucknow) facility with 3/3-star rating and recognized by National
+            Horticultural Board (NHB). The area of nursery maintained, span over 15.5 ha. area. The
+            nursery produces genetically pure and disease-free quality planting material of
+            different varieties of horticultural crops viz., mango, guava, aonla, bael, litchi,
+            lemon, jamun, grape and banana for the farmers, gardeners, private and public
+            organizations.
+          </h2>
+        </div>
+      </section>
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
+        <div className="container max-w-4xl mx-auto flex flex-col gap-8">
+          <h2 className="text-gray-700 font-semibold leading-relaxed">
+            You can request the planting materials you need from ICAR-CISH, Lucknow, by using the
+            link below. Please send your request between 1st January and 30th June each year.
+            Requests will be valid for the following year.
+            <br />
+            <br />
+            आप नीचे दिए गए लिंक का उपयोग करके आईसीएआर-सीआईएसएच, लखनऊ से अपनी आवश्यक रोपण सामग्री का
+            अनुरोध कर सकते हैं। कृपया प्रत्येक वर्ष 1 जनवरी से 30 जून के बीच अपना अनुरोध भेजें।
+            प्रतिवर्ष 30 जून तक दिये गये मांगपत्र उसी वर्ष के लिए मान्य होंगे।{" "}
+          </h2>
+        </div>
+      </section>
       <div className="bg-[#FBFBF8] py-12">
         <div className="container mx-auto px-4">
-          <Typography
-            variant="paragraphSmall"
-            className="text-center max-w-4xl mx-auto mb-8 text-gray-700"
-          >
-            You can Request The Planting Materials You Need From ICAR-CISH, Lucknow, By Using The
-            Link Below. Please Send Your Request Between 1st January And 30th June Each Year.
-            Requests Will Be Valid For The Following Year.
-          </Typography>
-
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
             <a
               href="#"
@@ -69,28 +86,44 @@ const NurseryPage = () => {
           </div>
 
           <div className=" text-center max-w-3xl mx-auto mb-12">
-            <Typography variant="paragraphSmall" className="font-semibold mb-4 text-gray-800">
+            <h2 className="text-gray-700">
               In The Absence Of The Correct Mobile Number, Email, It Will Not Be Possible To Inform
               About Plant Allotment.
-            </Typography>
+            </h2>
+            <br />
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-x-4 gap-y-2 text-gray-700">
+              {/* Phone */}
               <div className="flex items-center justify-center gap-2">
                 <Phone size={18} className="text-green-600" />
                 <Typography variant="paragraphSmall">
-                  Contact : Sh. B K Pushkar (M) +91 9469033415,
+                  Contact : Sh. B K Pushkar (M)&nbsp;
+                  <a
+                    href="tel:+919469033415"
+                    className="text-green-700 font-semibold hover:underline"
+                  >
+                    +91 9469033415
+                  </a>
                 </Typography>
               </div>
+
+              {/* Email */}
               <div className="flex items-center justify-center gap-2">
                 <Mail size={18} className="text-green-600" />
                 <Typography variant="paragraphSmall">
-                  Email Us At : Cishnursery@Gmail.Com
+                  Email Us At :&nbsp;
+                  <a
+                    href="mailto:Cishnursery@gmail.com"
+                    className="text-green-700 font-semibold hover:underline"
+                  >
+                    cishnursery@gmail.com
+                  </a>
                 </Typography>
               </div>
             </div>
           </div>
 
-          <div className="w-full mb-6">
+          {/* <div className="w-full mb-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-gray-300 h-64 "></div>
               <div className="bg-gray-300 h-64 "></div>
@@ -109,7 +142,7 @@ const NurseryPage = () => {
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

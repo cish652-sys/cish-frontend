@@ -10,7 +10,7 @@ const routes: Record<string, string> = {
   "FOR FARMERS": "/",
   NURSERY: "/Nursery",
   // MEDIA: "",
-  "CONTACT US": "https://cish.in/contact_us.php",
+  "CONTACT US": "/ContactUs",
   // ABOUT US dropdown
   "About Institute": "/AboutUs",
   "Field Gene Bank": "/about/field-gene-bank",
@@ -21,7 +21,7 @@ const routes: Record<string, string> = {
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/cib_n.php",
   "Krishi Vigyan Kendra": "/RssKvk",
-  "Cadres Strength": "/about/cadres-strength",
+  "Cadres Strength": "/CadreStrength",
   Staff: "/staff",
   // "Citizen Charter": "/about/citizen-charter",
   Vision2050: "/vision2050",
@@ -45,7 +45,7 @@ const routes: Record<string, string> = {
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/newsletter",
   "Udyan Rashmi (Subscription)": "/UdyanRashmi",
-  "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
+  "CISH Publications (Paid & Free)": "/CishPublications",
   "Vision 2050": "/vision2050",
 
   // VARIETIES dropdown

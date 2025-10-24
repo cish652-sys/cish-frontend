@@ -62,29 +62,22 @@ const ItmuIprCellPage = () => {
           <Typography variant="sectionHeading" className="text-green-800 font-bold">
             ITMU / IPR CELL ACTIVITIES
           </Typography>
+
           <div className="border border-gray-300 shadow-lg bg-white p-6 md:p-8">
-            <ol className="list-decimal list-outside pl-5 flex flex-col gap-4">
-              <li>
-                <Typography variant="paragraphSmall">
-                  PROTECTION OF INTELLECTUAL PROPERTIES
-                </Typography>
+            <ol className="list-decimal list-outside pl-5 flex flex-col gap-2">
+              <li className="text-gray-700 text-[15px] leading-normal">
+                PROTECTION OF INTELLECTUAL PROPERTIES
               </li>
-              <li>
-                <Typography variant="paragraphSmall">COMMERCIALIZATION OF TECHNOLOGIES</Typography>
+              <li className="text-gray-700 text-[15px] leading-normal">
+                COMMERCIALIZATION OF TECHNOLOGIES
               </li>
-              <li>
-                <Typography variant="paragraphSmall">
-                  PROFESSIONAL SERVICE FUNCTION(CONTRACT RESEARCH/ CONSULTANCY SERVICE/ CONTRACT
-                  SERVICE)
-                </Typography>
+              <li className="text-gray-700 text-[15px] leading-normal">
+                PROFESSIONAL SERVICE FUNCTION (CONTRACT RESEARCH / CONSULTANCY SERVICE / CONTRACT
+                SERVICE)
               </li>
-              <li>
-                <Typography variant="paragraphSmall">COPYRIGHT REGISTRATION</Typography>
-              </li>
-              <li>
-                <Typography variant="paragraphSmall">
-                  CREATING AWARENESS ON INTELLECTUAL PROPERTY RIGHTS.
-                </Typography>
+              <li className="text-gray-700 text-[15px] leading-normal">COPYRIGHT REGISTRATION</li>
+              <li className="text-gray-700 text-[15px] leading-normal">
+                CREATING AWARENESS ON INTELLECTUAL PROPERTY RIGHTS.
               </li>
             </ol>
           </div>
