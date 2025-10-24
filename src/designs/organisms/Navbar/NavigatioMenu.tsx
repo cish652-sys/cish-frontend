@@ -34,8 +34,7 @@ const routes: Record<string, string> = {
   Videos: "/Gallery",
 
   // RESEARCH dropdown
-  "Institute Funded Project": "/research/institute-funded",
-  "Externally Funded Projects": "/ResearchFunded",
+  "Institute/External Projects": "/ResearchFunded",
   Collaborations: "https://cish.in/collaboration_n.php",
 
   // PUBLICATIONS dropdown
@@ -52,7 +51,7 @@ const routes: Record<string, string> = {
   Varieties: "/varieties",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "/files/AgroAdvisory.pdf",
+  "Agro Advisory": "/AgroAdvisory",
   "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
   "Success Stories (of Farmers)": "https://cish.in/success-stories.php",
@@ -92,7 +91,7 @@ const ResponsiveNavbar: React.FC = () => {
     },
     {
       label: "RESEARCH",
-      dropdownItems: ["Institute Funded Project", "Externally Funded Projects", "Collaborations"],
+      dropdownItems: ["Institute/External Projects", "Collaborations"],
     },
     {
       label: "PUBLICATIONS",
