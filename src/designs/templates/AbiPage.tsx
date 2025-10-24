@@ -69,44 +69,97 @@ const supportedStartups = [
     sr: "1.",
     name: "M/s Parashar Agrotech Bio Pvt. Ltd., Varanasi, U.P.",
     tech: "Insect Trap Tech.",
+    link: "https://www.parasharagrotech.com/",
   },
-  { sr: "2.", name: "M/s Life Speaks, Sangli, Maharashtra", tech: "Insect Trap Tech." },
+  {
+    sr: "2.",
+    name: "M/s Life Speaks, Sangli, Maharashtra",
+    tech: "Insect Trap Tech.",
+    link: "https://www.lifespeaks.in/",
+  },
   {
     sr: "3.",
     name: "M/s Ranaji Biotech India Private Limited, Kanpur, U.P.",
     tech: "Insect Trap Tech.",
+    link: "https://www.ranajibiotech.com/",
   },
-  { sr: "4.", name: "M/s Saavi Industries, Sangli, Maharashtra", tech: "Insect Trap Tech." },
-  { sr: "5.", name: "M/s Parxit Agro Techniques/Palvi Industries", tech: "Insect Trap Tech." },
+  {
+    sr: "4.",
+    name: "M/s Saavi Industries, Sangli, Maharashtra",
+    tech: "Insect Trap Tech.",
+    link: "https://www.justdial.com/Sangli/Saavi-Industries/",
+  },
+  {
+    sr: "5.",
+    name: "M/s Parixit Agro Techniques / Palvi Industries",
+    tech: "Insect Trap Tech.",
+    link: "https://www.lighttrap.org/",
+  },
   {
     sr: "6.",
     name: "M/s Global Biotech & Agro Solutions, Lucknow, U.P.",
     tech: "Tissue Culture Tech.",
+    link: "https://www.globalagro.co.in/",
   },
   {
     sr: "7.",
     name: "M/s Apna Gaon Bioenergy Farmer Producer Co. Ltd., Ayodhya, U.P.",
     tech: "RTF Mushroom Tech.",
+    link: "https://www.facebook.com/ApnaGaonBioenergy/",
   },
-  { sr: "8.", name: "M/s Unnayan Vikas Samiti, Lucknow, U.P.", tech: "RTF Mushroom Tech." },
-  { sr: "9.", name: "M/s Balaji Agro Foods, Lucknow, U.P.", tech: "Value Addition" },
-  { sr: "10.", name: "M/s Shristi Food Products, Malda, West Bengal", tech: "Value Addition" },
-  { sr: "11.", name: "M/s Garden King, Kannauj, U.P.", tech: "Value Addition" },
+  {
+    sr: "8.",
+    name: "M/s Unnayan Vikas Samiti, Lucknow, U.P.",
+    tech: "RTF Mushroom Tech.",
+    link: "https://www.unnayansamiti.org/",
+  },
+  {
+    sr: "9.",
+    name: "M/s Balaji Agro Foods, Lucknow, U.P.",
+    tech: "Value Addition",
+    link: "https://www.f6s.com/balaji-agro-foods",
+  },
+  {
+    sr: "10.",
+    name: "M/s Shristi Food Products, Malda, West Bengal",
+    tech: "Value Addition",
+    link: "https://www.maldaamritfal.com/",
+  },
+  {
+    sr: "11.",
+    name: "M/s Garden King, Kannauj, U.P.",
+    tech: "Value Addition",
+    link: "https://www.mystore.in/store/gardenking/",
+  },
   {
     sr: "12.",
     name: "M/s Vishvaksenah Agro and Dairy Pvt Ltd., Muzaffarpur, Bihar",
     tech: "Value Addition",
+    link: "https://www.vishvaksenah.com/",
   },
   {
     sr: "13.",
     name: "M/s Jaishri Nursery, Varanasi, U.P.",
     tech: "High-tech Fruit Plants Nursery",
+    link: "https://www.justdial.com/Varanasi/Jaishri-Nursery/",
   },
-  { sr: "14.", name: "M/s Mango Baba, Lucknow, U.P.", tech: "Digital Supply Chain" },
+  {
+    sr: "14.",
+    name: "M/s Mango Baba, Lucknow, U.P.",
+    tech: "Digital Supply Chain",
+    link: "https://www.mangobaba.in/",
+  },
   {
     sr: "15.",
     name: "M/s Avakar EnviroSource Private Ltd., Lucknow, U.P.",
     tech: "Organic Farming Tech.",
+    link: "https://media.licdn.com/dms/image/v2/C4E0BAQECSU5bPAk9sQ/company-logo_200_200/company-logo_200_200/0/1630645462689/avtar_logo?e=2147483647&v=beta&t=NokLOG5Vh7ZxpHWa7Eu75rorp0PDQdochyUuctcYIJg",
+  },
+  {
+    sr: "16.",
+    name: "Mittan AgriTech Pvt. Ltd.",
+    tech: "CSR Grow-Sure",
+    link: "https://www.mittanagritech.in/",
   },
 ];
 
@@ -175,8 +228,29 @@ const HortIndAbiCentrePage = () => {
       </section>
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-green-800 font-bold">IN-HOUSE INCUBATION FACILITIES:</h2>
-          <ol type="a" className="list-lower-alpha list-outside pl-5 flex flex-col gap-2">
+          <h2 className="text-green-800 font-bold text-lg">IN-HOUSE INCUBATION FACILITIES:</h2>
+
+          <ol type="a" className="list-[lower-alpha] list-outside pl-5 flex flex-col gap-2">
+            <li>
+              <h2 className="text-gray-700">
+                Well equipped laboratory with modern tools, technology & instruments
+              </h2>
+            </li>
+            <li>
+              <h2 className="text-gray-700">Well established orchards</h2>
+            </li>
+            <li>
+              <h2 className="text-gray-700">Computer and internet services</h2>
+            </li>
+            <li>
+              <h2 className="text-gray-700">Office space</h2>
+            </li>
+            <li>
+              <h2 className="text-gray-700">Laboratory and pilot scale production facility</h2>
+            </li>
+            <li>
+              <h2 className="text-gray-700">Library cum Information Centre</h2>
+            </li>
             <li>
               <h2 className="text-gray-700">Cafeteria</h2>
               <ul className="list-disc list-outside pl-6 mt-1">
@@ -221,13 +295,35 @@ const HortIndAbiCentrePage = () => {
       </section>
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-green-800 font-bold">TECHNOLOGIES COMMERCIALIZED THROUGH ABI</h2>
+          <h2 className="text-green-800 font-bold text-lg">
+            TECHNOLOGIES COMMERCIALIZED THROUGH ABI
+          </h2>
+
           <ul className="list-disc list-outside pl-5 flex flex-col gap-2">
-            {technologiesCommercialized.map((tech) => (
+            {[
+              { name: "Hot Water Dispersible Aonla-Herbal Tablet", subItems: [] },
+              { name: "Decomposer", subItems: [] },
+              { name: "Bio-immunization of Tissue Culture Plantlets", subItems: [] },
+              { name: "Mango and Guava Pulp Processing", subItems: [] },
+              { name: "Ready to Fruit Mushroom Bag Production", subItems: [] },
+              { name: "CISH-Bio-enhancer", subItems: [] },
+              { name: "High-tech fruit plants nursery", subItems: [] },
+              {
+                name: "Insect Trap Technology",
+                subItems: [
+                  "CISH-OMAT",
+                  "CISH-VMAT",
+                  "Rainproof fruit fly trap container",
+                  "CISH Glue Trap",
+                  "CISH - Pest Hammer",
+                ],
+              },
+              { name: "Honey Production and Processing", subItems: [] },
+            ].map((tech) => (
               <li key={tech.name}>
                 <h2 className="text-gray-700">{tech.name}</h2>
                 {tech.subItems.length > 0 && (
-                  <ul className="list-disc list-outside pl-6 mt-1 flex flex-col gap-1">
+                  <ul className="list-[circle] list-outside pl-6 mt-1 flex flex-col gap-1">
                     {tech.subItems.map((subItem, index) => (
                       <li key={index}>
                         <h2 className="text-gray-700">{subItem}</h2>
@@ -267,7 +363,14 @@ const HortIndAbiCentrePage = () => {
                       <h2 className="text-gray-700">{item.sr}</h2>
                     </td>
                     <td className="p-3 border-t border-gray-300">
-                      <h2 className="text-gray-700">{item.name}</h2>
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-700 hover:text-green-900 hover:underline transition-colors"
+                      >
+                        {item.name}
+                      </a>
                     </td>
                     <td className="p-3 border-t border-gray-300">
                       <h2 className="text-gray-700">{item.tech}</h2>
@@ -313,8 +416,24 @@ const HortIndAbiCentrePage = () => {
             <h2 className="text-green-800 font-bold mb-3">HOW TO APPLY</h2>
             <h2 className="text-gray-700">
               Applications are accepted online round the year.{" "}
-              <a href="#" className="text-blue-600 underline hover:text-blue-800">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeShjEV7l7uF328rpbRD7MqfNHLarg9XKUFxCW_gDAAbcmFhw/viewform"
+                className="text-blue-600 underline hover:text-blue-800"
+              >
                 Click here to fill the form online
+              </a>
+              <span className="text-red-500 font-bold ml-1">new</span>
+            </h2>
+          </div>
+
+          <div>
+            <h2 className="text-green-800 font-bold mb-3">CISH ABI report</h2>
+            <h2 className="text-gray-700">
+              <a
+                href="https://drive.google.com/file/d/1U6pJcH5KWeLbZsCjQAS7N00SAqGo1t_9/view"
+                className="text-blue-600 underline hover:text-blue-800"
+              >
+                Click here
               </a>
               <span className="text-red-500 font-bold ml-1">new</span>
             </h2>
