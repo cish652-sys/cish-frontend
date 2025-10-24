@@ -52,7 +52,7 @@ const routes: Record<string, string> = {
   Varieties: "/varieties",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "/AgroAdvisory",
+  "Agro Advisory": "/files/AgroAdvisory.pdf",
   "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
   "Success Stories (of Farmers)": "https://cish.in/success-stories.php",

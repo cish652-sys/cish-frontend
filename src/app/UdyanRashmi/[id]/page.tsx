@@ -29,7 +29,7 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
-          { label: "Agro Advisory", href: "/UdyanRashmi" },
+          { label: "Udyan Rashmi", href: "/UdyanRashmi" },
           { label: cardData.title },
         ]}
         iconProps={true}
