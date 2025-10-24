@@ -32,7 +32,13 @@ const Contact = () => {
               ICAR-CENTRAL INSTITUTE FOR SUBTROPICAL HORTICULTURE
             </p>
             <p className="text-gray-700 leading-relaxed">
-              cish.lucknow@gmail.com • Rehmankhera, P.O. Kakori, 226101
+              <a
+                href="mailto:cish.lucknow@gmail.com"
+                className="text-green-800 hover:underline font-semibold"
+              >
+                cish.lucknow@gmail.com
+              </a>{" "}
+              • Rehmankhera, P.O. Kakori, 226101
             </p>
           </div>
 

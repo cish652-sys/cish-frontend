@@ -54,7 +54,7 @@ const GuestHouse = () => {
           {/* Buttons Section */}
           <div className="flex flex-col md:flex-row gap-4 pt-4">
             <a
-              href="https://13.234.154.152:9000/nfp-bucket/CISH_Guest_House_Guidelines.pdf"
+              href="http://13.234.154.152:9000/nfp-bucket/CISH_Guest_House_Guidelines.pdf"
               className="px-6 py-3 border border-lime-600 text-lime-600 hover:bg-lime-600 hover:text-white transition rounded-md text-center"
             >
               Click Here For Guidelines
