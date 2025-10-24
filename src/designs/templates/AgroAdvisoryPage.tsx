@@ -1,26 +1,68 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
-import ViksitKrishiCard from "@/designs/molecules/VKSACard";
-import { viksitKrishiData } from "@/app/VKSA/data";
+import { Column, DataTable, TableRow } from "@/designs/molecules/DataTable";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
-import Typography from "@/designs/atoms/Typography";
 
-const AgroAdvisoryPage = () => {
-  // Use only static data — no API call
-  const [vksaItems, setVksaItems] = useState(viksitKrishiData);
+export default function AgroAdvisoryPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+
+  // ✅ Define table columns
+  const columns: Column[] = [
+    { key: "title", label: "TITLE", align: "left", width: "40%" },
+    { key: "fileSize", label: "TYPE", align: "center", width: "20%" },
+  ];
+
+  // ✅ Table data
+  const data: TableRow[] = [
+    {
+      title: "Agro Advisory",
+      publishedDate: "04-03-2025",
+      fileSize: "",
+      fileUrl: "/files/AgroAdvisory.pdf",
+    },
+  ];
+
+  // ✅ View PDF in modal
+  const handleView = (row: TableRow) => {
+    if (row.fileUrl) {
+      setSelectedPdf(row.fileUrl as string);
+      setModalOpen(true);
+    }
+  };
+
+  // ✅ Download PDF
+  const handleDownload = (row: TableRow) => {
+    if (row.fileUrl) {
+      const link = document.createElement("a");
+      link.href = row.fileUrl as string;
+      link.download = (row.title as string) + ".pdf";
+      link.click();
+    }
+  };
+
+  // ✅ Close Modal
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedPdf(null);
+  };
 
   return (
     <main>
       <Header />
       <ResponsiveNavbar />
+
+      {/* Banner */}
       <section className="relative w-full">
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
 
+      {/* Breadcrumb + Title */}
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Agro Advisory" }]}
         iconProps={true}
@@ -28,29 +70,38 @@ const AgroAdvisoryPage = () => {
         description={[""]}
       />
 
-      <div className="mx-auto bg-[#f9f8f2] p-6 md:p-10">
-        <div className="flex flex-col gap-6 container">
-          <div className="flex items-center pb-[80px] gap-2">
-            <Typography variant="sectionHeading">Agro Advisory</Typography>
-          </div>
+      {/* Table */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <DataTable
+            title="Agro Advisory - Latest Updates"
+            columns={columns}
+            data={data}
+            onView={handleView}
+            onDownload={handleDownload}
+            showActions={true}
+            viewLabel="VIEW"
+            downloadLabel="DOWNLOAD"
+          />
         </div>
-
-        <div className="flex flex-col items-center w-full">
-          {vksaItems.map((card) => (
-            <ViksitKrishiCard
-              key={card.id}
-              id={card.id}
-              title={card.title}
-              description={card.description}
-              images={card.images}
-            />
-          ))}
-        </div>
-      </div>
+      </section>
 
       <Footer />
+
+      {/* ✅ PDF Modal */}
+      {modalOpen && selectedPdf && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white w-11/12 md:w-3/4 lg:w-2/3 h-4/5 rounded-lg shadow-lg relative">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+            >
+              &times;
+            </button>
+            <iframe src={selectedPdf} className="w-full h-full rounded-lg" title="PDF Viewer" />
+          </div>
+        </div>
+      )}
     </main>
   );
-};
-
-export default AgroAdvisoryPage;
+}

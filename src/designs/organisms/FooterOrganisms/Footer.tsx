@@ -75,7 +75,7 @@ export function Footer() {
           <FooterLinksGroup
             title="Services"
             links={[
-              { label: "Library", href: "https://cish.in/library.php" },
+              { label: "Library", href: "/Library" },
               { label: "Museum", href: "https://cish.in/museum.php" },
               { label: "Nursery", href: "/Nursery" },
               { label: "Consultancy", href: "https://cish.in/consultancy.php" },

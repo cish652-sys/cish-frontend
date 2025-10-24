@@ -7,8 +7,8 @@ export default function Research() {
   const [activeTab, setActiveTab] = useState("house");
 
   const tabs = [
-    { id: "house", label: "Ongoing House Project" },
-    { id: "externally", label: "Ongoing Externally Project" },
+    { id: "house", label: "Ongoing In-House Project" },
+    { id: "externally", label: "Ongoing Externally Aided Projects" },
   ];
 
   return (

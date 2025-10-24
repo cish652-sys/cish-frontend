@@ -443,10 +443,30 @@ const HortIndAbiCentrePage = () => {
             <h2 className="text-green-800 font-bold mb-3">CONTACT US</h2>
             <h2 className="text-gray-700">ICAR-Central Institute for Subtropical Horticulture,</h2>
             <h2 className="text-gray-700">Rehmankhera, P.O. Kakori, Lucknow-226101, India</h2>
-            <h2 className="text-gray-700 mt-2">Mobile: 6306965633</h2>
-            <h2 className="text-gray-700">Email: cish.abi@gmail.com</h2>
+            <h2 className="text-gray-700 mt-2">
+              Mobile:{" "}
+              <a href="tel:6306965633" className="text-blue-600 hover:underline">
+                6306965633
+              </a>
+            </h2>
+
             <h2 className="text-gray-700">
-              Website: http://cish.org.in/, https://cish.org.in/abi_n.php
+              Email:{" "}
+              <a href="mailto:cish.abi@gmail.com" className="text-blue-600 hover:underline">
+                cish.abi@gmail.com
+              </a>
+            </h2>
+
+            <h2 className="text-gray-700">
+              Website:{" "}
+              <a
+                href="https://cish.org.in/Abi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                https://cish.org.in/Abi
+              </a>
             </h2>
           </div>
         </div>
