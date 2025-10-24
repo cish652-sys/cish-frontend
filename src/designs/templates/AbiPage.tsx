@@ -87,7 +87,7 @@ const supportedStartups = [
     sr: "4.",
     name: "M/s Saavi Industries, Sangli, Maharashtra",
     tech: "Insect Trap Tech.",
-    link: "https://www.justdial.com/Sangli/Saavi-Industries/",
+    link: "",
   },
   {
     sr: "5.",
@@ -105,7 +105,7 @@ const supportedStartups = [
     sr: "7.",
     name: "M/s Apna Gaon Bioenergy Farmer Producer Co. Ltd., Ayodhya, U.P.",
     tech: "RTF Mushroom Tech.",
-    link: "https://www.facebook.com/ApnaGaonBioenergy/",
+    link: "",
   },
   {
     sr: "8.",
@@ -117,7 +117,7 @@ const supportedStartups = [
     sr: "9.",
     name: "M/s Balaji Agro Foods, Lucknow, U.P.",
     tech: "Value Addition",
-    link: "https://www.f6s.com/balaji-agro-foods",
+    link: "",
   },
   {
     sr: "10.",
@@ -141,7 +141,7 @@ const supportedStartups = [
     sr: "13.",
     name: "M/s Jaishri Nursery, Varanasi, U.P.",
     tech: "High-tech Fruit Plants Nursery",
-    link: "https://www.justdial.com/Varanasi/Jaishri-Nursery/",
+    link: "",
   },
   {
     sr: "14.",
@@ -153,7 +153,7 @@ const supportedStartups = [
     sr: "15.",
     name: "M/s Avakar EnviroSource Private Ltd., Lucknow, U.P.",
     tech: "Organic Farming Tech.",
-    link: "https://media.licdn.com/dms/image/v2/C4E0BAQECSU5bPAk9sQ/company-logo_200_200/company-logo_200_200/0/1630645462689/avtar_logo?e=2147483647&v=beta&t=NokLOG5Vh7ZxpHWa7Eu75rorp0PDQdochyUuctcYIJg",
+    link: "",
   },
   {
     sr: "16.",
