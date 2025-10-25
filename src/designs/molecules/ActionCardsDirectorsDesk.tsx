@@ -2,12 +2,19 @@
 import React from "react";
 import ActionButtonAtom from "../atoms/ActionButtonDirectorsDesk";
 import { Users, Grid, BarChart3 } from "lucide-react";
+import Link from "next/link";
 
 const ActionCards: React.FC = () => {
   return (
     <div className="flex flex-wrap gap-3.5">
-      <ActionButtonAtom Icon={Users} text="OUR TEAM" active onClick={() => {}} />
-      <ActionButtonAtom Icon={Grid} text="OUR ORGANIZATION" onClick={() => {}} />
+      <Link href="/staff">
+        {" "}
+        <ActionButtonAtom Icon={Users} text="OUR TEAM" active onClick={() => {}} />{" "}
+      </Link>
+      <Link href="/AboutUs">
+        {" "}
+        <ActionButtonAtom Icon={Grid} text="OUR ORGANIZATION" onClick={() => {}} />{" "}
+      </Link>
       <ActionButtonAtom Icon={BarChart3} text="OUR PERFORMANCE" onClick={() => {}} />
     </div>
   );
