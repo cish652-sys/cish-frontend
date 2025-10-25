@@ -26,7 +26,7 @@ const routes: Record<string, string> = {
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/malda_n.php",
   "Krishi Vigyan Kendra": "/RssKvk",
-  "Cadres Strength": "/about/cadres-strength",
+  "Cadres Strength": "/CadreStrength",
   Staff: "/staff",
   // "Citizen Charter": "/about/citizen-charter",
   "Citizen Charter": "/citizenCharter", // ← Keep this one
@@ -35,14 +35,14 @@ const routes: Record<string, string> = {
 
   // RESEARCH dropdown
   "Institute/External Projects": "/ResearchFunded",
-  Collaborations: "https://cish.in/collaboration_n.php",
+  Collaborations: "/Collabration",
 
   // PUBLICATIONS dropdown
   "Annual Reports": "/AnnualReport",
   "Research Publications": "/publications/research",
-  "Newsletter (Subscription)": "/publications/newsletter",
+  "Newsletter (Subscription)": "/newsLetter",
   "Udyan Rashmi (Subscription)": "/UdyanRashmi",
-  "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
+  "CISH Publications (Paid & Free)": "/CishPublications",
   "Vision 2050": "/vision2050",
 
   // VARIETIES dropdown
@@ -54,7 +54,7 @@ const routes: Record<string, string> = {
   "Agro Advisory": "/AgroAdvisory",
   "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
-  "Success Stories (of Farmers)": "https://cish.in/success-stories.php",
+  "Success Stories (of Farmers)": "/SuccessStories",
   "Farmer Friendly Technologies": "/farmers/technologies",
 };
 

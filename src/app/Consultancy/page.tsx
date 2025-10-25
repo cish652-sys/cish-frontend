@@ -35,15 +35,14 @@ export default function Consultancy() {
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <p className="text-gray-700 leading-relaxed">
-            Scientists of the institute rendered scientific and technical services on crop
-            improvement, production, protection, and postharvest management technologies of mango,
-            guava, papaya, bael, and aonla to orchardists from different parts of the country.
-            Information on the scientific cultivation of jamun and other underutilized fruit crops
-            was also provided to farmers. The scientists and technical officers of the institute
-            visited different locations and provided technical know-how to the growers on scientific
-            methods of cultivation, rejuvenation of old and unproductive orchards, high-density
-            planting, nutrient management, insect pest and disease control, and postharvest
-            management aspects.
+            Scientists of the institute rendered scientific/technical service on crop improvement,
+            production, protection and post-harvest management technologies of mango, guava, papaya,
+            beal and aonla to the orchardists from different parts of the country. Information on
+            scientific cultivation of jamun and other underutilized fruit crop was also provided to
+            farmers. The scientists and technical officers of the institute visited different
+            locations and provided technical know-how to the growers on scientific method of
+            cultivation, rejuvenation of old and unproductive orchards, high density planting,
+            nutrients, insect pest and diseases and postharvest management aspects, etc.
           </p>
         </div>
       </section>

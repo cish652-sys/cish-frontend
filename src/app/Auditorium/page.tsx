@@ -6,21 +6,32 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// data (exact wording you provided)
 const auditoriumFacilities = [
-  { sr: 1, facility: "Seating capacity 270 persons (push back type Godrej seats)" },
-  { sr: 2, facility: "Stage wooden flooring with motorized curtains (front and rear)" },
-  { sr: 3, facility: "Audio visual facility" },
   {
-    sr: 4,
-    facility:
-      "5000 lumens projector with desktop / laptop connectivity and full length folding screen",
+    title: "Seating capacity",
+    detail: "270 persons (push back type Godrej seats)",
   },
-  { sr: 5, facility: "Stage microphones – 6 nos." },
-  { sr: 6, facility: "Cordless microphone – 1 no." },
-  { sr: 7, facility: "Collar microphone – 2 nos." },
-  { sr: 8, facility: "Stage lights (spot + multi-color) for cultural programs" },
-  { sr: 9, facility: "Air-conditioned VIP Dining Lounge (24 persons)" },
-  { sr: 10, facility: "Air-conditioned general lounge (250 persons)" },
+  {
+    title: "Stage",
+    detail: "Wooden floor. Motorized curtains on front and rear side.",
+  },
+  {
+    title: "Audio visual facility",
+    detail: `5000 lumens projector with desktop computer / lap top facility. Full length screen folding type.
+Stage mikes – 6 nos.
+Cordless mike – 1 no.
+Collar mike – 2 nos.
+Stage light (spot and multi color) for cultural programmes.`,
+  },
+  {
+    title: "Air-conditioned VIP Dining lounge",
+    detail: "24 persons.",
+  },
+  {
+    title: "Air-conditioned lounge",
+    detail: "250 persons.",
+  },
 ];
 
 const Auditorium = () => {
@@ -40,15 +51,10 @@ const Auditorium = () => {
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-5xl mx-auto flex flex-col gap-6">
           <h2 className="text-gray-700 leading-relaxed">
-            The Institute has a centrally air-conditioned auditorium hall with a seating capacity of
-            270 persons. The stage can accommodate 9+2 persons and is equipped with motorized
-            curtains, stage lighting, smoke detectors, laser beam sensors, fire extinguishers, and
-            power backup through a 125 KVA generator. The auditorium is equipped with high-quality
-            audio-visual systems including a 5000 lumens projector, microphones, laptop
-            connectivity, and a full-length folding display screen. Lounge facilities include an
-            air-conditioned VIP dining lounge (24 persons) and a general lounge (250 persons). The
-            auditorium is available for conferences and events on an approved charge basis of
-            ₹25,000/- per day.
+            Centrally air-conditioned hall, lounge, VIP cafeteria with capacity of hall for 270
+            persons. 9+2 persons may utilize stage . Fire protection system (smoke detectors, laser
+            beam sensor and fire extinguishers) available out side and inside the hall. Stage light
+            facility is available with power backup of 125 KVA generator with 24 hrs power supply.
           </h2>
         </div>
       </section>
@@ -59,24 +65,18 @@ const Auditorium = () => {
           <h2 className="text-green-800 font-bold">FACILITIES AVAILABLE</h2>
 
           <div className="overflow-x-auto shadow-lg border border-gray-300">
-            <table className="w-full border-collapse table-fixed">
-              <thead className="bg-lime-200">
-                <tr>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
-                    Sr. No.
-                  </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
-                    Facility Description
-                  </th>
-                </tr>
-              </thead>
+            <table className="w-full border border-gray-300">
               <tbody>
                 {auditoriumFacilities.map((item, index) => (
-                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-lime-50"}>
-                    <td className="p-3 border-t border-gray-300 text-gray-700 w-24">{item.sr}</td>
+                  <tr key={index} className={index % 2 === 0 ? "bg-lime-100" : "bg-lime-50"}>
+                    {/* Left title column */}
+                    <td className="font-semibold text-gray-800 border border-gray-300 p-3 w-1/3">
+                      {item.title}
+                    </td>
 
-                    <td className="p-3 border-t border-gray-300 text-gray-700 w-full">
-                      {item.facility}
+                    {/* Right detail column */}
+                    <td className="text-gray-700 border border-gray-300 p-3 whitespace-pre-line">
+                      {item.detail}
                     </td>
                   </tr>
                 ))}
@@ -85,7 +85,9 @@ const Auditorium = () => {
           </div>
 
           <p className="text-gray-700 mt-4">
-            <strong>Charges:</strong> ₹25,000/- per day (for approved conferences & events).
+            <strong>Charges:</strong> ICAR-CISH has an auditorium with a capacity to accommodate 270
+            persons with audio-visual projection and address systems. It is available for conference
+            on approved charge basis (Rs 25,000/- per day).
           </p>
         </div>
       </section>

@@ -28,17 +28,31 @@ const Contact = () => {
           {/* CONTACT INFORMATION */}
           <div className="text-center">
             <h2 className="text-green-800 font-bold text-2xl mb-3">CONTACT INFORMATION</h2>
+
             <p className="text-gray-700 leading-relaxed font-medium">
               ICAR-CENTRAL INSTITUTE FOR SUBTROPICAL HORTICULTURE
             </p>
+
+            <p className="text-gray-700 leading-relaxed font-medium">
+              Rehmankhera, P.O. Kakori, 226101
+            </p>
+
+            {/* Email */}
             <p className="text-gray-700 leading-relaxed">
               <a
                 href="mailto:cish.lucknow@gmail.com"
                 className="text-green-800 hover:underline font-semibold"
               >
                 cish.lucknow@gmail.com
-              </a>{" "}
-              • Rehmankhera, P.O. Kakori, 226101
+              </a>
+            </p>
+
+            {/* Phone */}
+            <p className="text-gray-700 leading-relaxed mt-1">
+              Phone:&nbsp;
+              <a href="tel:+916306965633" className="text-green-800 hover:underline font-semibold">
+                +91-6306965633
+              </a>
             </p>
           </div>
 
@@ -62,7 +76,7 @@ const Contact = () => {
             </p>
 
             <form
-              action="mailto:shubhjoshi114@gmail.com"
+              action="mailto:cish.lucknow@gmail.com"
               method="post"
               encType="text/plain"
               className="grid grid-cols-1 md:grid-cols-2 gap-6"

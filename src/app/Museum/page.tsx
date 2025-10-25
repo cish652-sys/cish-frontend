@@ -38,7 +38,7 @@ const Museum = () => {
             Agricultural Foreign Trade and Agricultural Exports, Government of Uttar Pradesh and
             Smt. Jai Devi, Hon’ble MLA from Malihabad, Lucknow. As the Chief Guest of the Foundation
             Day, the Minister addressed farmers, institute staff and invited guests. The inaugural
-            function was presided over by Dr. Nrelima Garg, Director, ICAR-CISH.
+            function was presided over by Dr. Neelima Garg, Director, ICAR-CISH.
           </h2>
         </div>
       </section>
