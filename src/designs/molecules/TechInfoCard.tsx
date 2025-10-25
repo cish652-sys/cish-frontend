@@ -1,9 +1,12 @@
+// src/designs/molecules/TechInfoCard.tsx
 "use client";
 
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader } from "../atoms/card";
 import Typography from "../atoms/Typography";
 import { cn } from "@/lib/utils";
+// Assuming ButtonLink can be used here, or just use an <a> tag
+// import ButtonLink from "../atoms/ButtonLink";
 
 interface TechInfoCardProps {
   title: string;
@@ -13,7 +16,7 @@ interface TechInfoCardProps {
   showHeading: boolean;
   showTechnologyDetails?: boolean;
   className?: string;
-  href: string;
+  href: string; // Make sure href is passed
 }
 
 export const TechInfoCard: React.FC<TechInfoCardProps> = ({
@@ -24,6 +27,7 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
   showHeading,
   showTechnologyDetails = false,
   className,
+  href, // Destructure href
 }) => {
   return (
     <Card
@@ -32,6 +36,7 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
         className
       )}
     >
+      {/* ... CardHeader and CardContent are unchanged ... */}
       <CardHeader className="p-2 flex items-center justify-center">
         {image ? (
           <Image
@@ -67,15 +72,26 @@ export const TechInfoCard: React.FC<TechInfoCardProps> = ({
       </CardContent>
 
       <CardFooter className="p-4 flex justify-end mt-auto">
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onViewMore?.();
-          }}
-          className="text-green-700 hover:text-green-800 font-semibold cursor-pointer"
-        >
-          VIEW MORE →
-        </button>
+        {/* --- CONDITIONAL LOGIC HERE --- */}
+        {onViewMore ? (
+          // If handler is provided, render a button
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onViewMore();
+            }}
+            className="text-green-700 hover:text-green-800 font-semibold cursor-pointer"
+          >
+            VIEW MORE →
+          </button>
+        ) : (
+          <a
+            href={href}
+            className="text-green-700 hover:text-green-800 font-semibold cursor-pointer"
+          >
+            VIEW MORE →
+          </a>
+        )}
       </CardFooter>
     </Card>
   );

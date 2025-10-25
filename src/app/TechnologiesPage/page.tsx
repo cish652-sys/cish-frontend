@@ -7,15 +7,16 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
-import { TechnologyModal } from "@/designs/organisms/TechnologyModal";
+// 1. IMPORT THE NEW MODAL
+import { DetailsModal } from "@/designs/molecules/DetailsModal";
 import { technoItems, technologiesItems } from "@/lib/utils"; // Fallback data
 import { ApiTechnology, TechnologyCardItem } from "@/types";
 
 function TechnologiesPage() {
   const [trendingTech, setTrendingTech] = useState<TechnologyCardItem[]>(technoItems);
   const [otherTech, setOtherTech] = useState<TechnologyCardItem[]>(technologiesItems);
-  const [allTechData, setAllTechData] = useState<ApiTechnology[]>([]);
-  const [selectedTech, setSelectedTech] = useState<ApiTechnology | null>(null);
+  // 2. USE STATE FOR THE NEW MODAL'S ITEM
+  const [modalItem, setModalItem] = useState<TechnologyCardItem | null>(null);
 
   useEffect(() => {
     const fetchTechnologies = async () => {
@@ -32,7 +33,7 @@ function TechnologiesPage() {
         const trendingData: ApiTechnology[] = trendingRes.ok ? await trendingRes.json() : [];
         const allData: ApiTechnology[] = otherRes.ok ? await otherRes.json() : [];
 
-        setAllTechData(allData);
+        // 3. The allTechData state is no longer needed
 
         if (Array.isArray(trendingData) && trendingData.length > 0) {
           const mappedTrending = trendingData.map(
@@ -69,14 +70,22 @@ function TechnologiesPage() {
       }
     };
     fetchTechnologies();
-  }, []);
+  }, [otherTech]); // Added otherTech as a dependency to avoid potential stale closure issues
 
-  const handleViewMore = (id: number) => {
-    const tech = allTechData.find((t) => t.id === id);
-    if (tech) setSelectedTech(tech);
+  // 4. CREATE HANDLERS FOR EACH COMPONENT
+  // This handler matches the signature for TrendingTechnologies: (item: TechnologyCardItem) => void
+  const handleViewTrending = (item: TechnologyCardItem) => {
+    setModalItem(item);
   };
 
-  const closeModal = () => setSelectedTech(null);
+  // This handler matches the signature for OtherTechnologies: (id: number) => void
+  const handleViewOther = (id: number) => {
+    // We find the item from the state we already have
+    const tech = otherTech.find((t) => t.id === id);
+    if (tech) setModalItem(tech);
+  };
+
+  const closeModal = () => setModalItem(null);
 
   return (
     <div>
@@ -92,11 +101,13 @@ function TechnologiesPage() {
         description={[""]}
       />
 
-      <TrendingTechnologies technologies={trendingTech} />
-      <OtherTechnologies technologiesItems={otherTech} onViewMore={handleViewMore} />
+      {/* 5. PASS THE HANDLERS TO THE COMPONENTS */}
+      <TrendingTechnologies technologies={trendingTech} onViewMore={handleViewTrending} />
+      <OtherTechnologies technologiesItems={otherTech} onViewMore={handleViewOther} />
       <Footer />
 
-      {selectedTech && <TechnologyModal technology={selectedTech} onClose={closeModal} />}
+      {/* 6. RENDER THE NEW MODAL */}
+      {modalItem && <DetailsModal isOpen={!!modalItem} item={modalItem} onClose={closeModal} />}
     </div>
   );
 }
