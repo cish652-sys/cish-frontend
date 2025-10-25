@@ -14,7 +14,7 @@ const routes: Record<string, string> = {
   "FOR FARMERS": "/",
   NURSERY: "/Nursery",
   MEDIA: "/",
-  "CONTACT US": "https://cish.in/contact_us.php",
+  "CONTACT US": "/ContactUs",
 
   // ABOUT US dropdown
   "About Institute": "/AboutUs",
@@ -300,11 +300,13 @@ const ResponsiveNavbar: React.FC = () => {
 
         {/* Mobile dropdown */}
         <div
-          className={`
-            lg:hidden transition-all duration-300 ease-in-out
-            ${isMobileMenuOpen ? " opacity-100" : "max-h-0 opacity-0"}
-          `}
-        >
+  className={`
+    lg:hidden transition-all duration-300 ease-in-out
+    ${isMobileMenuOpen
+      ? "opacity-100 pointer-events-auto"
+      : "max-h-0 opacity-0 pointer-events-none"}
+  `}
+>
           <div className="bg-gray-50 mt-2 max-h-full overflow-y-auto">
             {navigationItems.map((item) => {
               const hasDropdown = item.dropdownItems && item.dropdownItems.length > 0;
