@@ -300,13 +300,13 @@ const ResponsiveNavbar: React.FC = () => {
 
         {/* Mobile dropdown */}
         <div
-  className={`
+          className={`
     lg:hidden transition-all duration-300 ease-in-out
-    ${isMobileMenuOpen
-      ? "opacity-100 pointer-events-auto"
-      : "max-h-0 opacity-0 pointer-events-none"}
+    ${
+      isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
+    }
   `}
->
+        >
           <div className="bg-gray-50 mt-2 max-h-full overflow-y-auto">
             {navigationItems.map((item) => {
               const hasDropdown = item.dropdownItems && item.dropdownItems.length > 0;
