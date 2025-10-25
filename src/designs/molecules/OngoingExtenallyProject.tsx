@@ -3,108 +3,244 @@ import { useState } from "react";
 export default function OngoingExtenallyProject() {
   const projects = [
     {
-      no: "01",
+      sn: "01",
+      scheme: "AMAAS, MAU",
       title:
-        "Network project on Micro-irrigation in agriculture and allied sectors from organic-domestic wastewater for production of country agriculture. (Lead centre ICAR-CISH, Lucknow)",
-      principal: "Dr. Ravindra Gupta",
-      coPrincipal: "2017-2022",
+        "Network project on Micro organisms in agriculture and allied sectors. Sub-Project: Microbial interventions for production of enzyme supplement for animal feed from fruit and vegetable mandi waste",
+      principal: "Dr. Neelima Garg",
+      period: "2017–2022",
     },
     {
-      no: "02",
+      sn: "02",
+      scheme: "DST-SERB",
       title:
-        "Ensuring productivity/production of mango/one given fruit with reduce of losses against insect/disease preventable causally skill",
-      principal: "Dr. Muthukumar M",
-      coPrincipal: "2018-2023",
+        "Genomics assisted identification of resistance genes from wild relatives of guava against Meloidogyne enterolobii causing wilt",
+      principal: "Dr. Muthukumar M.",
+      period: "2018–2022",
     },
     {
-      no: "03",
+      sn: "03",
+      scheme: "DST-SERB",
       title:
-        "Micro break analysis and their application for pesticide-biopesticides and plant growth promoters in subtracting horticultural crops",
-      principal: "Dr. Devendra Kumar",
-      coPrincipal: "2019-2022",
+        "Micro biome analysis and their application for pesticide biodegradation and plant growth promotion in subtropical horticultural crops",
+      principal: "Dr. Govind Kumar",
+      period: "2019–2022",
     },
     {
-      no: "04",
+      sn: "04",
+      scheme: "DST-SERB",
       title:
-        "Genome-wide SNP markers associated with fruit quality for developing trait-based reverse breeding using genomic selection",
+        "Genome wide SNP markers associated with fruit traits for developing climate smart mango hybrids using genome selection",
       principal: "Dr. Anju Bajpai",
-      coPrincipal: "2020-2023",
+      period: "2020–2023",
     },
     {
-      no: "05",
-      title: "Management of resources with in NEH systems using GAP/HACCP/INT Technology",
+      sn: "05",
+      scheme: "DBT",
+      title: "Management of Fusarium wilt in NER banana using ICAR-FUSICONT Technology",
       principal:
-        "Dr. S. Rajaer (Cl & Coordinator), Project Coordinators: Dr. Navprabhat Sharma, Dr. Prakash Chandra Tripathi",
-      coPrincipal: "2017-2022",
+        "Dr. S. Rajan / Dr. T. Damodaran (Project Coordinator)\nDr. Maneesh Mishra, Co-PI\nDr. Ashish Yadav, Co-PI",
+      period: "2021–2024",
     },
     {
-      no: "06",
+      sn: "06",
+      scheme: "UPCST",
       title:
-        "Development of improved package for management of thrips stage of Leaf blight/Anthracnose caused",
+        "Development of integrated package for management of fruit drop of bael (Aegle marmelos correa)",
       principal: "Dr. P.K. Shukla",
-      coPrincipal: "2021-2024",
+      period: "2021–2024",
     },
     {
-      no: "07",
+      sn: "07",
+      scheme: "UPCAR",
       title:
-        "Design and development of ergonomically efficient fruit harvesters for mango, guava and jamun",
-      principal: "Er. Anil Kumar",
-      coPrincipal: "2020-2023",
+        "Design and development of ergonomically efficient fruit harvesters for mango, guava and bael",
+      principal: "Er. Anil Verma",
+      period: "2020–2023",
     },
     {
-      no: "08",
+      sn: "08",
+      scheme: "PPV & FRA",
       title:
-        "Enhancing oilseed repository and facilities for GIS storing in grains shadows systems district(NICRA-Software)",
-      principal: "Dr. S. Rajan Soni, W.S.Dhillon Dr. Debashish Hazarika (w.e.f.1.12.2021)",
-      coPrincipal: "2020-2023",
+        "Developing national repository and facilities for DUS testing in guava (Psidium guajava) and litchi (Litchi chinesis)",
+      principal: "Dr. S. Rajan (upto 30.11.2021) / Dr. Anshuman Singh (w.e.f 1.12.2021)",
+      period: "2012–2023",
     },
     {
-      no: "09",
-      title: "CERA/Initiation of lands available for developing RNR best Guidelines",
+      sn: "09",
+      scheme: "PPV & FRA",
+      title: "Characterization of aonla varieties for developing DUS test guidelines",
       principal: "Dr. Devendra Pandey",
-      coPrincipal: "2012-2022",
+      period: "2012–2022",
     },
     {
-      no: "10",
-      title: "Validation of GAD description of least biopay-module-Control",
+      sn: "10",
+      scheme: "PPV & FRA",
+      title: "Validation of DUS descriptors of bael (Aegle marmelos Correa)",
       principal: "Dr. Devendra Pandey",
-      coPrincipal: "2012-2022",
+      period: "2012–2022",
     },
     {
-      no: "11",
-      title: "Development of metagenical description and multivarit guidelines for grains",
-      principal: "Dr. A.K. Bajpai/Dr. Archbahar Singh",
-      coPrincipal: "2012-2022",
+      sn: "11",
+      scheme: "PPV & FRA",
+      title: "Development of morphological descriptors and DUS test guidelines for jamun",
+      principal: "Dr. A.K. Singh / Dr. Anshuman Singh",
+      period: "2012–2022",
     },
     {
-      no: "12",
-      title: "National DUS centre for Mango crop",
-      principal: "Dr. S. Rajan Soni (1.12.2021-Dr. Ashish Yadav (w.e.f.1.12.2021)",
-      coPrincipal: "2012-2022",
+      sn: "12",
+      scheme: "PPV & FRA",
+      title: "National DUS centre for mango crop",
+      principal: "Dr. S. Rajan (upto 30.11.2021) / Dr. Ashish Yadav (w.e.f 1.12.2021)",
+      period: "2012–2022",
+    },
+    {
+      sn: "13",
+      scheme: "ICAR Networking Project",
+      title: "National Agriculture Innovation Fund: Component-I IP&TM",
+      principal: "Dr. Ravi S.C.",
+      period: "2008–2023",
+    },
+    {
+      sn: "14",
+      scheme: "ICAR Networking Project",
+      title: "National Agriculture Innovation Fund: Component-II ABI",
+      principal: "Dr. Maneesh Mishra",
+      period: "2019–2023",
+    },
+    {
+      sn: "15",
+      scheme: "RKVY",
+      title:
+        "Advance centre for establishment of value chain and food processing of agri-horticultural crops to empower rural youth, self-help groups and processing entrepreneurs",
+      principal: "Dr. Dipak Nayak",
+      period: "2018–2022",
+    },
+    {
+      sn: "16",
+      scheme: "PKVY",
+      title:
+        "Promotion of organic farming practices for improving livelihood security of small and marginal farmers in Uttar Pradesh",
+      principal: "Dr. R.A. Ram",
+      period: "2020–2023",
+    },
+    {
+      sn: "17",
+      scheme: "MIDH",
+      title: "Hi-Tech Nursery Public Sector (4 ha)",
+      principal: "Dr. Dipak Nayak",
+      period: "2020–2023",
+    },
+    {
+      sn: "18",
+      scheme: "Farmer FIRST Programme (KVK)",
+      title:
+        "Enhancing livelihood and profitability index of Malihabad farmers through diversified horti-enterprise modules",
+      principal: "Dr. Maneesh Mishra",
+      period: "2016–2022",
+    },
+    {
+      sn: "19",
+      scheme: "Mandi Parishad, U.P.",
+      title:
+        "Preparation of work plan and its implementation for GI patenting of Langra, Chausa and Rataul mango of U.P.",
+      principal: "Dr. S. Rajan (upto 30.11.2021) / Dr. Ashish Yadav (w.e.f 1.12.2021)",
+      period: "2020–2022",
+    },
+    {
+      sn: "20",
+      scheme: "Seed Hub Project",
+      title: "Seed Hub Project at KVK Malda",
+      principal: "Dr. Dipak Nayak",
+      period: "2017–2022",
+    },
+    {
+      sn: "21",
+      scheme: "National Bee Board",
+      title: "Integrated Bee Development Centre (IBDC)",
+      principal: "Dr. Dipak Nayak",
+      period: "2018–2022",
+    },
+    {
+      sn: "22",
+      scheme: "Crop Life India",
+      title:
+        "Responsible use of Crop Protection products in mango and litchi for farmers safety, pollinators conservation and yield enhancement",
+      principal: "Dr. Dipak Nayak",
+      period: "2019–2022",
+    },
+    {
+      sn: "23",
+      scheme: "Palvi Industries, Sangli, Maharashtra",
+      title:
+        "Prototype development of solar light based insect traps having electrified killing mechanism and other associated prototype development works",
+      principal: "Dr. H.S. Singh",
+      period: "2019–2023",
+    },
+    {
+      sn: "24",
+      scheme: "NABARD",
+      title:
+        "Technology interventions for quality mango production for doubling income of mango growers in Malda District, West Bengal",
+      principal: "Dr. Dipak Nayak",
+      period: "2020–2023",
+    },
+    {
+      sn: "25",
+      scheme: "Bayer Crop Science Limited (Contract Research)",
+      title:
+        "Evaluation of bio-efficacy and phytotoxicity of Flupyram 250 g/l + Trifloxystrobin 250 g/l (Luna sensation 500SC) against anthracnose, powdery mildow and leaf spot and Tebuconazole 430 SC (BUONOS) against anthracnose, powdery mildew and post harvest diseases in mango",
+      principal: "Dr. P.K. Shukla",
+      period: "2021–2023",
+    },
+    {
+      sn: "26",
+      scheme: "Tribal Sub Plan",
+      title: "Tribal Sub Plan",
+      principal: "Dr. Dipak Nayak",
+      period: "2018–2022",
+    },
+    {
+      sn: "27",
+      scheme: "Scheduled Caste Sub Plan",
+      title: "S.C. Sub Plan",
+      principal: "Dr. Ashok Kumar / Dr. Vishambhar Dayal",
+      period: "2018–2022",
+    },
+    {
+      sn: "28",
+      scheme: "Inter-Institutional Collaborative project (ICAR-CISH & CSIR-NBRI, Lucknow)",
+      title:
+        "Application of whitefly-trap-cum death sink cotton to protect vegetables and horticultural crops from whitefly vectored viral diseases",
+      principal: "—",
+      period: "—",
     },
   ];
+
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
 
   const itemsPerPage = 10;
 
-  // Filter by search
+  // ✅ Filter by search
   const filtered = projects.filter(
     (p) =>
       p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       p.principal.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.coPrincipal.toLowerCase().includes(searchTerm.toLowerCase())
+      p.period.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      p.scheme.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Sort projects
+  // ✅ Sorting
   const sorted = [...filtered].sort((a, b) => {
     if (sortBy === "name") return a.title.localeCompare(b.title);
     if (sortBy === "principal") return a.principal.localeCompare(b.principal);
+    if (sortBy === "scheme") return a.scheme.localeCompare(b.scheme);
     return 0;
   });
 
-  // Pagination logic
+  // ✅ Pagination
   const totalPages = Math.ceil(sorted.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentData = sorted.slice(startIndex, startIndex + itemsPerPage);
@@ -114,14 +250,13 @@ export default function OngoingExtenallyProject() {
   };
 
   return (
-    <section className="py-12 px-6 md:px-16" style={{ backgroundColor: "#FBFAF0" }}>
+    <section className="py-12 px-6 md:px-16 bg-[#FBFAF0]">
       <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <h2 className="text-[#1B5E20] text-lg font-semibold mb-6 uppercase">
-          Ongoing Externally Aided Projects{" "}
+        <h2 className="text-[#1B5E20] text-lg md:text-xl font-semibold mb-6 uppercase">
+          Ongoing Externally Aided Projects
         </h2>
 
-        {/* Search & Sort Bar */}
+        {/* Search & Sort */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <div className="relative w-full md:w-1/3">
             <input
@@ -142,9 +277,12 @@ export default function OngoingExtenallyProject() {
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
-            <option value="default">Sort By</option>
-            <option value="name">Name</option>
-            <option value="principal">Principal Investigator</option>
+            <option value="" disabled hidden>
+              Sort By
+            </option>
+            <option value="title">Project Title</option>
+            <option value="principal">PI / Nodal Officer</option>
+            <option value="scheme">Scheme</option>
           </select>
         </div>
 
@@ -152,11 +290,12 @@ export default function OngoingExtenallyProject() {
         <div className="overflow-x-auto">
           <table className="min-w-full border-separate border-spacing-y-3">
             <thead>
-              <tr className="bg-[#599A5E] text-[#FFFFFF]">
-                <th className="py-3 px-4 text-left w-16 font-semibold">S.No</th>
-                <th className="py-3 px-4 text-left font-semibold">Project Title</th>
-                <th className="py-3 px-4 text-left font-semibold">PI/Nodal Officer</th>
-                <th className="py-3 px-4 text-left font-semibold">Period</th>
+              <tr className="bg-[#599A5E] text-white text-sm md:text-base">
+                <th className="py-3 px-4 font-semibold w-14">S.No</th>
+                <th className="py-3 px-4 font-semibold whitespace-nowrap">Scheme</th>
+                <th className="py-3 px-4 font-semibold whitespace-nowrap">Project Title</th>
+                <th className="py-3 px-4 font-semibold whitespace-nowrap">PI / Nodal Officer</th>
+                <th className="py-3 px-4 font-semibold whitespace-nowrap">Period</th>
               </tr>
             </thead>
 
@@ -166,10 +305,11 @@ export default function OngoingExtenallyProject() {
                   key={i}
                   className="bg-white rounded-md shadow-sm hover:shadow-md transition-all"
                 >
-                  <td className="py-3 px-4 text-center text-[#567C3B] font-semibold">{p.no}</td>
+                  <td className="py-3 px-4 text-center text-[#567C3B] font-semibold">{p.sn}</td>
+                  <td className="py-3 px-4 text-gray-700">{p.scheme}</td>
                   <td className="py-3 px-4 text-gray-700">{p.title}</td>
                   <td className="py-3 px-4 text-gray-700">{p.principal}</td>
-                  <td className="py-3 px-4 text-gray-700">{p.coPrincipal}</td>
+                  <td className="py-3 px-4 text-gray-700">{p.period}</td>
                 </tr>
               ))}
             </tbody>
@@ -184,21 +324,17 @@ export default function OngoingExtenallyProject() {
           >
             &lt;
           </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1)
-            .slice(0, 5)
-            .map((page) => (
-              <button
-                key={page}
-                onClick={() => handlePageChange(page)}
-                className={`px-3 py-1 rounded-full ${
-                  currentPage === page
-                    ? "bg-[#31572C] text-white"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                {page}
-              </button>
-            ))}
+
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={`px-3 py-1 rounded-full ${currentPage === page ? "bg-[#31572C] text-white" : "text-gray-700 hover:bg-gray-100"}`}
+            >
+              {page}
+            </button>
+          ))}
+
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             className="text-gray-600 border rounded-full px-3 py-1 hover:bg-gray-100"

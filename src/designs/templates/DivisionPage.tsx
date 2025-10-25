@@ -10,12 +10,10 @@ import { TechnologyCardItem } from "@/types"; // Import the type
 
 const DivisionPage = () => {
   // Map over divItems to add the 'id' property
-  const technologiesWithIds: TechnologyCardItem[] = divItems.map(
-    (item, index) => ({
-      ...item,
-      id: index + 1, // Use index as a unique ID
-    })
-  );
+  const technologiesWithIds: TechnologyCardItem[] = divItems.map((item, index) => ({
+    ...item,
+    id: index + 1, // Use index as a unique ID
+  }));
 
   return (
     <main>

@@ -14,7 +14,7 @@ const routes: Record<string, string> = {
   "FOR FARMERS": "/",
   NURSERY: "/Nursery",
   MEDIA: "/",
-  "CONTACT US": "https://cish.in/contact_us.php",
+  "CONTACT US": "/ContactUs",
 
   // ABOUT US dropdown
   "About Institute": "/AboutUs",
@@ -26,7 +26,7 @@ const routes: Record<string, string> = {
   AKMU: "/about/akmu",
   "Regional Research Station": "https://cish.in/malda_n.php",
   "Krishi Vigyan Kendra": "/RssKvk",
-  "Cadres Strength": "/about/cadres-strength",
+  "Cadres Strength": "/CadreStrength",
   Staff: "/staff",
   // "Citizen Charter": "/about/citizen-charter",
   "Citizen Charter": "/citizenCharter", // ← Keep this one
@@ -34,16 +34,15 @@ const routes: Record<string, string> = {
   Videos: "/Gallery",
 
   // RESEARCH dropdown
-  "Institute Funded Project": "/research/institute-funded",
-  "Externally Funded Projects": "/ResearchFunded",
-  Collaborations: "https://cish.in/collaboration_n.php",
+  "Institute/External Projects": "/ResearchFunded",
+  Collaborations: "/Collabration",
 
   // PUBLICATIONS dropdown
   "Annual Reports": "/AnnualReport",
   "Research Publications": "/publications/research",
   "Newsletter (Subscription)": "/Newsletter",
   "Udyan Rashmi (Subscription)": "/UdyanRashmi",
-  "CISH Publications (Paid & Free)": "https://cish.in/cish-publication.php",
+  "CISH Publications (Paid & Free)": "/CishPublications",
   "Vision 2050": "/vision2050",
 
   // VARIETIES dropdown
@@ -52,10 +51,10 @@ const routes: Record<string, string> = {
   Varieties: "/varieties",
 
   // FOR FARMERS dropdown
-  "Agro Advisory": "/files/AgroAdvisory.pdf",
+  "Agro Advisory": "/AgroAdvisory",
   "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
   "Plant Bookings": "/farmers/plant-bookings",
-  "Success Stories (of Farmers)": "https://cish.in/success-stories.php",
+  "Success Stories (of Farmers)": "/SuccessStories",
   "Farmer Friendly Technologies": "/farmers/technologies",
 };
 
@@ -92,7 +91,7 @@ const ResponsiveNavbar: React.FC = () => {
     },
     {
       label: "RESEARCH",
-      dropdownItems: ["Institute Funded Project", "Externally Funded Projects", "Collaborations"],
+      dropdownItems: ["Institute/External Projects", "Collaborations"],
     },
     {
       label: "PUBLICATIONS",
@@ -302,9 +301,11 @@ const ResponsiveNavbar: React.FC = () => {
         {/* Mobile dropdown */}
         <div
           className={`
-            lg:hidden transition-all duration-300 ease-in-out
-            ${isMobileMenuOpen ? " opacity-100" : "max-h-0 opacity-0"}
-          `}
+    lg:hidden transition-all duration-300 ease-in-out
+    ${
+      isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
+    }
+  `}
         >
           <div className="bg-gray-50 mt-2 max-h-full overflow-y-auto">
             {navigationItems.map((item) => {

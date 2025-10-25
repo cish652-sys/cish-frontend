@@ -31,7 +31,7 @@ const AboutUsPage = () => {
             <Typography variant="sectionHeading">ABOUT INSTITUTE</Typography>
           </div>
           <section id="about-institute " className="border p-6 bg-white shadow-sm mb-16">
-            <ul className="list-disc list-inside space-y-4 text-gray-700">
+            <ul className="list-none space-y-4 text-gray-700">
               <li>
                 The Central Institute For Subtropical Horticulture (CISH) Was Started As Central
                 Mango Research Station On September 4, 1972 Under The Aegis Of The Indian Institute
@@ -93,7 +93,7 @@ const AboutUsPage = () => {
                 <p className="font-semibold text-gray-800 mb-4">
                   THE INSTITUTE IS PRESENTLY FUNCTIONING WITH THE FOLLOWING MANDATES:
                 </p>
-                <ul className="list-disc list-inside space-y-3 text-gray-700">
+                <ul className="list-none list-inside space-y-3 text-gray-700">
                   <li>
                     Basic, Strategic And Applied Research To Enhance Sustainable Productivity,
                     Quality And Utilization Of Subtropical Horticultural Crops.
@@ -119,7 +119,7 @@ const AboutUsPage = () => {
                 <p className="font-semibold text-gray-800 mb-4">
                   THE INSTITUTE PURSUES ITS MANDATE THROUGH THE FOLLOWING OBJECTIVES:
                 </p>
-                <ul className="list-disc list-inside space-y-3 text-gray-700">
+                <ul className="list-none list-inside space-y-3 text-gray-700">
                   <li>
                     Management Of Genetic Resources Of Mandated Fruit Crops And Their Conventional
                     And Molecular Characterization.

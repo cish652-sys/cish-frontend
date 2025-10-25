@@ -47,8 +47,9 @@ export default function CitizenCharter() {
       <section className="relative w-full">
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
+
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Newsletter" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "News Letter" }]}
         iconProps={true}
         title="NEWSLETTER"
         description={[""]}
