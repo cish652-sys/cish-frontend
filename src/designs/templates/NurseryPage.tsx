@@ -27,12 +27,12 @@ const NurseryPage = () => {
     "/icons/n9.jpg",
     "/icons/n10.jpg",
     "/icons/n11.jpg",
-  "/icons/n12.jpg",
-  "/icons/n13.jpg",
-  "/icons/n14.jpg",
-  "/icons/n15.jpg",
-  "/icons/n16.jpg",
-  "/icons/n17.jpg",
+    "/icons/n12.jpg",
+    "/icons/n13.jpg",
+    "/icons/n14.jpg",
+    "/icons/n15.jpg",
+    "/icons/n16.jpg",
+    "/icons/n17.jpg",
   ];
 
   return (
@@ -195,7 +195,3 @@ const NurseryPage = () => {
 };
 
 export default NurseryPage;
-
-
-
-

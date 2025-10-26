@@ -116,9 +116,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  currentIndex === index
-                    ? "bg-white w-8"
-                    : "bg-white/50 hover:bg-white/75"
+                  currentIndex === index ? "bg-white w-8" : "bg-white/50 hover:bg-white/75"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
