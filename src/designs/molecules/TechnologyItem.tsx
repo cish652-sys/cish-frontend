@@ -13,7 +13,7 @@ export const TechnologyItem = ({ title, date, description }: TechnologyItemProps
     <div className="border-b px-3 sm:px-4 py-2 sm:py-3 hover:bg-gray-50 transition">
       {/* Title + Date */}
       <div className="flex items-start sm:items-center flex-col sm:flex-row gap-1 sm:gap-2 mb-1">
-        <span className="text-sm sm:text-base md:text-lg font-bold capitalize leading-tight tracking-normal font-['Noto Sans'] flex-1 min-w-0">
+        <span className="text-sm sm:text-base md:text-lg font-bold normal-case leading-tight tracking-normal font-['Noto Sans'] flex-1 min-w-0">
           {title}
         </span>
 

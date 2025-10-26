@@ -153,19 +153,18 @@ export const getVariantStyle = (variant?: TypographyVariant) => {
       };
 
     // ✅ 6. Paragraph Small (12px, capitalize)
-    case "paragraphSmall":
-      return {
-        className: "",
-        style: {
-          fontWeight: 400,
-          fontStyle: "normal",
-          fontSize: "12px",
-          lineHeight: "157%",
-          letterSpacing: "0%",
-          textTransform: "capitalize" as const,
-          color: "#4F5850",
-        },
-      };
+   case "paragraphSmall":
+  return {
+    className: "normal-case",
+    style: {
+      fontWeight: 400,
+      fontStyle: "normal",
+      fontSize: "12px",
+      lineHeight: "157%",
+      letterSpacing: "0%",
+      color: "#4F5850",
+    },
+  };
 
     // ✅ 7. SubHeading Gray (19px)
     case "subHeadingGray":
