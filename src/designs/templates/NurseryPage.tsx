@@ -8,10 +8,32 @@ import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
 import { Header } from "../organisms/Header";
 import { Footer } from "../organisms/FooterOrganisms/Footer";
 import { Mail, Phone } from "lucide-react";
+import ImageCarousel from "../atoms/ImageCarousel";
 
 const NurseryPage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselItems = [1, 2, 3, 4];
+
+  // Add your nursery images here - just provide the paths
+  const nurseryImages = [
+    "/icons/n1.jpg",
+    "/icons/n2.jpg",
+    "/icons/n3.jpg",
+    "/icons/n4.jpg",
+    "/icons/n5.jpg",
+    "/icons/n6.jpg",
+    "/icons/n7.jpg",
+    "/icons/n8.jpg",
+    "/icons/n9.jpg",
+    "/icons/n10.jpg",
+    "/icons/n11.jpg",
+    "/icons/n12.jpg",
+    "/icons/n13.jpg",
+    "/icons/n14.jpg",
+    "/icons/n15.jpg",
+    "/icons/n16.jpg",
+    "/icons/n17.jpg",
+  ];
 
   return (
     <main>
@@ -46,6 +68,27 @@ const NurseryPage = () => {
           </h2>
         </div>
       </section>
+
+      {/* Nursery Image Gallery Section */}
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-gray-50">
+        <div className="container max-w-6xl mx-auto">
+          <div className="mb-8 text-center">
+            <Typography variant="sectionHeading" className="mb-2">
+              Our Nursery Gallery
+            </Typography>
+            <p className="text-gray-600">
+              Explore our world-class nursery facilities and quality planting materials
+            </p>
+          </div>
+          <ImageCarousel
+            images={nurseryImages}
+            autoPlayInterval={4000}
+            showThumbnails={true}
+            aspectRatio="video"
+          />
+        </div>
+      </section>
+
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-8">
           <h2 className="text-gray-700 font-semibold leading-relaxed">
@@ -54,9 +97,9 @@ const NurseryPage = () => {
             Requests will be valid for the following year.
             <br />
             <br />
-            आप नीचे दिए गए लिंक का उपयोग करके आईसीएआर-सीआईएसएच, लखनऊ से अपनी आवश्यक रोपण सामग्री का
+            {/* आप नीचे दिए गए लिंक का उपयोग करके आईसीएआर-सीआईएसएच, लखनऊ से अपनी आवश्यक रोपण सामग्री का
             अनुरोध कर सकते हैं। कृपया प्रत्येक वर्ष 1 जनवरी से 30 जून के बीच अपना अनुरोध भेजें।
-            प्रतिवर्ष 30 जून तक दिये गये मांगपत्र उसी वर्ष के लिए मान्य होंगे।{" "}
+            प्रतिवर्ष 30 जून तक दिये गये मांगपत्र उसी वर्ष के लिए मान्य होंगे।{" "} */}
           </h2>
         </div>
       </section>

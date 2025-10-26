@@ -50,8 +50,8 @@ const ItmuIprCellPage = () => {
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
-          { label: "DIVISION", href: "/division" },
-          { label: "CISH ITMU / IPR CELL" },
+          { label: "DIVISION", href: "/Division" },
+          { label: "CISH ITMU / IPR CELL", href: "/Itmu" },
         ]}
         iconProps={true}
         title="CISH ITMU / IPR CELL"

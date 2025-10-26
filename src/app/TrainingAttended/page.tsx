@@ -210,7 +210,12 @@ export default function TrainingWorkshops() {
       <ResponsiveNavbar />
 
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Capacity Building" }]}
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "DIVISION", href: "/Division" },
+          { label: "CISH ITMU / IPR CELL", href: "/Itmu" },
+          { label: "Capacity Building" },
+        ]}
         iconProps={true}
         title="Commercialization of technologies"
         description={[""]}
