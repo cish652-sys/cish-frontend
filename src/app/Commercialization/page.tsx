@@ -55,7 +55,6 @@ export default function Commercialization() {
                 className="text-[#31572C] hover:text-[#599A5E]"
               >
                 APPLICATION FORM
-                
               </a>
             </li>
           </ul>
