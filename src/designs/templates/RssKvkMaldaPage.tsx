@@ -174,21 +174,20 @@ const RssKvkMaldaPage = () => {
   const handleViewMore = (staff: StaffsItems) => {
     console.log("View more:", staff.name);
   };
-useEffect(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
       // Move to the next banner
       setActiveBanner((prevBanner) => (prevBanner + 1) % banners.length);
     }, 3000); // Change slide every 3 seconds
 
     return () => clearInterval(timer);
-  }, []); 
+  }, []);
 
-  
   return (
     <main>
       <Header />
       <ResponsiveNavbar />
-     <section className="relative w-full">
+      <section className="relative w-full">
         {banners.map((banner, index) => (
           <div
             key={banner.src}
@@ -196,7 +195,6 @@ useEffect(() => {
               activeBanner === index ? "opacity-100" : "opacity-0 absolute top-0 left-0 w-full"
             }`}
           >
-      
             <Logo src={banner.src} alt={banner.alt} responsive />
           </div>
         ))}
@@ -205,11 +203,9 @@ useEffect(() => {
           {banners.map((_, index) => (
             <button
               key={index}
-              onClick={() => setActiveBanner(index)} 
+              onClick={() => setActiveBanner(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                activeBanner === index
-                  ? "bg-white border-2 border-green-700" 
-                  : "bg-white/70" 
+                activeBanner === index ? "bg-white border-2 border-green-700" : "bg-white/70"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

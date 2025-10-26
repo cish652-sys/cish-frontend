@@ -47,8 +47,6 @@ const incubationStages = [
   { stage: "Stage 14", task: "Yearly audit by CISH (for sale and royalty)" },
 ];
 
-
-
 const supportedStartups = [
   {
     sr: "1.",

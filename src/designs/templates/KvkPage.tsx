@@ -169,53 +169,49 @@ const carouselDots = [0, 1, 2, 3, 4]; // 5 dots as per your image
 const KvkPage = () => {
   // 4. Add state for carousel
   const [activeSlide, setActiveSlide] = useState(0);
-    const [activeBanner, setActiveBanner] = useState(0);
-  
+  const [activeBanner, setActiveBanner] = useState(0);
 
   const handleViewMore = (staff: StaffsItems) => {
     console.log("View more:", staff.name);
   };
 
   useEffect(() => {
-      const timer = setInterval(() => {
-        // Move to the next banner
-        setActiveBanner((prevBanner) => (prevBanner + 1) % banners.length);
-      }, 3000); // Change slide every 3 seconds
-  
-      return () => clearInterval(timer);
-    }, []); 
+    const timer = setInterval(() => {
+      // Move to the next banner
+      setActiveBanner((prevBanner) => (prevBanner + 1) % banners.length);
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(timer);
+  }, []);
   return (
     <main>
       <Header />
       <ResponsiveNavbar />
       <section className="relative w-full">
-             {banners.map((banner, index) => (
-               <div
-                 key={banner.src}
-                 className={`transition-opacity duration-1000 ease-in-out ${
-                   activeBanner === index ? "opacity-100" : "opacity-0 absolute top-0 left-0 w-full"
-                 }`}
-               >
-           
-                 <Logo src={banner.src} alt={banner.alt} responsive />
-               </div>
-             ))}
-     
-             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-               {banners.map((_, index) => (
-                 <button
-                   key={index}
-                   onClick={() => setActiveBanner(index)} 
-                   className={`w-3 h-3 rounded-full transition-colors ${
-                     activeBanner === index
-                       ? "bg-white border-2 border-green-700" 
-                       : "bg-white/70" 
-                   }`}
-                   aria-label={`Go to slide ${index + 1}`}
-                 />
-               ))}
-             </div>
-           </section>
+        {banners.map((banner, index) => (
+          <div
+            key={banner.src}
+            className={`transition-opacity duration-1000 ease-in-out ${
+              activeBanner === index ? "opacity-100" : "opacity-0 absolute top-0 left-0 w-full"
+            }`}
+          >
+            <Logo src={banner.src} alt={banner.alt} responsive />
+          </div>
+        ))}
+
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveBanner(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                activeBanner === index ? "bg-white border-2 border-green-700" : "bg-white/70"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
 
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "KVK MALDA" }]}
@@ -360,8 +356,8 @@ const KvkPage = () => {
                   General Public And Other Government And Private Sectors.
                 </li>
                 <li>
-                  <strong>Adopted Villages:</strong> ICAR-CISH KRISHI VIGYAN KENDRA Has Adopted
-                  25 Tribal Villages With 1050 Tribal Households For Establishment Of Nutri-Smart
+                  <strong>Adopted Villages:</strong> ICAR-CISH KRISHI VIGYAN KENDRA Has Adopted 25
+                  Tribal Villages With 1050 Tribal Households For Establishment Of Nutri-Smart
                   Tribal Village At Habibpur Block Of Malda Under Tribal Sub-Plan Programme.
                 </li>
                 <li>

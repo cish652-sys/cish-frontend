@@ -20,7 +20,6 @@ const carouselImages = [
     src: "/icons/museum3.svg", // Example path
     alt: "Museum artifacts on display",
   },
-  
 ];
 
 const Museum = () => {
@@ -53,22 +52,13 @@ const Museum = () => {
         </div>
       </section>
 
-     <section className="bg-[#FBFBF8] py-12">
+      <section className="bg-[#FBFBF8] py-12">
         <div className="container mx-auto px-4">
           <div className="w-full mb-6">
-         
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {carouselImages.map((image, index) => (
-                <div
-                  key={index}
-                  className="h-64 rounded overflow-hidden relative"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    layout="fill"
-                    className="object-cover"
-                  />
+                <div key={index} className="h-64 rounded overflow-hidden relative">
+                  <Image src={image.src} alt={image.alt} layout="fill" className="object-cover" />
                 </div>
               ))}
             </div>

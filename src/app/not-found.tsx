@@ -20,8 +20,7 @@ export default function ComingSoon() {
         transition={{ delay: 0.3, duration: 0.6 }}
         className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl"
       >
-        We’re working to bring you something amazing!  
-        Stay tuned — this page will be live very soon.
+        We’re working to bring you something amazing! Stay tuned — this page will be live very soon.
       </motion.p>
 
       <motion.div

@@ -3,8 +3,6 @@ import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 export default function Consultancy() {
-  
-
   return (
     <main className="w-full bg-[#FBFAF0]">
       <Header />

@@ -12,8 +12,6 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
 const carouselItems = [1, 2, 3, 4];
 
-
-
 // Resources (for table)
 const libraryResources = [
   { sr: 1, title: "Computer Science", copies: 22 },
@@ -149,8 +147,6 @@ const referenceBooks = [
   // Software
   { sr: "Soft-1", title: "Library Automation Software (Libsys) 4.0", copies: 1 },
 ];
-
-
 
 // ==========================
 // LIBRARY PAGE COMPONENT
