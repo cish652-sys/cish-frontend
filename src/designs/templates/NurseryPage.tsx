@@ -108,21 +108,21 @@ const NurseryPage = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
             <a
               href="#"
-              className="w-full md:w-auto bg-[#1B5E20] text-white font-semibold py-4 px-8  text-center shadow-md hover:bg-[#2e532a] transition-colors duration-200"
+              className="w-full md:w-auto text-[#1B5E20] border-2 border-[#1B5E20] font-semibold py-4 px-8 text-center shadow-md hover:bg-[#1B5E20] hover:text-white transition-colors duration-200"
             >
               For Plants Bookings
             </a>
             <a
               href="#"
               download
-              className="w-full md:w-auto bg-white border-2 border-[#3A6B35] text-[#3A6B35] font-semibold py-4 px-8  text-center shadow-md hover:bg-gray-50 transition-colors duration-200"
+              className="w-full md:w-auto text-[#1B5E20] border-2 border-[#1B5E20] font-semibold py-4 px-8 text-center shadow-md hover:bg-[#1B5E20] hover:text-white transition-colors duration-200"
             >
               Planting Material Allocation Process (Download)
             </a>
             <a
               href="#"
               download
-              className="w-full md:w-auto bg-white border-2 border-[#3A6B35] text-[#3A6B35] font-semibold py-4 px-8  text-center shadow-md hover:bg-gray-50 transition-colors duration-200"
+              className="w-full md:w-auto text-[#1B5E20] border-2 border-[#1B5E20] font-semibold py-4 px-8 text-center shadow-md hover:bg-[#1B5E20] hover:text-white transition-colors duration-200"
             >
               Allotment Process For Planting Material (Download)
             </a>

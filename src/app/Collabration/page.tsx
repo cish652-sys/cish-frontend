@@ -18,7 +18,7 @@ export default function Collaboration() {
       />
 
       <section className="py-12 px-6 md:px-16 bg-[#FBFAF0] text-gray-800 leading-relaxed">
-        <h2 className="text-green-800 font-bold mt-6 mb-6">
+        <h2 className="text-green-800 text-2xl font-bold mt-6 mb-6">
           Institute established linkages with the following organizations/ universities/ agencies/
           societies/ entrepreneurs during the period:
         </h2>

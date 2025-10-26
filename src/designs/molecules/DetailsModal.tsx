@@ -100,7 +100,7 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
         <ul className="list-disc list-outside pl-5 space-y-1">
           {item.description.map((line, idx) => (
             <li key={idx}>
-              <Typography variant="paragraphSmall">{line}</Typography>
+              <p className="text-gray-700 text-sm">{line}</p>
             </li>
           ))}
         </ul>

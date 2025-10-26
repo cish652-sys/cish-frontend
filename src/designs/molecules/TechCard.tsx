@@ -40,9 +40,9 @@ const TechCard: React.FC<TechCardProps> = ({
         <ul className="list-disc list-outside pl-5 mt-2">
           {description.map((line, idx) => (
             <li key={idx} className="leading-snug">
-              <Typography variant="paragraphSmall" className="inline">
+              <p className="inline text-gray-700 text-sm">
                 {line}
-              </Typography>
+              </p>
             </li>
           ))}
         </ul>
