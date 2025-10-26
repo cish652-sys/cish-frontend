@@ -187,6 +187,7 @@ const NurseryPage = () => {
             ))}
           </div> */}
         </div>
+        
       </div>
 
       <Footer />
