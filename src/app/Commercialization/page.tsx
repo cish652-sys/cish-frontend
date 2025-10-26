@@ -49,7 +49,7 @@ export default function Commercialization() {
 
             <li>
               <a
-                href="https://minio.cish.org.in/cish-bucket/itmu_application%20(6).docx"
+                href="https://minio.cish.org.in/cish-bucket/itmuapplication.docx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#31572C] hover:text-[#599A5E]"
