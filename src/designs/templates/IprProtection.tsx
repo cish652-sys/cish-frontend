@@ -142,8 +142,8 @@ const IprProtectionPage = () => {
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
-          { label: "DIVISION", href: "/division" },
-          { label: "CISH ITMU / IPR CELL", href: "/division/itmu-ipr-cell" }, // Link back to parent
+          { label: "DIVISION", href: "/Division" },
+          { label: "CISH ITMU / IPR CELL", href: "/Itmu" }, // Link back to parent
           { label: "IPR PROTECTION" },
         ]}
         iconProps={true}
