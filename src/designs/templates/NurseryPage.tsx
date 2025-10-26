@@ -113,8 +113,8 @@ const NurseryPage = () => {
                 <Typography variant="paragraphSmall">
                   Email Us At :&nbsp;
                   <a
-                    href="mailto:Cishnursery@gmail.com"
-                    className="text-green-700 font-semibold hover:underline"
+                    href="mailto:cishnursery@gmail.com"
+                    className="text-green-700 font-semibold hover:underline normal-case"
                   >
                     cishnursery@gmail.com
                   </a>

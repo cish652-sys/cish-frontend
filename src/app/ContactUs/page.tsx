@@ -23,7 +23,7 @@ const Contact = () => {
         description={[""]}
       />
 
-      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#fff]">
         <div className="max-w-5xl mx-auto flex flex-col gap-16">
           {/* CONTACT INFORMATION */}
           <div className="text-center">
