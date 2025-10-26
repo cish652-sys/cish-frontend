@@ -7,11 +7,21 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
-// ==========================
-// DATA ARRAYS
-// ==========================
-
-const carouselItems = [1, 2, 3, 4];
+const carouselImages = [
+  {
+    src: "/icons/museum1.svg", // Example path
+    alt: "Photo of the museum exterior",
+  },
+  {
+    src: "/icons/museum2.svg", // Example path
+    alt: "Inside the museum, Section 1",
+  },
+  {
+    src: "/icons/museum3.svg", // Example path
+    alt: "Museum artifacts on display",
+  },
+  
+];
 
 const Museum = () => {
   return (
@@ -43,21 +53,35 @@ const Museum = () => {
         </div>
       </section>
 
-      <section className="bg-[#FBFBF8] py-12">
+     <section className="bg-[#FBFBF8] py-12">
         <div className="container mx-auto px-4">
           <div className="w-full mb-6">
+         
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-300 h-64 rounded"></div>
-              <div className="bg-gray-300 h-64 rounded"></div>
-              <div className="bg-gray-300 h-64 rounded"></div>
+              {carouselImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="h-64 rounded overflow-hidden relative"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    layout="fill"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="flex justify-center items-center gap-2">
-            {carouselItems.map((_, index) => (
+            {/* Update this to map over your new array */}
+            {carouselImages.map((_, index) => (
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-colors ${
+                  // Note: This logic just highlights the first dot.
+                  // A real carousel would need React state to track the active slide.
                   index === 0 ? "bg-[#3A6B35]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -85,7 +109,7 @@ const Museum = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="h-60 rounded overflow-hidden ">
                 <Image
-                  src="/icons/1.png"
+                  src="/icons/museum1.svg"
                   alt="Museum Section Icon 1"
                   width={500}
                   height={500}

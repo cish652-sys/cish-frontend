@@ -9,7 +9,7 @@ export default function CadreStrength() {
       <Header />
       <ResponsiveNavbar />
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
-        <div className="max-w-6xl mx-auto flex flex-col gap-10 text-gray-700">
+        <div className="max-w-6xl mx-auto flex flex-col gap-10 text-gray-800">
           <h1 className="text-green-800 font-bold text-2xl text-center">CADRE STRENGTH</h1>
           <h2 className="text-center font-semibold">
             ICAR-Central Institute for Subtropical Horticulture as on 01-06-2021
@@ -18,7 +18,7 @@ export default function CadreStrength() {
           {/* Main Institute Table */}
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse text-sm">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
                   <th className="p-3 border-b border-gray-300">Sl. No.</th>
                   <th className="p-3 border-b border-gray-300">Name of the Discipline</th>
@@ -29,7 +29,7 @@ export default function CadreStrength() {
                     In-Position
                   </th>
                 </tr>
-                <tr className="bg-lime-200">
+                <tr className="bg-[#599A5E]">
                   <th></th>
                   <th></th>
                   <th className="p-2 border-b border-gray-300">Sci.</th>
@@ -91,7 +91,7 @@ export default function CadreStrength() {
                 ))}
 
                 {/* TOTAL Row */}
-                <tr className="font-semibold bg-lime-200">
+                <tr className="font-semibold bg-[#599A5E]">
                   <td colSpan={2} className="p-2 text-center border-t">
                     TOTAL
                   </td>
@@ -114,7 +114,7 @@ export default function CadreStrength() {
           <h3 className="text-green-800 font-bold text-xl">Regional Station, Malda</h3>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse text-sm">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
                   <th className="p-3 border-b border-gray-300">Sl. No.</th>
                   <th className="p-3 border-b border-gray-300">Name of the Discipline</th>
@@ -141,7 +141,7 @@ export default function CadreStrength() {
                   </tr>
                 ))}
 
-                <tr className="font-semibold bg-lime-200">
+                <tr className="font-semibold bg-[#599A5E]">
                   <td colSpan={2} className="p-2 text-center border-t">
                     TOTAL
                   </td>
@@ -157,7 +157,7 @@ export default function CadreStrength() {
                   <td className="p-2 border-t">2</td>
                 </tr>
 
-                <tr className="font-bold bg-lime-200">
+                <tr className="font-bold bg-[#599A5E]">
                   <td colSpan={2} className="p-2 text-center border-t">
                     GRAND TOTAL
                   </td>
@@ -180,7 +180,7 @@ export default function CadreStrength() {
           <h3 className="text-green-800 font-bold text-xl">Technical</h3>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse text-sm">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
                   <th className="p-3 border-b border-gray-300">Category</th>
                   <th className="p-3 border-b border-gray-300">Sanctioned Strength</th>
@@ -200,7 +200,7 @@ export default function CadreStrength() {
                   </tr>
                 ))}
 
-                <tr className="font-semibold bg-lime-200">
+                <tr className="font-semibold bg-[#599A5E]">
                   <td className="p-2 border-t">Total</td>
                   <td className="p-2 border-t text-center">43</td>
                   <td className="p-2 border-t text-center">25</td>
@@ -213,7 +213,7 @@ export default function CadreStrength() {
           <h3 className="text-green-800 font-bold text-xl">Administrative</h3>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse text-sm">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
                   <th className="p-3 border-b border-gray-300">Post</th>
                   <th className="p-3 border-b border-gray-300">Sanctioned Strength</th>
@@ -240,13 +240,13 @@ export default function CadreStrength() {
                   </tr>
                 ))}
 
-                <tr className="font-semibold bg-lime-200">
+                <tr className="font-semibold bg-[#599A5E]">
                   <td className="p-2 border-t">Total</td>
                   <td className="p-2 border-t text-center">26</td>
                   <td className="p-2 border-t text-center">14</td>
                 </tr>
 
-                <tr className="font-semibold bg-lime-200">
+                <tr className="font-semibold bg-[#599A5E]">
                   <td className="p-2 border-t">Skilled Supporting Staff</td>
                   <td className="p-2 border-t text-center">39</td>
                   <td className="p-2 border-t text-center">15</td>

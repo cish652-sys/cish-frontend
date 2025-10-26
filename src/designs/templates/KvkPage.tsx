@@ -166,61 +166,61 @@ const carouselDots = [0, 1, 2, 3, 4]; // 5 dots as per your image
 
 // --- Page Component ---
 
-const RssKvkMaldaPage = () => {
+const KvkPage = () => {
   // 4. Add state for carousel
   const [activeSlide, setActiveSlide] = useState(0);
-  const [activeBanner, setActiveBanner] = useState(0);
+    const [activeBanner, setActiveBanner] = useState(0);
+  
 
   const handleViewMore = (staff: StaffsItems) => {
     console.log("View more:", staff.name);
   };
-useEffect(() => {
-    const timer = setInterval(() => {
-      // Move to the next banner
-      setActiveBanner((prevBanner) => (prevBanner + 1) % banners.length);
-    }, 3000); // Change slide every 3 seconds
 
-    return () => clearInterval(timer);
-  }, []); 
-
+  useEffect(() => {
+      const timer = setInterval(() => {
+        // Move to the next banner
+        setActiveBanner((prevBanner) => (prevBanner + 1) % banners.length);
+      }, 3000); // Change slide every 3 seconds
   
+      return () => clearInterval(timer);
+    }, []); 
   return (
     <main>
       <Header />
       <ResponsiveNavbar />
-     <section className="relative w-full">
-        {banners.map((banner, index) => (
-          <div
-            key={banner.src}
-            className={`transition-opacity duration-1000 ease-in-out ${
-              activeBanner === index ? "opacity-100" : "opacity-0 absolute top-0 left-0 w-full"
-            }`}
-          >
-      
-            <Logo src={banner.src} alt={banner.alt} responsive />
-          </div>
-        ))}
-
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-          {banners.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveBanner(index)} 
-              className={`w-3 h-3 rounded-full transition-colors ${
-                activeBanner === index
-                  ? "bg-white border-2 border-green-700" 
-                  : "bg-white/70" 
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      </section>
+      <section className="relative w-full">
+             {banners.map((banner, index) => (
+               <div
+                 key={banner.src}
+                 className={`transition-opacity duration-1000 ease-in-out ${
+                   activeBanner === index ? "opacity-100" : "opacity-0 absolute top-0 left-0 w-full"
+                 }`}
+               >
+           
+                 <Logo src={banner.src} alt={banner.alt} responsive />
+               </div>
+             ))}
+     
+             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+               {banners.map((_, index) => (
+                 <button
+                   key={index}
+                   onClick={() => setActiveBanner(index)} 
+                   className={`w-3 h-3 rounded-full transition-colors ${
+                     activeBanner === index
+                       ? "bg-white border-2 border-green-700" 
+                       : "bg-white/70" 
+                   }`}
+                   aria-label={`Go to slide ${index + 1}`}
+                 />
+               ))}
+             </div>
+           </section>
 
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "RSS MALDA" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "KVK MALDA" }]}
         iconProps={true}
-        title="ICAR-CISH Regional Research Station"
+        title="ICAR-CISH Krishi Vigyan Kendra, Malda W.B."
         description={[""]}
       />
 
@@ -229,7 +229,7 @@ useEffect(() => {
           {/* --- RSS/KVK Malda Section (Mandate) --- */}
           <div className="max-w-5xl mx-auto mb-16">
             <Typography variant="sectionHeading" className="text-left mb-6">
-              RSS
+              KVK MALDA
             </Typography>
             <ol className="list-decimal bg-white border border-gray-300 shadow-lg p-6 list-inside space-y-3 text-gray-700">
               <li>
@@ -255,11 +255,11 @@ useEffect(() => {
               ONGOING AND COMPLETED PROJECTS
             </Typography>
             <h4 className="font-semibold text-green-900 mb-4 mt-6">
-              ICAR-CISH REGIONAL RESEARCH STATION, MALDA W.B.
+              ICAR-CISH KRISHI VIGYAN KENDRA
             </h4>
             <DataTable columns={projectColumns} data={regionalProjectData} rowGap={2} />
             <h4 className="font-semibold text-green-900 mb-4 mt-10">
-              ICAR-CISH REGIONAL RESEARCH STATION, MALDA W.B.
+              ICAR-CISH KRISHI VIGYAN KENDRA, MALDA W.B.
             </h4>
             <DataTable columns={projectColumns} data={kvkProjectData} rowGap={2} />
           </div>
@@ -315,7 +315,7 @@ useEffect(() => {
             </Typography>
             <div className="mb-12">
               <h4 className="font-semibold text-green-900 mb-6">
-                ICAR-CISH REGIONAL RESEARCH STATION, MALDA W.B.
+                ICAR-CISH KRISHI VIGYAN KENDRA, MALDA W.B.
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {regionalStaffData.map((staff) => (
@@ -325,7 +325,7 @@ useEffect(() => {
             </div>
             <div>
               <h4 className="font-semibold text-green-900 mb-6">
-                ICAR-CISH REGIONAL RESEARCH STATION, MALDA W.B.
+                ICAR-CISH KRISHI VIGYAN KENDRA, MALDA W.B.
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {kvkStaffData.map((staff) => (
@@ -344,23 +344,23 @@ useEffect(() => {
               <ol className="list-decimal list-inside space-y-4">
                 <li>
                   A MoUs i.e. Student Ready Programme Has Been Signed Between Uttar Banga Krishi
-                  Viswavidyalaya (UBKV), Cooch Behar, West Bengal And ICAR-CISH Regional Research
-                  Station, Malda, West Bengal To Develop The Capacity Building Among Students.
+                  Viswavidyalaya (UBKV), Cooch Behar, West Bengal And ICAR-CISH Krishi Vigyan
+                  Kendra, Malda, West Bengal To Develop The Capacity Building Among Students.
                 </li>
                 <li>
                   To Provide The Agriculture Knowledge Skill A One Year Course Of Diploma In
                   Agricultural Extension Services For Input Dealers (DAESI) Is Also Started At ICAR-
-                  CISH RRS, Malda From October 25th 2017.
+                  CISH KVK, Malda From October 25th 2017.
                 </li>
                 <li>
-                  <strong>ICAR-CISH RRS Nursery:</strong> ICAR-CISH RRS, Malda Has Initiated To
+                  <strong>ICAR-CISH KVK Nursery:</strong> ICAR-CISH KVK, Malda Has Initiated To
                   Establish A Hi-Tech Nursery On 4 Ha Area For Quality Planting Material Production
                   With Annual Initial Target Of 1,00,000 Quality Saplings To Ensure The Supply Of
                   Good Quality And Disease Free Planting Material To Farmers, Gardeners, Nurserymen,
                   General Public And Other Government And Private Sectors.
                 </li>
                 <li>
-                  <strong>Adopted Villages:</strong> ICAR-CISH Regional Research Station Has Adopted
+                  <strong>Adopted Villages:</strong> ICAR-CISH KRISHI VIGYAN KENDRA Has Adopted
                   25 Tribal Villages With 1050 Tribal Households For Establishment Of Nutri-Smart
                   Tribal Village At Habibpur Block Of Malda Under Tribal Sub-Plan Programme.
                 </li>
@@ -404,7 +404,7 @@ useEffect(() => {
             </Typography>
             <div className="bg-white border border-gray-300 shadow-lg p-6 space-y-3 text-gray-700">
               <p className="text-center font-semibold text-gray-800 mb-6">
-                The CISH-RRS Malda Has In Linkage With Different National And International
+                The CISH-KVK Malda Has In Linkage With Different National And International
                 Organizations Such As Ministry Of Agriculture.
               </p>
               <ol className="list-decimal list-inside space-y-3">
@@ -443,4 +443,4 @@ useEffect(() => {
   );
 };
 
-export default RssKvkMaldaPage;
+export default KvkPage;

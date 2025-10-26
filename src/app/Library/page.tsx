@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
@@ -13,21 +12,7 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
 const carouselItems = [1, 2, 3, 4];
 
-// Categories with books
-const libraryCategories = [
-  {
-    name: "Horticulture",
-    books: ["Fruit Science", "Vegetable Production", "Ornamental Horticulture"],
-  },
-  {
-    name: "Agriculture Technology",
-    books: ["Agri-Business Models", "Smart Farming Techniques", "Precision Agriculture"],
-  },
-  {
-    name: "Biotechnology",
-    books: ["Plant Tissue Culture", "Bio-enhancers", "Genetic Engineering"],
-  },
-];
+
 
 // Resources (for table)
 const libraryResources = [
@@ -165,11 +150,7 @@ const referenceBooks = [
   { sr: "Soft-1", title: "Library Automation Software (Libsys) 4.0", copies: 1 },
 ];
 
-// Optional downloadable books (if needed)
-const downloadableBooks = [
-  { name: "Fruit Science Handbook", link: "/downloads/fruit_science.pdf" },
-  { name: "Smart Farming Techniques", link: "/downloads/smart_farming.pdf" },
-];
+
 
 // ==========================
 // LIBRARY PAGE COMPONENT
@@ -245,7 +226,7 @@ const Library = () => {
           <h2 className="text-green-800 font-bold">LIBRARY RESOURCES</h2>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
                   <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
                     Sr. No.
@@ -276,7 +257,7 @@ const Library = () => {
           <h2 className="text-green-800 font-bold"> Reference books</h2>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
                   <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
                     Sr. No.

@@ -63,9 +63,10 @@ export const technoItems: TechnologyCardItem[] = [
     id: 9001,
     title: "ICAR-FUSICONT",
     description: [
-      "In-Vitro Bio-Induction Of Host Plant Tolerance Is A First Kind Of Its Approach In Tissue Culture Towards Production Of Wilt Tolerant Disease Free Planting Material.",
-      "This Technology Utilizes A Novel Strain Of The Fungus Trichoderma Reesei (CSR-T-3) Cultivated In A Proprietary Medium. The Bio-Fungicide Has Shown Promising Results In Controlling The Disease, Reducing Production Losses, And Improving Yields",
-    ],
+  "In-vitro bio-induction of host plant tolerance is a first kind of its approach in tissue culture towards production of wilt tolerant disease-free planting material.",
+  "This technology utilizes a novel strain of the fungus Trichoderma reesei (CSR-T-3) cultivated in a proprietary medium. The bio-fungicide has shown promising results in controlling the disease, reducing production losses, and improving yields."
+],
+
     href: "https://cish.in/t_fusicont.php",
     image: "/icons/Rectangle 776.svg",
   },
@@ -73,19 +74,21 @@ export const technoItems: TechnologyCardItem[] = [
     id: 9002,
     title: "ICAR-BIOIMMUNIZER",
     description: [
-      "ICAR-FUSICONT Is A Bio-Fungicide, For Managing Banana Wilt Disease, Specifically The Panama Wilt (TR4) Caused By Fusarium Oxysporum F. Sp. Cubense.",
-      "An Innovative Tissue Culture Technique Mediated Through Bio-Engineering Of Metabolite-Based Biomolecule (Bioimmune) At In-Vitro Stage For The Production Of Fusarium Oxysporum Sp. Cubense TR-4 Tolerant Plantlets Of Banana.",
-      "The Technology Of Bio-Immunization For Producing Fusarium Wilt Tolerant Banana Plantlets Was Tested For Its Bio-Efficacy Through Pot Culture Experiments Where The Immune Treated Plantlets Exhibited A Disease Index Of 0.24 Compared With The FOC TR-4 Treated Control That Showed 3.75 Signifying The Host Induced Tolerance Through Changing The Tissue Culture Protocol.",
-    ],
+  "ICAR-FUSICONT is a bio-fungicide for managing banana wilt disease, specifically the Panama wilt (TR4) caused by Fusarium oxysporum f. sp. cubense.",
+  "An innovative tissue culture technique mediated through bio-engineering of metabolite-based biomolecule (bioimmune) at in-vitro stage for the production of Fusarium oxysporum sp. cubense TR-4 tolerant plantlets of banana.",
+  "The technology of bio-immunization for producing Fusarium wilt tolerant banana plantlets was tested for its bio-efficacy through pot culture experiments where the immune treated plantlets exhibited a disease index of 0.24 compared with the FOC TR-4 treated control that showed 3.75, signifying the host-induced tolerance through changing the tissue culture protocol."
+],
+
     href: "https://cish.in/t_bioimmunizer.php",
     image: "/icons/Rectangle 778.svg",
   },
   {
     id: 9003,
     title: "CISH-METWASH",
-    description: [
-      "CISH-Metwash is an anti-senescence, antifungal bioactive secondary metabolite-based bio-stimulant (strain CSR M44 + Biopolymer +adjuvants) developed for increasing the shelf life of mango 40-44 day and banana 50-52 days at 13 °C and 85% humidity in reefer container used for export through sea route. ]It is breakthrough technology that stands distinct from the regular ethylene absorbers where the maximum reported shelf life in mango 10 days and banana 15 days.",
-    ],
+   description: [
+  "CISH-Metwash is an anti-senescence, antifungal, bioactive secondary metabolite-based bio-stimulant (strain CSR M44 + biopolymer + adjuvants) developed for increasing the shelf life of mango (40–44 days) and banana (50–52 days) at 13 °C and 85% humidity in reefer containers used for export through sea route. It is a breakthrough technology that stands distinct from regular ethylene absorbers, where the maximum reported shelf life in mango is 10 days and in banana is 15 days."
+],
+
     href: "/tech/aonla",
     image: "/icons/Rectangle 780.svg",
   },

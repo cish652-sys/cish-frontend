@@ -47,22 +47,7 @@ const incubationStages = [
   { stage: "Stage 14", task: "Yearly audit by CISH (for sale and royalty)" },
 ];
 
-const technologiesCommercialized = [
-  { name: "Hot Water Dispersible Aonla-Herbal Tablet", subItems: [] },
-  { name: "Decomposer", subItems: [] },
-  { name: "Bio-immunization of Tissue Culture Plantlets", subItems: [] },
-  { name: "Mango and Guava Pulp Processing", subItems: [] },
-  { name: "Ready for Fruit Mushroom Bag Production", subItems: [] },
-  { name: "CISH Bio-enhancer", subItems: [] },
-  { name: "High-tech fruit plants nursery", subItems: [] },
-  { name: "Insect Trap Technology", subItems: [] },
-  {
-    name: "CISH-OMAT",
-    subItems: ["Rataul fruit fly trap container", "CISH Glue Trap"],
-  },
-  { name: "CISH- Pest Hammer", subItems: [] },
-  { name: "Honey Production and Processing", subItems: [] },
-];
+
 
 const supportedStartups = [
   {
@@ -271,7 +256,7 @@ const HortIndAbiCentrePage = () => {
                 {incubationStages.map((item) => (
                   <tr key={item.stage} className="border-b border-amber-300 last:border-b-0">
                     <td className="p-3 w-1/4 bg-amber-100 border-r border-amber-300">
-                      <h2 className="font-semibold text-gray-800">{item.stage}</h2>
+                      <h2 className="font-semibold text-white">{item.stage}</h2>
                     </td>
                     <td className="p-3">
                       {Array.isArray(item.task) ? (
@@ -343,15 +328,15 @@ const HortIndAbiCentrePage = () => {
           </h2>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
+                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
                     Sr. No.
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
+                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
                     Name of Startups / Enterprises / FPO
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
+                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
                     Technology
                   </th>
                 </tr>

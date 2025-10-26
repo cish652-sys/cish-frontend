@@ -3,20 +3,7 @@ import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 export default function Consultancy() {
-  const consultancyData = [
-    { sr: 1, year: "2001-02", number: 4 },
-    { sr: 2, year: "2002-03", number: 5 },
-    { sr: 3, year: "2003-04", number: 6 },
-    { sr: 4, year: "2004-05", number: 5 },
-    { sr: 5, year: "2005-06", number: 6 },
-    { sr: 6, year: "2007-08", number: 3 },
-    { sr: 7, year: "2008-09", number: 5 },
-    { sr: 8, year: "2009-10", number: 1 },
-    { sr: 9, year: "2010-11", number: 1 },
-    { sr: 10, year: "2011-12", number: 2 },
-    { sr: 11, year: "2012-13", number: 2 },
-    { sr: 12, year: "2013-14", number: "-" },
-  ];
+  
 
   return (
     <main className="w-full bg-[#FBFAF0]">
@@ -53,7 +40,7 @@ export default function Consultancy() {
           <h2 className="text-green-800 font-bold">CONSULTANCY OFFERED</h2>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse table-fixed">
-              <thead className="bg-lime-200">
+              <thead className="bg-[#599A5E]">
                 <tr>
                   <th className="p-3 text-center font-semibold text-gray-800 border-b border-gray-300 w-1/4">
                     Sr. No.

@@ -54,9 +54,9 @@ const NurseryPage = () => {
             Requests will be valid for the following year.
             <br />
             <br />
-            आप नीचे दिए गए लिंक का उपयोग करके आईसीएआर-सीआईएसएच, लखनऊ से अपनी आवश्यक रोपण सामग्री का
-            अनुरोध कर सकते हैं। कृपया प्रत्येक वर्ष 1 जनवरी से 30 जून के बीच अपना अनुरोध भेजें।
-            प्रतिवर्ष 30 जून तक दिये गये मांगपत्र उसी वर्ष के लिए मान्य होंगे।{" "}
+            You can use the link below to request the planting material you need from ICAR-CISH,
+            Lucknow. Please send your request between January 1 and June 30 each year. Requests
+            submitted by June 30 will be considered valid for that year only.{" "}
           </h2>
         </div>
       </section>
@@ -65,21 +65,21 @@ const NurseryPage = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
             <a
               href="#"
-              className="w-full md:w-auto bg-[#1B5E20] text-white font-semibold py-4 px-8  text-center shadow-md hover:bg-[#2e532a] transition-colors duration-200"
+              className="w-full md:w-auto text-[#1B5E20] border-2 border-[#1B5E20] font-semibold py-4 px-8 text-center shadow-md hover:bg-[#1B5E20] hover:text-white transition-colors duration-200"
             >
               For Plants Bookings
             </a>
             <a
               href="#"
               download
-              className="w-full md:w-auto bg-white border-2 border-[#3A6B35] text-[#3A6B35] font-semibold py-4 px-8  text-center shadow-md hover:bg-gray-50 transition-colors duration-200"
+              className="w-full md:w-auto text-[#1B5E20] border-2 border-[#1B5E20] font-semibold py-4 px-8 text-center shadow-md hover:bg-[#1B5E20] hover:text-white transition-colors duration-200"
             >
               Planting Material Allocation Process (Download)
             </a>
             <a
               href="#"
               download
-              className="w-full md:w-auto bg-white border-2 border-[#3A6B35] text-[#3A6B35] font-semibold py-4 px-8  text-center shadow-md hover:bg-gray-50 transition-colors duration-200"
+              className="w-full md:w-auto text-[#1B5E20] border-2 border-[#1B5E20] font-semibold py-4 px-8 text-center shadow-md hover:bg-[#1B5E20] hover:text-white transition-colors duration-200"
             >
               Allotment Process For Planting Material (Download)
             </a>
