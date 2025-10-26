@@ -9,13 +9,29 @@ const ActionCards: React.FC = () => {
     <div className="flex flex-wrap gap-3.5">
       <Link href="/staff">
         {" "}
-        <ActionButtonAtom Icon={Users} text="OUR TEAM" active onClick={() => {}} />{" "}
+        <ActionButtonAtom
+          Icon={Users}
+          text="OUR TEAM"
+          active
+          onClick={() => {}}
+          className="px-12"
+        />{" "}
       </Link>
       <Link href="/AboutUs">
         {" "}
-        <ActionButtonAtom Icon={Grid} text="OUR ORGANIZATION" onClick={() => {}} />{" "}
+        <ActionButtonAtom
+          Icon={Grid}
+          text="OUR ORGANIZATION"
+          onClick={() => {}}
+          className="px-6"
+        />{" "}
       </Link>
-      <ActionButtonAtom Icon={BarChart3} text="OUR PERFORMANCE" onClick={() => {}} />
+      <ActionButtonAtom
+        Icon={BarChart3}
+        text="OUR PERFORMANCE"
+        onClick={() => {}}
+        className="px-6"
+      />
     </div>
   );
 };

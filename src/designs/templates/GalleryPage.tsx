@@ -11,21 +11,31 @@ import {
   ChevronRight,
   Image as ImageIcon,
   Video as VideoIcon,
+  X, // For Modal
+  ChevronLeft, // For Modal
 } from "lucide-react";
 import Image from "next/image";
 
-// --- (GalleryItem type is unchanged) ---
+// Represents a single media file (image or video)
+interface ApiMediaItem {
+  id: number;
+  type: "image" | "video";
+  url: string;
+}
+
+// Represents an "album" or "gallery item" shown in the grid
 type GalleryItem = {
   id: number;
   type: "image" | "video";
   title: string;
   date: string;
   itemsCount: number;
-  imageUrl: string;
-  videoUrl?: string;
+  thumbnailUrl: string; // Renamed from imageUrl
+  media: ApiMediaItem[]; // Array of actual media files
 };
 
-// --- (Dummy data is unchanged, used for fallback) ---
+// --- DUMMY DATA (Updated with 'media' array) ---
+
 const dummyImageData: GalleryItem[] = [
   {
     id: 1,
@@ -33,7 +43,15 @@ const dummyImageData: GalleryItem[] = [
     title: "Independence day",
     date: "15/08/2025",
     itemsCount: 6,
-    imageUrl: "/icons/Gallery1.svg",
+    thumbnailUrl: "/icons/Gallery1.svg",
+    media: [
+      { id: 11, type: "image", url: "/icons/Gallery1.svg" },
+      { id: 12, type: "image", url: "/icons/Gallery2.svg" },
+      { id: 13, type: "image", url: "/icons/Gallery3.svg" },
+      { id: 14, type: "image", url: "/icons/Gallery4.svg" },
+      { id: 15, type: "image", url: "/icons/Gallery1.svg" },
+      { id: 16, type: "image", url: "/icons/Gallery2.svg" },
+    ],
   },
   {
     id: 2,
@@ -41,7 +59,8 @@ const dummyImageData: GalleryItem[] = [
     title: "FDP",
     date: "18/08/2025",
     itemsCount: 6,
-    imageUrl: "/icons/Gallery2.svg",
+    thumbnailUrl: "/icons/Gallery2.svg",
+    media: [{ id: 21, type: "image", url: "/icons/Gallery2.svg" }],
   },
   {
     id: 3,
@@ -49,7 +68,8 @@ const dummyImageData: GalleryItem[] = [
     title: "One day training cum demonstration",
     date: "22/08/2025",
     itemsCount: 10,
-    imageUrl: "/icons/Gallery3.svg",
+    thumbnailUrl: "/icons/Gallery3.svg",
+    media: [{ id: 31, type: "image", url: "/icons/Gallery3.svg" }],
   },
   {
     id: 4,
@@ -57,7 +77,8 @@ const dummyImageData: GalleryItem[] = [
     title: "lucknow aam mahotsav",
     date: "07/07/2025",
     itemsCount: 6,
-    imageUrl: "/icons/Gallery4.svg",
+    thumbnailUrl: "/icons/Gallery4.svg",
+    media: [{ id: 41, type: "image", url: "/icons/Gallery4.svg" }],
   },
   {
     id: 5,
@@ -65,7 +86,8 @@ const dummyImageData: GalleryItem[] = [
     title: "Ek Ped Maa Ke Naam",
     date: "15/07/2025",
     itemsCount: 6,
-    imageUrl: "/icons/Gallery1.svg",
+    thumbnailUrl: "/icons/Gallery1.svg",
+    media: [{ id: 51, type: "image", url: "/icons/Gallery1.svg" }],
   },
   {
     id: 6,
@@ -73,7 +95,8 @@ const dummyImageData: GalleryItem[] = [
     title: "Krishi Darshan Chaupal on general topics",
     date: "20/07/2025",
     itemsCount: 10,
-    imageUrl: "/icons/Gallery2.svg",
+    thumbnailUrl: "/icons/Gallery2.svg",
+    media: [{ id: 61, type: "image", url: "/icons/Gallery2.svg" }],
   },
 ];
 
@@ -84,8 +107,8 @@ const dummyVideoData: GalleryItem[] = [
     title: "CISH Foundation Day",
     date: "01/01/2025",
     itemsCount: 1,
-    imageUrl: "/assets/gallery/video_thumb1.jpg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnailUrl: "/assets/gallery/video_thumb1.jpg",
+    media: [{ id: 1011, type: "video", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }],
   },
   {
     id: 102,
@@ -93,8 +116,8 @@ const dummyVideoData: GalleryItem[] = [
     title: "Mango Festival Highlights",
     date: "10/06/2025",
     itemsCount: 1,
-    imageUrl: "/assets/gallery/video_thumb2.jpg",
-    videoUrl: "https://www.youtube.com/embed/someothervideo",
+    thumbnailUrl: "/assets/gallery/video_thumb2.jpg",
+    media: [{ id: 1021, type: "video", url: "https://www.youtube.com/embed/someothervideo" }],
   },
   {
     id: 103,
@@ -102,81 +125,80 @@ const dummyVideoData: GalleryItem[] = [
     title: "Research Farm Tour",
     date: "05/05/2025",
     itemsCount: 1,
-    imageUrl: "/assets/gallery/video_thumb3.jpg",
-    videoUrl: "https://www.youtube.com/embed/anotherone",
+    thumbnailUrl: "/assets/gallery/video_thumb3.jpg",
+    media: [{ id: 1031, type: "video", url: "https://www.youtube.com/embed/anotherone" }],
   },
 ];
 
-// 1. Define the API response type
-interface ApiMediaItem {
-  id: number;
-  type: "image" | "video";
-  url: string;
-}
+// --- END DUMMY DATA ---
 
-// 2. Transformation function to "fake" missing data
+// Transforms the flat API response into GalleryItem "albums"
 const transformMedia = (items: ApiMediaItem[], type: "image" | "video"): GalleryItem[] => {
-  return items.map((item, index) => ({
+  return items.map((item) => ({
     id: item.id,
     type: type,
-    // --- Faked Data ---
-    title: `${type === "image" ? "Image" : "Video"} ${index + 1}`,
-    date: "01/01/2025", // Sorting will not work correctly with this
+    title: `${type === "image" ? "Image" : "Video"} ${item.id}`,
+    date: "01/01/2025",
     itemsCount: 1,
-    // --- End Faked Data ---
-    imageUrl: type === "image" ? item.url : "/assets/gallery/video_thumb1.jpg", // Use a default thumb for videos
-    videoUrl: type === "video" ? item.url : undefined,
+    thumbnailUrl: type === "image" ? item.url : "/assets/gallery/video_thumb1.jpg",
+    media: [item],
   }));
 };
 
-// --- (GalleryFilterBar component is unchanged) ---
-const GalleryFilterBar: React.FC<{
+// --- THIS IS THE CORRECTED COMPONENT ---
+type GalleryFilterBarProps = {
   activeTab: "images" | "videos";
   setActiveTab: (tab: "images" | "videos") => void;
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   sortBy: string;
   setSortBy: (sort: string) => void;
-}> = ({ activeTab, setActiveTab, searchTerm, setSearchTerm, sortBy, setSortBy }) => (
+};
+
+const GalleryFilterBar: React.FC<GalleryFilterBarProps> = ({
+  activeTab,
+  setActiveTab,
+  searchTerm,
+  setSearchTerm,
+  sortBy,
+  setSortBy,
+}) => (
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-    {/* Search Input */}
     <div className="relative w-full md:w-auto md:flex-grow max-w-sm">
       <input
         type="text"
         placeholder="Search..."
         className="w-full pl-10 pr-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-[#5b9a5d]"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={searchTerm} // <-- Was missing
+        onChange={(e) => setSearchTerm(e.target.value)} // <-- Was missing
       />
       <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
     </div>
 
-    {/* Tabs for Images/Videos */}
     <div className="flex bg-gray-100 p-1 ">
       <button
         className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "images" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
+          activeTab === "images" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200" // <-- Fixed logic
         }`}
-        onClick={() => setActiveTab("images")}
+        onClick={() => setActiveTab("images")} // <-- Was missing
       >
         <ImageIcon className="w-5 h-5" /> Images
       </button>
       <button
         className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "videos" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
+          activeTab === "videos" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200" // <-- Fixed logic
         }`}
-        onClick={() => setActiveTab("videos")}
+        onClick={() => setActiveTab("videos")} // <-- Was missing
       >
         <VideoIcon className="w-5 h-5" /> Videos
       </button>
     </div>
 
-    {/* Sort By Dropdown */}
     <div className="relative w-full md:w-auto">
       <select
         className="appearance-none bg-white border border-gray-300  pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-[#5b9a5d] w-full"
-        value={sortBy}
-        onChange={(e) => setSortBy(e.target.value)}
+        value={sortBy} // <-- Was missing
+        onChange={(e) => setSortBy(e.target.value)} // <-- Was missing
       >
         <option value="date-desc">Sort By Date (Newest)</option>
         <option value="date-asc">Sort By Date (Oldest)</option>
@@ -187,13 +209,14 @@ const GalleryFilterBar: React.FC<{
     </div>
   </div>
 );
+// --- END OF CORRECTION ---
 
-// --- (GalleryCard component is unchanged) ---
-const GalleryCard: React.FC<{ item: GalleryItem }> = ({ item }) => (
+// GalleryCard updated to accept an onClick prop
+const GalleryCard: React.FC<{ item: GalleryItem; onClick: () => void }> = ({ item, onClick }) => (
   <div className=" shadow-md hover:shadow-lg transition-shadow duration-300  overflow-hidden group">
     <div className="relative w-full h-48 sm:h-56 overflow-hidden">
       <Image
-        src={item.imageUrl}
+        src={item.thumbnailUrl} // <-- Use thumbnailUrl
         alt={item.title}
         width={300}
         height={200}
@@ -204,7 +227,10 @@ const GalleryCard: React.FC<{ item: GalleryItem }> = ({ item }) => (
           ▶
         </div>
       )}
-      <button className="absolute top-3 right-3 bg-white text-gray-800 p-2  shadow-md group-hover:bg-[#5b9a5d] group-hover:text-white transition-colors duration-300">
+      <button
+        className="absolute top-3 right-3 bg-white text-gray-800 p-2  shadow-md group-hover:bg-[#5b9a5d] group-hover:text-white transition-colors duration-300"
+        onClick={onClick} // <-- Attach onClick to the button
+      >
         <ChevronRight className="w-5 h-5" />
       </button>
     </div>
@@ -222,12 +248,19 @@ const GalleryCard: React.FC<{ item: GalleryItem }> = ({ item }) => (
   </div>
 );
 
-// --- (GalleryGrid component is unchanged) ---
-const GalleryGrid: React.FC<{ items: GalleryItem[] }> = ({ items }) => (
+// GalleryGrid updated to pass click handler to cards
+const GalleryGrid: React.FC<{
+  items: GalleryItem[];
+  onCardClick: (item: GalleryItem) => void;
+}> = ({ items, onCardClick }) => (
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
       {items.map((item) => (
-        <GalleryCard key={item.id} item={item} />
+        <GalleryCard
+          key={item.id}
+          item={item}
+          onClick={() => onCardClick(item)} // <-- Pass click handler
+        />
       ))}
     </div>
     {items.length === 0 && (
@@ -238,53 +271,176 @@ const GalleryGrid: React.FC<{ items: GalleryItem[] }> = ({ items }) => (
   </div>
 );
 
+// --- NEW MODAL COMPONENT ---
+
+const GalleryModal: React.FC<{
+  items: ApiMediaItem[];
+  onClose: () => void;
+}> = ({ items, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentItem = items[currentIndex];
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        goToNext();
+      } else if (e.key === "ArrowLeft") {
+        goToPrevious();
+      } else if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [items.length]);
+
+  if (!currentItem) return null;
+
+  const isYouTube = currentItem.url.includes("youtube.com") || currentItem.url.includes("youtu.be");
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+      onClick={onClose}
+    >
+      <div
+        // Changed max-w-4xl to max-w-6xl
+        className="relative w-full max-w-6xl max-h-[90vh] p-4 bg-white rounded-lg shadow-xl" // <-- CHANGED
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          className="absolute -top-3 -right-3 z-10 p-1 text-white bg-gray-800 rounded-full hover:bg-gray-600 transition-all"
+          onClick={onClose}
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        {/* Content Area */}
+        <div className="w-full flex items-center justify-center">
+          {currentItem.type === "image" && (
+            <Image
+              src={currentItem.url}
+              alt="Gallery Image"
+              width={1920}
+              height={1080}
+              // Changed max-h-[80vh] to max-h-[85vh]
+              className="object-contain w-auto h-auto max-w-full max-h-[85vh]" // <-- CHANGED
+            />
+          )}
+          {currentItem.type === "video" && isYouTube && (
+            <iframe
+              src={currentItem.url}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              // Changed max-h-[80vh] to max-h-[85vh]
+              className="w-full aspect-video max-h-[85vh] rounded" // <-- CHANGED
+            ></iframe>
+          )}
+          {currentItem.type === "video" && !isYouTube && (
+            <video
+              src={currentItem.url}
+              controls
+              autoPlay
+              // Changed max-h-[80vh] to max-h-[85vh]
+              className="w-full h-auto max-h-[85vh] rounded" // <-- CHANGED
+            >
+              Your browser does not support the video tag.
+            </video>
+          )}
+        </div>
+
+        {/* Prev Button */}
+        {items.length > 1 && (
+          <button
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 m-2 p-2 text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 transition-all"
+            onClick={goToPrevious}
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
+        )}
+
+        {/* Next Button */}
+        {items.length > 1 && (
+          <button
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 m-2 p-2 text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 transition-all"
+            onClick={goToNext}
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
+        )}
+
+        {/* Counter */}
+        {items.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-black bg-opacity-60 text-white text-sm rounded-md">
+            {currentIndex + 1} / {items.length}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// --- END MODAL COMPONENT ---
+
 const GalleryPage = () => {
-  // --- (Filter state is unchanged) ---
   const [activeTab, setActiveTab] = useState<"images" | "videos">("images");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("date-desc");
 
-  // 3. Add state for API data, initialized with fallback data
   const [imageData, setImageData] = useState<GalleryItem[]>(dummyImageData);
   const [videoData, setVideoData] = useState<GalleryItem[]>(dummyVideoData);
   const [isLoading, setIsLoading] = useState(true);
 
-  // 4. useEffect to fetch data on mount
+  // --- State for Modal ---
+  const [modalMedia, setModalMedia] = useState<ApiMediaItem[] | null>(null);
+
   useEffect(() => {
     const fetchMedia = async () => {
       setIsLoading(true);
 
       const imageEndpoint = "https://api.cish.org.in/api/media/get/image";
-      const videoEndpoint = "https://api.cish.org.in/api/media/get/video"; // Assuming this endpoint
+      const videoEndpoint = "https://api.cish.org.in/api/media/get/video";
+
+      // Use dummy data as initial state
+      setImageData(dummyImageData);
+      setVideoData(dummyVideoData);
 
       const [imageResult, videoResult] = await Promise.allSettled([
         axios.get<ApiMediaItem[]>(imageEndpoint),
         axios.get<ApiMediaItem[]>(videoEndpoint),
       ]);
 
-      // Process Image Data
       if (imageResult.status === "fulfilled" && imageResult.value.data.length > 0) {
         setImageData(transformMedia(imageResult.value.data, "image"));
       } else {
         console.error("Failed to fetch images, using fallback data.");
-        // Fallback is already in state, so do nothing
       }
 
-      // Process Video Data
       if (videoResult.status === "fulfilled" && videoResult.value.data.length > 0) {
         setVideoData(transformMedia(videoResult.value.data, "video"));
       } else {
         console.error("Failed to fetch videos, using fallback data.");
-        // Fallback is already in state, so do nothing
       }
 
       setIsLoading(false);
     };
 
     fetchMedia();
-  }, []); // Empty array runs this only once on mount
+  }, []);
 
-  // 5. useMemo now reads from state (which is either API or fallback)
   const filteredAndSortedItems = React.useMemo(() => {
     const dataToFilter = activeTab === "images" ? imageData : videoData;
 
@@ -296,7 +452,7 @@ const GalleryPage = () => {
 
     const parseDate = (dateString: string) => {
       const [day, month, year] = dateString.split("/").map(Number);
-      return new Date(year, month - 1, day); // Month is 0-indexed
+      return new Date(year, month - 1, day);
     };
 
     filtered.sort((a, b) => {
@@ -316,7 +472,16 @@ const GalleryPage = () => {
     });
 
     return filtered;
-  }, [activeTab, searchTerm, sortBy, imageData, videoData]); // Add state dependencies
+  }, [activeTab, searchTerm, sortBy, imageData, videoData]);
+
+  // --- Click Handler for Cards ---
+  const handleCardClick = (item: GalleryItem) => {
+    if (item.media && item.media.length > 0) {
+      setModalMedia(item.media);
+    } else {
+      console.warn("No media items found for this gallery card.");
+    }
+  };
 
   return (
     <>
@@ -342,14 +507,19 @@ const GalleryPage = () => {
           setSortBy={setSortBy}
         />
 
-        {/* 6. Add Loading State */}
         {isLoading ? (
           <div className="text-center text-gray-600 text-lg py-10">Loading Gallery...</div>
         ) : (
-          <GalleryGrid items={filteredAndSortedItems} />
+          <GalleryGrid
+            items={filteredAndSortedItems}
+            onCardClick={handleCardClick} // <-- Pass handler to grid
+          />
         )}
       </main>
       <Footer />
+
+      {/* --- Render Modal --- */}
+      {modalMedia && <GalleryModal items={modalMedia} onClose={() => setModalMedia(null)} />}
     </>
   );
 };

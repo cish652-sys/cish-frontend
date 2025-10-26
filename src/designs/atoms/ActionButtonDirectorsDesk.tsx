@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Card, CardContent } from "@/designs/atoms/card"; // shadcn card
+import { Card, CardContent } from "@/designs/atoms/card";
 import clsx from "clsx";
 
 export interface ActionButtonAtomProps {
@@ -14,6 +14,7 @@ export interface ActionButtonAtomProps {
 const ActionButtonAtom: React.FC<ActionButtonAtomProps> = ({
   Icon,
   text,
+  active,
   onClick,
   className = "",
 }) => {
@@ -21,13 +22,16 @@ const ActionButtonAtom: React.FC<ActionButtonAtomProps> = ({
     <Card
       onClick={onClick}
       className={clsx(
-        "flex-1 cursor-pointer max-h-[86px] border border-gray-300 transition hover:shadow-md hover:bg-green-700 hover:text-white ",
+        "cursor-pointer border transition hover:shadow-md w-fit", // ✅ Added w-fit
+        active
+          ? "bg-green-700 text-white border-green-700"
+          : "border-gray-300 hover:bg-green-700 hover:text-white hover:border-green-700",
         className
       )}
     >
-      <CardContent className="flex items-center justify-center gap-2 p-6 md:p-8 font-semibold text-sm md:text-base">
+      <CardContent className="flex items-center justify-center gap-2.5 py-5 px-8">
         <Icon className="w-5 h-5" />
-        <span>{text}</span>
+        <span className="font-semibold text-sm whitespace-nowrap">{text}</span>
       </CardContent>
     </Card>
   );

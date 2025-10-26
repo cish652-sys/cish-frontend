@@ -43,7 +43,7 @@ const routes: Record<string, string> = {
   // PUBLICATIONS dropdown
   "Annual Reports": "/AnnualReport",
   "Research Publications": "/publications/research",
-  "Newsletter (Subscription)": "/newsletter",
+  "Newsletter (Subscription)": "/Newsletter",
   "Udyan Rashmi (Subscription)": "/UdyanRashmi",
   "CISH Publications (Paid & Free)": "/CishPublications",
   "Vision 2050": "/vision2050",

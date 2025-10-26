@@ -8,7 +8,7 @@ import { SectionHeader } from "../organisms/SectionHeader";
 import { Footer } from "../organisms/FooterOrganisms/Footer";
 import { DataTable, Column, TableRow } from "../molecules/DataTable";
 import { Pagination } from "../molecules/Pagination";
-import { ChevronDown, Search } from "lucide-react"; // Imports from your code
+import { ChevronDown, Search } from "lucide-react";
 import Typography from "../atoms/Typography";
 
 const columns: Column[] = [
@@ -17,69 +17,97 @@ const columns: Column[] = [
   { key: "fileSize", label: "File Size", width: "25%", align: "center" },
 ];
 
-const baseReportsData: TableRow[] = [
-  {
-    title: "Annual Report 2024",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2024.pdf",
-  },
-  {
-    title: "Annual Report 2023",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2023.pdf",
-  },
-  {
-    title: "Annual Report 2022",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2022.pdf",
-  },
-  {
-    title: "Annual Report 2021",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2021.pdf",
-  },
-  {
-    title: "Annual Report 2020",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2020.pdf",
-  },
-  {
-    title: "Annual Report 2019-20",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2019-20.pdf",
-  },
-  {
-    title: "Annual Report 2018-19",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2018-19.pdf",
-  },
-  {
-    title: "Annual Report 2017-18",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2017-18.pdf",
-  },
-  {
-    title: "Annual Report 2016-17",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2016-17.pdf",
-  },
-  {
-    title: "Annual Report 2015-16",
-    fileSize: "228.97 KB",
-    viewUrl: "/reports/annual-report-2015-16.pdf",
-  },
-];
+// ✅ Dynamic generation of reports from 2024 down to 2008-09
+const generateReportsData = (): TableRow[] => {
+  const reports: TableRow[] = [];
 
-const allReportsData: TableRow[] = [
-  ...baseReportsData,
-  ...baseReportsData.map((d) => ({ ...d, title: `${d.title} (Demo Page 2)` })),
-  ...baseReportsData.map((d) => ({ ...d, title: `${d.title} (Demo Page 3)` })),
-].map((item, index) => ({
+  // Single year reports (2024 to 2020)
+  for (let year = 2024; year >= 2020; year--) {
+    reports.push({
+      title: `Annual Report ${year}`,
+      fileSize: "228.97 KB",
+      viewUrl: `/reports/annual-report-${year}.pdf`,
+    });
+  }
+
+  // Year range reports (2019-20 to 2008-09)
+  for (let year = 2019; year >= 2008; year--) {
+    const nextYear = year + 1;
+    const yearRange = `${year}-${nextYear.toString().slice(-2)}`;
+    reports.push({
+      title: `Annual Report ${yearRange}`,
+      fileSize: "228.97 KB",
+      viewUrl: `/reports/annual-report-${yearRange}.pdf`,
+    });
+  }
+
+  return reports;
+};
+
+// ✅ Generate all reports dynamically with S.No
+const allReportsData: TableRow[] = generateReportsData().map((item, index) => ({
   ...item,
   sno: (index + 1).toString().padStart(2, "0"),
 }));
 
-// --- GalleryFilterBar Component (As provided) ---
+// ✅ Coming Soon Modal Component
+const ComingSoonModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
+  isOpen,
+  onClose,
+}) => {
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-md bg-white rounded-lg shadow-xl p-8 m-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold"
+        >
+          &times;
+        </button>
+
+        <div className="text-center">
+          <div className="mb-4">
+            <svg
+              className="mx-auto h-16 w-16 text-green-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <Typography variant="sectionHeading" className="mb-2">
+            Coming Soon
+          </Typography>
+          <Typography variant="bodyLarge" className="text-gray-600">
+            This report will be available soon. Please check back later.
+          </Typography>
+          <button
+            onClick={onClose}
+            className="mt-6 px-6 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- GalleryFilterBar Component ---
 const GalleryFilterBar: React.FC<{
   activeTab: "images" | "videos";
   setActiveTab: (tab: "images" | "videos") => void;
@@ -116,30 +144,28 @@ const GalleryFilterBar: React.FC<{
   </div>
 );
 
-// --- AnnualReportPage Component (Updated) ---
+// --- AnnualReportPage Component ---
 const AnnualReportPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  // 2. Add state for filters
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("date-desc"); // Default sort
+  const [sortBy, setSortBy] = useState("date-desc");
+  const [showComingSoon, setShowComingSoon] = useState(false); // ✅ Modal state
 
   const ITEMS_PER_PAGE = 10;
 
-  // 3. Process data based on filters and sorting
   const processedData = useMemo(() => {
-    // Filter by search term
     const filteredData = allReportsData.filter((item) =>
       (item.title as string).toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // Sort the filtered data
     const sortedData = [...filteredData].sort((a, b) => {
       const titleA = a.title as string;
       const titleB = b.title as string;
 
-      // Extract year from title (e.g., "Annual Report 2024" -> 2024)
-      const yearA = parseInt(titleA.match(/\d{4}/)?.[0] || "0");
-      const yearB = parseInt(titleB.match(/\d{4}/)?.[0] || "0");
+      const yearMatchA = titleA.match(/(\d{4})(?:-\d{2})?/);
+      const yearMatchB = titleB.match(/(\d{4})(?:-\d{2})?/);
+      const yearA = parseInt(yearMatchA?.[1] || "0");
+      const yearB = parseInt(yearMatchB?.[1] || "0");
 
       switch (sortBy) {
         case "date-asc":
@@ -155,29 +181,25 @@ const AnnualReportPage = () => {
     });
 
     return sortedData;
-  }, [searchTerm, sortBy]); // Re-calculate when filters change
+  }, [searchTerm, sortBy]);
 
-  // 4. Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, sortBy]);
 
-  // 5. Calculate pagination based on PROCESSED data
   const totalPages = Math.ceil(processedData.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedData = processedData.slice(startIndex, endIndex);
 
-  // --- Handlers (Unchanged) ---
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 500, behavior: "smooth" });
   };
 
+  // ✅ Show "Coming Soon" modal instead of opening 404
   const handleView = (row: TableRow) => {
-    if (row.viewUrl) {
-      window.open(row.viewUrl as string, "_blank");
-    }
+    setShowComingSoon(true);
   };
 
   return (
@@ -198,10 +220,9 @@ const AnnualReportPage = () => {
           <Typography variant="sectionHeading">ANNUAL REPORTS</Typography>
         </div>
 
-        {/* 6. Add the Filter Bar */}
         <GalleryFilterBar
-          activeTab="images" // This prop isn't used by the bar, but we pass it
-          setActiveTab={() => {}} // Dummy function
+          activeTab="images"
+          setActiveTab={() => {}}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           sortBy={sortBy}
@@ -209,14 +230,8 @@ const AnnualReportPage = () => {
         />
 
         <section className="bg-[#FBFBF8] py-12">
-          <DataTable
-            columns={columns}
-            data={paginatedData} // 7. Pass the processed (filtered/sorted/paginated) data
-            onView={handleView}
-            rowGap={2}
-          />
+          <DataTable columns={columns} data={paginatedData} onView={handleView} rowGap={2} />
 
-          {/* 8. Pagination and "No Results" message */}
           {totalPages > 0 ? (
             <Pagination
               currentPage={currentPage}
@@ -231,6 +246,9 @@ const AnnualReportPage = () => {
           )}
         </section>
       </div>
+
+      {/* ✅ Coming Soon Modal */}
+      <ComingSoonModal isOpen={showComingSoon} onClose={() => setShowComingSoon(false)} />
 
       <Footer />
     </main>

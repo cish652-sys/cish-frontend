@@ -6,8 +6,15 @@ import { Header } from "../organisms/Header";
 import { Footer } from "../organisms/FooterOrganisms/Footer";
 import TrendingTechnologies from "../organisms/TrendingTechnologies";
 import { divItems } from "@/lib/utils";
+import { TechnologyCardItem } from "@/types"; // Import the type
 
 const DivisionPage = () => {
+  // Map over divItems to add the 'id' property
+  const technologiesWithIds: TechnologyCardItem[] = divItems.map((item, index) => ({
+    ...item,
+    id: index + 1, // Use index as a unique ID
+  }));
+
   return (
     <main>
       <Header />
@@ -21,7 +28,11 @@ const DivisionPage = () => {
         title="DIVISION"
         description={[""]}
       />
-      <TrendingTechnologies className="bg-white" showVerieties={false} technologies={divItems} />
+      <TrendingTechnologies
+        className="bg-white"
+        showVerieties={false}
+        technologies={technologiesWithIds} // Pass the modified array
+      />
       <Footer />
     </main>
   );

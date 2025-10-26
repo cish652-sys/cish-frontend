@@ -41,7 +41,7 @@ export const navigation: NavItem[] = [
     links: [
       { href: "/publications/journals", label: "Journals" },
       { href: "/publications/reports", label: "Reports" },
-      { href: "/publications/newsletters", label: "Newsletters" },
+      { href: "/Newsletter", label: "Newsletters" },
       { href: "/publications/vision2050", label: "Vision 2050" },
     ],
   },
