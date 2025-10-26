@@ -306,34 +306,6 @@ const IprProtectionPage = () => {
           </div>
         </div>
       </section>
-      <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12">
-        <div className="container max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
-          <a
-            href="#" // Add your link here
-            className="p-4 h-24 flex items-center justify-center text-center bg-white border border-gray-300 shadow-sm hover:shadow-md transition text-green-800 font-semibold"
-          >
-            COMMERCIALIZATION OF TECHNOLOGIES
-          </a>
-          <a
-            href="/Itmu/IprProtection" // Add your link here
-            className="p-4 h-24 flex items-center justify-center text-center bg-white border border-gray-300 shadow-sm hover:shadow-md transition text-green-800 font-semibold"
-          >
-            IPR PROTECTION
-          </a>
-          <a
-            href="#" // Add your link here
-            className="p-4 h-24 flex items-center justify-center text-center bg-white border border-gray-300 shadow-sm hover:shadow-md transition text-green-800 font-semibold"
-          >
-            PROFESSIONAL SERVICE FUNCTION
-          </a>
-          <a
-            href="#" // Add your link here
-            className="p-4 h-24 flex items-center justify-center text-center bg-green-800 border border-green-800 shadow-sm hover:shadow-md transition text-white font-semibold"
-          >
-            EVENTS
-          </a>
-        </div>
-      </section>
       <Footer />
     </main>
   );
