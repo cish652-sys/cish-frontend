@@ -159,7 +159,7 @@ const activitiesImages = [
 ];
 
 const banners = [
-  { src: "/icons/rrs.png", alt: "RSS Banner" },
+  { src: "/icons/rrs.png", alt: "RRS Banner" },
   { src: "/icons/kvk.png", alt: "KVK Banner" },
 ];
 const carouselDots = [0, 1, 2, 3, 4]; // 5 dots as per your image
@@ -214,7 +214,7 @@ const RssKvkMaldaPage = () => {
       </section>
 
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "RSS MALDA" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "RRS MALDA" }]}
         iconProps={true}
         title="ICAR-CISH Regional Research Station"
         description={[""]}
@@ -225,7 +225,7 @@ const RssKvkMaldaPage = () => {
           {/* --- RSS/KVK Malda Section (Mandate) --- */}
           <div className="max-w-5xl mx-auto mb-16">
             <Typography variant="sectionHeading" className="text-left mb-6">
-              RSS
+              RRS
             </Typography>
             <ol className="list-decimal bg-white border border-gray-300 shadow-lg p-6 list-inside space-y-3 text-gray-700">
               <li>
