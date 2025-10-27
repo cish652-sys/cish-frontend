@@ -43,7 +43,7 @@ export default function Commercialization() {
 
             <li>
               <Link href="/varieties" className="text-[#31572C] hover:text-[#599A5E] ">
-                Varieties FOR COMMERCIALIZATION
+                Varieties For Commercialization
               </Link>
             </li>
 
@@ -54,7 +54,7 @@ export default function Commercialization() {
                 rel="noopener noreferrer"
                 className="text-[#31572C] hover:text-[#599A5E]"
               >
-                APPLICATION FORM
+                Application Form
               </a>
             </li>
           </ul>
