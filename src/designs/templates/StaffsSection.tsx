@@ -58,7 +58,6 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
-          { label: "ABOUT US" },
           { label: selectedStaff ? selectedStaff.title.toUpperCase() : "STAFF" },
         ]}
         iconProps={true}

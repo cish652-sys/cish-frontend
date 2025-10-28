@@ -77,7 +77,7 @@ function NutraceuticalPage() {
         />
       </section>
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "NUTRACEUTICAL RICH" }]}
         iconProps={false}
         title="Nutraceutical Rich"
         description={[""]}

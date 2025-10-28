@@ -1,4 +1,7 @@
-"use-client";
+"use client";
+
+import { DataTable, Column } from "@/designs/molecules/DataTable";
+
 import React from "react";
 import Image from "next/image";
 import { Header } from "@/designs/organisms/Header";
@@ -6,6 +9,7 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// --- This data is unchanged ---
 const incubationStages = [
   { stage: "Stage 1", task: "Invitation of technology from mentors" },
   {
@@ -47,6 +51,7 @@ const incubationStages = [
   { stage: "Stage 14", task: "Yearly audit by CISH (for sale and royalty)" },
 ];
 
+// --- This data is unchanged ---
 const supportedStartups = [
   {
     sr: "1.",
@@ -146,6 +151,56 @@ const supportedStartups = [
   },
 ];
 
+// -----------------------------------------------------------------
+// NEW: Define columns for the DataTable
+// -----------------------------------------------------------------
+const startupColumns: Column[] = [
+  {
+    key: "sr",
+    label: "S. No.",
+    width: "10%",
+    align: "center",
+  },
+  {
+    key: "name",
+    label: "Name of Startups / Enterprises / FPO",
+    width: "60%",
+    align: "left",
+  },
+  {
+    key: "tech",
+    label: "Technology",
+    width: "30%",
+    align: "left",
+  },
+];
+
+// -----------------------------------------------------------------
+// NEW: Transform data for the DataTable
+// We do this to convert the 'name' and 'link' into a single
+// clickable ReactNode (the <a> tag).
+// -----------------------------------------------------------------
+const startupData = supportedStartups.map((item) => ({
+  sr: item.sr,
+  tech: item.tech,
+  name: (
+    <a
+      href={item.link || "#"} // Use '#' as a fallback for empty links
+      target="_blank"
+      rel="noopener noreferrer"
+      className={
+        // --- THIS IS THE MODIFIED LOGIC ---
+        item.link
+          ? "text-green-700 hover:text-green-900 hover:underline transition-colors" // <-- If link, GREEN + hover
+          : "text-green-700" // <-- If NO link, still GREEN (just no hover)
+        // ----------------------------------
+      }
+    >
+      {item.name}
+    </a>
+  ),
+}));
+
 const HortIndAbiCentrePage = () => {
   return (
     <main>
@@ -172,15 +227,16 @@ const HortIndAbiCentrePage = () => {
         title="HORT IND AGRI-BUSINESS INCUBATION (ABI) CENTRE"
         description={[""]}
       />
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-8">
           <h2 className="text-gray-700">
-            ICAR-CISH, Lucknow is facilitating incubation to new startups/entrepreneurs &
-            enterprises for innovative technologies by providing need based physical, technical,
-            business and networking support, facilities and services to test and validate their
-            venture before successful establishment of enterprises. At CISH-ABI, entrepreneurs will
-            be able to transform their ideas into real businesses. The business incubation centre of
-            CISH is a one point solution for entrepreneurs and enterprises in horticulture.
+            ICAR-CISH, Lucknow is facilitating incubation to new startups/entrepreneurs & enterprises
+            for innovative technologies by providing need based physical, technical, business and
+            networking support, facilities and services to test and validate their venture before
+            successful establishment of enterprises. At CISH-ABI, entrepreneurs will be able to
+            transform their ideas into real businesses. The business incubation centre of CISH is a
+            one point solution for entrepreneurs and enterprises in horticulture.
           </h2>
 
           <h2 className="text-green-800 font-bold mt-6">
@@ -209,6 +265,7 @@ const HortIndAbiCentrePage = () => {
           </div>
         </div>
       </section>
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold text-lg">IN-HOUSE INCUBATION FACILITIES:</h2>
@@ -245,6 +302,7 @@ const HortIndAbiCentrePage = () => {
           </ol>
         </div>
       </section>
+      {/* --- This section is unchanged (Bad fit for DataTable) --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold">INCUBATION STAGES</h2>
@@ -254,7 +312,9 @@ const HortIndAbiCentrePage = () => {
                 {incubationStages.map((item) => (
                   <tr key={item.stage} className="border-b border-amber-300 last:border-b-0">
                     <td className="p-3 w-1/4 bg-amber-100 border-r border-amber-300">
-                      <h2 className="font-semibold text-white">{item.stage}</h2>
+                      {/* Note: Your original code had white text on amber-100, which is invisible. */}
+                      {/* I'll change it to text-amber-900 for visibility. */}
+                      <h2 className="font-semibold text-amber-900">{item.stage}</h2>
                     </td>
                     <td className="p-3">
                       {Array.isArray(item.task) ? (
@@ -276,6 +336,7 @@ const HortIndAbiCentrePage = () => {
           </div>
         </div>
       </section>
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold text-lg">
@@ -319,52 +380,28 @@ const HortIndAbiCentrePage = () => {
           </ul>
         </div>
       </section>
-      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
-        <div className="container max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-green-800 font-bold">
-            ICAR-CISH, ABI SUPPORTED STARTUPS/ENTERPRISES/FPO
-          </h2>
-          <div className="overflow-x-auto shadow-lg border border-gray-300">
-            <table className="w-full border-collapse">
-              <thead className="bg-[#599A5E]">
-                <tr>
-                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
-                    Sr. No.
-                  </th>
-                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
-                    Name of Startups / Enterprises / FPO
-                  </th>
-                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
-                    Technology
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {supportedStartups.map((item, index) => (
-                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-lime-50"}>
-                    <td className="p-3 border-t border-gray-300">
-                      <h2 className="text-gray-700">{item.sr}</h2>
-                    </td>
-                    <td className="p-3 border-t border-gray-300">
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-700 hover:text-green-900 hover:underline transition-colors"
-                      >
-                        {item.name}
-                      </a>
-                    </td>
-                    <td className="p-3 border-t border-gray-300">
-                      <h2 className="text-gray-700">{item.tech}</h2>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+
+      {/* // -----------------------------------------------------------------
+      // MODIFIED SECTION: Replaced with your DataTable component
+      // -----------------------------------------------------------------
+      // Your DataTable component includes its own padding and max-width,
+      // so we place it directly inside a <section> tag.
+      */}
+      <section className="w-full bg-white">
+        <DataTable
+          title="ICAR-CISH, ABI SUPPORTED STARTUPS/ENTERPRISES/FPO"
+          columns={startupColumns}
+          data={startupData}
+          showActions={false} // We don't need View/Download for this table
+          rowGap={4} // Using your new prop to add space!
+        />
       </section>
+      {/* // -----------------------------------------------------------------
+      // End of modified section
+      // -----------------------------------------------------------------
+      */}
+
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <div>

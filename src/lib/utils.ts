@@ -98,10 +98,10 @@ export const divItems = [
   {
     title: "DIVISION OF CROP IMPROVEMENT AND BIO-TECHONOLOGY",
     description: [
-      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
-      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
-      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
-      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+      `The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),
+      mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ,
+      Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.,
+      (4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.`,
     ],
     href: "/Division/crop-improvement",
     image: "/icons/div1.svg",
@@ -109,10 +109,10 @@ export const divItems = [
   {
     title: "CROP PRODUCTION",
     description: [
-      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
-      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
-      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
-      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+      `The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),
+      mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ,
+      Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.,
+      (4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.`,
     ],
     href: "/Division/crop-production",
     image: "/icons/div2.svg",
@@ -120,10 +120,10 @@ export const divItems = [
   {
     title: "CROP PROTECTION",
     description: [
-      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
-      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
-      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
-      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+      `The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),
+      mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ,
+      Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.,
+      (4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.`,
     ],
     href: "/Division/crop-protection",
     image: "/icons/div3.svg",
@@ -131,10 +131,10 @@ export const divItems = [
   {
     title: "POSTHARVEST MANAGEMENT",
     description: [
-      "The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),",
-      "mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ",
-      "Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.",
-      "(4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
+      `The Institute has field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), Jamun (38), khirnee (17),
+      mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4) and cape gooseberry ,
+      Regular bearer late in maturity, yield – 80–90 kg/tree of 10 years old.,
+      (4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.`,
     ],
     href: "",
     image: "/icons/div4.svg",
@@ -151,25 +151,25 @@ export const cropImprovementData = [
   {
     title: "Molecular characterization and genomics",
     description: [
-      "Characterization of about 200 mango accessions using SSR markers was carried out for fingerprinting and diversity assessment based on 30 loci. The fingerprint data for Indian varieties was converted into barcodes and published. Clonal variability among commercial Indian mango varieties is being assessed. Gene expression studies are ongoing at CISH. Transcriptome data in mango has been generated for fruit colour, regulation of flowering, and abiotic stresses. Primer designing and validation have been done for genes involved in anthocyanin pigmentation and flowering. In guava, efforts are underway to study the molecular basis of seediness, fruit colour, and wilt resistance. Gene regulation studies involving COs (Constans), LFY (Leafy), and FLT (Flowering Time) have been completed to elucidate the molecular mechanisms underlying these traits.",
+      "Characterization of mango accessions (>200 cvs) using SSR markers was done towards fingerprinting and diversity assessment based on 30 loci. The fingerprint development of the Indian varieties by converting the genotypic data into barcodes has been published. Clonal variability among commercial cultivars could be traced to genomic SSRs. Candidate gene approach is being used for MAS and the target traits under study include fruit peel and pulp colour, regulation of flowering and abiotic stresses. Primer designing and its validation in diverse genotypes for genes involved in anthocyanin pigmentation pathway (peel colour) ANS (anthocyanidin synthase), CHS (chalcone synthase), F3’H (flavonoid 3’- hydroxylase), WD (WD repeat motifs) and flowering regulation viz., CON (constans), LFY (leafy), FLT (Flowering Time) has been completed to elucidate the molecular mechanisms underlying the trait expression.",
     ],
   },
   {
     title: "Guava (Psidium guajava L.)",
     description: [
-      "Molecular characterization and genetic diversity analysis of guava cultivars (22), Psidium species (6), and intervarietal hybrids were conducted using microsatellites (SSR and ISSR), minisatellites (RAMPO), and dominant markers (RAPD). Diversity analysis based on allelic data from RAPD and RAMPO markers revealed clear differentiation between exotic types and cultivars from the northern plains. SSR markers were suitable for distinguishing half-sib populations and producing cell-specific fingerprints. RAPD markers were found to be the best descriptors for fingerprinting closely related accessions. Chloroplast DNA gene sequences were used in mapping the chloroplast genome.",
+      "Molecular characterization and diversity analysis of guava cultivars (22), Psidium sp. (6), and intervarietal hybrids was done using microsatellites (SSR and SSR),minisatellites (DAMD) and dominant markers (RAPD). Diversity analysis based on allelic data generated by RAPD and DAMD markers revealed differentiation of exotic types from cultivars originated in Northern plains. SSR markers were found suitable to discriminate between half sib populations of Apple Colored Guava collected from Allahabad. Microsatellite loci mPgCIR16 and 09 were found most informative and useful for fingerprinting of closely related accessions. Cp DNA gene sequences were used in mapping the chloroplast gemome.",
     ],
   },
   {
     title: "Litchi (Litchi chinensis L.)",
     description: [
-      "A mini protocol was developed for DNA isolation using DNeasy extraction with 3.5% CTAB buffer and purification through spin columns. Twenty-seven accessions of litchi and Muzaffarpur were characterized using SSR, ISSR, and RAPD markers. Based on discrimination and resolving power, ISSR markers were found to be more effective than SSRs for cultivar barcode generation and clustering analyses. Phylogenetic analysis using the UPGMA method grouped all varieties into two clusters. Molecular characterization revealed a narrow genetic background among Indian litchi cultivars, suggesting the need for crossbreeding and genetic base widening.",
+      "New protocol was developed for DNA isolation using double extraction with 3.5% CTAB buffer and purification by spin column. Twenty germplasm accessions of NRC Litchi, Muzaffarpur were characterized using microsatellites (SSR and ISSR) and RAPD markers. Based on the discrimination and resolving power, ISSR markers were found to supplement SSR markers for generation of cultivar barcode and clustering analyses. Phylogenetic analysis using UPGMA method revealed clustering of the cultivars into four major groups, although within a very narrow range (0.28 to 0.04) of dissimilarity. Reproducible markers like microsatellites have exposed narrow genetic background of litchi cultivars from India, rationalizing cross breeding and widening of genetic base towards its improvement.",
     ],
   },
   {
     title: "Jamun (Syzygium cumini Skeels.)",
     description: [
-      "Eight jamun accessions (J-34, J-36, J-37, J-21, J-32, J-39, J-40, and J-10) were characterized using RAPD and ISSR markers. Cross-amplification of SSR markers was verified in jamun. Accessions J-36 and J-37, both CISH selections, showed the highest similarity based on Jaccard’s coefficient, while J-36 and J-22 were the most distantly related. These findings support the use of molecular markers for jamun diversity studies.",
+      "Eight jamun accessions J-34, J-36, J-37, J-21, J-22, J-28, J-33, and J-30 characterized by RAPD and SSR (guava SSR cross amplification) markers. J-34 and J-37, which are selections from the Lucknow region, share similarity as per the matrix generated by Jaccard’s coefficient. J-36 and J-22 occupy distant branches sharing the least similarity with the other genotypes.Cross species amplification of guava SSR markers was verified in Jamun.",
     ],
   },
 ];
@@ -188,7 +188,7 @@ export const divisionVarietiesData = [
     id: "v2",
     title: "Ambika:",
     description: [
-      "This hybrid is a cross between Amrapali and Janardhan Pasand. Fruits are oblong–oval, bright yellow with a dark red blush, and have dark yellow, firm pulp with scanty fibre. Average fruit weight ranges from 250–350 g, with TSS of 21.0°Brix. It is a regular-bearing variety that matures late in the season. Ambika has excellent potential for both domestic and export markets due to its attractive fruit colour. The tree yields about 40 kg per plant at around 10 years of age under improved cultural practices.",
+      "A cross between Amrapali and Janardhan Pasand, fruits oblong oval, colour bright yellow with dark red blush, pulp dark yellow, firm with scanty fibre and weighs about 300-350g. TSS is 21oB. It is a regular bearing variety and late in maturity. The hybrid has potential for both internal and export markets because of its attractive fruit colour. Yields about 80 kg/plant by about 10 years of planting under improved cultural practices.",
     ],
     image: "/icons/Rectangle 947.svg",
     href: "/varieties/ambika",
@@ -197,7 +197,7 @@ export const divisionVarietiesData = [
     id: "v3",
     title: "Arunika:",
     description: [
-      "Arunika is a cross between Amrapali and Vanraj. The tree is prolific, dwarf, and compact. Fruits are smooth, yellow with a red blush, and weigh about 190–210 g. The pulp is orange, firm, with scanty fibre and makes up about 68% of the fruit. TSS is around 24.0°Brix, and the stone is thin. This hybrid is suitable for both internal and export markets due to its attractive fruit colour. Average fruit yield is about 60 kg per plant at 8 years of age. It has shown wide adaptability and performs well under northern plains conditions. The variety is a regular bearer with red peel colour.",
+      "A cross between Amrapali and Vanraj, the tree produces dwarf and compact canopy. Fruits are smooth, orange yellow with red blush, weigh about 190-210g, medium sized, ovate oblique, pulp orange yellow, firm with scanty fibre, pulp about 65%, TSS 24.6oB. The hybrid has potential for both internal and export markets because of its attractive fruit colour. Average fruit yield is about 69 kg/plant at 8 years of planting. It has demonstrated wider adaptability and is performing well under northern plains. It is a regular bearer and has red peel color.",
     ],
     image: "/icons/Rectangle 941.svg",
     href: "/varieties/arunika",
@@ -206,7 +206,7 @@ export const divisionVarietiesData = [
     id: "v4",
     title: "Hybrid-1084:",
     description: [
-      "This hybrid, a cross between Amrapali and Janardhan Pasand, is promising for its attractive dark red peel colour and good shelf life. It is a regular-bearing type with potential for both domestic and export markets.",
+      "A cross between Amrapali and Janardhan Pasand was found promising with attractive dark red colour on the peel and better shelf life. This hybrids have regular bearing character.",
     ],
     image: "/icons/Rectangle 941.svg",
     href: "/varieties/hybrid-1084",
@@ -215,7 +215,7 @@ export const divisionVarietiesData = [
     id: "v5",
     title: "CISH-M-2:",
     description: [
-      "This hybrid is a cross between Dashehari and Chausa. The fruits are medium-sized (around 260 g), oblong, and have smooth, tough skin that turns yellowish-green when ripe. The flesh is firm, yellowish-orange in colour, with scanty fibre and TSS of 22.6°Brix. CISH-M-2 has strong commercial potential due to its resistance to sooty mould, even after heavy rains. The fruits resemble Dashehari — a leading variety of North India — but mature about 15 days later.",
+      "A cross between Dashehari x Chausa. Fruits of this hybrid are also medium with an average weight 220 g and oblong in shape. Skin is smooth, tough and yellowish green when ripe. Flesh is firm, dark yellow in colour with scanty fibre. TSS 23o Brix. This hybrid has commercial potential because of its sooty mould free fruit surface even after exposure to heavy rains. The fruits are similar to those of Dashehari, a leading variety of North India, but mature 15 days after Dashehari.",
     ],
     image: "/icons/Rectangle 947.svg",
     href: "/varieties/cish-m-2",
@@ -1057,7 +1057,7 @@ export const guavaVarietiesData = [
     id: "g1",
     title: "Lalit:",
     description: [
-      "This is a selection from a half-sib population of apple guava suitable for both fresh consumption and processing. It responds well to pruning and yields about 100 kg per plant after six years under high-density planting (3 × 6 m). Fruits are medium-sized, with red flesh, saffron-yellow skin with a red blush, and a firm pink pulp weighing 185–200 g. It has a good balance of sugar and acidity, high TSS (12.0°Brix), and rich vitamin C content. The pink colour of the processed beverage remains stable for over a year in storage.",
+      "Selection from half sib population of apple guava suitable both for fresh as well as processing purposes. Highly responsive to pruning. Yields higher than other commercial varieties; about 100kg/plant by about 6 y ears of planting under improved cultural practices. Saffron yellow colored fruits with red blush, pulp firm pink and fruits weigh 185-200g with good blend of sugar and acid. It has about 250 mg/100g vitamin ‘C’ content. The pink color in the beverage remains stable for more than a year in storage.",
     ],
     image: "/icons/var3.svg",
     href: "/varieties/lalit",
@@ -1066,7 +1066,7 @@ export const guavaVarietiesData = [
     id: "g2",
     title: "Shweta:",
     description: [
-      "This variety is selected from a half-sib population of apple guava. Fruits are globose, medium-sized (about 225 g), with creamy white skin and snow-white flesh. They have soft seeds (fewer than 100 per fruit), good keeping quality, and high TSS (12.5°Brix). The tree is vigorous, medium-sized, and produces around 90 kg per plant at six years of age.",
+      "Selection from half sib population of apple guava variety with globose fruits, medium size, weight 225g, creamy white exocarp, snow-white flesh, high TSS (12.5-13.2%) and vitamin C (300 mg 100g1 pulp) with good keeping quality. High yield, good quality and attractive fruit appearance, medium size, creamy white exocarp with red spots or blush. 90 kg/plant at the age of 6 years.",
     ],
     image: "/icons/var4.svg",
     href: "/varieties/shweta",
@@ -1075,7 +1075,7 @@ export const guavaVarietiesData = [
     id: "g3",
     title: "Dhawal:",
     description: [
-      "This selection bears deep red fruits with soft seeds, attractive shape, high TSS (11.0°Brix), and a long shelf life. The fruits have higher ascorbic acid content (185 mg/100g pulp) and uniform pigmentation throughout the pulp.",
+      "Fruits are deep red coloured with soft seeds, attractive shape, high TSS (15oBrix) and long shelf life. Fruits of this selection recorded higher anthocyanin content. The spatial distribution of the pigments in various portions of the same fruits has shown less variation in this selection.",
     ],
     image: "/icons/var5.svg",
     href: "/varieties/dhawal",
@@ -1084,7 +1084,7 @@ export const guavaVarietiesData = [
     id: "g4",
     title: "Lalima:",
     description: [
-      "This selection, derived from open-pollinated seedling guava populations at Lucknow, has shown great promise. Fruits weigh around 180 g, have TSS of 13.0°Brix, attractive red-blushed skin, and good responsiveness to pruning. It yields well and produces a high proportion of coloured fruits.",
+      "A selection from open pollinated seedling guava population raised at Lucknow has been found promising (fruit weight 190g & TSS 13.7°Brix). It has attractive crimson colour fruits, higher proportion of coloured fruit, good yield and responsiveness to pruning.",
     ],
     image: "/icons/var6.svg",
     href: "/varieties/lalima-guava",
@@ -1096,7 +1096,7 @@ export const jamunVarietiesData = [
     id: "j1",
     title: "CISH J-42:",
     description: [
-      "This is a seedless accession obtained from a landrace of Thane district, Maharashtra. Fruits are oblong with good taste and average 8.0 g in weight. Average fruit length is 2.57 cm and breadth 2.18 cm. Pulp content is about 85%, TSS 14.0°Brix, acidity 1.0%, and anthocyanin 1.56%. The total antioxidant value is 5.54 mg AAE/g, with high phenolic (26.78 mg/g fresh weight) and flavonoid (11.2 mg/g fresh weight) contents. Its seedlessness and high antioxidant potential make it ideal for processing and value-added products.",
+      "Seedless accession obtained from a land race of Chandauli district of UP. Fruits are ovoid, seedless with good taste. Average fruit weight is 8.0g, fruit length 2.57 cm, breadth 2.18 cm, average, pulp 97.9 per cent TSS 14.47oB, ascorbic acid 34.14mg/100g, tannin 0.231 per cent, anthocyanin 1.56 per cent, has a total antioxidant value 5.54 mg /g fresh weight AEAC. It recorded total phenol content (26.78 mg/g fresh weight) and flavonoids (1.21mg/g fresh weight). The selected type has good processing potential into value added products due to absence of seed.",
     ],
     image: "/icons/var1.svg",
     href: "/varieties/cish-j-42",
@@ -1117,7 +1117,7 @@ export const baelVarietiesData = [
     id: "b1",
     title: "CISH B-1:",
     description: [
-      "It is a selection from open pollinated seedlings. It is a mid-season variety which matures during April–May. Trees are tall, vigorous with dense canopy, erect growth habit, precocious and heavy bearer. Fruit shape is oval to oblong, fruit size 15–17.8 cm in length and 39.2–41.0 cm in circumference, average fruit weight 1.01 kg. Fruits are thin-shelled with pleasant flavour and less mucilage content. It has a very good taste and flavour. Fruits have 65.57 per cent pulp, TSS 38.0°B. Fruits are also good for processing; total carotenoids 1.18 mg/100 g pulp, total sugar 20.54 per cent and tannin content 3.5 per cent. The yield of fully grown up tree varies from 50–80 kg. It is suitable for canning and slice preparation.",
+      "t is a selection from open pollinated seedlings. It is a mid season variety which matures during April-May. Trees are tall, vigorous with dense canopy, erect growth habit, precocious and heavy bearer. Fruit shape is oval to oblong, fruit size 15-17.8cm in length and 39.2-41.0 cm in circumference, average fruit weight 1.01 Kg. Fruits are thin shelled with pleasant flavour and less mucilage content. It has a very good taste and flavour. Fruits have 65.57 per cent pulp, TSS 38.0 0B. Fruits are also good for processing , total carotenoids 1.18 mg/100g pulp, total sugar 20.54 per cent and tannin content 3.5 per cent..... ",
     ],
     image: "/icons/var1.svg",
     href: "/varieties/cish-b-1",
@@ -1126,7 +1126,7 @@ export const baelVarietiesData = [
     id: "b2",
     title: "CISH - B2:",
     description: [
-      "It is also a selection from open pollinated seedlings. Tree is dwarf with medium spreading habit. Foliage is sparse and almost thornless, precocious with moderate bearing habit. Fruits are oblong to round in shape with average length of 14.80 cm and circumference of 52.64 cm. Fruit weight is from 1.80–2.70 kg/fruit. Fruit pulp is orange-yellow and shell is thin (0.24–0.26 cm). Seed and fibre contents are low with average seed number 50.12 per fruit and average seed weight 4.40 g. Seed-to-pulp ratio is 1:270. It has good taste with pleasant aroma. It has 61.32 per cent pulp, 31.90°B TSS, 0.99 mg/100 g total carotenoids, 16.33 per cent total sugars and 2.45 per cent tannin content. The yield of the grown-up tree varies from 60–90 kg, whereas CISH B-2 is excellent, high-yielding variety for processing with pleasantly aromatic pulp.",
+      "Selection made from land race of Lucknow district of U.P. A mid season type, fruiting during second week of June. Average fruit weight is 22-24 g; length 3.90 cm and diameter 3.03 cm, pulp 92.26 per cent TSS 16.4oB, ascorbic acid 49.88 mg /100g and has a total antioxidant value 38.30 mg AEAC/g.",
     ],
     image: "/icons/var1.svg",
     href: "/varieties/lalima-bael",

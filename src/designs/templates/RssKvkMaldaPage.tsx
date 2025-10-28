@@ -98,7 +98,7 @@ const kvkStaffData: StaffsItems[] = [
 
 // --- (Project Data is unchanged) ---
 const projectColumns: Column[] = [
-  { key: "srNo", label: "Sr. No.", width: "10%", align: "center" },
+  { key: "srNo", label: "S. No.", width: "10%", align: "center" },
   { key: "title", label: "Title Of Project", width: "50%", align: "left" },
   { key: "funding", label: "Funding Agency And Duration", width: "40%", align: "left" },
 ];

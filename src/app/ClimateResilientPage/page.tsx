@@ -77,7 +77,7 @@ function ClimateResilientPage() {
         />
       </section>
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "CLIMATE RESILIENT" }]}
         iconProps={false}
         title="Climate Resilient"
         description={[""]}

@@ -2,15 +2,25 @@ import React from "react";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
+import { SectionHeader } from "@/designs/organisms/SectionHeader";
 
 export default function CadreStrength() {
   return (
     <div>
       <Header />
       <ResponsiveNavbar />
+      <SectionHeader
+              breadcrumbItems={[
+                { label: "Home", href: "/" },
+                { label: "CADRE STRENGTH", href: "/Itmu" },
+              ]}
+              iconProps={true}
+              title="CADRE STRENGTH"
+              description={[""]}
+            />
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="max-w-6xl mx-auto flex flex-col gap-10 text-gray-800">
-          <h1 className="text-green-800 font-bold text-2xl text-center">CADRE STRENGTH</h1>
+          {/* <h1 className="text-green-800 font-bold text-2xl text-center">CADRE STRENGTH</h1> */}
           <h2 className="text-center font-semibold">
             ICAR-Central Institute for Subtropical Horticulture as on 01-06-2021
           </h2>
