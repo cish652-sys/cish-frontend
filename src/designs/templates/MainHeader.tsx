@@ -21,7 +21,6 @@ interface ApiAnnouncement {
 }
 
 const staticBanners = [
-  { type: "video", src: "/icons/HomeVideo.mp4" },
   { type: "image", src: "/icons/Home1.JPG" },
   { type: "image", src: "/icons/Home2.JPG" },
   { type: "image", src: "/icons/Home3.JPG" },

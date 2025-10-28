@@ -38,7 +38,7 @@ const GuestHouse = () => {
             <p className="font-semibold">Contact:</p>
             <p>
               Sh. Dhirendra P. Singh, Incharge (Guest House) —{" "}
-              <span className="font-medium">+91 9026317562</span>
+              <span className="font-medium">+91 9026317652</span>
             </p>
             <p>
               Sh. Abhishek Kumar — <span className="font-medium">+91 7905880546</span>
