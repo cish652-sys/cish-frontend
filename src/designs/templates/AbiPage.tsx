@@ -231,12 +231,12 @@ const HortIndAbiCentrePage = () => {
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-8">
           <h2 className="text-gray-700">
-            ICAR-CISH, Lucknow is facilitating incubation to new startups/entrepreneurs & enterprises
-            for innovative technologies by providing need based physical, technical, business and
-            networking support, facilities and services to test and validate their venture before
-            successful establishment of enterprises. At CISH-ABI, entrepreneurs will be able to
-            transform their ideas into real businesses. The business incubation centre of CISH is a
-            one point solution for entrepreneurs and enterprises in horticulture.
+            ICAR-CISH, Lucknow is facilitating incubation to new startups/entrepreneurs &
+            enterprises for innovative technologies by providing need based physical, technical,
+            business and networking support, facilities and services to test and validate their
+            venture before successful establishment of enterprises. At CISH-ABI, entrepreneurs will
+            be able to transform their ideas into real businesses. The business incubation centre of
+            CISH is a one point solution for entrepreneurs and enterprises in horticulture.
           </h2>
 
           <h2 className="text-green-800 font-bold mt-6">
@@ -380,7 +380,6 @@ const HortIndAbiCentrePage = () => {
           </ul>
         </div>
       </section>
-
       {/* // -----------------------------------------------------------------
       // MODIFIED SECTION: Replaced with your DataTable component
       // -----------------------------------------------------------------
@@ -400,7 +399,6 @@ const HortIndAbiCentrePage = () => {
       // End of modified section
       // -----------------------------------------------------------------
       */}
-
       {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">

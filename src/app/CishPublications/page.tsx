@@ -120,7 +120,7 @@ export default function CishPublications() {
           </Typography>
 
           <div className=" shadow-lg  p-6 md:p-8">
-            <DataTable columns={columns} data={data} showActions={false} rowGap={4}/>
+            <DataTable columns={columns} data={data} showActions={false} rowGap={4} />
           </div>
         </div>
       </section>

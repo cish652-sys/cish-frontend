@@ -120,7 +120,6 @@ const ItmuIprCellPage = () => {
           </div>
         </div>
       </section>
-
       {/* // -----------------------------------------------------------------
       // CHANGE 4: Replaced the old HTML table section
       // -----------------------------------------------------------------
@@ -140,7 +139,6 @@ const ItmuIprCellPage = () => {
       // End of modified section
       // -----------------------------------------------------------------
       */}
-
       {/* --- This section is unchanged --- */}
       <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12">
         <div className="container max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">

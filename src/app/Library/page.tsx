@@ -148,13 +148,22 @@ const Library = () => {
             <table className="w-full border-collapse mb-3">
               <thead>
                 <tr className="bg-[#599A5E]">
-                  <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "15%" }}>
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "15%" }}
+                  >
                     S. No.
                   </th>
-                  <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "60%" }}>
+                  <th
+                    className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "60%" }}
+                  >
                     Title
                   </th>
-                  <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
                     Number of Copies
                   </th>
                 </tr>
@@ -162,14 +171,31 @@ const Library = () => {
             </table>
             {/* Body */}
             <div className="w-full">
-              {libraryResources.length === 0 ? <NoDataRow colSpan={3} /> : (
+              {libraryResources.length === 0 ? (
+                <NoDataRow colSpan={3} />
+              ) : (
                 libraryResources.map((item) => (
-                  <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                  <table
+                    key={item.sr}
+                    className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                  >
                     <tbody>
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <td className="px-6 py-4 text-center text-gray-700" style={{ width: "15%" }}>{item.sr}</td>
-                        <td className="px-6 py-4 text-left text-gray-700" style={{ width: "60%" }}>{item.title}</td>
-                        <td className="px-6 py-4 text-center text-gray-700" style={{ width: "25%" }}>{item.copies}</td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "15%" }}
+                        >
+                          {item.sr}
+                        </td>
+                        <td className="px-6 py-4 text-left text-gray-700" style={{ width: "60%" }}>
+                          {item.title}
+                        </td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
+                          {item.copies}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -193,13 +219,22 @@ const Library = () => {
             <table className="w-full border-collapse mb-3">
               <thead>
                 <tr className="bg-[#599A5E]">
-                  <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "15%" }}>
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "15%" }}
+                  >
                     S. No.
                   </th>
-                  <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "60%" }}>
+                  <th
+                    className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "60%" }}
+                  >
                     Title
                   </th>
-                  <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
                     Number of Copies
                   </th>
                 </tr>
@@ -207,14 +242,31 @@ const Library = () => {
             </table>
             {/* Body */}
             <div className="w-full">
-              {referenceBooks.length === 0 ? <NoDataRow colSpan={3} /> : (
+              {referenceBooks.length === 0 ? (
+                <NoDataRow colSpan={3} />
+              ) : (
                 referenceBooks.map((item) => (
-                  <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                  <table
+                    key={item.sr}
+                    className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                  >
                     <tbody>
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <td className="px-6 py-4 text-center text-gray-700" style={{ width: "15%" }}>{item.sr}</td>
-                        <td className="px-6 py-4 text-left text-gray-700" style={{ width: "60%" }}>{item.title}</td>
-                        <td className="px-6 py-4 text-center text-gray-700" style={{ width: "25%" }}>{item.copies}</td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "15%" }}
+                        >
+                          {item.sr}
+                        </td>
+                        <td className="px-6 py-4 text-left text-gray-700" style={{ width: "60%" }}>
+                          {item.title}
+                        </td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
+                          {item.copies}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
