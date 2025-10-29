@@ -21,7 +21,7 @@ export default function AgroAdvisoryPage() {
   // ✅ Table data
   const data: TableRow[] = [
     {
-      title: "Agro Advisory",
+      title: "Latest Agro Advisory",
       publishedDate: "04-03-2025",
       fileSize: "",
       fileUrl: "/files/AgroAdvisory.pdf",
