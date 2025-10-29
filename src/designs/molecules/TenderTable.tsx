@@ -102,7 +102,7 @@ Date: __________________________
         <table className="w-full text-sm">
           <thead className="bg-gray-100 sticky top-0">
             <tr>
-              <th className="px-3 py-2 text-left">Sr. No</th>
+              <th className="px-3 py-2 text-left w-[80px]">S. No</th>
               <th className="px-3 py-2 text-left">Title</th>
               <th className="px-3 py-2 text-left">Form</th>
               <th className="px-3 py-2 text-left">Post Date</th>
@@ -159,7 +159,7 @@ Date: __________________________
       <table className="w-full text-sm">
         <thead className="bg-gray-100 sticky top-0">
           <tr>
-            <th className="px-3 py-2 text-left">Sr. No</th>
+            <th className="px-3 py-2 text-left w-[80px]">S. No</th>
             <th className="px-3 py-2 text-left">Title</th>
             <th className="px-3 py-2 text-left">Last Date</th>
             <th></th>

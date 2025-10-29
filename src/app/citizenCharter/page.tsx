@@ -60,7 +60,7 @@ export default function CitizenCharter() {
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Vision 2050" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "CITIZEN CHARTER" }]}
         iconProps={true}
         title="Citizen Charter"
         description={[""]}

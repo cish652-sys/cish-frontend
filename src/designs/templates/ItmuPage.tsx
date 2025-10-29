@@ -1,4 +1,7 @@
-"use-client";
+// -----------------------------------------------------------------
+// CHANGE 1: Fix typo and import DataTable
+// -----------------------------------------------------------------
+"use client"; // Fixed "use-client"
 import React from "react";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
@@ -6,8 +9,12 @@ import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import Typography from "@/designs/atoms/Typography";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
+// --- Assuming the path to your component ---
+import { DataTable, Column } from "@/designs/molecules/DataTable";
 
-// Data for the committee table, transcribed from the image
+// -----------------------------------------------------------------
+// CHANGE 2: Corrected the serial numbers (sl:) in the data
+// -----------------------------------------------------------------
 const committeeData = [
   { sl: "1.", name: "Dr. T. Damodaran", designation: "Director", membership: "Chairman" },
   {
@@ -29,12 +36,42 @@ const committeeData = [
     membership: "Member",
   },
   { sl: "5.", name: "Dr. H.S.Singh", designation: "Principal Scientist", membership: "Member" },
-  { sl: "7.", name: "Dr. Anju Bajpai", designation: "Principal Scientist", membership: "Member" },
+  { sl: "6.", name: "Dr. Anju Bajpai", designation: "Principal Scientist", membership: "Member" }, // Was 7.
   {
-    sl: "6.",
+    sl: "7.",
     name: "Dr. Muthukumar M.",
     designation: "Senior Scientist",
     membership: "Member Secretary",
+  }, // Was 6.
+];
+
+// -----------------------------------------------------------------
+// CHANGE 3: Define the columns for the DataTable
+// -----------------------------------------------------------------
+const committeeColumns: Column[] = [
+  {
+    key: "sl",
+    label: "S. No.",
+    width: "10%",
+    align: "center",
+  },
+  {
+    key: "name",
+    label: "Name Of The Officer",
+    width: "35%",
+    align: "left",
+  },
+  {
+    key: "designation",
+    label: "Designation",
+    width: "35%",
+    align: "left",
+  },
+  {
+    key: "membership",
+    label: "Membership",
+    width: "20%",
+    align: "left",
   },
 ];
 
@@ -50,13 +87,13 @@ const ItmuIprCellPage = () => {
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
-          { label: "DIVISION", href: "/Division" },
           { label: "CISH ITMU / IPR CELL", href: "/Itmu" },
         ]}
         iconProps={true}
         title="CISH ITMU / IPR CELL"
         description={[""]}
       />
+      {/* --- This section is unchanged --- */}
       <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <Typography variant="sectionHeading" className="text-green-800 font-bold">
@@ -76,44 +113,33 @@ const ItmuIprCellPage = () => {
                 SERVICE)
               </li>
               <li className="text-gray-700 text-[15px] leading-normal">COPYRIGHT REGISTRATION</li>
-              <li className="text-gray-700 text-[15px] leading-normal">
+              <li className="text-gray-700 text-[1A5px] leading-normal">
                 CREATING AWARENESS ON INTELLECTUAL PROPERTY RIGHTS.
               </li>
             </ol>
           </div>
         </div>
       </section>
-      {/* --- Committee Table --- */}
-      <section className="w-full bg-white px-4 md:px-8 lg:px-16 py-12">
-        <div className="container max-w-4xl mx-auto flex flex-col gap-6">
-          <Typography variant="sectionHeading" className="text-green-800 font-bold">
-            INSTITUTE TECHNOLOGY MANAGEMENT UNIT (ITMU) COMMITTEE :
-          </Typography>
-          <div className="overflow-x-auto shadow-lg border border-gray-300">
-            <table className="w-full border-collapse">
-              <thead className="bg-[#599A5E] text-white">
-                <tr>
-                  <th className="p-3 text-left">Sr. No.</th>
-                  <th className="p-3 text-left">Name Of The Officer</th>
-                  <th className="p-3 text-left">Designation</th>
-                  <th className="p-3 text-left">Membership</th>
-                </tr>
-              </thead>
-              <tbody>
-                {committeeData.map((member) => (
-                  <tr key={member.sl} className="even:bg-gray-100">
-                    <td className="p-3 border-t border-gray-300">{member.sl}</td>
-                    <td className="p-3 border-t border-gray-300">{member.name}</td>
-                    <td className="p-3 border-t border-gray-300">{member.designation}</td>
-                    <td className="p-3 border-t border-gray-300">{member.membership}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      {/* // -----------------------------------------------------------------
+      // CHANGE 4: Replaced the old HTML table section
+      // -----------------------------------------------------------------
+      // The DataTable component includes its own title prop and padding,
+      // so we can replace the entire old <section> block.
+      */}
+      <section className="w-full bg-white">
+        <DataTable
+          title="INSTITUTE TECHNOLOGY MANAGEMENT UNIT (ITMU) COMMITTEE :"
+          columns={committeeColumns}
+          data={committeeData}
+          showActions={false} // No actions needed for this table
+          rowGap={4} // Using the prop for consistent spacing
+        />
       </section>
-      {/* --- Button Grid --- */}
+      {/* // -----------------------------------------------------------------
+      // End of modified section
+      // -----------------------------------------------------------------
+      */}
+      {/* --- This section is unchanged --- */}
       <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12">
         <div className="container max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
           <a

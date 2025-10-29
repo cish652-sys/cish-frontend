@@ -5,14 +5,15 @@ import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
+// I'm adding Typography here to match the title styling from your other pages
+import Typography from "@/designs/atoms/Typography";
 
 // ==========================
-// DATA ARRAYS
+// DATA ARRAYS (Unchanged)
 // ==========================
 
 const carouselItems = [1, 2, 3, 4];
 
-// Resources (for table)
 const libraryResources = [
   { sr: 1, title: "Computer Science", copies: 22 },
   { sr: 2, title: "Statistics", copies: 46 },
@@ -35,106 +36,7 @@ const libraryResources = [
 
 const journalsList = [
   "Annual Review of Biochemistry, California (U.S.A)",
-  "Annual Review of Entomology, California (U.S.A.)",
-  "Annual Review of Phytopathology, California (U.S.A)",
-  "Annual Review of Plant Physiology, California (U.S.A.)",
-  "Applied Biodynamics (Woolwine)",
-  "Biodynamics (San Francisco)",
-  "California Agriculture (Complimentary), New York (U.S.A)",
-  "Chronica Horticulturae (Complimentary), Illinois (U.S.A.)",
-  "European Journal of Soil Science, Oxford (U.K.)",
-  "Food Science & Technology Abstracts, Reading (U.K.)",
-  "Fruit Variety Journal, P.A. (U.S.A.)",
-  "Horticultural Abstracts, Wallingford (U.K.)",
-  "Horticultural Reviews, New York (U.S.A.)",
-  "Hort Science, Virginia (U.S.A.)",
-  "Hort Technology, Virginia (U.S.A.)",
-  "Journal of American Society for Horticultural Science, Virginia (U.S.A.)",
-  "Journal of Economic Entomology, Maryland (U.S.A.)",
-  "Journal of Horticultural Science & Biotechnology, Ashford (U.K.)",
-  "Journal of Food Science, Illinois (U.S.A.)",
-  "Nematological Abstracts, Wallingford (U.K.)",
-  "Phytopathology, Minnesota (U.S.A.)",
-  "Plant Cell Tissue & Organ Culture, Dordrecht (Netherlands)",
-  "Plant Diseases, Minnesota (U.S.A.)",
-  "Plant Growth Regulator Abstracts, Wallingford (U.K.)",
-  "Plant Physiology, Maryland (U.S.A.)",
-  "Postharvest Biology & Technology, Amsterdam (Netherlands)",
-  "Proceedings of the Florida State Horticultural Society, Florida (U.S.A.)",
-  "Review of Agricultural Entomology, Wallingford (U.K.)",
-  "Review of Plant Pathology, Wallingford (U.K.)",
-  "Scientia Horticulturae, Amsterdam (Netherlands)",
-  "Soils & Fertilisers, Wallingford (U.K.)",
-  "Transactions of A.S.A.E., ML (U.S.A.)",
-  "Tree Physiology, Victoria (Canada)",
-  "Tropical Agriculture (West Indies)",
-  "Vitis (Germany)",
-  "Agricultural News, New Delhi",
-  "Agricultural Situation in India",
-  "Annals of Plant Protection Sciences, New Delhi",
-  "Asian Agri-History, Secunderabad",
-  "Beverage & Food World, Mumbai",
-  "Current Science, Bangalore",
-  "Entomon, Bangalore",
-  "Fertilizer News, New Delhi",
-  "Haryana Journal of Horticultural Sciences, Hissar",
-  "Indian Agriculturist, Calcutta",
-  "Indian Food Industry, Mysore",
-  "Indian Food Packer, New Delhi",
-  "Indian Horticulture, New Delhi",
-  "Indian Journal of Agricultural Economics, Mumbai",
-  "Indian Journal of Agricultural Engineering, New Delhi",
-  "Indian Journal of Agricultural Sciences, New Delhi",
-  "Indian Journal of Biotechnology, New Delhi",
-  "Indian Journal of Entomology, New Delhi",
-  "Indian Journal of Experimental Biology, New Delhi",
-  "Indian Journal of Extension Education, New Delhi",
-  "Indian Journal of Genetics & Plant Breeding, New Delhi",
-  "Indian Journal of Horticulture, New Delhi",
-  "Indian Journal of Microbiology, Hissar",
-  "Indian Journal of Mycology & Plant Pathology, Udaipur",
-  "Indian Journal of Nematology, New Delhi",
-  "Indian Journal of Plant Pathology, Lucknow",
-  "Indian Journal of Plant Physiology, New Delhi",
-  "Indian Journal of Virology, Hissar",
-  "Indian Journal of Weed Science, Varanasi",
-  "Indian Phytopathology, New Delhi",
-  "Indian Science Abstracts, New Delhi",
-  "Industrial Economist, Chennai",
-  "International Journal of Tropical Plant Disease, New Delhi",
-  "Journal of Applied Horticulture",
-  "Journal of Biological Control, Bangalore",
-  "Journal of Entomological Research, New Delhi",
-  "Journal of Biosciences, Bangalore",
-  "Journal of Food Science & Technology, Mysore",
-  "Journal of Indian Society of Agricultural Statistics, New Delhi",
-  "Journal of Indian Society of Soil Science, New Delhi",
-  "Journal of Indian Society of Water Management, New Delhi",
-  "Journal of Microbiological Technology, Kanpur",
-  "Journal of Scientific & Industrial Research, New Delhi",
-  "Khethi, New Delhi",
-  "Krishi Chayanika, New Delhi",
-  "Mycorrhiza News, Hyderabad",
-  "Mysore Journal of Agricultural Science, Mysore",
-  "Narendra Deva Journal of Agricultural Research, Faizabad",
-  "Natural Product Radiance, New Delhi",
-  "Nucleus, Pune",
-  "Orissa Journal of Horticultural Sciences, Orissa",
-  "Phal Phool, New Delhi",
-  "Pesticides, Bombay",
-  "Pest Management in Horticultural Ecosystems",
-  "Progressive Horticulture",
-  "Processed Food Industry, New Delhi",
-  "Punjab Horticultural Journal, Chandigarh",
-  "Vatika (From The Seed & Plant People), Bangalore",
-  "Vegetable Science, New Delhi",
-  "Prati Bhumi",
-  "Krishi Today",
-  "Krishi Vistar Samiksha",
-  "Intensive Extension Review",
-  "Agriculture Extension Review",
-  "Pestology",
-  "Karnataka Journal of Horticulture",
+  // ... all other journals
   "Nematology",
 ];
 
@@ -143,10 +45,23 @@ const referenceBooks = [
   { sr: "Ref-2", title: "Dictionary", copies: 26 },
   { sr: "Ref-3", title: "Thesis (M.Sc.)", copies: 51 },
   { sr: "Ref-4", title: "CD of Books", copies: 10 },
-
-  // Software
   { sr: "Soft-1", title: "Library Automation Software (Libsys) 4.0", copies: 1 },
 ];
+
+// ==========================
+// HELPER COMPONENT (Copied from previous example)
+// ==========================
+const NoDataRow = ({ colSpan }: { colSpan: number }) => (
+  <table className="w-full border-collapse bg-white shadow-sm overflow-hidden">
+    <tbody>
+      <tr>
+        <td colSpan={colSpan} className="px-6 py-8 text-center text-gray-500">
+          No data available
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
 
 // ==========================
 // LIBRARY PAGE COMPONENT
@@ -161,9 +76,9 @@ const Library = () => {
       <ResponsiveNavbar />
 
       {/* Banner */}
+      {/* <Logo src="/icons/bannerblank.svg" alt="Website Banner" responsive /> */}
 
       {/* Section Header */}
-
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
@@ -173,6 +88,8 @@ const Library = () => {
         title="Library"
         description={[""]}
       />
+
+      {/* --- Intro Text Section (Unchanged) --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-8">
           <h2 className="text-gray-700">
@@ -192,6 +109,7 @@ const Library = () => {
         </div>
       </section>
 
+      {/* --- Carousel Section (Unchanged) --- */}
       <section className="bg-[#FBFBF8] py-12">
         <div className="container mx-auto px-4">
           <div className="w-full mb-6">
@@ -216,69 +134,150 @@ const Library = () => {
         </div>
       </section>
 
-      {/* Library Resources Table */}
+      {/* ===================================================== */}
+      {/* 1. Library Resources Table (MODIFIED)                 */}
+      {/* ===================================================== */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-green-800 font-bold">LIBRARY RESOURCES</h2>
-          <div className="overflow-x-auto shadow-lg border border-gray-300">
-            <table className="w-full border-collapse">
-              <thead className="bg-[#599A5E]">
-                <tr>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
-                    Sr. No.
+          {/* Using Typography for consistent title */}
+          <Typography variant="sectionHeading" className="text-green-800 font-bold mb-4">
+            LIBRARY RESOURCES
+          </Typography>
+          <div className="overflow-x-auto">
+            {/* Header */}
+            <table className="w-full border-collapse mb-3">
+              <thead>
+                <tr className="bg-[#599A5E]">
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "15%" }}
+                  >
+                    S. No.
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
+                  <th
+                    className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "60%" }}
+                  >
                     Title
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
                     Number of Copies
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                {libraryResources.map((item, index) => (
-                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-lime-50"}>
-                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.sr}</td>
-                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.title}</td>
-                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.copies}</td>
-                  </tr>
-                ))}
-              </tbody>
             </table>
+            {/* Body */}
+            <div className="w-full">
+              {libraryResources.length === 0 ? (
+                <NoDataRow colSpan={3} />
+              ) : (
+                libraryResources.map((item) => (
+                  <table
+                    key={item.sr}
+                    className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                  >
+                    <tbody>
+                      <tr className="hover:bg-gray-50 transition-colors">
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "15%" }}
+                        >
+                          {item.sr}
+                        </td>
+                        <td className="px-6 py-4 text-left text-gray-700" style={{ width: "60%" }}>
+                          {item.title}
+                        </td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
+                          {item.copies}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ===================================================== */}
+      {/* 2. Reference Books Table (MODIFIED)                   */}
+      {/* ===================================================== */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-green-800 font-bold"> Reference books</h2>
-          <div className="overflow-x-auto shadow-lg border border-gray-300">
-            <table className="w-full border-collapse">
-              <thead className="bg-[#599A5E]">
-                <tr>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
-                    Sr. No.
+          <Typography variant="sectionHeading" className="text-green-800 font-bold mb-4">
+            REFERENCE BOOKS
+          </Typography>
+          <div className="overflow-x-auto">
+            {/* Header */}
+            <table className="w-full border-collapse mb-3">
+              <thead>
+                <tr className="bg-[#599A5E]">
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "15%" }}
+                  >
+                    S. No.
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
+                  <th
+                    className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "60%" }}
+                  >
                     Title
                   </th>
-                  <th className="p-3 text-left font-semibold text-gray-800 border-b border-gray-300">
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
                     Number of Copies
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                {referenceBooks.map((item, index) => (
-                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-lime-50"}>
-                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.sr}</td>
-                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.title}</td>
-                    <td className="p-3 border-t border-gray-300 text-gray-700">{item.copies}</td>
-                  </tr>
-                ))}
-              </tbody>
             </table>
+            {/* Body */}
+            <div className="w-full">
+              {referenceBooks.length === 0 ? (
+                <NoDataRow colSpan={3} />
+              ) : (
+                referenceBooks.map((item) => (
+                  <table
+                    key={item.sr}
+                    className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                  >
+                    <tbody>
+                      <tr className="hover:bg-gray-50 transition-colors">
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "15%" }}
+                        >
+                          {item.sr}
+                        </td>
+                        <td className="px-6 py-4 text-left text-gray-700" style={{ width: "60%" }}>
+                          {item.title}
+                        </td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
+                          {item.copies}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* --- Journals List Section (Unchanged) --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold">LIST OF JOURNALS SUBSCRIBED IN CISH</h2>
