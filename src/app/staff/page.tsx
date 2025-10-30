@@ -7,10 +7,7 @@ import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { StaffsSection } from "@/designs/templates/StaffsSection";
 import { StaffsItems } from "@/designs/organisms/StaffsGrid";
-import {
-  getDirector,
-  getStaffBySubDept,
-} from "@/lib/api"; // Import API functions
+import { getDirector, getStaffBySubDept } from "@/lib/api"; // Import API functions
 import { dummyStaffData } from "@/lib/utils"; // Keep dummy data for DIVISIONS
 import React, { useState, useEffect } from "react";
 
@@ -26,12 +23,7 @@ const StaffPage = () => {
     const fetchAllStaffData = async () => {
       try {
         // Run fetches in parallel (REMOVED scientific)
-        const [
-          directorData,
-          technicalData,
-          skilledData,
-          adminData,
-        ] = await Promise.all([
+        const [directorData, technicalData, skilledData, adminData] = await Promise.all([
           getDirector(),
           getStaffBySubDept("technical"),
           getStaffBySubDept("skilled"),

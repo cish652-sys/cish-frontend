@@ -444,7 +444,7 @@ export const dummyStaffData = [
       // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
       "",
     ],
-    image: "/icons/Staff1.svg",
+    image: "/icons/dummyStaff.svg",
     href: "/staff/crop-improvement",
   },
   {
@@ -508,9 +508,7 @@ export const dummyStaffData = [
     divisionQueryName: "ICAR-CISH RRS, Malda (West Bengal)",
     headName: "DR DIPAK NAYAK",
     headTitle: "SENIOR SCIENTIST & INCHARGE RRS",
-    description: [
-      ""
-    ],
+    description: [""],
     descriptions: [
       "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
       "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
