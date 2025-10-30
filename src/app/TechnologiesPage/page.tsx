@@ -22,7 +22,7 @@ function TechnologiesPage() {
       try {
         // --- 1. We only need to fetch ALL technologies once ---
         const allTechApiUrl = "https://api.cish.org.in/api/innovation?key=technology";
-        
+
         const res = await fetch(allTechApiUrl);
         const allData: ApiTechnology[] = res.ok ? await res.json() : [];
 
@@ -31,10 +31,10 @@ function TechnologiesPage() {
           setAllTechData(allData);
 
           // --- 3. Filter for Trending technologies (isTrending === true) ---
-          const trendingData = allData.filter(item => item.isTrending === true);
+          const trendingData = allData.filter((item) => item.isTrending === true);
 
           // --- 4. Filter for Other technologies (isTrending is false or null) ---
-          const otherOnlyData = allData.filter(item => item.isTrending !== true);
+          const otherOnlyData = allData.filter((item) => item.isTrending !== true);
 
           // --- 5. Map and set Trending technologies ---
           if (trendingData.length > 0) {
@@ -66,7 +66,7 @@ function TechnologiesPage() {
             );
             setOtherTech(mappedOther);
           } else {
-             // If API returns no other items, set to empty array
+            // If API returns no other items, set to empty array
             setOtherTech([]);
           }
         }
@@ -115,13 +115,7 @@ function TechnologiesPage() {
       <Footer />
 
       {/* This modal correctly receives the full ApiTechnology object */}
-      {modalItem && (
-        <DetailsModal
-          isOpen={!!modalItem}
-          item={modalItem}
-          onClose={closeModal}
-        />
-      )}
+      {modalItem && <DetailsModal isOpen={!!modalItem} item={modalItem} onClose={closeModal} />}
     </div>
   );
 }

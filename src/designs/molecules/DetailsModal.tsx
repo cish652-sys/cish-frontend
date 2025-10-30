@@ -104,33 +104,66 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
           Key Information
         </Typography>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-800">
-          {item.inventor && <p><strong>Inventor:</strong> {item.inventor}</p>}
-          {item.collaborators && <p><strong>Collaborators:</strong> {item.collaborators}</p>}
+          {item.inventor && (
+            <p>
+              <strong>Inventor:</strong> {item.inventor}
+            </p>
+          )}
+          {item.collaborators && (
+            <p>
+              <strong>Collaborators:</strong> {item.collaborators}
+            </p>
+          )}
           {item.yearOfDevelopment && (
-            <p><strong>Year of Development:</strong> {item.yearOfDevelopment}</p>
+            <p>
+              <strong>Year of Development:</strong> {item.yearOfDevelopment}
+            </p>
           )}
-          {item.yearOfRelease && <p><strong>Year of Release:</strong> {item.yearOfRelease}</p>}
+          {item.yearOfRelease && (
+            <p>
+              <strong>Year of Release:</strong> {item.yearOfRelease}
+            </p>
+          )}
           {item.yearOfCommercialization && (
-            <p><strong>Commercialization:</strong> {item.yearOfCommercialization}</p>
+            <p>
+              <strong>Commercialization:</strong> {item.yearOfCommercialization}
+            </p>
           )}
-          {item.royalty && <p><strong>Royalty:</strong> {item.royalty}</p>}
-          {item.licenseFee && <p><strong>License Fee:</strong> {item.licenseFee}</p>}
+          {item.royalty && (
+            <p>
+              <strong>Royalty:</strong> {item.royalty}
+            </p>
+          )}
+          {item.licenseFee && (
+            <p>
+              <strong>License Fee:</strong> {item.licenseFee}
+            </p>
+          )}
           {item.natureOfLicense && (
-            <p><strong>Nature of License:</strong> {item.natureOfLicense}</p>
+            <p>
+              <strong>Nature of License:</strong> {item.natureOfLicense}
+            </p>
           )}
           {item.licenseDuration && (
-            <p><strong>License Duration:</strong> {item.licenseDuration} years</p>
+            <p>
+              <strong>License Duration:</strong> {item.licenseDuration} years
+            </p>
           )}
-          {item.icNumber && <p><strong>IC Number:</strong> {item.icNumber}</p>}
+          {item.icNumber && (
+            <p>
+              <strong>IC Number:</strong> {item.icNumber}
+            </p>
+          )}
           {item.ppvfraRegistration && (
-            <p><strong>PPVFRA Registration:</strong> {item.ppvfraRegistration}</p>
+            <p>
+              <strong>PPVFRA Registration:</strong> {item.ppvfraRegistration}
+            </p>
           )}
 
           {/* --- FIX IS HERE --- */}
           {item.targetCustomers && (
             <p className="md:col-span-2">
-              <strong>Target Customers:</strong>{" "}
-              {/* Check if it's an array before joining */}
+              <strong>Target Customers:</strong> {/* Check if it's an array before joining */}
               {Array.isArray(item.targetCustomers)
                 ? item.targetCustomers.join(", ")
                 : item.targetCustomers}

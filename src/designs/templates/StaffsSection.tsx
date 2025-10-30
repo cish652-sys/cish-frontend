@@ -81,10 +81,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
               <section id="divisionStaffSection" className="py-12">
                 <div className="container">
                   <div className="mb-8">
-                    <Typography
-                      variant="sectionHeading"
-                      className="text-green-700 mb-4"
-                    >
+                    <Typography variant="sectionHeading" className="text-green-700 mb-4">
                       STAFF MEMBERS
                     </Typography>
                   </div>
@@ -110,7 +107,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   {/* Left Side: Image */}
                   <div className="relative flex justify-center items-end lg:justify-end">
                     <ImageAtom
-                      src={director.image}
+                      src={'/icons/directorStaff.svg'}
                       alt={director.title}
                       className="max-w-full p-2 "
                     />
@@ -124,10 +121,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                     <DirectorContent
                       // Added line-clamp-3 here
                       className="leading-loose line-clamp-3"
-                      content={
-                        director.descriptionDirector ||
-                        "No description available."
-                      }
+                      content={director.descriptionDirector || "No description available."}
                       linkHref="#"
                       linkText="" // This hides the default link
                     />
@@ -156,15 +150,10 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full sm:w-auto flex items-center justify-center text-center font-semibold px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300 ease-in-out bg-green-700 text-white ${
-                    activeTab === tab.id
-                      ? "shadow-lg"
-                      : "hover:bg-green-600 hover:shadow-md"
+                    activeTab === tab.id ? "shadow-lg" : "hover:bg-green-600 hover:shadow-md"
                   }`}
                 >
-                  <Typography
-                    variant="sectionHeading"
-                    className="!text-white text-sm sm:text-base"
-                  >
+                  <Typography variant="sectionHeading" className="!text-white text-sm sm:text-base">
                     {tab.label}
                   </Typography>
                 </button>
@@ -199,9 +188,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
       </section>
 
       {/* This modal opens and shows the full details */}
-      {modalStaff && (
-        <StaffModal staff={modalStaff} onClose={() => setModalStaff(null)} />
-      )}
+      {modalStaff && <StaffModal staff={modalStaff} onClose={() => setModalStaff(null)} />}
     </>
   );
 };

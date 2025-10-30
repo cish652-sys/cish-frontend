@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { StaffsItems } from "../organisms/StaffsGrid";
 // Make sure you import your Typography atom
-import Typography from "../atoms/Typography"; 
+import Typography from "../atoms/Typography";
 
 interface StaffModalProps {
   staff: StaffsItems;
@@ -50,9 +50,7 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
             {/* *** ADDED THIS BLOCK FOR FULL DESCRIPTION *** */}
             {staff.descriptionDirector && (
               <div className="mb-4 border-b pb-4">
-                <p  className="text-gray-700 whitespace-pre-line">
-                  {staff.descriptionDirector}
-                </p>
+                <p className="text-gray-700 whitespace-pre-line">{staff.descriptionDirector}</p>
               </div>
             )}
             {/* *** END OF ADDED BLOCK *** */}

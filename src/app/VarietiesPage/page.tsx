@@ -31,7 +31,7 @@ function VarietiesPage() {
         const data: ApiTechnology[] = await response.json();
 
         if (Array.isArray(data) && data.length > 0) {
-          const varietiesOnly = data.filter(item => item.isVarieties === true);
+          const varietiesOnly = data.filter((item) => item.isVarieties === true);
           setAllVarietiesData(varietiesOnly);
 
           // --- CHANGE IS HERE ---
@@ -55,7 +55,7 @@ function VarietiesPage() {
           } else {
             setTopVariety([]);
           }
-          
+
           if (otherItemsData.length > 0) {
             const mappedOtherVarieties = otherItemsData.map(
               (item): TechnologyCardItem => ({
@@ -133,11 +133,7 @@ function VarietiesPage() {
         />
       </div>
       <Footer />
-      <DetailsModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        item={selectedItem}
-      />
+      <DetailsModal isOpen={isModalOpen} onClose={handleCloseModal} item={selectedItem} />
     </div>
   );
 }

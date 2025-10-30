@@ -55,7 +55,7 @@ export const StaffsGrid: React.FC<StaffsGridProps> = ({
 
   const handleViewMore = (staff: StaffsItems) => {
     // ALWAYS build the URL from the staff.id
-    let href = `/staff/${staff.id}`; 
+    let href = `/staff/${staff.id}`;
 
     if (subDeptIdForLinks) {
       href += `?subDeptId=${subDeptIdForLinks}`;

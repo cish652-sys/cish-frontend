@@ -31,17 +31,13 @@ export default function StaffDetailPage() {
       // *** THIS IS THE KEY CHANGE ***
       // Use the new 'divisionQueryName' if it exists,
       // otherwise, fall back to the 'title'.
-      const divisionNameForApi =
-        selectedStaff?.divisionQueryName || selectedStaff?.title;
+      const divisionNameForApi = selectedStaff?.divisionQueryName || selectedStaff?.title;
 
       // Check if we have all needed info
       if (selectedStaff && divisionNameForApi && subDeptId) {
         try {
           // Use the correct division name for the API call
-          const staffData = await getStaffByDivision(
-            divisionNameForApi,
-            subDeptId,
-          );
+          const staffData = await getStaffByDivision(divisionNameForApi, subDeptId);
           setDivisionStaff(staffData);
         } catch (error) {
           console.error("Failed to load division staff data:", error);

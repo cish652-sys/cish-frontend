@@ -31,7 +31,7 @@ function ClimateResilientPage() {
         const data: ApiTechnology[] = await response.json();
 
         if (Array.isArray(data) && data.length > 0) {
-          const climateOnly = data.filter(item => item.isClimateResilient === true);
+          const climateOnly = data.filter((item) => item.isClimateResilient === true);
           setAllClimateData(climateOnly);
 
           const topItemData = climateOnly.slice(0, 3);
@@ -51,7 +51,7 @@ function ClimateResilientPage() {
           } else {
             setTopVariety([]);
           }
-          
+
           if (otherItemsData.length > 0) {
             const mappedOtherVarieties = otherItemsData.map(
               (item): TechnologyCardItem => ({
@@ -129,11 +129,7 @@ function ClimateResilientPage() {
         />
       </div>
       <Footer />
-      <DetailsModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        item={selectedItem}
-      />
+      <DetailsModal isOpen={isModalOpen} onClose={handleCloseModal} item={selectedItem} />
     </div>
   );
 }

@@ -34,9 +34,8 @@ function NutraceuticalPage() {
         const data: ApiTechnology[] = await response.json();
 
         if (Array.isArray(data) && data.length > 0) {
-        
-          const nutraOnly = data.filter(item => item.isNutraceutical === true);
-          
+          const nutraOnly = data.filter((item) => item.isNutraceutical === true);
+
           setAllNutraData(nutraOnly);
 
           const topItemData = nutraOnly.slice(0, 3);
@@ -54,9 +53,9 @@ function NutraceuticalPage() {
             );
             setTopVariety(mappedTopVariety);
           } else {
-            setTopVariety([]); 
+            setTopVariety([]);
           }
-          
+
           if (otherItemsData.length > 0) {
             const mappedOtherVarieties = otherItemsData.map(
               (item): TechnologyCardItem => ({
@@ -78,7 +77,7 @@ function NutraceuticalPage() {
     };
 
     fetchVarieties();
-  }, []); 
+  }, []);
 
   const handleViewTopItem = (item: TechnologyCardItem) => {
     const fullItem = allNutraData.find((v) => v.id === item.id);
@@ -135,11 +134,7 @@ function NutraceuticalPage() {
       </div>
       <Footer />
 
-      <DetailsModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        item={selectedItem}
-      />
+      <DetailsModal isOpen={isModalOpen} onClose={handleCloseModal} item={selectedItem} />
     </div>
   );
 }

@@ -24,7 +24,7 @@ export default function AgroAdvisoryPage() {
       title: "Agro Advisory",
       publishedDate: "04-03-2025",
       fileSize: "",
-      fileUrl: "/files/AgroAdvisory.pdf",
+      fileUrl: "https://minio.cish.org.in/cish-bucket/newAdv.pdf",
     },
   ];
 

@@ -48,7 +48,7 @@ const routes: Record<string, string> = {
   // VARIETIES dropdown
   "Climate Resilient": "/ClimateResilient",
   "Nutraceutical Rich": "/Nutraceutical",
-  'All Varieties': "/varieties",
+  "All Varieties": "/varieties",
 
   // FOR FARMERS dropdown
   "Agro Advisory": "/AgroAdvisory",
