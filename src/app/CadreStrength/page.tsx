@@ -10,14 +10,14 @@ export default function CadreStrength() {
       <Header />
       <ResponsiveNavbar />
       <SectionHeader
-              breadcrumbItems={[
-                { label: "Home", href: "/" },
-                { label: "CADRE STRENGTH", href: "/Itmu" },
-              ]}
-              iconProps={true}
-              title="CADRE STRENGTH"
-              description={[""]}
-            />
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "CADRE STRENGTH", href: "/Itmu" },
+        ]}
+        iconProps={true}
+        title="CADRE STRENGTH"
+        description={[""]}
+      />
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="max-w-6xl mx-auto flex flex-col gap-10 text-gray-800">
           {/* <h1 className="text-green-800 font-bold text-2xl text-center">CADRE STRENGTH</h1> */}

@@ -165,11 +165,9 @@ const IprProtectionPage = () => {
         title="PATENTS, COPYRIGHTS AND GI (GEOGRAPHICAL INDICATION) FROM ICAR-CISH"
         description={[""]}
       />
-      
       {/* --- Section for all tables --- */}
       <section className="w-full bg-[#FBFAF0] px-4 md:px-8 lg:px-16 py-12">
         <div className="container max-w-5xl mx-auto flex flex-col gap-10">
-          
           {/* --- 1. PATENTS FILED --- */}
           <div>
             <Typography variant="sectionHeading" className="text-green-800 font-bold mb-4">
@@ -180,26 +178,81 @@ const IprProtectionPage = () => {
               <table className="w-full border-collapse mb-3">
                 <thead>
                   <tr className="bg-[#599A5E]">
-                    <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "10%" }}>S. No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "20%" }}>Patent File No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "35%" }}>Technology</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "15%" }}>Patent File Date</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "20%" }}>Status</th>
+                    <th
+                      className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "10%" }}
+                    >
+                      S. No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "20%" }}
+                    >
+                      Patent File No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "35%" }}
+                    >
+                      Technology
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "15%" }}
+                    >
+                      Patent File Date
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "20%" }}
+                    >
+                      Status
+                    </th>
                   </tr>
                 </thead>
               </table>
               {/* Body */}
               <div className="w-full">
-                {patentsFiledData.length === 0 ? <NoDataRow colSpan={5} /> : (
+                {patentsFiledData.length === 0 ? (
+                  <NoDataRow colSpan={5} />
+                ) : (
                   patentsFiledData.map((item) => (
-                    <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                    <table
+                      key={item.sr}
+                      className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                    >
                       <tbody>
                         <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="px-6 py-4 text-center text-gray-700" style={{ width: "10%" }}>{item.sr}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "20%" }}>{item.fileNo}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "35%" }}>{item.technology}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "15%" }}>{item.patentFileDate}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "20%" }}>{item.status}</td>
+                          <td
+                            className="px-6 py-4 text-center text-gray-700"
+                            style={{ width: "10%" }}
+                          >
+                            {item.sr}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "20%" }}
+                          >
+                            {item.fileNo}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "35%" }}
+                          >
+                            {item.technology}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "15%" }}
+                          >
+                            {item.patentFileDate}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "20%" }}
+                          >
+                            {item.status}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -219,24 +272,67 @@ const IprProtectionPage = () => {
               <table className="w-full border-collapse mb-3">
                 <thead>
                   <tr className="bg-[#599A5E]">
-                    <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "10%" }}>S. No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "20%" }}>Registration No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "50%" }}>Technology</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "20%" }}>Date Of Grant</th>
+                    <th
+                      className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "10%" }}
+                    >
+                      S. No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "20%" }}
+                    >
+                      Registration No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "50%" }}
+                    >
+                      Technology
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "20%" }}
+                    >
+                      Date Of Grant
+                    </th>
                   </tr>
                 </thead>
               </table>
               {/* Body */}
               <div className="w-full">
-                {patentGrantedData.length === 0 ? <NoDataRow colSpan={4} /> : (
+                {patentGrantedData.length === 0 ? (
+                  <NoDataRow colSpan={4} />
+                ) : (
                   patentGrantedData.map((item) => (
-                    <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                    <table
+                      key={item.sr}
+                      className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                    >
                       <tbody>
                         <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="px-6 py-4 text-center text-gray-700" style={{ width: "10%" }}>{item.sr}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "20%" }}>{item.regNo}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "50%" }}>{item.technology}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "20%" }}>
+                          <td
+                            className="px-6 py-4 text-center text-gray-700"
+                            style={{ width: "10%" }}
+                          >
+                            {item.sr}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "20%" }}
+                          >
+                            {item.regNo}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "50%" }}
+                          >
+                            {item.technology}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "20%" }}
+                          >
                             {item.dateOfGrant} {item.certificate && <CertificateLink />}
                           </td>
                         </tr>
@@ -258,26 +354,81 @@ const IprProtectionPage = () => {
               <table className="w-full border-collapse mb-3">
                 <thead>
                   <tr className="bg-[#599A5E]">
-                    <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "10%" }}>S. No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "20%" }}>Diary No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "35%" }}>Mobile App</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "15%" }}>Date Of Filling</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "20%" }}>Application Status</th>
+                    <th
+                      className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "10%" }}
+                    >
+                      S. No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "20%" }}
+                    >
+                      Diary No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "35%" }}
+                    >
+                      Mobile App
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "15%" }}
+                    >
+                      Date Of Filling
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "20%" }}
+                    >
+                      Application Status
+                    </th>
                   </tr>
                 </thead>
               </table>
               {/* Body */}
               <div className="w-full">
-                {copyrightsFiledData.length === 0 ? <NoDataRow colSpan={5} /> : (
+                {copyrightsFiledData.length === 0 ? (
+                  <NoDataRow colSpan={5} />
+                ) : (
                   copyrightsFiledData.map((item) => (
-                    <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                    <table
+                      key={item.sr}
+                      className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                    >
                       <tbody>
                         <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="px-6 py-4 text-center text-gray-700" style={{ width: "10%" }}>{item.sr}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "20%" }}>{item.diaryNo}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "35%" }}>{item.mobileApp}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "15%" }}>{item.dateOfFilling}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "20%" }}>{item.status}</td>
+                          <td
+                            className="px-6 py-4 text-center text-gray-700"
+                            style={{ width: "10%" }}
+                          >
+                            {item.sr}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "20%" }}
+                          >
+                            {item.diaryNo}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "35%" }}
+                          >
+                            {item.mobileApp}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "15%" }}
+                          >
+                            {item.dateOfFilling}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "20%" }}
+                          >
+                            {item.status}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -297,24 +448,67 @@ const IprProtectionPage = () => {
               <table className="w-full border-collapse mb-3">
                 <thead>
                   <tr className="bg-[#599A5E]">
-                    <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "10%" }}>S. No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>Diary No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "40%" }}>Mobile App</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>Date Of Grant</th>
+                    <th
+                      className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "10%" }}
+                    >
+                      S. No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "25%" }}
+                    >
+                      Diary No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "40%" }}
+                    >
+                      Mobile App
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "25%" }}
+                    >
+                      Date Of Grant
+                    </th>
                   </tr>
                 </thead>
               </table>
               {/* Body */}
               <div className="w-full">
-                {copyrightGrantedData.length === 0 ? <NoDataRow colSpan={4} /> : (
+                {copyrightGrantedData.length === 0 ? (
+                  <NoDataRow colSpan={4} />
+                ) : (
                   copyrightGrantedData.map((item) => (
-                    <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                    <table
+                      key={item.sr}
+                      className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                    >
                       <tbody>
                         <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="px-6 py-4 text-center text-gray-700" style={{ width: "10%" }}>{item.sr}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "25%" }}>{item.diaryNo}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "40%" }}>{item.mobileApp}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "25%" }}>
+                          <td
+                            className="px-6 py-4 text-center text-gray-700"
+                            style={{ width: "10%" }}
+                          >
+                            {item.sr}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "25%" }}
+                          >
+                            {item.diaryNo}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "40%" }}
+                          >
+                            {item.mobileApp}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "25%" }}
+                          >
                             {item.dateOfGrant} {item.certificate && <CertificateLink />}
                           </td>
                         </tr>
@@ -336,24 +530,67 @@ const IprProtectionPage = () => {
               <table className="w-full border-collapse mb-3">
                 <thead>
                   <tr className="bg-[#599A5E]">
-                    <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "10%" }}>S. No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>Registration No.</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "40%" }}>Geographical Indication</th>
-                    <th className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>Date Of Grant</th>
+                    <th
+                      className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "10%" }}
+                    >
+                      S. No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "25%" }}
+                    >
+                      Registration No.
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "40%" }}
+                    >
+                      Geographical Indication
+                    </th>
+                    <th
+                      className="px-6 py-4 text-left text-white font-semibold uppercase text-sm tracking-wider"
+                      style={{ width: "25%" }}
+                    >
+                      Date Of Grant
+                    </th>
                   </tr>
                 </thead>
               </table>
               {/* Body */}
               <div className="w-full">
-                {geographicalIndicationData.length === 0 ? <NoDataRow colSpan={4} /> : (
+                {geographicalIndicationData.length === 0 ? (
+                  <NoDataRow colSpan={4} />
+                ) : (
                   geographicalIndicationData.map((item) => (
-                    <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                    <table
+                      key={item.sr}
+                      className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                    >
                       <tbody>
                         <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="px-6 py-4 text-center text-gray-700" style={{ width: "10%" }}>{item.sr}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "25%" }}>{item.regNo}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "40%" }}>{item.geographicalIndication}</td>
-                          <td className="px-6 py-4 text-left text-gray-700" style={{ width: "25%" }}>
+                          <td
+                            className="px-6 py-4 text-center text-gray-700"
+                            style={{ width: "10%" }}
+                          >
+                            {item.sr}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "25%" }}
+                          >
+                            {item.regNo}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "40%" }}
+                          >
+                            {item.geographicalIndication}
+                          </td>
+                          <td
+                            className="px-6 py-4 text-left text-gray-700"
+                            style={{ width: "25%" }}
+                          >
                             {item.dateOfGrant} {item.certificate && <CertificateLink />}
                           </td>
                         </tr>
@@ -364,7 +601,6 @@ const IprProtectionPage = () => {
               </div>
             </div>
           </div>
-
         </div>
       </section>
       <Footer />

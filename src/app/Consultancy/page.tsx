@@ -45,7 +45,7 @@ const NoDataRow = ({ colSpan }: { colSpan: number }) => (
 export default function Consultancy() {
   return (
     // Changed main bg to match other pages
-    <main className="w-full bg-white"> 
+    <main className="w-full bg-white">
       <Header />
       <ResponsiveNavbar />
       <SectionHeader
@@ -87,13 +87,22 @@ export default function Consultancy() {
             <table className="w-full border-collapse mb-3">
               <thead>
                 <tr className="bg-[#599A5E]">
-                  <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
                     S. No.
                   </th>
-                  <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "50%" }}>
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "50%" }}
+                  >
                     Year
                   </th>
-                  <th className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider" style={{ width: "25%" }}>
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
                     Number of Consultancies
                   </th>
                 </tr>
@@ -101,18 +110,32 @@ export default function Consultancy() {
             </table>
             {/* Body */}
             <div className="w-full">
-              {consultancyData.length === 0 ? <NoDataRow colSpan={3} /> : (
+              {consultancyData.length === 0 ? (
+                <NoDataRow colSpan={3} />
+              ) : (
                 consultancyData.map((item) => (
-                  <table key={item.sr} className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden">
+                  <table
+                    key={item.sr}
+                    className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                  >
                     <tbody>
                       <tr className="hover:bg-gray-50 transition-colors">
-                        <td className="px-6 py-4 text-center text-gray-700" style={{ width: "25%" }}>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
                           {item.sr}
                         </td>
-                        <td className="px-6 py-4 text-center text-gray-700" style={{ width: "50%" }}>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "50%" }}
+                        >
                           {item.year}
                         </td>
-                        <td className="px-6 py-4 text-center text-gray-700" style={{ width: "25%" }}>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
                           {item.no}
                         </td>
                       </tr>

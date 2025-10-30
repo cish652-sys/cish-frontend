@@ -1,19 +1,20 @@
+// designs/templates/StaffsSection.tsx
 "use client";
 import ImageAtom from "../atoms/ImageDirectorDesk";
 import Typography from "../atoms/Typography";
 import DirectorContent from "../molecules/DirectorsContent";
 import { SectionHeader } from "../organisms/SectionHeader";
-import { StaffsItems, StaffsGrid } from "../organisms/StaffsGrid"; // Import StaffsGrid
+import { StaffsItems, StaffsGrid } from "../organisms/StaffsGrid";
 import { useState } from "react";
 import { Badge } from "../atoms/Badge";
 import { StaffFlipCard } from "../molecules/StaffFlipCard";
 import { StaffModal } from "../molecules/StaffModal";
 
 type StaffsSectionProps = {
-  staffsItems: StaffsItems[];
+  divisionItems: StaffsItems[];
   showHeading?: boolean;
   selectedStaff?: StaffsItems;
-  scientificStaff?: StaffsItems[];
+  director?: StaffsItems;
   technicalStaff?: StaffsItems[];
   skilledSupportingStaff?: StaffsItems[];
   administrativeStaff?: StaffsItems[];
@@ -29,10 +30,10 @@ interface StaffTab {
 }
 
 export const StaffsSection: React.FC<StaffsSectionProps> = ({
-  staffsItems,
+  divisionItems,
   showHeading = true,
   selectedStaff,
-  scientificStaff = [],
+  director,
   technicalStaff = [],
   skilledSupportingStaff = [],
   administrativeStaff = [],
@@ -42,15 +43,23 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
   const [modalStaff, setModalStaff] = useState<StaffsItems | null>(null);
 
   const staffTabs: StaffTab[] = [
-    { id: "scientific", label: "SCIENTIFIC STAFF", data: scientificStaff },
+    { id: "scientific", label: "SCIENTIFIC STAFF", data: divisionItems },
     { id: "technical", label: "TECHNICAL STAFF", data: technicalStaff },
-    { id: "skilled", label: "SKILLED SUPPORTING STAFF", data: skilledSupportingStaff },
-    { id: "administrative", label: "ADMINISTRATIVE STAFF", data: administrativeStaff },
+    {
+      id: "skilled",
+      label: "SKILLED SUPPORTING STAFF",
+      data: skilledSupportingStaff,
+    },
+    {
+      id: "administrative",
+      label: "ADMINISTRATIVE STAFF",
+      data: administrativeStaff,
+    },
   ];
 
   const getCurrentStaffData = (): StaffsItems[] => {
     const currentTab = staffTabs.find((tab) => tab.id === activeTab);
-    return currentTab?.data || staffsItems;
+    return currentTab?.data || [];
   };
 
   return (
@@ -67,15 +76,18 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         {selectedStaff ? (
           <>
+            {/* Division Detail Page view (no change here) */}
             {divisionStaff.length > 0 && (
               <section id="divisionStaffSection" className="py-12">
                 <div className="container">
                   <div className="mb-8">
-                    <Typography variant="sectionHeading" className="text-green-700 mb-4">
+                    <Typography
+                      variant="sectionHeading"
+                      className="text-green-700 mb-4"
+                    >
                       STAFF MEMBERS
                     </Typography>
                   </div>
-
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {divisionStaff.map((staffMember) => (
                       <StaffFlipCard
@@ -90,30 +102,52 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
             )}
           </>
         ) : (
-          <section id="directorsSection">
-            <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
-              <div className="relative flex  justify-center items-end lg:justify-end">
-                <ImageAtom
-                  src="/icons/directorStaff.svg"
-                  alt="Director"
-                  className="max-w-full p-2 "
-                />
-                <Badge className="bg-green-800/95 width-[217px] text-sm">
-                  Dr. Damodaran Thukkaram
-                </Badge>
-              </div>
-              <div className="flex-1 flex flex-col">
-                <DirectorContent
-                  className="leading-loose"
-                  content="Dr. Damodaran Thukkaram, born on October 2nd, 1973, in Chennai, did his M.Sc. and Ph.D. from Tamil Nadu Agricultural University, Coimbatore (1998–2003). He joined the Agricultural Research Service (ARS) of ICAR at the Central Agricultural Research Institute, Port Blair, in 1999 as a Scientist. Later, he was selected as Senior Scientist at ICAR–Central Soil Salinity Research Institute (CSSRI), Regional Research Station (RRS), Lucknow, in the year 2008. Further, he was placed as Principal Scientist in the same institute and later served as Head In-charge of the station since 2020. On 23rd January 2023, he assumed charge as the regular Director of ICAR–Central Institute for Subtropical Horticulture, Lucknow, and is currently leading the institute."
-                  linkHref="#"
-                  linkText=""
-                />
-              </div>
-            </div>
-          </section>
+          <>
+            {/* *** MODIFIED DIRECTOR SECTION *** */}
+            {director && (
+              <section id="directorsSection">
+                <div className="container flex flex-col lg:flex-row gap-6 lg:flex-nowrap">
+                  {/* Left Side: Image */}
+                  <div className="relative flex justify-center items-end lg:justify-end">
+                    <ImageAtom
+                      src={director.image}
+                      alt={director.title}
+                      className="max-w-full p-2 "
+                    />
+                    <Badge className="bg-green-800/95 width-[217px] text-sm">
+                      {director.title}
+                    </Badge>
+                  </div>
+
+                  {/* Right Side: Content */}
+                  <div className="flex-1 flex flex-col">
+                    <DirectorContent
+                      // Added line-clamp-3 here
+                      className="leading-loose line-clamp-3"
+                      content={
+                        director.descriptionDirector ||
+                        "No description available."
+                      }
+                      linkHref="#"
+                      linkText="" // This hides the default link
+                    />
+                    {/* "View More" Button */}
+                    <div className="mt-4">
+                      <button
+                        onClick={() => setModalStaff(director)}
+                        className="text-green-700 font-bold hover:underline"
+                      >
+                        VIEW MORE →
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
+          </>
         )}
 
+        {/* Tab Section (No Change) */}
         {showHeading && (
           <div className="container">
             <div className="flex flex-wrap justify-center items-center py-12 gap-6">
@@ -122,10 +156,15 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full sm:w-auto flex items-center justify-center text-center font-semibold px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300 ease-in-out bg-green-700 text-white ${
-                    activeTab === tab.id ? "shadow-lg" : "hover:bg-green-600 hover:shadow-md"
+                    activeTab === tab.id
+                      ? "shadow-lg"
+                      : "hover:bg-green-600 hover:shadow-md"
                   }`}
                 >
-                  <Typography variant="sectionHeading" className="!text-white text-sm sm:text-base">
+                  <Typography
+                    variant="sectionHeading"
+                    className="!text-white text-sm sm:text-base"
+                  >
                     {tab.label}
                   </Typography>
                 </button>
@@ -137,12 +176,32 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                 {staffTabs.find((tab) => tab.id === activeTab)?.label}
               </Typography>
             </div>
+
+            {activeTab === "scientific" ? (
+              <StaffsGrid
+                items={divisionItems}
+                showHeading={false}
+                subDeptIdForLinks="scientific"
+              />
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {getCurrentStaffData().map((staffMember) => (
+                  <StaffFlipCard
+                    key={staffMember.id}
+                    staff={staffMember}
+                    onViewMore={setModalStaff}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         )}
-
-        {showHeading && <StaffsGrid items={getCurrentStaffData()} showHeading={false} />}
       </section>
-      {modalStaff && <StaffModal staff={modalStaff} onClose={() => setModalStaff(null)} />}
+
+      {/* This modal opens and shows the full details */}
+      {modalStaff && (
+        <StaffModal staff={modalStaff} onClose={() => setModalStaff(null)} />
+      )}
     </>
   );
 };

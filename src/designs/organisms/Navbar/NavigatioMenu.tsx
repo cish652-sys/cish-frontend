@@ -10,7 +10,7 @@ const routes: Record<string, string> = {
   RESEARCH: "https://cish.in/cib_n.php",
   PUBLICATIONS: "/",
   TECHNOLOGIES: "/technologies",
-  VARIETIES: "/varieties",
+  VARIETIES: "",
   "FOR FARMERS": "/",
   NURSERY: "/Nursery",
   MEDIA: "/",
@@ -48,7 +48,7 @@ const routes: Record<string, string> = {
   // VARIETIES dropdown
   "Climate Resilient": "/ClimateResilient",
   "Nutraceutical Rich": "/Nutraceutical",
-  Varieties: "/varieties",
+  'All Varieties': "/varieties",
 
   // FOR FARMERS dropdown
   "Agro Advisory": "/AgroAdvisory",
@@ -107,7 +107,7 @@ const ResponsiveNavbar: React.FC = () => {
     { label: "TECHNOLOGIES" },
     {
       label: "VARIETIES",
-      dropdownItems: ["Varieties", "Climate Resilient", "Nutraceutical Rich"],
+      dropdownItems: ["All Varieties", "Climate Resilient", "Nutraceutical Rich"],
     },
     {
       label: "FOR FARMERS",
