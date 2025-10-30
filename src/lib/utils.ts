@@ -429,6 +429,7 @@ export const dummyStaffData = [
   {
     id: "crop-improvement", // This ID was correct
     title: "DIVISION OF CROP IMPROVEMENT",
+    divisionQueryName: "Division of Crop Improvement",
     headName: "DR SMT ANJU BAJPAI",
     headTitle: "HEAD & PRINCIPAL SCIENTIST",
     publications: [""],
@@ -449,6 +450,7 @@ export const dummyStaffData = [
   {
     id: "crop-production", // <-- CORRECTED ID (was "division-crop-improvement")
     title: "DIVISION OF CROP PRODUCTION",
+    divisionQueryName: "Division of Crop Production",
     headName: "DR KUNDAN KISHORE",
     headTitle: "HEAD & PRINCIPAL SCIENTIST",
     description: [
@@ -466,6 +468,8 @@ export const dummyStaffData = [
   {
     id: "crop-protection", // <-- CORRECTED ID (was "division-technology")
     title: "DIVISION OF CROP PROTECTION",
+    divisionQueryName: "Division of Crop Protection",
+
     headName: "DR DEEPAK SINGH",
     headTitle: "HEAD & PRINCIPAL SCIENTIST",
     description: [
@@ -483,6 +487,7 @@ export const dummyStaffData = [
   {
     id: "post-harvest",
     title: "DIVISION OF POST HARVEST MANAGEMENT",
+    divisionQueryName: "Division of Post Harvest Management",
     headName: "DR AKATH SINGH",
     headTitle: "HEAD & PRINCIPAL SCIENTIST",
     description: [
@@ -500,10 +505,11 @@ export const dummyStaffData = [
   {
     id: "rrs-malda", // <-- CORRECTED ID (was "division-technology")
     title: "ICAR-CISH R R S, Malda (West Bengal)",
+    divisionQueryName: "ICAR-CISH RRS, Malda (West Bengal)",
     headName: "DR DIPAK NAYAK",
     headTitle: "SENIOR SCIENTIST & INCHARGE RRS",
     description: [
-      "The Regional Research Station at Malda, West Bengal, conducts location-specific research for the eastern region of India. The station focuses on varietal evaluation, production technology development, and technology transfer activities suitable for the agro-climatic conditions of eastern India.",
+      ""
     ],
     descriptions: [
       "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
@@ -515,6 +521,7 @@ export const dummyStaffData = [
   {
     id: "kvk-malda", // <-- CORRECTED ID (was "division-technology")
     title: "ICAR-CISH K V K, Malda (West Bengal)",
+    divisionQueryName: "ICAR-CISH KVK, Malda (West Bengal)",
     headName: "DR DK RAGHAV",
     headTitle: "SENIOR SCIENTIST CUM HEAD KVK",
     description: [

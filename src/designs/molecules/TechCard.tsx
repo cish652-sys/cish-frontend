@@ -1,55 +1,46 @@
-// src/designs/molecules/TechCard.tsx
+"use client";
 import React from "react";
-import Typography from "../atoms/Typography";
-import ButtonLink from "../atoms/ButtonLink"; // Import ButtonLink
 import Image from "next/image";
 
-export interface TechCardProps {
-  title: string;
-  description: string[];
-  href: string; // href is still required for the link fallback
-  image?: string;
-  onViewMore?: () => void; // Make handler optional
-}
+import { TechnologyCardItem } from "@/types";
+
+type TechCardProps = TechnologyCardItem & {
+  onViewMore?: () => void;
+};
 
 const TechCard: React.FC<TechCardProps> = ({
+  id,
   title,
+  image, 
   description,
-  image,
   href,
-  onViewMore, // Destructure the handler
+  onViewMore,
 }) => {
   return (
-    <div className="flex flex-col md:flex-row bg-white shadow-md overflow-hidden hover:shadow-lg transition p-4 gap-4">
+    <div className="flex flex-col md:flex-row gap-6 p-6 bg-white shadow-md rounded-lg">
+      
+     
       {image && (
-        <div className="flex-shrink-0 w-fit bg-gray-200 flex items-center justify-center">
+        <div className="relative w-full md:w-64 h-48 flex-shrink-0">
           <Image
-            src={image}
+            src={image} 
             alt={title}
-            className="object-cover w-full h-full"
-            height={500}
-            width={500}
+            layout="fill"
+            className="object-cover rounded-lg"
           />
         </div>
       )}
 
-      {/* Right side content */}
-      <div className="flex flex-col flex-1">
-        <Typography variant="cardTitle">{title}</Typography>
+      <div className="flex flex-col justify-between">
+        <div>
+          <h3  className="mb-2">{title}</h3>
+          <p className="text-gray-600 text-sm line-clamp-3">
+            {description[0]}
+          </p>
+        </div>
 
-        <ul className="list-disc list-outside pl-5 mt-2">
-          {description.map((line, idx) => (
-            <li key={idx} className="leading-snug">
-              <p className="inline text-gray-700 text-sm">{line}</p>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-auto pt-4">
-          {/* --- CONDITIONAL LOGIC HERE --- */}
-          {onViewMore ? (
-            // If handler is provided, render a button
-            <button
+        {onViewMore && (
+         <button
               onClick={(e) => {
                 e.preventDefault();
                 onViewMore();
@@ -58,11 +49,7 @@ const TechCard: React.FC<TechCardProps> = ({
             >
               VIEW MORE →
             </button>
-          ) : (
-            // Otherwise, render the default link
-            <ButtonLink label="VIEW MORE" href={href} />
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

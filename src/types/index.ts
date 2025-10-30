@@ -89,14 +89,24 @@ export type ApiTechnology = {
   licenseDuration: string;
   licensingTerritory: string;
   licenseFee: string;
-  targetCustomers: string;
+  
+  // This is the property that was causing the 'join' error
+  // Make sure it is string[]
+  targetCustomers: string[]; 
+  
   royalty: string;
   createdAt: string;
   updatedAt: string;
   ispublished: boolean;
   isactive: boolean;
   backtocreator: boolean;
-  isTrending: boolean;
+  
+  // --- ADD THESE LINES ---
+  isTrending: boolean | null;
+  isNutraceutical: boolean | null;
+  isClimateResilient: boolean | null;
+  isVarieties: boolean | null;
+  // --- END OF ADDITIONS ---
 };
 
 // This is the custom type for the display cards that you need to create

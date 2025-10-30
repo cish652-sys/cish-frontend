@@ -6,7 +6,7 @@ const routes: Record<string, string> = {
   RESEARCH: "/",
   PUBLICATIONS: "/",
   TECHNOLOGIES: "/technologies",
-  VARIETIES: "/varieties",
+  VARIETIES: "",
   "FOR FARMERS": "/",
   NURSERY: "/Nursery",
   // MEDIA: "",

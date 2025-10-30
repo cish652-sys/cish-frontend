@@ -207,17 +207,25 @@ const HortIndAbiCentrePage = () => {
       <Header />
       <ResponsiveNavbar />{" "}
       <section className="relative w-full">
-        <div className="w-full">
-          <Image
-            src="/images/abi_centre_banner.png"
-            alt="Hort Ind Agri-Business Incubation Centre Banner"
-            layout="responsive"
-            width={1200}
-            height={400}
-            objectFit="cover"
-          />
-        </div>
-      </section>
+  <div className="w-full">
+    <a
+      href="https://forms.gle/kXEjby2TXkHAYT7m7"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image
+        src="/icons/ABIBanner.jpg"
+        alt="Hort Ind Agri-Business Incubation Centre Banner"
+        layout="responsive"
+        width={1200}
+        height={400}
+        objectFit="cover"
+        className="cursor-pointer"
+      />
+    </a>
+  </div>
+</section>
+
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
