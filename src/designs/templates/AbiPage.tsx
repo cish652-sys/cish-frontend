@@ -143,12 +143,7 @@ const supportedStartups = [
     tech: "Organic Farming Tech.",
     link: "",
   },
-  {
-    sr: "16.",
-    name: "Mittan AgriTech Pvt. Ltd.",
-    tech: "CSR Grow-Sure",
-    link: "https://www.mittanagritech.in/",
-  },
+ 
 ];
 
 // -----------------------------------------------------------------
@@ -260,10 +255,51 @@ const HortIndAbiCentrePage = () => {
               panel discussion and lectures etc. by the eminent experts for imparting and building
               the capacity of knowledge.
             </h2>
+
             <h2 className="text-gray-700">
               <span className="font-semibold">Branding and promotion:</span> Startups are mentored
               and facilitated for the branding and promotion of their products through several tools
               and platforms.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Intellectual property management:</span> ICAR-CISH
+              helps entrepreneurs in protection of intellectual property issues arise during the
+              period of incubation. Mentors will help in filing the patent of process/product
+              developed during incubation.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Funding facilitation:</span> Entrepreneurs are helped
+              during preparation of Detailed Project Report (DPR) of their business plan, pitch
+              preparation and project presentation to attract angel investors. Linkages will be
+              developed among entrepreneurs and government funding agencies.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Business Development and Support:</span> ICAR-CISH
+              provides technological support to the startups during incubation and after exit of
+              incubatee for further up gradation and expansion of business.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Marketing Linkages:</span> Growing startups are helped
+              in test marketing by providing backward and forward linkages.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Marketing tools and instrumentation:</span> Website,
+              apps, print (banner, poster, brochure and flyer etc.) and digital media development
+              facilities are available by the experienced experts under one roof.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Product prototype development:</span> ICAR-CISH expert
+              scientists help in developing prototype of various products and their testing before
+              development of the final product.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Product refinement:</span> Various enterprises require
+              improvement and up gradation of their existing products, are also facilitated.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Packaging and designing:</span> Developed products are
+              facilitated for high quality designing and packaging through highly advanced tools and
+              machines.
             </h2>
           </div>
         </div>
@@ -447,19 +483,7 @@ const HortIndAbiCentrePage = () => {
             </h2>
           </div>
 
-          <div>
-            <h2 className="text-green-800 font-bold mb-3">CISH ABI report</h2>
-            <h2 className="text-gray-700">
-              <a
-                href="https://drive.google.com/file/d/1U6pJcH5KWeLbZsCjQAS7N00SAqGo1t_9/view"
-                className="text-blue-600 underline hover:text-blue-800"
-              >
-                Click here
-              </a>
-              <span className="text-red-500 font-bold ml-1">new</span>
-            </h2>
-          </div>
-
+          
           <div>
             <h2 className="text-green-800 font-bold mb-3">CONTACT US</h2>
             <h2 className="text-gray-700">ICAR-Central Institute for Subtropical Horticulture,</h2>

@@ -23,9 +23,7 @@ export interface ApiEmployee {
 
 const API_BASE_URL = "https://api.cish.org.in/employees";
 
-export const mapApiEmployeeToStaffsItems = (
-  employee: ApiEmployee,
-): StaffsItems => {
+export const mapApiEmployeeToStaffsItems = (employee: ApiEmployee): StaffsItems => {
   const staffName = employee.name || "N/A";
 
   return {
@@ -52,9 +50,7 @@ export const mapApiEmployeeToStaffsItems = (
   };
 };
 
-async function fetchStaffData(
-  queryParams: URLSearchParams,
-): Promise<StaffsItems[]> {
+async function fetchStaffData(queryParams: URLSearchParams): Promise<StaffsItems[]> {
   try {
     const response = await fetch(`${API_BASE_URL}?${queryParams.toString()}`);
     if (!response.ok) {
@@ -68,7 +64,6 @@ async function fetchStaffData(
   }
 }
 
-
 export async function getDirector(): Promise<StaffsItems | null> {
   const params = new URLSearchParams({ isDirector: "true" });
   const directors = await fetchStaffData(params);
@@ -76,7 +71,7 @@ export async function getDirector(): Promise<StaffsItems | null> {
 }
 
 export async function getStaffBySubDept(
-  subDeptId: "scientific" | "technical" | "skilled" | "administrative",
+  subDeptId: "scientific" | "technical" | "skilled" | "administrative"
 ): Promise<StaffsItems[]> {
   const params = new URLSearchParams({ isDirector: "false", subDeptId });
   return fetchStaffData(params);
@@ -85,7 +80,7 @@ export async function getStaffBySubDept(
 // Gets staff for a specific division
 export async function getStaffByDivision(
   divisionName: string,
-  subDeptId: string, // <-- ADDED parameter
+  subDeptId: string // <-- ADDED parameter
 ): Promise<StaffsItems[]> {
   const params = new URLSearchParams({
     isDirector: "false",

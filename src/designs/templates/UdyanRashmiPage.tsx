@@ -7,11 +7,12 @@ import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import ViksitKrishiCard from "@/designs/molecules/VKSACard";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import Typography from "@/designs/atoms/Typography";
-import { UdyogData } from "@/app/UdyanRashmi/data";
+// --- Import the new data ---
+import { UdyanRashmiData } from "@/app/UdyanRashmi/data";
 
 const UdyanRashmiPage = () => {
-  // Use only static data — no API call
-  const [vksaItems, setVksaItems] = useState(UdyogData);
+  // --- Use the new static data ---
+  const [vksaItems, setVksaItems] = useState(UdyanRashmiData);
 
   return (
     <main>
@@ -43,7 +44,7 @@ const UdyanRashmiPage = () => {
               title={card.title}
               description={card.description}
               images={card.images}
-              basePath="UdyanRashmi"
+              basePath="UdyanRashmi" // This ensures links go to /UdyanRashmi/[id]
             />
           ))}
         </div>

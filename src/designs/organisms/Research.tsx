@@ -18,10 +18,10 @@ export default function Research() {
         <SectionHeader
           breadcrumbItems={[
             { label: "Home", href: "/" },
-            { label: "External Funded Research and Institute Funded" },
+            { label: "EXTERNAL AND INSTITUTE FUNDED RESEARCHES" },
           ]}
           iconProps={true}
-          title="External Funded Research and Institute Funded"
+          title="EXTERNAL AND INSTITUTE FUNDED RESEARCHES"
           description={[""]}
         />
         <div className="min-h-screen">

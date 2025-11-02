@@ -10,10 +10,10 @@ type TechCardProps = TechnologyCardItem & {
 
 const TechCard: React.FC<TechCardProps> = ({ id, title, image, description, href, onViewMore }) => {
   return (
-    <div className="flex flex-col md:flex-row gap-6 p-6 bg-white shadow-md rounded-lg">
+    <div className="flex flex-col md:flex-row gap-6 p-6 bg-white shadow-md ">
       {image && (
         <div className="relative w-full md:w-64 h-48 flex-shrink-0">
-          <Image src={image} alt={title} layout="fill" className="object-cover rounded-lg" />
+          <Image src={image} alt={title} layout="fill" className="object-cover " />
         </div>
       )}
 

@@ -64,9 +64,9 @@ export default function AgroAdvisoryPage() {
 
       {/* Breadcrumb + Title */}
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Agro Advisory" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Latest Agro Advisory" }]}
         iconProps={true}
-        title="Agro Advisory"
+        title="Latest Agro Advisory"
         description={[""]}
       />
 
