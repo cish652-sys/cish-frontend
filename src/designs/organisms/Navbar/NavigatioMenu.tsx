@@ -20,10 +20,10 @@ const routes: Record<string, string> = {
   "About Institute": "/AboutUs",
   "Field Gene Bank": "/FieldGeneBank",
   Divisions: "/Division",
-  PME: "/staffs",
+  PME: "#",
   "ITMu/IPR Cells": "/Itmu",
   "Agri Business Incubation Center": "/Abi",
-  AKMU: "/about/akmu",
+  AKMU: "#",
   "Regional Research Station": "/RRS_Malda",
   "Krishi Vigyan Kendra": "/Kvk_Malda",
   "Cadres Strength": "/CadreStrength",
@@ -35,11 +35,11 @@ const routes: Record<string, string> = {
 
   // RESEARCH dropdown
   "Institute/External Projects": "/ResearchFunded",
-  Collaborations: "/Collabration",
+  Collaborations: "/Collaboration",
 
   // PUBLICATIONS dropdown
   "Annual Reports": "/AnnualReport",
-  "Research Publications": "/publications/research",
+  "Research Publications": "#",
   "Newsletter (Subscription)": "/Newsletter",
   "Udyan Rashmi (Subscription)": "/UdyanRashmi",
   "CISH Publications (Paid & Free)": "/CishPublications",
@@ -53,9 +53,9 @@ const routes: Record<string, string> = {
   // FOR FARMERS dropdown
   "Agro Advisory": "/AgroAdvisory",
   "CISH Farmer Portal (CFP)": "https://www.nationalfarmerportal.org/?lang=en",
-  "Plant Bookings": "/farmers/plant-bookings",
+  "Plant Bookings": "#",
   "Success Stories (of Farmers)": "/SuccessStories",
-  "Farmer Friendly Technologies": "/farmers/technologies",
+  "Farmer Friendly Technologies": "#",
 };
 
 interface NavItem {

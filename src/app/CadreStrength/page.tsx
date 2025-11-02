@@ -121,7 +121,7 @@ export default function CadreStrength() {
           </div>
 
           {/* Regional Station, Malda */}
-          <h3 className="text-green-800 font-bold text-xl">Regional Station, Malda</h3>
+          <h3 className="text-green-800 font-bold text-xl">ICAR-CISH Regional Research Station, Malda W.B.</h3>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse text-sm">
               <thead className="bg-[#599A5E]">
@@ -134,6 +134,20 @@ export default function CadreStrength() {
                   <th className="p-3 border-b border-gray-300" colSpan={5}>
                     In-Position
                   </th>
+                </tr>
+                <tr className="bg-[#599A5E]">
+                  <th></th>
+                  <th></th>
+                  <th className="p-2 border-b border-gray-300">Sci.</th>
+                  <th className="p-2 border-b border-gray-300">Sr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">Pr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">HoD</th>
+                  <th className="p-2 border-b border-gray-300">Total</th>
+                  <th className="p-2 border-b border-gray-300">Sci.</th>
+                  <th className="p-2 border-b border-gray-300">Sr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">Pr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">HoD</th>
+                  <th className="p-2 border-b border-gray-300">Total</th>
                 </tr>
               </thead>
               <tbody>

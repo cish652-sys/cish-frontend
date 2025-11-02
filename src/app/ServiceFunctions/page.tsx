@@ -29,7 +29,7 @@ export default function ServiceFunctions() {
 
       <section className="py-12 px-6 md:px-16 bg-[#FBFAF0]">
         <div className="bg-white border rounded-md shadow-sm p-6 md:p-10">
-          <ul className="space-y-4 text-[#31572C] leading-relaxed text-base">
+          <ul className="space-y-4 text-[#31572C] font-semibold leading-relaxed text-base">
             <li>
               <a
                 href="https://icar.org.in/files/ICAR-Guidelines-PSF-2014.pdf"

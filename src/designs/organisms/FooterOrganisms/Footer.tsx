@@ -60,7 +60,7 @@ export function Footer() {
             links={[
               { label: "About Us", href: "/AboutUs" },
               { label: "Research", href: "/ResearchFunded" },
-              { label: "Publication", href: "#" },
+              { label: "Publication", href: "https://cish.org.in/CishPublications" },
               { label: "Careers", href: "/Jobs" },
               { label: "Tenders", href: "/Tenders" },
               { label: "VKSA", href: "/VKSA" },
@@ -79,7 +79,7 @@ export function Footer() {
               { label: "Museum", href: "/Museum" },
               { label: "Nursery", href: "/Nursery" },
               { label: "Consultancy", href: "/Consultancy" },
-              { label: "Contract Research", href: "https://cish.in/contract-research.php" },
+              { label: "Contract Research", href: "https://cish.org.in/ContractResearch" },
               { label: "Education", href: "/Education" },
               { label: "Auditorium", href: "/Auditorium" },
               { label: "Guest House", href: "/GuestHouse" },

@@ -19,19 +19,10 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
   );
 
   const renderMessage = (msg: AnnouncementItem, key: React.Key) => {
-    const baseClasses = "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
+    const baseClasses =
+      "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
     const fontStyle = { fontFamily: "Noto Sans" };
 
-    // If it's a string, render as plain text
-    if (typeof msg === "string") {
-      return (
-        <span className={baseClasses} style={fontStyle}>
-          {msg}
-        </span>
-      );
-    }
-
-    // If it's an object with a link, render as hyperlink
     if (msg.link) {
       return (
         <a
@@ -61,13 +52,35 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
           <h2 className="text-[#1B5E20] font-semibold">ANNOUNCEMENTS</h2>
           <Logo src={plump} alt="Announcement Icon" width={24} height={24} />
         </div>
+
+        {/* Marquee container */}
         <div className="relative flex-1 overflow-hidden">
-          <div className="flex whitespace-nowrap animate-marquee">
+          <div className="marquee flex whitespace-nowrap hover:[animation-play-state:paused]">
             {normalizedMessages.map((msg, index) => renderMessage(msg, index))}
-            {normalizedMessages.map((msg, index) => renderMessage(msg, `dup-${index}`))}
+            {normalizedMessages.map((msg, index) =>
+              renderMessage(msg, `dup-${index}`)
+            )}
           </div>
         </div>
       </div>
+
+      {/* Custom marquee animation */}
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .marquee {
+          animation: marquee 10s linear infinite; /* slower speed */
+        }
+        .marquee:hover {
+          animation-play-state: paused; /* pause on hover */
+        }
+      `}</style>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const ActionCards: React.FC = () => {
           text="OUR TEAM"
           active
           onClick={() => {}}
-          className="px-12"
+          className="px-12 bg-white border-gray-300 hover:bg-green-700 hover:text-white text-black"
         />{" "}
       </Link>
       <Link href="/AboutUs">

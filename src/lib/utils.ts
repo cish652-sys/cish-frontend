@@ -105,6 +105,7 @@ export const divItems = [
     ],
     href: "/Division/crop-improvement",
     image: "/icons/div1.svg",
+    slug: "crop-improvement"
   },
   {
     title: "CROP PRODUCTION",
@@ -116,6 +117,7 @@ export const divItems = [
     ],
     href: "/Division/crop-production",
     image: "/icons/div2.svg",
+    slug: "crop-production"
   },
   {
     title: "CROP PROTECTION",
@@ -127,6 +129,7 @@ export const divItems = [
     ],
     href: "/Division/crop-protection",
     image: "/icons/div3.svg",
+    slug: "crop-protection"
   },
   {
     title: "POSTHARVEST MANAGEMENT",
@@ -138,18 +141,13 @@ export const divItems = [
     ],
     href: "",
     image: "/icons/div4.svg",
+    slug: "post-harvest"
   },
 ];
 
 export const cropImprovementData = [
   {
-    title: "Genetic resource management",
-    description: [
-      "The institute has a field gene bank of mandated crops such as mango (745), guava (120), papaya (17), bael (54), litchi (35), aonla (35), jamun (38), khirnee (17), mahua (25), tamarind (20), wood apple (17), custard apple (8), mulberry (10), hog plum (3), lasora (5), carambola (3), karonda (30), grape (4), and cape gooseberry (4). A catalogue of 184 accessions (including morphological and molecular characterization) was published in 2011 and an interactive CD was prepared.",
-    ],
-  },
-  {
-    title: "Molecular characterization and genomics",
+    title: "Mango (Mangifera indica L.)",
     description: [
       "Characterization of mango accessions (>200 cvs) using SSR markers was done towards fingerprinting and diversity assessment based on 30 loci. The fingerprint development of the Indian varieties by converting the genotypic data into barcodes has been published. Clonal variability among commercial cultivars could be traced to genomic SSRs. Candidate gene approach is being used for MAS and the target traits under study include fruit peel and pulp colour, regulation of flowering and abiotic stresses. Primer designing and its validation in diverse genotypes for genes involved in anthocyanin pigmentation pathway (peel colour) ANS (anthocyanidin synthase), CHS (chalcone synthase), F3’H (flavonoid 3’- hydroxylase), WD (WD repeat motifs) and flowering regulation viz., CON (constans), LFY (leafy), FLT (Flowering Time) has been completed to elucidate the molecular mechanisms underlying the trait expression.",
     ],
@@ -173,7 +171,21 @@ export const cropImprovementData = [
     ],
   },
 ];
-
+export const mangoVarietiesData = [
+  {
+    id: "1", // <-- Add this
+    image: "/images/varieties/mango-ambika.jpg",
+    title: "Ambika",
+    description: ["Bred at CISH, Lucknow. It is a hybrid of Amrapali and Janardhan Pasand..."],
+  },
+  {
+    id: "2", // <-- Add this
+    image: "/images/varieties/mango-arunika.jpg",
+    title: "Arunika",
+    description: ["It is a hybrid of Amrapali and Vanraj, developed at CISH, Lucknow..."],
+  },
+  // ... add a unique 'id' for every other mango item
+];
 export const divisionVarietiesData = [
   {
     id: "v1",

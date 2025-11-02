@@ -56,14 +56,22 @@ const CropImprovementPage = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
+      {/* --- MODIFIED SECTION --- */}
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0] normal-case">
         <div className="container">
           <Typography variant="headingLarge" size="h4" className="text-center mb-8 font-bold">
             Achievements <br /> Varieties Developed
           </Typography>
+
+          {/* --- ADDED HEADING --- */}
+          <h3 className="text-start text-green-800 mb-8 font-bold">
+            Mango (<i>Mangifera indica</i> L.)
+          </h3>
+
           <VarietiesCarousel />
         </div>
       </section>
+      {/* --- END OF MODIFIED SECTION --- */}
 
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white normal-case">
         <div className="container">

@@ -107,7 +107,7 @@ export const StaffsSection: React.FC<StaffsSectionProps> = ({
                   {/* Left Side: Image */}
                   <div className="relative flex justify-center items-end lg:justify-end">
                     <ImageAtom
-                      src={'/icons/directorStaff.svg'}
+                      src={"/icons/directorStaff.svg"}
                       alt={director.title}
                       className="max-w-full p-2 "
                     />

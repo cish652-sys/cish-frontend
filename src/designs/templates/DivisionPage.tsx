@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { SectionHeader } from "../organisms/SectionHeader";
 import { Logo } from "../atoms/Logo";
@@ -5,15 +6,32 @@ import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
 import { Header } from "../organisms/Header";
 import { Footer } from "../organisms/FooterOrganisms/Footer";
 import TrendingTechnologies from "../organisms/TrendingTechnologies";
-import { divItems } from "@/lib/utils";
-import { TechnologyCardItem } from "@/types"; // Import the type
+import { divItems } from "@/lib/utils"; // This is your array with 'slug'
+import { TechnologyCardItem } from "@/types"; // This is the type with 'id'
+import { useRouter } from "next/navigation";
 
 const DivisionPage = () => {
-  // Map over divItems to add the 'id' property
-  const technologiesWithIds: TechnologyCardItem[] = divItems.map((item, index) => ({
-    ...item,
-    id: index + 1, // Use index as a unique ID
+  const router = useRouter();
+
+ 
+  const technologies: TechnologyCardItem[] = divItems.map((item, index) => ({
+    title: item.title,
+    description: item.description,
+    image: item.image,
+    href: item.href,
+    
+    id: index + 1, 
   }));
+
+
+  const handleViewMore = (item: TechnologyCardItem) => {
+  
+    const originalItem = divItems[item.id - 1];
+
+    if (originalItem) {
+      router.push(`/Division/${originalItem.slug}`);
+    }
+  };
 
   return (
     <main>
@@ -31,7 +49,8 @@ const DivisionPage = () => {
       <TrendingTechnologies
         className="bg-white"
         showVerieties={false}
-        technologies={technologiesWithIds} // Pass the modified array
+        technologies={technologies} // <-- Pass the new, adapted array
+        onViewMore={handleViewMore}  // <-- Pass the new handler function
       />
       <Footer />
     </main>

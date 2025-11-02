@@ -15,10 +15,10 @@ const routes: Record<string, string> = {
   "About Institute": "/AboutUs",
   "Field Gene Bank": "/about/field-gene-bank",
   Divisions: "/Division",
-  PME: "/staffs",
+  PME: "/#",
   "ITMu/JPR Cells": "/about/itmu-jpr",
   "Agri Business Incubation Center (ABI)": "/Abi",
-  AKMU: "/about/akmu",
+  AKMU: "#",
   "Regional Research Station": "/RRS_Malda",
   "Krishi Vigyan Kendra": "/Kvk_Malda",
   "Cadres Strength": "/CadreStrength",
@@ -42,7 +42,7 @@ const routes: Record<string, string> = {
 
   // PUBLICATIONS dropdown
   "Annual Reports": "/AnnualReport",
-  "Research Publications": "/publications/research",
+  "Research Publications": "#",
   "Newsletter (Subscription)": "/Newsletter",
   "Udyan Rashmi (Subscription)": "/UdyanRashmi",
   "CISH Publications (Paid & Free)": "/CishPublications",
