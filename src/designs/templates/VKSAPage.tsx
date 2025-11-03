@@ -23,7 +23,6 @@ const galleryImages = [
   { id: 3, src: "/icons/vksa2.png", alt: "Gallery Image 3" },
   { id: 4, src: "/icons/vksa3.png", alt: "Gallery Image 4" },
   { id: 5, src: "/icons/vksa4.png", alt: "Gallery Image 5" },
-  
 
   // Add as many images as you like
 ];
@@ -90,11 +89,13 @@ const VKSAPage = () => {
       {/* --- NEW CAROUSEL SECTION --- */}
       <section className="container mx-auto w-full py-10 md:py-16 px-6">
         <div className="flex items-center pb-6 gap-2">
-            <Typography variant="sectionHeading">Photo Gallery</Typography>
+          <Typography variant="sectionHeading">Photo Gallery</Typography>
         </div>
         <Slider {...carouselSettings}>
           {galleryImages.map((image) => (
-            <div key={image.id} className="px-2"> {/* Add padding between slides */}
+            <div key={image.id} className="px-2">
+              {" "}
+              {/* Add padding between slides */}
               <div className="relative w-full h-64 overflow-hidden ">
                 <Image
                   src={image.src}
