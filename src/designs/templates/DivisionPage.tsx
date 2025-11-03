@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import { SectionHeader } from "../organisms/SectionHeader";
 import { Logo } from "../atoms/Logo";
@@ -13,19 +13,16 @@ import { useRouter } from "next/navigation";
 const DivisionPage = () => {
   const router = useRouter();
 
- 
   const technologies: TechnologyCardItem[] = divItems.map((item, index) => ({
     title: item.title,
     description: item.description,
     image: item.image,
     href: item.href,
-    
-    id: index + 1, 
+
+    id: index + 1,
   }));
 
-
   const handleViewMore = (item: TechnologyCardItem) => {
-  
     const originalItem = divItems[item.id - 1];
 
     if (originalItem) {
@@ -50,7 +47,7 @@ const DivisionPage = () => {
         className="bg-white"
         showVerieties={false}
         technologies={technologies} // <-- Pass the new, adapted array
-        onViewMore={handleViewMore}  // <-- Pass the new handler function
+        onViewMore={handleViewMore} // <-- Pass the new handler function
       />
       <Footer />
     </main>

@@ -19,20 +19,20 @@ export default function ConsultancyServices() {
     <div>
       <Header />
       <ResponsiveNavbar />
-       <SectionHeader
-              breadcrumbItems={[
-                { label: "Home", href: "/" },
-                { label: "CISH ITMU / IPR CELL", href: "/Itmu" },
-      
-                {
-                  label: "Professional Service Functions",
-                  href: "/ConsultancyServices",
-                },
-              ]}
-              iconProps={true}
-              title="Professional Service Functions"
-              description={[]}
-            />
+      <SectionHeader
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "CISH ITMU / IPR CELL", href: "/Itmu" },
+
+          {
+            label: "Professional Service Functions",
+            href: "/ConsultancyServices",
+          },
+        ]}
+        iconProps={true}
+        title="Professional Service Functions"
+        description={[]}
+      />
 
       <section className="w-full  py-12 bg-[#fff]">
         <div className="max-w-7xl border border-gray-400 shadow-lg p-4 mx-auto px-6 md:px-16">
