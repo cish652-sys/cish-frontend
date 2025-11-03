@@ -105,7 +105,7 @@ export const divItems = [
     ],
     href: "/Division/crop-improvement",
     image: "/icons/div1.svg",
-    slug: "crop-improvement"
+    slug: "crop-improvement",
   },
   {
     title: "CROP PRODUCTION",
@@ -117,7 +117,7 @@ export const divItems = [
     ],
     href: "/Division/crop-production",
     image: "/icons/div2.svg",
-    slug: "crop-production"
+    slug: "crop-production",
   },
   {
     title: "CROP PROTECTION",
@@ -129,7 +129,7 @@ export const divItems = [
     ],
     href: "/Division/crop-protection",
     image: "/icons/div3.svg",
-    slug: "crop-protection"
+    slug: "crop-protection",
   },
   {
     title: "POSTHARVEST MANAGEMENT",
@@ -141,7 +141,7 @@ export const divItems = [
     ],
     href: "",
     image: "/icons/div4.svg",
-    slug: "post-harvest"
+    slug: "post-harvest",
   },
 ];
 

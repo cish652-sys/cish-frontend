@@ -121,7 +121,9 @@ export default function CadreStrength() {
           </div>
 
           {/* Regional Station, Malda */}
-          <h3 className="text-green-800 font-bold text-xl">ICAR-CISH Regional Research Station, Malda W.B.</h3>
+          <h3 className="text-green-800 font-bold text-xl">
+            ICAR-CISH Regional Research Station, Malda W.B.
+          </h3>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse text-sm">
               <thead className="bg-[#599A5E]">

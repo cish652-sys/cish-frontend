@@ -18,7 +18,7 @@ export default function NewsLetterPage() {
   // --- Updated data from your image ---
   const data: TableRow[] = [
     {
-      title:"CISH Newsletter 01 January to 30 June 2025",
+      title: "CISH Newsletter 01 January to 30 June 2025",
       fileSize: "N/A", // You can update this size
       fileUrl: "https://cish.in/news_letter.php", // Update this path
     },

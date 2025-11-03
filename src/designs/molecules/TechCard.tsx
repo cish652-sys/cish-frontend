@@ -29,7 +29,7 @@ const TechCard: React.FC<TechCardProps> = ({ id, title, image, description, href
               e.preventDefault();
               onViewMore();
             }}
-            className="text-green-700 hover:text-green-800 font-semibold cursor-pointer"
+            className="text-green-700 flex align-left hover:text-green-800 font-semibold cursor-pointer"
           >
             VIEW MORE →
           </button>

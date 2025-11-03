@@ -5,10 +5,10 @@ const placeholderDesc =
 
 export const UdyanRashmiData = [
   {
-    id:1,
-    title:"उद्यान रश्मि / Udyan Rashmi (Jan 2025 - Dec 2025)",
-    description:placeholderDesc,
-    images:[] as string[],
+    id: 1,
+    title: "उद्यान रश्मि / Udyan Rashmi (Jan 2025 - Dec 2025)",
+    description: placeholderDesc,
+    images: [] as string[],
   },
   {
     id: 2,
