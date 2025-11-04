@@ -65,9 +65,7 @@ export default function EventsSection() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(
-          "https://api.cish.org.in/api/news?type=newsEvent"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
         const data: ApiEvent[] = await response.json();
 
         if (data && data.length > 0) {

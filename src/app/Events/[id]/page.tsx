@@ -33,9 +33,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
     const fetchEventDetails = async () => {
       let dataToSearch: Event[] = eventsData;
       try {
-        const response = await fetch(
-          "https://api.cish.org.in/api/news?type=newsEvent"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
         if (response.ok) {
           const apiData: ApiEvent[] = await response.json();
           if (apiData && apiData.length > 0) {

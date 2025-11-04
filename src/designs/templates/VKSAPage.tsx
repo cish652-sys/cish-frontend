@@ -47,14 +47,12 @@ const VKSAPage = () => {
   useEffect(() => {
     const fetchVksaList = async () => {
       try {
-        const response = await fetch(
-          "https://api.cish.org.in/api/news?type=vksa"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=vksa");
         if (response.ok) {
           const apiData: VksaApiItem[] = await response.json();
           if (apiData && apiData.length > 0) {
             const mappedData = apiData.map((item: VksaApiItem) => ({
-id: parseInt(String(item.id), 10),
+              id: parseInt(String(item.id), 10),
               title: item.title,
               description: item.name,
               images: item.images,
@@ -103,10 +101,7 @@ id: parseInt(String(item.id), 10),
         <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
       <SectionHeader
-        breadcrumbItems={[
-          { label: "Home", href: "/" },
-          { label: "VIKSIT KRISHI SANKALP ABHIYAN" },
-        ]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "VIKSIT KRISHI SANKALP ABHIYAN" }]}
         iconProps={true}
         title="VIKSIT KRISHI SANKALP ABHIYAN"
         description={[""]}
@@ -114,17 +109,13 @@ id: parseInt(String(item.id), 10),
       <div className="mx-auto bg-[#f9f8f2] p-6 md:p-10">
         <div className="flex flex-col gap-6 container">
           <div className="flex items-center pb-[80px] gap-2">
-            <Typography variant="sectionHeading">
-              VIKSIT KRISHI SANKALP ABHIYAN
-            </Typography>
+            <Typography variant="sectionHeading">VIKSIT KRISHI SANKALP ABHIYAN</Typography>
           </div>
         </div>
 
         <div className="flex flex-col items-center w-full">
           {isLoading ? (
-            <div className="flex justify-center items-center h-40">
-              Loading events...
-            </div>
+            <div className="flex justify-center items-center h-40">Loading events...</div>
           ) : (
             cards.map((card) => (
               <Link
