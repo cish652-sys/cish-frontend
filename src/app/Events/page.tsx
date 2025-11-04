@@ -57,7 +57,7 @@ const EventsPage = () => {
     const fetchEvents = async () => {
       try {
         const response = await fetch(
-          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"
+          "https://api.cish.org.in/api/news?type=newsEvent"
         );
         if (!response.ok) throw new Error("API fetch failed");
 

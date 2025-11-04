@@ -201,26 +201,25 @@ const HortIndAbiCentrePage = () => {
       <Header />
       <ResponsiveNavbar />{" "}
       <section className="relative w-full flex justify-center">
-  <a
-    href="https://forms.gle/kXEjby2TXkHAYT7m7"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="block w-full"
-  >
-    <div className="w-full max-w-screen-xl mx-auto">
-      <Image
-        src="/icons/ABIBanner.jpg"
-        alt="Hort Ind Agri-Business Incubation Centre Banner"
-        width={2000}
-        height={300} // reduced from 1000 or full image height
-        style={{ objectFit: "contain" }} // ensures full image shows without cropping
-        className="cursor-pointer"
-        priority
-      />
-    </div>
-  </a>
-</section>
-
+        <a
+          href="https://forms.gle/kXEjby2TXkHAYT7m7"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full"
+        >
+          <div className="w-full max-w-screen-xl mx-auto">
+            <Image
+              src="/icons/ABIBanner.jpg"
+              alt="Hort Ind Agri-Business Incubation Centre Banner"
+              width={2000}
+              height={300} // reduced from 1000 or full image height
+              style={{ objectFit: "contain" }} // ensures full image shows without cropping
+              className="cursor-pointer"
+              priority
+            />
+          </div>
+        </a>
+      </section>
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },

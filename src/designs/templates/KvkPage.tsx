@@ -250,10 +250,10 @@ const KvkPage = () => {
             <Typography variant="sectionHeading" className="text-left mb-8">
               ONGOING AND COMPLETED PROJECTS
             </Typography>
-            <h4 className="font-semibold text-green-900 mb-4 mt-6">
+            {/* <h4 className="font-semibold text-green-900 mb-4 mt-6">
               ICAR-CISH KRISHI VIGYAN KENDRA
             </h4>
-            <DataTable columns={projectColumns} data={regionalProjectData} rowGap={2} />
+            <DataTable columns={projectColumns} data={regionalProjectData} rowGap={2} /> */}
             <h4 className="font-semibold text-green-900 mb-4 mt-10">
               ICAR-CISH KRISHI VIGYAN KENDRA, MALDA W.B.
             </h4>

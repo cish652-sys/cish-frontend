@@ -14,10 +14,12 @@ interface FileInfo {
   isActive: boolean;
 }
 
+// UPDATED INTERFACE
 interface ApiAnnouncement {
   id: number;
   title: string;
   contentKey: string;
+  link: string | null; // Added link to match API response
 }
 
 const staticBanners = [
@@ -34,7 +36,7 @@ const staticBanners = [
 function fixImageUrl(url: string): string {
   if (url.startsWith("http://13.234.154.152:9000/")) {
     const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.nationalfarmerportal.org/nfp-portal/files/proxy?path=${encodeURIComponent(
+    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(
       path
     )}`;
   }
@@ -54,7 +56,9 @@ const getBannerData = async (): Promise<FileInfo[]> => {
 };
 
 const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
-  const response = await fetch("https://api.cish.org.in/api/content/announcement");
+  const response = await fetch(
+    "https://api.cish.org.in/api/content/announcement"
+  );
   if (!response.ok) {
     throw new Error("Network response was not ok for announcements");
   }
@@ -62,7 +66,6 @@ const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
 };
 
 export const MainHeader = () => {
-  // const banners = [ banner2, banner3, banner4, banner5];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { data: apiData, isLoading: isBannersLoading } = useQuery<FileInfo[]>({
@@ -86,7 +89,9 @@ export const MainHeader = () => {
       .filter((item) => item.isDirector === null && item.isActive === true)
       .sort((a, b) => b.id - a.id);
     const firstBanner =
-      activeBanners.length > 0 ? { type: "image", src: activeBanners[0].fileUrl } : null;
+      activeBanners.length > 0
+        ? { type: "image", src: activeBanners[0].fileUrl }
+        : null;
     const carouselBanners = apiData
       .filter((item) => item.isDirector === null && item.isActive === false)
       .sort((a, b) => b.id - a.id)
@@ -104,7 +109,11 @@ export const MainHeader = () => {
     if (isAnnouncementsPending) {
       return ["Loading announcements..."];
     }
-    if (isAnnouncementsError || !apiAnnouncements || apiAnnouncements.length === 0) {
+    if (
+      isAnnouncementsError ||
+      !apiAnnouncements ||
+      apiAnnouncements.length === 0
+    ) {
       return [
         "Central Institute For Subtropical Horticulture Institute",
         "Upcoming Seminar on Sustainable Horticulture Practices",
@@ -114,7 +123,13 @@ export const MainHeader = () => {
         },
       ];
     }
-    return apiAnnouncements.map((item) => item.title);
+    
+    // UPDATED MAPPING
+    // Now returns an object { text, link } for the AnnouncementBar
+    return apiAnnouncements.map((item) => ({
+      text: item.title,
+      link: item.link || undefined, // Convert null to undefined
+    }));
   }, [apiAnnouncements, isAnnouncementsPending, isAnnouncementsError]);
 
   const goToNext = useCallback(() => {

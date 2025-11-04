@@ -79,7 +79,7 @@ export function Footer() {
               { label: "Museum", href: "/Museum" },
               { label: "Nursery", href: "/Nursery" },
               { label: "Consultancy", href: "/Consultancy" },
-              { label: "Contract Research", href: "https://cish.org.in/ContractResearch" },
+              { label: "Contract Research", href: "/ContractResearch" },
               { label: "Education", href: "/Education" },
               { label: "Auditorium", href: "/Auditorium" },
               { label: "Guest House", href: "/GuestHouse" },

@@ -34,7 +34,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
       let dataToSearch: Event[] = eventsData;
       try {
         const response = await fetch(
-          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"
+          "https://api.cish.org.in/api/news?type=newsEvent"
         );
         if (response.ok) {
           const apiData: ApiEvent[] = await response.json();
