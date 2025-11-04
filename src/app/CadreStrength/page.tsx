@@ -102,7 +102,7 @@ export default function CadreStrength() {
 
                 {/* TOTAL Row */}
                 <tr className="font-semibold bg-[#599A5E]">
-                  <td colSpan={2} className="p-2 text-center border-t">
+                  <td colSpan={2} className="p-2 text-start border-t">
                     TOTAL
                   </td>
                   <td className="p-2 border-t">34</td>
@@ -167,8 +167,8 @@ export default function CadreStrength() {
                   </tr>
                 ))}
 
-                <tr className="font-semibold bg-[#599A5E]">
-                  <td colSpan={2} className="p-2 text-center border-t">
+                <tr className="font-semibold text-center bg-[#599A5E]">
+                  <td colSpan={2} className="p-2 text-start border-t">
                     TOTAL
                   </td>
                   <td className="p-2 border-t">2</td>
@@ -183,8 +183,8 @@ export default function CadreStrength() {
                   <td className="p-2 border-t">2</td>
                 </tr>
 
-                <tr className="font-bold bg-[#599A5E]">
-                  <td colSpan={2} className="p-2 text-center border-t">
+                <tr className="font-bold text-center  bg-[#599A5E]">
+                  <td colSpan={2} className="p-2 text-start border-t">
                     GRAND TOTAL
                   </td>
                   <td>36</td>
@@ -266,7 +266,7 @@ export default function CadreStrength() {
                   </tr>
                 ))}
 
-                <tr className="font-semibold bg-[#599A5E]">
+                <tr className="font-semibold items-center bg-[#599A5E]">
                   <td className="p-2 border-t">Total</td>
                   <td className="p-2 border-t text-center">26</td>
                   <td className="p-2 border-t text-center">14</td>

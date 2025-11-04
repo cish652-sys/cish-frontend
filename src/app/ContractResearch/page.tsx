@@ -3,6 +3,7 @@
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
+import { SectionHeader } from "@/designs/organisms/SectionHeader";
 
 export default function ContractResearch() {
   const descriptionPoints = [
@@ -34,8 +35,15 @@ export default function ContractResearch() {
     <div>
       <Header />
       <ResponsiveNavbar />
+      <SectionHeader
+        breadcrumbItems={[{ label: "Home / CONTRACT RESEARCH", href: "/ContractResearch" }]}
+        iconProps={true}
+        title="CONTRACT RESEARCH"
+        description={[]}
+      />
+
       <section className="w-full py-12 bg-[#fff]">
-        <div className="max-w-7xl mx-auto px-6 md:px-16">
+        <div className="max-w-7xl border p-4 border-gray-600 mx-auto px-6 md:px-16">
           <h2 className="text-[#31572C] text-xl md:text-2xl font-semibold mb-6 uppercase">
             PROFESSIONAL SERVICE FUNCTION - CONTRACT RESEARCH
           </h2>

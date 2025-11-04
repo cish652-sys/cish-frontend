@@ -56,9 +56,7 @@ const EventsPage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(
-          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
         if (!response.ok) throw new Error("API fetch failed");
 
         const apiData: ApiEvent[] = await response.json();

@@ -38,9 +38,7 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
     const fetchVksaDetails = async () => {
       let dataToSearch: VksaItem[] = viksitKrishiData;
       try {
-        const response = await fetch(
-          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=vksa"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=vksa");
         if (response.ok) {
           const apiData: VksaApiItem[] = await response.json();
           if (apiData && apiData.length > 0) {

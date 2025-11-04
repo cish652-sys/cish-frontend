@@ -50,9 +50,21 @@ const nextConfig = {
       },
       {
         protocol: 'http',
+        hostname: '13.234.154.152',
+        port: '9000',
+        pathname: '/cish-bucket/**', // ✅ Add this line
+      },
+      {
+        protocol: 'http',
         hostname: '127.0.0.1',
         port: '9000',
         pathname: '/nfp-bucket/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '13.234.154.152',
+        port: '9000',
+        pathname: '/cish-bucket/**', // ✅ Add this line
       },
     ],
   },

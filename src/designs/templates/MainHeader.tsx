@@ -14,10 +14,12 @@ interface FileInfo {
   isActive: boolean;
 }
 
+// UPDATED INTERFACE
 interface ApiAnnouncement {
   id: number;
   title: string;
   contentKey: string;
+  link: string | null; // Added link to match API response
 }
 
 const staticBanners = [
@@ -34,9 +36,7 @@ const staticBanners = [
 function fixImageUrl(url: string): string {
   if (url.startsWith("http://13.234.154.152:9000/")) {
     const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.nationalfarmerportal.org/nfp-portal/files/proxy?path=${encodeURIComponent(
-      path
-    )}`;
+    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
   }
   return url;
 }
@@ -62,7 +62,6 @@ const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
 };
 
 export const MainHeader = () => {
-  // const banners = [ banner2, banner3, banner4, banner5];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { data: apiData, isLoading: isBannersLoading } = useQuery<FileInfo[]>({
@@ -114,7 +113,13 @@ export const MainHeader = () => {
         },
       ];
     }
-    return apiAnnouncements.map((item) => item.title);
+
+    // UPDATED MAPPING
+    // Now returns an object { text, link } for the AnnouncementBar
+    return apiAnnouncements.map((item) => ({
+      text: item.title,
+      link: item.link || undefined, // Convert null to undefined
+    }));
   }, [apiAnnouncements, isAnnouncementsPending, isAnnouncementsError]);
 
   const goToNext = useCallback(() => {
