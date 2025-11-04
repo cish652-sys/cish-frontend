@@ -22,7 +22,7 @@ interface DirectorInfo {
 
 // UPDATED: Fetches ALL files without query parameters
 const getDirectorData = async (): Promise<DirectorInfo[]> => {
-  const response = await fetch("https://api.nationalfarmerportal.org/nfp-portal/files/getAll");
+  const response = await fetch("https://api.cish.org.in/files/getAll");
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

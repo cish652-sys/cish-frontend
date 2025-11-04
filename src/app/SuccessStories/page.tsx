@@ -31,7 +31,7 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
         {open && (
           <div className="px-6 py-4 text-gray-700 space-y-4 leading-relaxed">
             <div>
-              <h3 className="font-semibold text-[#31572C]">Overview</h3>
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Overview</h3>
               {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
               <ul className="list-none space-y-1">
                 {overview.map((i, idx) => (
@@ -41,7 +41,7 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#31572C]">Initiatives</h3>
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Initiatives</h3>
               {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
               <ul className="list-none space-y-1">
                 {initiatives.map((i, idx) => (
@@ -51,7 +51,7 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#31572C]">Outcome</h3>
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Outcome</h3>
               {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
               <ul className="list-none space-y-1">
                 {outcome.map((i, idx) => (
@@ -61,7 +61,7 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#31572C]">Impact</h3>
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Impact</h3>
               {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
               <ul className="list-none space-y-1">
                 {impact.map((i, idx) => (
