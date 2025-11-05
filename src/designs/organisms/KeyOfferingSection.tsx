@@ -106,7 +106,13 @@ const dummyTenders: Tender[] = [
 ];
 
 type ApiAnnouncement = { id: number; title: string; date: string };
-type ApiJob = { id: number; title: string; postDate: string | null; lastDate: string | null };
+type ApiJob = {
+  imageUrl: string;
+  id: number;
+  title: string;
+  postDate: string | null;
+  lastDate: string | null;
+};
 type ApiTender = { id: number; title: string; date: string };
 
 const BASE_URL = "https://api.cish.org.in/api/content";
@@ -217,7 +223,8 @@ export const KeyOfferingsSection: React.FC = () => {
     postDate: formatDate(item.postDate),
     lastDate: formatDate(item.lastDate),
     isNew: false,
-    link: "",
+    link: item.imageUrl || "", // ✅ Use imageUrl as the link
+    form: item.imageUrl ? "Application Form" : "", // ✅ Add form label if imageUrl exists
   }));
   const jobsToDisplay = isJobsError || normalizedJobs.length === 0 ? jobsData : normalizedJobs;
   const {
