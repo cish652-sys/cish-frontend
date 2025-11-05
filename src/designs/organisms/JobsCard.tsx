@@ -11,6 +11,8 @@ export type Job = {
   interviewDate: string;
   latestUpdate: string;
   buttons: Array<"form" | "result">;
+  formLink?: string; // ✅ Add optional form link
+  resultLink?: string; // ✅ Add optional result link
 };
 
 type DateRowProps = {
@@ -34,6 +36,18 @@ type JobCardProps = {
 };
 
 const JobCard = ({ job }: JobCardProps) => {
+  const handleFormClick = () => {
+    if (job.formLink) {
+      window.open(job.formLink, "_blank", "noopener,noreferrer");
+    }
+  };
+
+  const handleResultClick = () => {
+    if (job.resultLink) {
+      window.open(job.resultLink, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div className="min-w-[400px] max-h-[500px] mx-auto bg-white border border-gray-500 shadow-md flex flex-col overflow-hidden">
       <div className="p-4">
@@ -60,12 +74,28 @@ const JobCard = ({ job }: JobCardProps) => {
         <footer className="px-6 pb-6 pt-2">
           <div className="flex items-center gap-3">
             {job.buttons.includes("form") && (
-              <button className="bg-[#4a7c4c] text-white px-4 py-2 text-xs font-bold hover:bg-[#3b633c] transition-colors ">
+              <button
+                onClick={handleFormClick}
+                disabled={!job.formLink}
+                className={`px-4 py-2 text-xs font-bold transition-colors ${
+                  job.formLink
+                    ? "bg-[#4a7c4c] text-white hover:bg-[#3b633c] cursor-pointer"
+                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                }`}
+              >
                 APPLICATION FORM
               </button>
             )}
             {job.buttons.includes("result") && (
-              <button className="bg-[#4a7c4c] text-white px-4 py-2 text-xs font-bold hover:bg-[#3b633c] transition-colors ">
+              <button
+                onClick={handleResultClick}
+                disabled={!job.resultLink}
+                className={`px-4 py-2 text-xs font-bold transition-colors ${
+                  job.resultLink
+                    ? "bg-[#4a7c4c] text-white hover:bg-[#3b633c] cursor-pointer"
+                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                }`}
+              >
                 RESULT
               </button>
             )}
