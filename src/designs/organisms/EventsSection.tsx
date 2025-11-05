@@ -31,12 +31,12 @@ type TransformedEvent = {
 // ✅ Helper function to fix MinIO URLs
 const fixImageUrl = (url: string | null | undefined): string => {
   if (!url) return "/icons/default-event.jpg";
-  
+
   if (url.startsWith("http://13.234.154.152:9000/")) {
     const path = url.replace("http://13.234.154.152:9000/", "");
     return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
   }
-  
+
   return url;
 };
 
