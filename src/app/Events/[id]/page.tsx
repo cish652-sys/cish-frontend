@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { eventsData, Event } from "@/app/Events/data";
@@ -15,29 +15,18 @@ interface ApiEvent {
   date: string;
   title: string;
   name: string;
-  images: Array<{ url: string; thumbnail?: boolean }>; // ✅ Fixed type
+  images: Array<{ url: string; thumbnail?: boolean }>;
 }
 
 interface EventDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-// ✅ Helper function to fix MinIO URLs
-const fixImageUrl = (url: string | null | undefined): string => {
-  if (!url) return "/icons/default-event.jpg";
-
-  if (url.startsWith("http://13.234.154.152:9000/")) {
-    const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
-  }
-
-  return url;
-};
-
 const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
-  const { id } = params;
+  // ✅ Unwrap params using React.use()
+  const { id } = use(params);
   const [event, setEvent] = useState<Event | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -64,11 +53,9 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
                 title: item.title,
                 shortDescription: item.name,
                 fullDescription: item.name,
-                // ✅ Fixed: Access url property and apply URL fix
-                cardImage: item.images?.[0]?.url
-                  ? fixImageUrl(item.images[0].url)
-                  : "/icons/default-event.jpg",
-                detailImages: item.images?.map((img) => fixImageUrl(img.url)) || [],
+                // ✅ Use original URL - Next.js Image will handle it
+                cardImage: item.images?.[0]?.url || "/icons/default-event.jpg",
+                detailImages: item.images?.map((img) => img.url) || [],
                 socialLinks: [],
               };
             });

@@ -28,18 +28,6 @@ type TransformedEvent = {
   description: string;
 };
 
-// ✅ Helper function to fix MinIO URLs
-const fixImageUrl = (url: string | null | undefined): string => {
-  if (!url) return "/icons/default-event.jpg";
-
-  if (url.startsWith("http://13.234.154.152:9000/")) {
-    const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
-  }
-
-  return url;
-};
-
 // ✅ Transform dummy data to include id
 const transformDummyData = (): TransformedEvent[] => {
   return eventsData.map((event, index) => ({
@@ -52,7 +40,7 @@ const transformDummyData = (): TransformedEvent[] => {
 };
 
 export default function EventsSection() {
-  const [events, setEvents] = useState<TransformedEvent[]>(transformDummyData()); // ✅ Use transformed dummy data
+  const [events, setEvents] = useState<TransformedEvent[]>(transformDummyData());
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -70,9 +58,10 @@ export default function EventsSection() {
           // Transform API data to match EventCard props
           const transformedEvents: TransformedEvent[] = sortedData.map((event) => ({
             id: event.id,
+            // ✅ Use original URL directly - Next.js Image will handle it
             image:
               event.images && event.images.length > 0 && event.images[0]?.url
-                ? fixImageUrl(event.images[0].url)
+                ? event.images[0].url
                 : "/icons/default-event.jpg",
             date: new Date(event.date).toLocaleDateString("en-US", {
               year: "numeric",
@@ -87,7 +76,6 @@ export default function EventsSection() {
         }
       } catch (error) {
         console.error("Error fetching events:", error);
-        // ✅ On error, keep the dummy data (already set in useState)
       } finally {
         setLoading(false);
       }
