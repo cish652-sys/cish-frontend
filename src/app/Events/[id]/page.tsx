@@ -10,13 +10,18 @@ import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// --- FIX 1: Update the ApiEvent interface ---
 interface ApiEvent {
   id: number;
   date: string;
   title: string;
   name: string;
-  images: Array<{ url: string; thumbnail?: boolean }>;
+  images: {
+    url: string;
+    thumbnail: boolean;
+  }[];
 }
+// ------------------------------------------
 
 interface EventDetailPageProps {
   params: Promise<{
@@ -38,6 +43,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
         if (response.ok) {
           const apiData: ApiEvent[] = await response.json();
           if (apiData && apiData.length > 0) {
+            // --- FIX 2: Apply correct mapping ---
             dataToSearch = apiData.map((item) => {
               const eventDate = new Date(item.date);
               return {
@@ -50,15 +56,15 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
                   minute: "2-digit",
                   hour12: true,
                 }),
-                title: item.title,
-                shortDescription: item.name,
-                fullDescription: item.name,
-                // ✅ Use original URL - Next.js Image will handle it
-                cardImage: item.images?.[0]?.url || "/icons/default-event.jpg",
-                detailImages: item.images?.map((img) => img.url) || [],
+                title: item.name, // Swapped
+                shortDescription: item.title, // Swapped
+                fullDescription: item.title, // Swapped
+                cardImage: item.images?.[0]?.url || "/icons/default-event.jpg", // Access .url
+                detailImages: item.images?.map((img) => img.url) || [], // Map to .url
                 socialLinks: [],
               };
             });
+            // ------------------------------------
           }
         }
       } catch (error) {

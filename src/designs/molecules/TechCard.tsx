@@ -19,8 +19,8 @@ const TechCard: React.FC<TechCardProps> = ({ id, title, image, description, href
 
       <div className="flex flex-col justify-between">
         <div>
-          <h3 className="mb-2">{title}</h3>
-          <p className="text-gray-600 text-sm line-clamp-3">{description[0]}</p>
+          <h3 className="mb-2 text-green-900 font-semibold">{title}</h3>
+          <p className="text-gray-600 text- line-clamp-3 whitespace-pre-line">{description[0]}</p>
         </div>
 
         {onViewMore && (

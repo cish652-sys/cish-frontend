@@ -456,7 +456,7 @@ export const dummyStaffData = [
       // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
       "",
     ],
-    image: "/icons/dummyStaff.svg",
+    image: "/icons/improvemtstaff.jpg",
     href: "/staff/crop-improvement",
   },
   {
@@ -474,7 +474,7 @@ export const dummyStaffData = [
       // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
       "",
     ],
-    image: "/icons/dummyStaff.svg",
+    image: "/icons/productionstaff.jpg",
     href: "/staff/crop-production",
   },
   {
@@ -493,7 +493,7 @@ export const dummyStaffData = [
       // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
       "",
     ],
-    image: "/icons/dummyStaff.svg",
+    image: "/icons/protectionstaff.jpg",
     href: "/staff/crop-protection",
   },
   {
@@ -511,7 +511,7 @@ export const dummyStaffData = [
       // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
       "",
     ],
-    image: "/icons/dummyStaff.svg",
+    image: "/icons/harveststaff.jpg",
     href: "/staff/crop-post-harvest",
   },
   {
@@ -525,7 +525,7 @@ export const dummyStaffData = [
       "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
       "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
     ],
-    image: "/icons/dummyStaff.svg",
+    image: "/icons/rrs.png",
     href: "/staff/rrs-malda", // <-- ADD THIS
   },
   {
@@ -542,51 +542,51 @@ export const dummyStaffData = [
       // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
       "",
     ],
-    image: "/icons/dummyStaff.svg",
+    image: "/icons/kvk.png",
     href: "/staff/kvk-malda", // <-- ADD THIS
   },
-  {
-    id: "administrative", // <-- CORRECTED ID (was "division-technology")
-    title: "ADMINISTRATIVE",
-    description: [
-      "The Administrative section handles all administrative functions of the institute including personnel management, finance, procurement, and general administration to support smooth functioning of research activities.",
-    ],
-    descriptions: [
-      // "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
-      // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
-      "",
-    ],
-    image: "/icons/dummyStaff.svg",
-    href: "/staff/administrative", // <-- ADD THIS
-  },
-  {
-    id: "finance-accounts", // <-- CORRECTED ID (was "division-technology")
-    title: "FINANCE & ACCOUNTS",
-    description: [
-      "The Finance & Accounts section manages financial planning, budget allocation, expenditure monitoring, and accounting procedures ensuring transparent and efficient utilization of research funds.",
-    ],
-    descriptions: [
-      // "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
-      // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
-      "",
-    ],
-    image: "/icons/dummyStaff.svg",
-    href: "/staff/finance-accounts", // <-- ADD THIS
-  },
-  {
-    id: "technical-staff-main", // <-- CORRECTED ID (was "division-technology")
-    title: "TECHNICAL STAFF",
-    description: [
-      "Technical staff provide essential support to research activities through laboratory assistance, field operations, equipment maintenance, and data collection across all research divisions.",
-    ],
-    descriptions: [
-      // "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
-      // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
-      "",
-    ],
-    image: "/icons/dummyStaff.svg",
-    href: "/staff/technical-staff-main", // <-- ADD THIS
-  },
+  // {
+  //   id: "administrative", // <-- CORRECTED ID (was "division-technology")
+  //   title: "ADMINISTRATIVE",
+  //   description: [
+  //     "The Administrative section handles all administrative functions of the institute including personnel management, finance, procurement, and general administration to support smooth functioning of research activities.",
+  //   ],
+  //   descriptions: [
+  //     // "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+  //     // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+  //     "",
+  //   ],
+  //   image: "/icons/dummyStaff.svg",
+  //   href: "/staff/administrative", // <-- ADD THIS
+  // },
+  // {
+  //   id: "finance-accounts", // <-- CORRECTED ID (was "division-technology")
+  //   title: "FINANCE & ACCOUNTS",
+  //   description: [
+  //     "The Finance & Accounts section manages financial planning, budget allocation, expenditure monitoring, and accounting procedures ensuring transparent and efficient utilization of research funds.",
+  //   ],
+  //   descriptions: [
+  //     // "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+  //     // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+  //     "",
+  //   ],
+  //   image: "/icons/dummyStaff.svg",
+  //   href: "/staff/finance-accounts", // <-- ADD THIS
+  // },
+  // {
+  //   id: "technical-staff-main", // <-- CORRECTED ID (was "division-technology")
+  //   title: "TECHNICAL STAFF",
+  //   description: [
+  //     "Technical staff provide essential support to research activities through laboratory assistance, field operations, equipment maintenance, and data collection across all research divisions.",
+  //   ],
+  //   descriptions: [
+  //     // "AK Singh, Anju Bajpai, S Rajan, SS Das, KK Mishra (2021) Modified BBCH codification and correlation of phenological characteristics with climatic variables in jamun (Syzigium cuminii Skeels).Scientia Horticulturae https://doi.org/10.1016/j.scienta.2021.110081",
+  //     // "Anju Bajpai, A.K. Singh and H. Ravishankar (2012) Reproductive Phenology, Flower biology and pollination in Jamun (Syzygium cumini L.)(In press) Indian J. of Horticulture. Septemember-2012;. 69(3) : 416-419",
+  //     "",
+  //   ],
+  //   image: "/icons/dummyStaff.svg",
+  //   href: "/staff/technical-staff-main", // <-- ADD THIS
+  // },
 ];
 
 // In lib/utils.ts

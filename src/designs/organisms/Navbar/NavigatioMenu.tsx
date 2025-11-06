@@ -30,8 +30,8 @@ const routes: Record<string, string> = {
   Staff: "/staff",
   // "Citizen Charter": "/about/citizen-charter",
   "Citizen Charter": "/citizenCharter", // ← Keep this one
-  Photos: "/Gallery",
-  Videos: "/Gallery",
+  Photos: "/Gallery?tab=photos",
+  Videos: "/Gallery?tab=videos",
 
   // RESEARCH dropdown
   "Institute/External Projects": "/ResearchFunded",

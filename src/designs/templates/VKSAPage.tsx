@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link"; // Import Link
-import Slider from "react-slick";
+import Link from "next/link";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Logo } from "@/designs/atoms/Logo";
@@ -11,10 +10,35 @@ import ViksitKrishiCard from "@/designs/molecules/VKSACard";
 import { viksitKrishiData } from "@/app/VKSA/data"; // Fallback data
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import Typography from "@/designs/atoms/Typography";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+import Slider from "react-slick";
+const carouselSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 // --- Interfaces (for type safety) ---
 interface VksaApiItem {
   id: number | string;
@@ -59,16 +83,13 @@ const VKSAPage = () => {
             }));
             setCards(mappedData);
           } else {
-            // Fallback if API returns empty array
             setCards(viksitKrishiData);
           }
         } else {
-          // Fallback if response is not ok
           setCards(viksitKrishiData);
         }
       } catch (error) {
         console.error("Failed to fetch VKSA list, using fallback.", error);
-        // Fallback if fetch fails
         setCards(viksitKrishiData);
       } finally {
         setIsLoading(false);
@@ -77,21 +98,6 @@ const VKSAPage = () => {
 
     fetchVksaList();
   }, []);
-
-  // Carousel settings
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 600, settings: { slidesToShow: 1 } },
-    ],
-  };
 
   return (
     <main>
@@ -122,7 +128,7 @@ const VKSAPage = () => {
                 key={card.id}
                 href={`/VKSA/${card.id}`}
                 passHref
-                className="w-full flex justify-center" // <--- Like this
+                className="w-full flex justify-center"
               >
                 <ViksitKrishiCard
                   id={card.id}
