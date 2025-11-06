@@ -21,11 +21,24 @@ type ApiJob = {
   lastDate: string;
   createdAt: string | null;
   date: string | null;
+  imageUrl?: string; // ✅ Add imageUrl field
 };
 
 const fetchJobs = async (): Promise<ApiJob[]> => {
   const { data } = await axios.get("https://api.cish.org.in/api/content/jobs");
   return data;
+};
+
+// ✅ Helper function to fix MinIO URLs
+const fixFileUrl = (url: string | null | undefined): string => {
+  if (!url) return "";
+
+  if (url.startsWith("http://13.234.154.152:9000/")) {
+    const path = url.replace("http://13.234.154.152:9000/", "");
+    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
+  }
+
+  return url;
 };
 
 const JobsPage = () => {
@@ -56,7 +69,9 @@ const JobsPage = () => {
       startDate: job.date || "N/A",
       interviewDate: job.lastDate,
       latestUpdate: job.createdAt || job.postDate,
-      buttons: ["form"],
+      buttons: ["form"], // Add "result" if you have result links
+      formLink: job.imageUrl, // ✅ Map imageUrl to formLink
+      // resultLink: fixFileUrl(job.resultUrl), // ✅ Uncomment if you have result links
     }));
   }, [apiJobs, isError]);
 

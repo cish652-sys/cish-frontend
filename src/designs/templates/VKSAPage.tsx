@@ -10,7 +10,35 @@ import ViksitKrishiCard from "@/designs/molecules/VKSACard";
 import { viksitKrishiData } from "@/app/VKSA/data"; // Fallback data
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import Typography from "@/designs/atoms/Typography";
-
+import Slider from "react-slick";
+const carouselSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 // --- Interfaces (for type safety) ---
 interface VksaApiItem {
   id: number | string;
@@ -25,6 +53,16 @@ interface VksaItem {
   description: string;
   images?: string[];
 }
+
+// Gallery images
+const galleryImages = [
+  { id: 1, src: "/icons/vksa1.png", alt: "Gallery Image 1" },
+  { id: 3, src: "/icons/vksa2.png", alt: "Gallery Image 3" },
+  { id: 4, src: "/icons/vksa3.png", alt: "Gallery Image 4" },
+  { id: 5, src: "/icons/vksa4.png", alt: "Gallery Image 5" },
+
+  // Add as many images as you like
+];
 
 const VKSAPage = () => {
   const [cards, setCards] = useState<VksaItem[]>([]);
@@ -105,7 +143,29 @@ const VKSAPage = () => {
         </div>
       </div>
 
-      {/* --- Carousel Section Removed --- */}
+      {/* --- Carousel Section --- */}
+      <section className="container mx-auto w-full py-10 md:py-16 px-6">
+        <div className="flex items-center pb-6 gap-2">
+          <Typography variant="sectionHeading">Photo Gallery</Typography>
+        </div>
+        <Slider {...carouselSettings}>
+          {galleryImages.map((image) => (
+            <div key={image.id} className="px-2">
+              {" "}
+              {/* Add padding between slides */}
+              <div className="relative w-full h-64 overflow-hidden ">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  layout="fill"
+                  objectFit="cover"
+                  className=""
+                />
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </section>
 
       <Footer />
     </main>

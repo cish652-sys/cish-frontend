@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { eventsData, Event } from "@/app/Events/data";
@@ -24,13 +24,14 @@ interface ApiEvent {
 // ------------------------------------------
 
 interface EventDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
-  const { id } = params;
+  // ✅ Unwrap params using React.use()
+  const { id } = use(params);
   const [event, setEvent] = useState<Event | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -116,9 +117,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
               height={20}
               className="mr-2"
             />
-            <span>
-              {event.date} @ {event.timeRange}
-            </span>
+            <span>{event.date}</span>
           </div>
 
           {event.detailImages[0] && (
