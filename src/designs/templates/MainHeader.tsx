@@ -36,9 +36,7 @@ const staticBanners = [
 function fixImageUrl(url: string): string {
   if (url.startsWith("http://13.234.154.152:9000/")) {
     const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(
-      path
-    )}`;
+    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
   }
   return url;
 }
@@ -56,9 +54,7 @@ const getBannerData = async (): Promise<FileInfo[]> => {
 };
 
 const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
-  const response = await fetch(
-    "https://api.cish.org.in/api/content/announcement"
-  );
+  const response = await fetch("https://api.cish.org.in/api/content/announcement");
   if (!response.ok) {
     throw new Error("Network response was not ok for announcements");
   }
@@ -89,9 +85,7 @@ export const MainHeader = () => {
       .filter((item) => item.isDirector === null && item.isActive === true)
       .sort((a, b) => b.id - a.id);
     const firstBanner =
-      activeBanners.length > 0
-        ? { type: "image", src: activeBanners[0].fileUrl }
-        : null;
+      activeBanners.length > 0 ? { type: "image", src: activeBanners[0].fileUrl } : null;
     const carouselBanners = apiData
       .filter((item) => item.isDirector === null && item.isActive === false)
       .sort((a, b) => b.id - a.id)
@@ -109,11 +103,7 @@ export const MainHeader = () => {
     if (isAnnouncementsPending) {
       return ["Loading announcements..."];
     }
-    if (
-      isAnnouncementsError ||
-      !apiAnnouncements ||
-      apiAnnouncements.length === 0
-    ) {
+    if (isAnnouncementsError || !apiAnnouncements || apiAnnouncements.length === 0) {
       return [
         "Central Institute For Subtropical Horticulture Institute",
         "Upcoming Seminar on Sustainable Horticulture Practices",
@@ -123,7 +113,7 @@ export const MainHeader = () => {
         },
       ];
     }
-    
+
     // UPDATED MAPPING
     // Now returns an object { text, link } for the AnnouncementBar
     return apiAnnouncements.map((item) => ({

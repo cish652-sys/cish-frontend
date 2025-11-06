@@ -10,13 +10,18 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Header } from "@/designs/organisms/Header";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// --- FIX 1: Update the ApiEvent interface ---
 interface ApiEvent {
   id: number;
   date: string;
   title: string;
   name: string;
-  images: string[];
+  images: {
+    url: string;
+    thumbnail: boolean;
+  }[];
 }
+// ------------------------------------------
 
 const transformApiData = (apiData: ApiEvent[]): Event[] => {
   return apiData.map((item) => {
@@ -35,11 +40,15 @@ const transformApiData = (apiData: ApiEvent[]): Event[] => {
       day: day,
       month: month,
       timeRange: time,
-      title: item.title,
-      shortDescription: item.name,
-      fullDescription: item.name,
-      cardImage: item.images?.[0] || "/icons/default-event.jpg",
-      detailImages: item.images || [],
+      // --- FIX 2: Swap title and name ---
+      title: item.name,
+      shortDescription: item.title,
+      fullDescription: item.title,
+      // ----------------------------------
+      // --- FIX 3: Access the .url property for images ---
+      cardImage: item.images?.[0]?.url || "/icons/default-event.jpg",
+      detailImages: item.images?.map((img) => img.url) || [],
+      // ------------------------------------------------
       socialLinks: [],
     };
   });
@@ -50,15 +59,15 @@ const EventsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeMonth, setActiveMonth] = useState("Aug");
+  const [activeMonth, setActiveMonth] = useState(
+    new Date().toLocaleString("en-US", { month: "short" })
+  );
   const [activeView, setActiveView] = useState("Month");
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(
-          "https://api.cish.org.in/api/news?type=newsEvent"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
         if (!response.ok) throw new Error("API fetch failed");
 
         const apiData: ApiEvent[] = await response.json();

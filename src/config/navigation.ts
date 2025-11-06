@@ -72,8 +72,8 @@ export const navigation: NavItem[] = [
     type: "dropdown",
     label: "MEDIA",
     links: [
-      { href: "/Gallery", label: "Photos" },
-      { href: "/Gallery", label: "Videos" },
+      { href: "/Gallery?tab=photos", label: "Photos" },
+      { href: "/Gallery?tab=videos", label: "Videos" },
       { href: "/Events", label: "Events" },
     ],
   },

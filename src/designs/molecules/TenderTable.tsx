@@ -155,7 +155,7 @@ Date: __________________________
   }
 
   return (
-    <div className="overflow-y-auto border shadow-sm">
+    <div className="overflow-hidden border shadow-sm">
       <table className="w-full text-sm">
         <thead className="bg-gray-100 sticky top-0">
           <tr>
@@ -176,9 +176,9 @@ Date: __________________________
                 </div>
               </td>
               <td className="px-3 py-2">{t.lastDate}</td>
-              <td className="px-3 py-2">
+              {/* <td className="px-3 py-2">
                 <span className="text-gray-400">→</span>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>

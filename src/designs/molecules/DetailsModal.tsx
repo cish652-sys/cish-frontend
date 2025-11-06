@@ -1,4 +1,3 @@
-// src/designs/molecules/DetailsModal.tsx
 "use client";
 
 import React from "react";
@@ -97,7 +96,7 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
         <Typography variant="bodyLarge" className="mb-2">
           Details:
         </Typography>
-        <p className="text-gray-700 text-sm mb-4">{item.details}</p>
+        <p className="text-gray-700 text-sm mb-4 whitespace-pre-line">{item.details}</p>
 
         {/* All Other API Data */}
         <Typography variant="bodyLarge" className="mb-3 border-t pt-3">
@@ -151,7 +150,7 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
           )}
           {item.icNumber && (
             <p>
-              <strong>IC Number:</strong> {item.icNumber}
+              <strong>IP Protection:</strong> {item.icNumber}
             </p>
           )}
           {item.ppvfraRegistration && (
@@ -160,16 +159,24 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
             </p>
           )}
 
-          {/* --- FIX IS HERE --- */}
           {item.targetCustomers && (
             <p className="md:col-span-2">
-              <strong>Target Customers:</strong> {/* Check if it's an array before joining */}
+              <strong>Target Customers:</strong>{" "}
               {Array.isArray(item.targetCustomers)
-                ? item.targetCustomers.join(", ")
-                : item.targetCustomers}
+                ? item.targetCustomers
+                    .map((customer: string) =>
+                      customer
+                        .split(" ")
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                        .join(" ")
+                    )
+                    .join(", ")
+                : (item.targetCustomers as string)
+                    .split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(" ")}
             </p>
           )}
-          {/* --- END OF FIX --- */}
         </div>
       </div>
     </div>

@@ -10,13 +10,18 @@ import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// --- FIX 1: Update the ApiEvent interface ---
 interface ApiEvent {
   id: number;
   date: string;
   title: string;
   name: string;
-  images: string[];
+  images: {
+    url: string;
+    thumbnail: boolean;
+  }[];
 }
+// ------------------------------------------
 
 interface EventDetailPageProps {
   params: {
@@ -33,12 +38,11 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
     const fetchEventDetails = async () => {
       let dataToSearch: Event[] = eventsData;
       try {
-        const response = await fetch(
-          "https://api.cish.org.in/api/news?type=newsEvent"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
         if (response.ok) {
           const apiData: ApiEvent[] = await response.json();
           if (apiData && apiData.length > 0) {
+            // --- FIX 2: Apply correct mapping ---
             dataToSearch = apiData.map((item) => {
               const eventDate = new Date(item.date);
               return {
@@ -51,14 +55,15 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
                   minute: "2-digit",
                   hour12: true,
                 }),
-                title: item.title,
-                shortDescription: item.name,
-                fullDescription: item.name,
-                cardImage: item.images?.[0] || "/icons/default-event.jpg",
-                detailImages: item.images || [],
+                title: item.name, // Swapped
+                shortDescription: item.title, // Swapped
+                fullDescription: item.title, // Swapped
+                cardImage: item.images?.[0]?.url || "/icons/default-event.jpg", // Access .url
+                detailImages: item.images?.map((img) => img.url) || [], // Map to .url
                 socialLinks: [],
               };
             });
+            // ------------------------------------
           }
         }
       } catch (error) {

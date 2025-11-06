@@ -31,7 +31,7 @@ const CropProductionPage = () => {
         <div className="container border border-[#162F6A]/40 bg-white shadow-md max-w-4xl mx-auto flex flex-col gap-8">
           <ul className="list-disc list-outside pl-5 flex flex-col gap-2 my-6 normal-case">
             <li>
-              <p   className="normal-case text-gray-700 text-[14px]">
+              <p className="normal-case text-gray-700 text-[14px]">
                 In guava cv. Allahabad Safeda, maximum yield (89.58 kg/tree) was recorded with 30 kg
                 vermicompost + 250 g Azospirillum + PSB culture per tree + vermiwash spray. Maximum
                 TSS (14.86°Brix) was recorded with 30 kg FYM per tree, and ascorbic acid (209.41
@@ -53,7 +53,7 @@ const CropProductionPage = () => {
             </li>
 
             <li>
-              <p  className="text-gray-700 text-[14px] normal-case">
+              <p className="text-gray-700 text-[14px] normal-case">
                 Application of biodynamic compost (30 kg/tree), cow pat pit (100 g), BD-500 and
                 BD-501 as soil and foliar sprays for two years improved fruit yield (114.44 kg/tree)
                 and soil organic carbon (1.20%), available N (168.93 ppm), P (27.67 ppm), Zn (3.78
