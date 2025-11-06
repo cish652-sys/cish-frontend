@@ -9,6 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const eventsData = [
   {
+    id:1,
     image: "/icons/Event 2.svg",
     date: "August 15, 2025",
     title: "Independence Day",
@@ -16,6 +17,7 @@ export const eventsData = [
       "The 79th Independence Day was celebrated with great pomp on 15 August 2025 at the Central Institute of Subtropical Horticulture......",
   },
   {
+    id:2,
     image: "/icons/Event 3.png",
     date: "July 28, 2025",
     title: "lucknow aam mahotsav",
@@ -24,6 +26,7 @@ export const eventsData = [
   },
 
   {
+    id:3,
     image: "/icons/Event 1.svg",
     date: "May 15, 2025",
     title: "Krishi Darshan Chaupal on common topic",

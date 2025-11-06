@@ -144,29 +144,7 @@ const VKSAPage = () => {
       </div>
 
       {/* --- Carousel Section --- */}
-      <section className="container mx-auto w-full py-10 md:py-16 px-6">
-        <div className="flex items-center pb-6 gap-2">
-          <Typography variant="sectionHeading">Photo Gallery</Typography>
-        </div>
-        <Slider {...carouselSettings}>
-          {galleryImages.map((image) => (
-            <div key={image.id} className="px-2">
-              {" "}
-              {/* Add padding between slides */}
-              <div className="relative w-full h-64 overflow-hidden ">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  layout="fill"
-                  objectFit="cover"
-                  className=""
-                />
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </section>
-
+     
       <Footer />
     </main>
   );

@@ -1,5 +1,5 @@
 "use client";
-// import { eventsData } from "@/lib/utils"; // Kept for fallback
+import { eventsData } from "@/lib/utils"; // Kept for fallback
 import EventCard from "../molecules/EventCard";
 import { Button } from "../atoms/button";
 import Image from "next/image";
@@ -29,6 +29,7 @@ interface DisplayEvent {
   date: string;
   title: string;
   description: string;
+  
 }
 
 // A default empty array for initialization
@@ -39,57 +40,54 @@ export default function EventsSection() {
   const [events, setEvents] = useState<DisplayEvent[]>(defaultEvents);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
-        if (!response.ok) throw new Error("API fetch failed");
+ useEffect(() => {
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
+      if (!response.ok) throw new Error("API fetch failed");
 
-        const data: ApiEvent[] = await response.json();
+      const data: ApiEvent[] = await response.json();
 
-        if (data && data.length > 0) {
-          const sortedData = data.sort((a, b) => {
-            return new Date(b.date).getTime() - new Date(a.date).getTime();
-          });
+      if (data && data.length > 0) {
+        const sortedData = data.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
 
-          // --- FIX 2: Update transformation logic ---
-          const transformedEvents: DisplayEvent[] = sortedData.map((event) => {
-            // Find the thumbnail image
-            const thumbnail = event.images?.find((img) => img.thumbnail === true);
+        const transformedEvents: DisplayEvent[] = sortedData.map((event) => {
+          const thumbnail = event.images?.find((img) => img.thumbnail === true);
+          const imageUrl =
+            thumbnail?.url || event.images?.[0]?.url || "/icons/default-event.jpg";
 
-            // Fallback to first image, then to a default
-            const imageUrl = thumbnail?.url || event.images?.[0]?.url || "/icons/default-event.jpg";
+          return {
+            id: event.id,
+            image: imageUrl,
+            date: new Date(event.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }),
+            title: event.name,
+            description: event.title,
+          };
+        });
 
-            return {
-              id: event.id, // Pass the ID for keys and linking
-              image: imageUrl, // Use the correct thumbnail logic
-              date: new Date(event.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }),
-              title: event.name, // name is title
-              description: event.title, // title is description
-            };
-          });
-          // ------------------------------------------
-
-          setEvents(transformedEvents);
-        }
-        // If data is empty, 'events' will remain an empty array.
-        // You might want to set it to `eventsData` (your static fallback) here.
-        // e.g., else { setEvents(eventsData); }
-      } catch (error) {
-        console.error("Error fetching events:", error);
-        // On error, you could set the static fallback data
-        // setEvents(eventsData);
-      } finally {
-        setLoading(false);
+        setEvents(transformedEvents);
+      } else {
+        // ✅ fallback if API returns empty
+        setEvents(eventsData);
       }
-    };
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      // ✅ fallback if fetch fails entirely
+      setEvents(eventsData);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchEvents();
-  }, []);
+  fetchEvents();
+}, []);
+
 
   if (loading) {
     return (
