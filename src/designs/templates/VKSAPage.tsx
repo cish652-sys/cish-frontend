@@ -80,9 +80,9 @@ const VKSAPage = () => {
             // ✅ Extract URLs from image objects
             const mappedData = apiData.map((item: VksaApiItem) => ({
               id: parseInt(String(item.id), 10),
-              title: item.title,
-              description: item.name,
-              images: item.images.map(img => img.url), // Extract URL from each image object
+              title: item.name,
+              description: item.title,
+              images: item.images.map((img) => img.url), // Extract URL from each image object
             }));
             setCards(mappedData);
           } else {

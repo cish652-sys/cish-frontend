@@ -63,9 +63,9 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
             // ✅ Extract URLs from image objects
             dataToSearch = apiData.map((item: VksaApiItem) => ({
               id: item.id,
-              title: item.title,
-              description: item.name,
-              images: item.images.map(img => img.url), // Extract URL from each image object
+              title: item.name,
+              description: item.title,
+              images: item.images.map((img) => img.url), // Extract URL from each image object
             }));
           }
         }

@@ -81,7 +81,7 @@ Date: __________________________
     if (tender.result) {
       // ✅ Use resultLink if available, otherwise fall back to link
       const resultUrl = tender.resultLink || tender.link;
-      
+
       if (resultUrl) {
         return (
           <a

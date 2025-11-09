@@ -42,6 +42,11 @@ export default function EventCard({
       ? image
       : placeholderImage;
 
+  // Limit description to 100 characters
+  const limitedDescription = description.length > 100 
+    ? `${description.substring(0, 100)}...` 
+    : description;
+
   return (
     <Card className="max-w-[349px] px-2 py-2 overflow-hidden flex flex-col shadow-md hover:shadow-lg transition">
       <Image
@@ -59,7 +64,7 @@ export default function EventCard({
             {title}
           </Typography>
         )}
-        <Typography variant="paragraphSmall">{description}</Typography>
+        <Typography variant="paragraphSmall">{limitedDescription}</Typography>
         {titleResearch && (
           <h1 className="text-[#1B5E20] flex align-center justify-evenly text-sm font-bold">
             {titleResearch}
