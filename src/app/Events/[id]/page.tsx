@@ -121,15 +121,16 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
           </div>
 
           {event.detailImages[0] && (
-            <div className="w-full mb-8">
-              <Image
-                src={event.detailImages[0]}
-                alt={event.title}
-                width={1200}
-                height={600}
-                className="w-full h-auto object-cover rounded-lg"
-                priority
-              />
+            <div className="w-full mb-8 flex justify-center">
+              <div className="relative w-full max-w-5xl h-[50vh] md:h-[60vh] lg:h-[70vh]">
+                <Image
+                  src={event.detailImages[0]}
+                  alt={event.title}
+                  fill
+                  className="object-contain rounded-lg"
+                  priority
+                />
+              </div>
             </div>
           )}
 
