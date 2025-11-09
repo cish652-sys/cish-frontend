@@ -9,7 +9,8 @@ interface ViksitKrishiCardProps {
   description: string;
   images?: string[];
   isDetailView?: boolean;
-  basePath?: string; // <-- New optional prop to make route dynamic
+  basePath?: string;
+  hideImages?: boolean;
 }
 
 const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
@@ -18,7 +19,8 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
   description,
   images,
   isDetailView = false,
-  basePath = "VKSA", // Default route if not provided
+  basePath = "VKSA",
+  hideImages = false,
 }) => {
   // Shorten description for non-detail views
   const shortDescription =
@@ -32,7 +34,7 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
         {shortDescription}
         {!isDetailView && (
           <Link
-            href={`/${basePath}/${id}`} // <-- Dynamic route
+            href={`/${basePath}/${id}`}
             className="text-green-700 font-semibold cursor-pointer hover:underline ml-1"
           >
             View More →
@@ -40,8 +42,8 @@ const ViksitKrishiCard: React.FC<ViksitKrishiCardProps> = ({
         )}
       </p>
 
-      {/* Image Grid */}
-      {images && images.length > 0 && (
+      {/* Image Grid - Only show if hideImages is false */}
+      {!hideImages && images && images.length > 0 && (
         <div className="grid pt-8 grid-cols-2 sm:grid-cols-3 mb-4 md:grid-cols-5 gap-4">
           {images.map((src, index) => (
             <div key={index} className="relative h-32 w-full overflow-hidden rounded-md">

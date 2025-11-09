@@ -16,7 +16,6 @@ import { viksitKrishiData } from "@/app/VKSA/data";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// ✅ Updated interface to match API response structure
 interface VksaApiItem {
   id: number;
   title: string;
@@ -60,12 +59,11 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
         if (response.ok) {
           const apiData: VksaApiItem[] = await response.json();
           if (apiData && apiData.length > 0) {
-            // ✅ Extract URLs from image objects
             dataToSearch = apiData.map((item: VksaApiItem) => ({
               id: item.id,
               title: item.name,
               description: item.title,
-              images: item.images.map((img) => img.url), // Extract URL from each image object
+              images: item.images.map((img) => img.url),
             }));
           }
         }
@@ -130,12 +128,14 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
 
       <div className="mx-auto bg-[#f9f8f2] p-6 md:p-10">
         <div className="flex flex-col items-center w-full">
+          {/* ✅ Pass hideImages prop to hide images in card view */}
           <ViksitKrishiCard
             id={cardData.id}
             title={cardData.title}
             description={cardData.description}
             images={cardData.images}
             isDetailView={true}
+            hideImages={true}
           />
         </div>
       </div>

@@ -41,7 +41,6 @@ const carouselSettings = {
   ],
 };
 
-// ✅ Updated interface to match API response structure
 interface VksaApiItem {
   id: number | string;
   title: string;
@@ -77,12 +76,11 @@ const VKSAPage = () => {
         if (response.ok) {
           const apiData: VksaApiItem[] = await response.json();
           if (apiData && apiData.length > 0) {
-            // ✅ Extract URLs from image objects
             const mappedData = apiData.map((item: VksaApiItem) => ({
               id: parseInt(String(item.id), 10),
               title: item.name,
               description: item.title,
-              images: item.images.map((img) => img.url), // Extract URL from each image object
+              images: item.images.map((img) => img.url),
             }));
             setCards(mappedData);
           } else {
@@ -133,11 +131,13 @@ const VKSAPage = () => {
                 passHref
                 className="w-full flex justify-center"
               >
+                {/* ✅ Pass hideImages prop to hide images in list view */}
                 <ViksitKrishiCard
                   id={card.id}
                   title={card.title}
                   description={card.description}
                   images={card.images}
+                  hideImages={true}
                 />
               </Link>
             ))
