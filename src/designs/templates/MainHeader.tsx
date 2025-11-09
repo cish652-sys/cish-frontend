@@ -7,19 +7,26 @@ import { Header } from "../organisms/Header";
 import { AnnouncementBar } from "../molecules/AnnouncementBar";
 import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
 
-interface FileInfo {
+// UPDATED INTERFACE FOR NEW BANNER API
+interface BannerItem {
   id: number;
-  fileUrl: string;
-  isDirector: boolean | null;
-  isActive: boolean;
+  type: string;
+  url: string;
+  thumbnail: boolean;
+  title: string | null;
+  publishDate: string | null;
+  bannerLink: string | null;
+  isBannerFirst: boolean | null;
+  ispublished: boolean;
+  isactive: boolean;
+  backtocreator: boolean;
 }
 
-// UPDATED INTERFACE
 interface ApiAnnouncement {
   id: number;
   title: string;
   contentKey: string;
-  link: string | null; // Added link to match API response
+  link: string | null;
 }
 
 const staticBanners = [
@@ -41,15 +48,16 @@ function fixImageUrl(url: string): string {
   return url;
 }
 
-const getBannerData = async (): Promise<FileInfo[]> => {
-  const response = await fetch("https://api.cish.org.in/files/getAll");
+// UPDATED FUNCTION TO FETCH NEW BANNER API
+const getBannerData = async (): Promise<BannerItem[]> => {
+  const response = await fetch("https://api.cish.org.in/media/get/banner");
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
   const data = await response.json();
-  return data.map((item: FileInfo) => ({
+  return data.map((item: BannerItem) => ({
     ...item,
-    fileUrl: fixImageUrl(item.fileUrl),
+    url: fixImageUrl(item.url),
   }));
 };
 
@@ -64,7 +72,7 @@ const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
 export const MainHeader = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { data: apiData, isLoading: isBannersLoading } = useQuery<FileInfo[]>({
+  const { data: apiData, isLoading: isBannersLoading } = useQuery<BannerItem[]>({
     queryKey: ["bannerFiles"],
     queryFn: getBannerData,
   });
@@ -78,22 +86,32 @@ export const MainHeader = () => {
     queryFn: fetchAnnouncements,
   });
 
+  // UPDATED BANNER MAPPING LOGIC
   const banners = useMemo(() => {
     if (!apiData) return staticBanners;
 
-    const activeBanners = apiData
-      .filter((item) => item.isDirector === null && item.isActive === true)
+    // Filter only active banners
+    const activeBanners = apiData.filter((item) => item.isactive === true);
+
+    if (activeBanners.length === 0) return staticBanners;
+
+    // Find the banner with isBannerFirst: true
+    const firstBanner = activeBanners.find((item) => item.isBannerFirst === true);
+    
+    // Get all other active banners, sorted by id (descending)
+    const otherBanners = activeBanners
+      .filter((item) => item.isBannerFirst !== true)
       .sort((a, b) => b.id - a.id);
-    const firstBanner =
-      activeBanners.length > 0 ? { type: "image", src: activeBanners[0].fileUrl } : null;
-    const carouselBanners = apiData
-      .filter((item) => item.isDirector === null && item.isActive === false)
-      .sort((a, b) => b.id - a.id)
-      .map((item) => ({ type: "image", src: item.fileUrl }));
 
     const dynamicBanners = [];
-    if (firstBanner) dynamicBanners.push(firstBanner);
-    dynamicBanners.push(...carouselBanners);
+    
+    // Add first banner at the beginning if it exists
+    if (firstBanner) {
+      dynamicBanners.push({ type: "image", src: firstBanner.url });
+    }
+    
+    // Add remaining banners
+    dynamicBanners.push(...otherBanners.map((item) => ({ type: "image", src: item.url })));
 
     return dynamicBanners.length > 0 ? dynamicBanners : staticBanners;
   }, [apiData]);
@@ -114,11 +132,9 @@ export const MainHeader = () => {
       ];
     }
 
-    // UPDATED MAPPING
-    // Now returns an object { text, link } for the AnnouncementBar
     return apiAnnouncements.map((item) => ({
       text: item.title,
-      link: item.link || undefined, // Convert null to undefined
+      link: item.link || undefined,
     }));
   }, [apiAnnouncements, isAnnouncementsPending, isAnnouncementsError]);
 

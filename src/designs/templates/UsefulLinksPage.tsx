@@ -55,12 +55,14 @@ interface ApiLinkItem {
   date: string | null;
   postDate: string | null;
   lastDate: string | null;
+  link: string | null; 
   createdAt: string | null;
   ispublished: boolean;
   isactive: boolean;
   backtocreator: boolean;
 }
 
+// 1. FIX: Restored the full type definition for the props
 const GalleryFilterBar: React.FC<{
   searchTerm: string;
   setSearchTerm: (term: string) => void;
@@ -118,7 +120,7 @@ const UsefulLinksPage = () => {
           const transformedData = data.map((item: ApiLinkItem) => ({
             title: item.title,
             publishedDate: formatDate(item.postDate),
-            viewUrl: item.imageUrl,
+            viewUrl: item.link, // Use item.link for the URL
           }));
           setApiData(transformedData);
         } else {
@@ -179,7 +181,7 @@ const UsefulLinksPage = () => {
   };
 
   const handleView = (row: TableRow) => {
-    if (row.viewUrl) {
+    if (row.viewUrl && typeof row.viewUrl === "string") {
       let url = row.viewUrl as string;
       if (!url.startsWith("http://") && !url.startsWith("https://")) {
         url = "https://" + url;
