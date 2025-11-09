@@ -2,10 +2,15 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { TabButton } from "../atoms/TabButton";
-import { Tender } from "../atoms/TableRow";
+import { Tender as BaseTender } from "../atoms/TableRow";
 import { TenderTable } from "../molecules/TenderTable";
 import Icon from "../atoms/ImpactCard/Icon";
 import { useRouter } from "next/navigation";
+
+// Extended Tender type with resultLink
+interface Tender extends BaseTender {
+  resultLink?: string;
+}
 
 const jobsData: Tender[] = [
   {
@@ -26,6 +31,7 @@ const jobsData: Tender[] = [
     result: "Result",
     isNew: true,
     link: "https://cish.org.in/jobs/Notice25072025.pdf",
+    resultLink: "https://cish.org.in/jobs/result-notice25072025.pdf",
   },
   {
     id: 3,
@@ -58,6 +64,7 @@ const jobsData: Tender[] = [
     link: "",
   },
 ];
+
 const announcementsData: Tender[] = [
   {
     id: 1,
@@ -67,6 +74,7 @@ const announcementsData: Tender[] = [
     link: "",
   },
 ];
+
 const dummyTenders: Tender[] = [
   {
     id: 1,
@@ -112,8 +120,9 @@ type ApiJob = {
   title: string;
   postDate: string | null;
   lastDate: string | null;
+  resultDocuments: string | null;
 };
-type ApiTender = { id: number; title: string; date: string };
+type ApiTender = { imageUrl: string; id: number; title: string; date: string };
 
 const BASE_URL = "https://api.cish.org.in/api/content";
 
@@ -122,11 +131,13 @@ const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
   if (!res.ok) throw new Error("Failed to fetch announcements");
   return res.json();
 };
+
 const fetchJobs = async (): Promise<ApiJob[]> => {
   const res = await fetch(`${BASE_URL}/jobs`);
   if (!res.ok) throw new Error("Failed to fetch jobs");
   return res.json();
 };
+
 const fetchTenders = async (): Promise<ApiTender[]> => {
   const res = await fetch(`${BASE_URL}/tenders`);
   if (!res.ok) throw new Error("Failed to fetch tenders");
@@ -151,7 +162,6 @@ const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
         break;
       case "Jobs":
         router.push("/Jobs");
-
         break;
       case "Announcements":
         router.push("/Announcement");
@@ -201,6 +211,7 @@ export const KeyOfferingsSection: React.FC = () => {
     isPending: isAnnouncementsPending,
     isError: isAnnouncementsError,
   } = useQuery({ queryKey: ["announcements"], queryFn: fetchAnnouncements });
+
   const normalizedAnnouncements: Tender[] = (apiAnnouncements || []).map((item) => ({
     id: item.id,
     title: item.title,
@@ -208,37 +219,46 @@ export const KeyOfferingsSection: React.FC = () => {
     isNew: false,
     link: "",
   }));
+
   const announcementsToDisplay =
     isAnnouncementsError || normalizedAnnouncements.length === 0
       ? announcementsData
       : normalizedAnnouncements;
+
   const {
     data: apiJobs,
     isPending: isJobsPending,
     isError: isJobsError,
   } = useQuery({ queryKey: ["jobs"], queryFn: fetchJobs });
+
   const normalizedJobs: Tender[] = (apiJobs || []).map((item) => ({
     id: item.id,
     title: item.title,
     postDate: formatDate(item.postDate),
     lastDate: formatDate(item.lastDate),
     isNew: false,
-    link: item.imageUrl || "", // ✅ Use imageUrl as the link
-    form: item.imageUrl ? "Application Form" : "", // ✅ Add form label if imageUrl exists
+    link: item.imageUrl || "",
+    form: item.imageUrl ? "Application Form" : "",
+    result: item.resultDocuments ? "See Result" : "",
+    resultLink: item.resultDocuments || "",
   }));
+
   const jobsToDisplay = isJobsError || normalizedJobs.length === 0 ? jobsData : normalizedJobs;
+
   const {
     data: apiTenders,
     isPending: isTendersPending,
     isError: isTendersError,
   } = useQuery({ queryKey: ["tenders"], queryFn: fetchTenders });
+
   const normalizedTenders: Tender[] = (apiTenders || []).map((item) => ({
     id: item.id,
     title: item.title,
     lastDate: formatDate(item.date),
     isNew: false,
-    link: "",
+    link: item.imageUrl || "",
   }));
+
   const tendersToDisplay =
     isTendersError || normalizedTenders.length === 0 ? dummyTenders : normalizedTenders;
 

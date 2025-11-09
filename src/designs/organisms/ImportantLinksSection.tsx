@@ -26,7 +26,7 @@ const dummyLinks = [
   },
   {
     title: "NIC mail",
-    url: "email.gov.in / mail.gov.in",
+    url: "https://mail.gov.in", // Corrected dummy link
     postDate: "",
     lastDate: "",
   },
@@ -44,10 +44,25 @@ const dummyLinks = [
   },
 ];
 
+// 1. UPDATED ApiLink type to include the 'link' field from the API response
 type ApiLink = {
   id: number;
   title: string;
   contentKey: string;
+  link: string | null;
+  postDate: string | null;
+  lastDate: string | null;
+};
+
+// 2. ADDED the same URL helper function
+const getSafeUrl = (url: string | null): string | null => {
+  if (typeof url !== "string" || !url) {
+    return null;
+  }
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    return "https://" + url;
+  }
+  return url;
 };
 
 const fetchUsefulLinks = async (): Promise<ApiLink[]> => {
@@ -69,17 +84,26 @@ export const ImportantLinksSection: React.FC = () => {
     queryFn: fetchUsefulLinks,
   });
 
-  const normalizedLinks = (apiLinks || []).map((link) => ({
-    title: link.title,
-    url: link.contentKey,
-    postDate: "",
-    lastDate: "",
-  }));
+  // 3. FIXED the normalization logic
+  const normalizedLinks = (apiLinks || [])
+    .map((link) => ({
+      title: link.title,
+      url: getSafeUrl(link.link), // <-- Use link.link and the helper
+      postDate: link.postDate || "",
+      lastDate: link.lastDate || "",
+    }))
+    // Filter out any links that were null or empty
+    .filter(
+      (link): link is { title: string; url: string; postDate: string; lastDate: string } => !!link.url
+    );
 
-  const linksToDisplay = isError || normalizedLinks.length === 0 ? dummyLinks : normalizedLinks;
+  const linksToDisplay =
+    isError || !apiLinks || normalizedLinks.length === 0 ? dummyLinks : normalizedLinks;
+
   const handleClick = () => {
     router.push("/UsefulLinks");
   };
+
   return (
     <div className="flex flex-col cursor-pointer w-full h-[299px] ">
       <div onClick={handleClick} className="flex items-center gap-2">
@@ -92,6 +116,7 @@ export const ImportantLinksSection: React.FC = () => {
       {isPending ? (
         <p className="p-4 text-center">Loading links...</p>
       ) : (
+        // LinksList will now receive the correct URLs
         <LinksList links={linksToDisplay} />
       )}
     </div>
