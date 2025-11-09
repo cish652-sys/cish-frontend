@@ -152,6 +152,18 @@ const formatDate = (dateString: string | null): string => {
   return `${day}-${month}-${year}`;
 };
 
+// ✅ Helper function to fix MinIO URLs
+const fixFileUrl = (url: string | null | undefined): string => {
+  if (!url) return "";
+
+  if (url.startsWith("http://13.234.154.152:9000/")) {
+    const path = url.replace("http://13.234.154.152:9000/", "");
+    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
+  }
+
+  return url;
+};
+
 const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
   const router = useRouter();
 
@@ -216,7 +228,7 @@ export const KeyOfferingsSection: React.FC = () => {
     id: item.id,
     title: item.title,
     lastDate: formatDate(item.date),
-    isNew: false,
+    isNew: isJobActive(item.date), // ✅ Show NEW if announcement is still active
     link: "",
   }));
 
@@ -231,16 +243,35 @@ export const KeyOfferingsSection: React.FC = () => {
     isError: isJobsError,
   } = useQuery({ queryKey: ["jobs"], queryFn: fetchJobs });
 
+  // ✅ Helper function to check if job is still active (before last date)
+  const isJobActive = (lastDateString: string | null): boolean => {
+    if (!lastDateString) return false;
+    
+    try {
+      // Parse the date in YYYY-MM-DD format
+      const [year, month, day] = lastDateString.split("-").map(Number);
+      const lastDate = new Date(year, month - 1, day); // month is 0-indexed
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Reset time to compare only dates
+      lastDate.setHours(0, 0, 0, 0);
+      
+      return lastDate >= today;
+    } catch (error) {
+      console.error("Error parsing date:", error);
+      return false;
+    }
+  };
+
   const normalizedJobs: Tender[] = (apiJobs || []).map((item) => ({
     id: item.id,
     title: item.title,
     postDate: formatDate(item.postDate),
     lastDate: formatDate(item.lastDate),
-    isNew: false,
-    link: item.imageUrl || "",
+    isNew: isJobActive(item.lastDate), // ✅ Show NEW if job is still active
+    link: fixFileUrl(item.imageUrl), // ✅ Fix form URL
     form: item.imageUrl ? "Application Form" : "",
     result: item.resultDocuments ? "See Result" : "",
-    resultLink: item.resultDocuments || "",
+    resultLink: fixFileUrl(item.resultDocuments), // ✅ Fix result URL
   }));
 
   const jobsToDisplay = isJobsError || normalizedJobs.length === 0 ? jobsData : normalizedJobs;
@@ -255,8 +286,8 @@ export const KeyOfferingsSection: React.FC = () => {
     id: item.id,
     title: item.title,
     lastDate: formatDate(item.date),
-    isNew: false,
-    link: item.imageUrl || "",
+    isNew: isJobActive(item.date), // ✅ Show NEW if tender is still active
+    link: fixFileUrl(item.imageUrl), // ✅ Fix tender URL
   }));
 
   const tendersToDisplay =

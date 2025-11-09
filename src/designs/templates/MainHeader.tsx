@@ -103,29 +103,31 @@ export const MainHeader = () => {
 
     // Find the banner with isBannerFirst: true
     const firstBanner = activeBanners.find((item) => item.isBannerFirst === true);
-    
+
     // Get all other active banners, sorted by id (descending)
     const otherBanners = activeBanners
       .filter((item) => item.isBannerFirst !== true)
       .sort((a, b) => b.id - a.id);
 
     const dynamicBanners = [];
-    
+
     // Add first banner at the beginning if it exists
     if (firstBanner) {
-      dynamicBanners.push({ 
-        type: "image", 
+      dynamicBanners.push({
+        type: "image",
         src: firstBanner.url,
-        link: firstBanner.bannerLink 
+        link: firstBanner.bannerLink,
       });
     }
-    
+
     // Add remaining banners
-    dynamicBanners.push(...otherBanners.map((item) => ({ 
-      type: "image", 
-      src: item.url,
-      link: item.bannerLink 
-    })));
+    dynamicBanners.push(
+      ...otherBanners.map((item) => ({
+        type: "image",
+        src: item.url,
+        link: item.bannerLink,
+      }))
+    );
 
     return dynamicBanners.length > 0 ? dynamicBanners : staticBanners;
   }, [apiData]);

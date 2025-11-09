@@ -11,6 +11,7 @@ export interface Tender {
   postDate?: string;
   result?: string;
   link?: string;
+  resultLink?: string;
 }
 
 export const TableRow: React.FC<{ tender: Tender }> = ({ tender }) => (

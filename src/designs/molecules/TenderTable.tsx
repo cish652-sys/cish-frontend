@@ -79,10 +79,13 @@ Date: __________________________
 
   const renderResult = (tender: Tender) => {
     if (tender.result) {
-      if (tender.link) {
+      // ✅ Use resultLink if available, otherwise fall back to link
+      const resultUrl = tender.resultLink || tender.link;
+      
+      if (resultUrl) {
         return (
           <a
-            href={tender.link}
+            href={resultUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-green-600 hover:text-green-700 no-underline hover:underline cursor-pointer"
@@ -113,6 +116,7 @@ Date: __________________________
           <tbody>
             {tenders.map((tender, index) => (
               <tr key={tender.id} className="border-b hover:bg-gray-50">
+                {/* ✅ Use index + 1 for serial number */}
                 <td className="px-3 py-2">{index + 1}</td>
                 <td className="px-3 py-2">
                   <div className="flex items-center gap-3">
@@ -166,9 +170,10 @@ Date: __________________________
           </tr>
         </thead>
         <tbody>
-          {tenders.map((t) => (
+          {/* ✅ Use index + 1 for serial number */}
+          {tenders.map((t, index) => (
             <tr key={t.id} className="border-b hover:bg-gray-50">
-              <td className="px-3 py-2">{t.id}</td>
+              <td className="px-3 py-2">{index + 1}</td>
               <td className="px-3 py-2">
                 <div className="flex items-center gap-6">
                   {renderTitle(t)}

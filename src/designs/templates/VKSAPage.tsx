@@ -7,10 +7,11 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import ViksitKrishiCard from "@/designs/molecules/VKSACard";
-import { viksitKrishiData } from "@/app/VKSA/data"; // Fallback data
+import { viksitKrishiData } from "@/app/VKSA/data";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import Typography from "@/designs/atoms/Typography";
 import Slider from "react-slick";
+
 const carouselSettings = {
   dots: true,
   infinite: true,
@@ -39,29 +40,30 @@ const carouselSettings = {
     },
   ],
 };
-// --- Interfaces (for type safety) ---
+
+// ✅ Updated interface to match API response structure
 interface VksaApiItem {
   id: number | string;
   title: string;
   name: string;
-  images: string[];
+  images: Array<{
+    url: string;
+    thumbnail: boolean;
+  }>;
 }
 
 interface VksaItem {
   id: number;
   title: string;
   description: string;
-  images?: string[];
+  images: string[];
 }
 
-// Gallery images
 const galleryImages = [
   { id: 1, src: "/icons/vksa1.png", alt: "Gallery Image 1" },
   { id: 3, src: "/icons/vksa2.png", alt: "Gallery Image 3" },
   { id: 4, src: "/icons/vksa3.png", alt: "Gallery Image 4" },
   { id: 5, src: "/icons/vksa4.png", alt: "Gallery Image 5" },
-
-  // Add as many images as you like
 ];
 
 const VKSAPage = () => {
@@ -75,11 +77,12 @@ const VKSAPage = () => {
         if (response.ok) {
           const apiData: VksaApiItem[] = await response.json();
           if (apiData && apiData.length > 0) {
+            // ✅ Extract URLs from image objects
             const mappedData = apiData.map((item: VksaApiItem) => ({
               id: parseInt(String(item.id), 10),
               title: item.title,
               description: item.name,
-              images: item.images,
+              images: item.images.map(img => img.url), // Extract URL from each image object
             }));
             setCards(mappedData);
           } else {
@@ -142,8 +145,6 @@ const VKSAPage = () => {
           {!isLoading && cards.length === 0 && <div>No events found.</div>}
         </div>
       </div>
-
-      {/* --- Carousel Section --- */}
 
       <Footer />
     </main>

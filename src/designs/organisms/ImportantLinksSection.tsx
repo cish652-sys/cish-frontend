@@ -94,7 +94,8 @@ export const ImportantLinksSection: React.FC = () => {
     }))
     // Filter out any links that were null or empty
     .filter(
-      (link): link is { title: string; url: string; postDate: string; lastDate: string } => !!link.url
+      (link): link is { title: string; url: string; postDate: string; lastDate: string } =>
+        !!link.url
     );
 
   const linksToDisplay =
