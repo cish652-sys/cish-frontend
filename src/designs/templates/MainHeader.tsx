@@ -29,7 +29,13 @@ interface ApiAnnouncement {
   link: string | null;
 }
 
-const staticBanners = [
+interface Banner {
+  type: string;
+  src: string;
+  link?: string | null;
+}
+
+const staticBanners: Banner[] = [
   { type: "image", src: "/icons/Home1.JPG" },
   { type: "image", src: "/icons/Home2.JPG" },
   { type: "image", src: "/icons/Home3.JPG" },
@@ -87,7 +93,7 @@ export const MainHeader = () => {
   });
 
   // UPDATED BANNER MAPPING LOGIC
-  const banners = useMemo(() => {
+  const banners = useMemo<Banner[]>(() => {
     if (!apiData) return staticBanners;
 
     // Filter only active banners
@@ -107,11 +113,19 @@ export const MainHeader = () => {
     
     // Add first banner at the beginning if it exists
     if (firstBanner) {
-      dynamicBanners.push({ type: "image", src: firstBanner.url });
+      dynamicBanners.push({ 
+        type: "image", 
+        src: firstBanner.url,
+        link: firstBanner.bannerLink 
+      });
     }
     
     // Add remaining banners
-    dynamicBanners.push(...otherBanners.map((item) => ({ type: "image", src: item.url })));
+    dynamicBanners.push(...otherBanners.map((item) => ({ 
+      type: "image", 
+      src: item.url,
+      link: item.bannerLink 
+    })));
 
     return dynamicBanners.length > 0 ? dynamicBanners : staticBanners;
   }, [apiData]);
@@ -172,42 +186,89 @@ export const MainHeader = () => {
           ) : (
             <AnimatePresence initial={false} mode="sync">
               {banners[currentIndex].type === "video" ? (
-                <motion.video
+                <motion.div
                   key={currentIndex}
-                  src={banners[currentIndex].src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0"
                   initial={{ scale: 1.05, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
+                >
+                  {banners[currentIndex].link ? (
+                    <a
+                      href={banners[currentIndex].link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                    >
+                      <video
+                        src={banners[currentIndex].src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover cursor-pointer"
+                      />
+                    </a>
+                  ) : (
+                    <video
+                      src={banners[currentIndex].src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </motion.div>
               ) : (
-                <motion.img
+                <motion.div
                   key={currentIndex}
-                  src={banners[currentIndex].src}
-                  alt={`Website Banner ${currentIndex + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 640px) 100vw, 100vw"
+                  className="absolute inset-0"
                   initial={{ scale: 1.05, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
+                >
+                  {banners[currentIndex].link ? (
+                    <a
+                      href={banners[currentIndex].link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                    >
+                      <img
+                        src={banners[currentIndex].src}
+                        alt={`Website Banner ${currentIndex + 1}`}
+                        className="w-full h-full object-cover cursor-pointer"
+                        loading="lazy"
+                        sizes="(max-width: 640px) 100vw, 100vw"
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={banners[currentIndex].src}
+                      alt={`Website Banner ${currentIndex + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, 100vw"
+                    />
+                  )}
+                </motion.div>
               )}
             </AnimatePresence>
           )}
 
           {!isBannersLoading && (
             <>
-              <div className="absolute inset-0 flex items-center justify-between p-4">
+              <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
                 <button
-                  onClick={goToPrevious}
-                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    goToPrevious();
+                  }}
+                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors pointer-events-auto z-10"
                   aria-label="Previous slide"
                 >
                   <svg
@@ -226,8 +287,12 @@ export const MainHeader = () => {
                   </svg>
                 </button>
                 <button
-                  onClick={goToNext}
-                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    goToNext();
+                  }}
+                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors pointer-events-auto z-10"
                   aria-label="Next slide"
                 >
                   <svg
@@ -247,11 +312,15 @@ export const MainHeader = () => {
                 </button>
               </div>
 
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2">
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
                 {banners.map((_, slideIndex) => (
                   <button
                     key={slideIndex}
-                    onClick={() => goToSlide(slideIndex)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      goToSlide(slideIndex);
+                    }}
                     className={`w-3 h-3 rounded-full transition-colors ${
                       currentIndex === slideIndex ? "bg-white" : "bg-white/50"
                     }`}
