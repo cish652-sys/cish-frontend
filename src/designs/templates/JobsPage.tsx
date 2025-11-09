@@ -21,7 +21,8 @@ type ApiJob = {
   lastDate: string;
   createdAt: string | null;
   date: string | null;
-  imageUrl?: string; // ✅ Add imageUrl field
+  imageUrl?: string;
+  resultDocuments?: string | null; // ✅ Add resultDocuments field
 };
 
 const fetchJobs = async (): Promise<ApiJob[]> => {
@@ -60,19 +61,26 @@ const JobsPage = () => {
       return jobData;
     }
 
-    return apiJobs.map((job) => ({
-      id: job.id,
-      title: job.title,
-      description: job.description || "No description available for this position.",
-      lastDateText: ``,
-      publishedDate: job.postDate,
-      startDate: job.date || "N/A",
-      interviewDate: job.lastDate,
-      latestUpdate: job.createdAt || job.postDate,
-      buttons: ["form"], // Add "result" if you have result links
-      formLink: job.imageUrl, // ✅ Map imageUrl to formLink
-      // resultLink: fixFileUrl(job.resultUrl), // ✅ Uncomment if you have result links
-    }));
+    return apiJobs.map((job) => {
+      // ✅ Determine which buttons to show
+      const buttons: Array<"form" | "result"> = [];
+      if (job.imageUrl) buttons.push("form");
+      if (job.resultDocuments) buttons.push("result");
+
+      return {
+        id: job.id,
+        title: job.title,
+        description: job.description || "No description available for this position.",
+        lastDateText: ``,
+        publishedDate: job.postDate,
+        startDate: job.date || "N/A",
+        interviewDate: job.lastDate,
+        latestUpdate: job.createdAt || job.postDate,
+        buttons,
+        formLink: fixFileUrl(job.imageUrl), // ✅ Fix URL for form
+        resultLink: fixFileUrl(job.resultDocuments), // ✅ Fix URL for result
+      };
+    });
   }, [apiJobs, isError]);
 
   const totalPages = Math.ceil(jobsToDisplay.length / JOBS_PER_PAGE);

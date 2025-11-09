@@ -55,7 +55,7 @@ interface ApiLinkItem {
   date: string | null;
   postDate: string | null;
   lastDate: string | null;
-  link: string | null; 
+  link: string | null;
   createdAt: string | null;
   ispublished: boolean;
   isactive: boolean;

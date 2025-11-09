@@ -177,10 +177,10 @@ const TenderRow: React.FC<TenderRowProps> = ({ tender }) => {
   const handleViewClick = () => {
     if (tender.imageUrl) {
       // Open the image URL in a new tab
-      window.open(tender.imageUrl, '_blank', 'noopener,noreferrer');
+      window.open(tender.imageUrl, "_blank", "noopener,noreferrer");
     } else {
       // Optionally show an alert or message if no URL is available
-      alert('No document available for this tender');
+      alert("No document available for this tender");
     }
   };
 
@@ -212,7 +212,7 @@ const TenderRow: React.FC<TenderRowProps> = ({ tender }) => {
       </div>
 
       <div className="col-span-12 sm:col-span-6 md:col-span-1 flex items-center md:justify-end">
-        <button 
+        <button
           onClick={handleViewClick}
           className="w-full md:w-auto px-4 py-2 bg-[#86C48A] text-blue-900 font-semibold hover:bg-green-400 transition-colors text-xs flex items-center justify-center gap-1.5 "
         >

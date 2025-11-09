@@ -10,17 +10,21 @@ import ViksitKrishiCard from "@/designs/molecules/VKSACard";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Logo } from "@/designs/atoms/Logo";
 import Typography from "@/designs/atoms/Typography";
-import { viksitKrishiData } from "@/app/VKSA/data"; // Fallback data
+import { viksitKrishiData } from "@/app/VKSA/data";
 
 // Import carousel CSS
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// ✅ Updated interface to match API response structure
 interface VksaApiItem {
   id: number;
   title: string;
   name: string;
-  images: string[];
+  images: Array<{
+    url: string;
+    thumbnail: boolean;
+  }>;
 }
 
 interface VksaItem {
@@ -36,7 +40,6 @@ interface CardDetailPageProps {
   };
 }
 
-// These are the dummy images you requested from the original page
 const dummyGalleryImages = [
   { id: 1, src: "/icons/vksa1.png", alt: "Gallery Image 1" },
   { id: 2, src: "/icons/vksa2.png", alt: "Gallery Image 2" },
@@ -57,11 +60,12 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
         if (response.ok) {
           const apiData: VksaApiItem[] = await response.json();
           if (apiData && apiData.length > 0) {
+            // ✅ Extract URLs from image objects
             dataToSearch = apiData.map((item: VksaApiItem) => ({
               id: item.id,
               title: item.title,
               description: item.name,
-              images: item.images,
+              images: item.images.map(img => img.url), // Extract URL from each image object
             }));
           }
         }
@@ -104,7 +108,7 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
   const imagesToDisplay =
     cardData.images && cardData.images.length > 0
       ? cardData.images
-      : dummyGalleryImages.map((img) => img.src); // Use dummy images
+      : dummyGalleryImages.map((img) => img.src);
 
   return (
     <main>
@@ -137,7 +141,6 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
       </div>
 
       {/* --- Carousel Section --- */}
-      {/* This will now show the gallery using dummy images if cardData.images is empty */}
       {imagesToDisplay && imagesToDisplay.length > 0 && (
         <section className="container mx-auto w-full py-10 md:py-16 px-6">
           <div className="flex items-center pb-6 gap-2">
@@ -148,7 +151,7 @@ const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
               <div key={index} className="px-2">
                 <div className="relative w-full h-64 overflow-hidden">
                   <Image
-                    src={imageUrl} // Image URL from API or dummy list
+                    src={imageUrl}
                     alt={`${cardData.title} - Image ${index + 1}`}
                     layout="fill"
                     objectFit="cover"
