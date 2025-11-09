@@ -43,9 +43,8 @@ export default function EventCard({
       : placeholderImage;
 
   // Limit description to 100 characters
-  const limitedDescription = description.length > 100 
-    ? `${description.substring(0, 100)}...` 
-    : description;
+  const limitedDescription =
+    description.length > 100 ? `${description.substring(0, 100)}...` : description;
 
   return (
     <Card className="max-w-[349px] px-2 py-2 overflow-hidden flex flex-col shadow-md hover:shadow-lg transition">

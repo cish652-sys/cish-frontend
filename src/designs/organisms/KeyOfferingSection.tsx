@@ -204,7 +204,7 @@ const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
 };
 
 export const KeyOfferingsSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("Tenders");
+  const [activeTab, setActiveTab] = useState("Announcements");
 
   const {
     data: apiAnnouncements,
