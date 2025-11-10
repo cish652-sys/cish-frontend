@@ -53,7 +53,6 @@ const EventPageCards: React.FC<EventPageCardsProps> = ({ event }) => {
           </div>
 
           <div className="flex items-center mt-auto">
-            <span className="text-gray-600 text-sm font-medium mr-3">Social Media</span>
             <div className="flex space-x-2">
               {event.socialLinks.map((link, idx) => (
                 <SocialIcon key={idx} href={link.href} src={link.icon} alt={`Social link ${idx}`} />
