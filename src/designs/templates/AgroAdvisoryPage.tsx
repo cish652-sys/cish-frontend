@@ -22,9 +22,9 @@ export default function AgroAdvisoryPage() {
   const data: TableRow[] = [
     {
       title: "Latest Agro Advisory",
-      publishedDate: "04-03-2025",
+      publishedDate: "04-11-2025",
       fileSize: "",
-      fileUrl: "https://minio.cish.org.in/cish-bucket/newAdv.pdf",
+      fileUrl: "https://minio.cish.org.in/cish-bucket/AgroAdvisory.pdf",
     },
   ];
 
