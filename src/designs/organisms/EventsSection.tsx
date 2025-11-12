@@ -117,18 +117,21 @@ export default function EventsSection() {
           </div>
         ) : (
           <div className="grid gap-2 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-            {events.map((item) => (
-              <EventCard
-                key={item.id} // Use the event ID as the key
-                image={item.image}
-                date={item.date}
-                title={item.title}
-                description={item.description}
-                showDate={true}
-                showFooter={true}
-                showTitle={true}
-              />
-            ))}
+            {events.map((item) => {
+              return (
+                <EventCard
+                  key={item.id}
+                  id={item.id}
+                  image={item.image}
+                  date={item.date}
+                  title={item.title}
+                  description={item.description}
+                  showDate={true}
+                  showFooter={true}
+                  showTitle={true}
+                />
+              );
+            })}
           </div>
         )}
         {/* ------------------------------- */}
