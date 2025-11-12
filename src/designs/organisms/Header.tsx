@@ -21,9 +21,12 @@ export const Header = () => {
   return (
     <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm">
       <div className="container py-3">
+        {/* --- Desktop View (min-width: 769px) --- */}
+        {/* This view likely shows on most tablets */}
         <div className="hidden [@media(min-width:769px)]:flex flex-row items-center justify-between gap-4">
           <div className="flex flex-row items-center gap-3">
             <div className="flex justify-start">
+              {/* CISH Logo: 81x109 */}
               <Logo src={cish} alt="CISH Logo" width={81} height={109} />
             </div>
 
@@ -39,7 +42,8 @@ export const Header = () => {
             </div>
 
             <div className="flex justify-center">
-              <Logo src={icar} alt="ICAR Logo" width={60} height={80} />
+              {/* ICAR Logo: Increased to 180x180 */}
+              <Logo src={icar} alt="ICAR Logo" width={120} height={120} /> {/* CHANGED */}
             </div>
 
             <div className="flex items-center gap-3 flex-wrap">
@@ -48,12 +52,13 @@ export const Header = () => {
               </button>
               <Logo src={next} alt="Next" width={20} height={20} />
               <Logo src={local} alt="Localizer" width={20} height={20} />
-              {/* Replace the accessibility Logo with AccessibilityMenu */}
               <AccessibilityMenu accessibility={accessibility} />
             </div>
           </div>
         </div>
 
+        {/* --- Specific Tablet View (width: 768px) --- */}
+        {/* This view is very specific and may not be what you're seeing */}
         <div className="hidden [@media(width:768px)]:flex flex-col gap-3">
           <div className="flex justify-end">
             <div className="flex items-center gap-3 flex-wrap">
@@ -62,7 +67,6 @@ export const Header = () => {
               </button>
               <Logo src={next} alt="Next" width={20} height={20} />
               <Logo src={local} alt="Location" width={20} height={20} />
-              {/* Replace the accessibility Logo with AccessibilityMenu */}
               <AccessibilityMenu accessibility={accessibility} />
             </div>
           </div>
@@ -70,6 +74,7 @@ export const Header = () => {
           <div className="flex flex-row items-center justify-between gap-4">
             <div className="flex flex-row items-center gap-3">
               <div className="flex justify-start">
+                {/* CISH Logo: 81x109 */}
                 <Logo src={cish} alt="CISH Logo" width={81} height={109} />
               </div>
 
@@ -85,17 +90,21 @@ export const Header = () => {
               </div>
 
               <div className="flex justify-center">
-                <Logo src={icar} alt="ICAR Logo" width={160} height={200} />
+                {/* ICAR Logo: Increased to 200x200 */}
+                <Logo src={icar} alt="ICAR Logo" width={200} height={200} /> {/* CHANGED */}
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      {/* --- Mobile View (flex md:hidden) --- */}
+      {/* This shows from 0px up to 767px */}
       <div className="flex md:hidden flex-col gap-3 px-2">
         <div className="flex items-start justify-between gap-2">
           <div className="flex pt-[20px] flex-1 min-w-0">
             <div className="flex flex-col justify-end flex-shrink-0">
+              {/* CISH Logo: 80x100 */}
               <Logo src={cish} alt="CISH Logo" width={80} height={100} />
             </div>
             <div className="flex flex-col ml-2 flex-1 min-w-0">
@@ -115,12 +124,12 @@ export const Header = () => {
             </button>
             <Logo src={next} alt="Next" width={16} height={16} />
             <Logo src={local} alt="Location" width={16} height={16} />
-            {/* Replace the accessibility Logo with AccessibilityMenu */}
             <AccessibilityMenu accessibility={accessibility} />
           </div>
         </div>
         <div className="flex justify-center">
-          <Logo src={icar} alt="ICAR Logo" width={45} height={60} />
+          {/* ICAR Logo: Increased to 160x160 */}
+          <Logo src={icar} alt="ICAR Logo" width={160} height={160} /> {/* CHANGED */}
         </div>
         <div className="w-full px-1">
           <SearchBar />
