@@ -33,7 +33,7 @@ const NavLink = ({
   const arrowDirection = isHovered ? "rotate-180" : "";
 
   // Use an 'a' tag if href is provided, otherwise use a 'span'
-  const Tag = href ? 'a' : 'span';
+  const Tag = href ? "a" : "span";
 
   return (
     <Tag
@@ -52,12 +52,7 @@ const NavLink = ({
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       )}
     </Tag>
@@ -154,11 +149,11 @@ const ResponsiveNavbar: React.FC = () => {
     };
 
     // 3. Add the scroll listener
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // 4. Clean up the listener on component unmount
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []); // Empty dependency array ensures this runs only once on mount
 
@@ -507,7 +502,7 @@ const ResponsiveNavbar: React.FC = () => {
         className={`
           max-w-full mx-auto px-4
           lg:hidden
-          ${isFixed ? 'fixed top-16 left-0 right-0 z-20' : 'relative'}
+          ${isFixed ? "fixed top-16 left-0 right-0 z-20" : "relative"}
         `}
       >
         <div
