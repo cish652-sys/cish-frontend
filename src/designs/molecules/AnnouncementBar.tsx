@@ -71,11 +71,26 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
             transform: translateX(-50%);
           }
         }
+
         .marquee {
-          animation: marquee 10s linear infinite; /* slower speed */
+          animation: marquee 10s linear infinite;
         }
+
         .marquee:hover {
-          animation-play-state: paused; /* pause on hover */
+          animation-play-state: paused;
+        }
+
+        /* 📱 Make it faster on mobile */
+        @media (max-width: 768px) {
+          .marquee {
+            animation-duration: 6s; /* faster */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .marquee {
+            animation-duration: 4s; /* even faster on very small screens */
+          }
         }
       `}</style>
     </div>
