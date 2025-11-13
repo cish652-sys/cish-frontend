@@ -22,7 +22,7 @@ type ApiJob = {
   createdAt: string | null;
   date: string | null;
   imageUrl?: string;
-  resultDocuments?: string | null; // ✅ Add resultDocuments field
+  resultDocuments?: string | null;
 };
 
 const fetchJobs = async (): Promise<ApiJob[]> => {
@@ -30,17 +30,32 @@ const fetchJobs = async (): Promise<ApiJob[]> => {
   return data;
 };
 
-// ✅ Helper function to fix MinIO URLs
-const fixFileUrl = (url: string | null | undefined): string => {
+// --- MODIFIED SECTION ---
+
+// ✅ Replaced 'fixFileUrl' with the robust 'formatLink' function
+const formatLink = (url: string | null | undefined): string => {
   if (!url) return "";
 
-  if (url.startsWith("http://13.234.154.152:9000/")) {
-    const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
+  // Case 1: Already a valid absolute URL (like http://13.234.154.152:9000/...)
+  // This will be left alone, which is the correct behavior.
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
   }
 
+  // Case 2: An internal path or anchor.
+  if (url.startsWith("/") || url.startsWith("#")) {
+    return url;
+  }
+
+  // Case 3: A URL missing its protocol (e.g., "www.google.com")
+  if (url.includes(".")) {
+    return `https://${url}`;
+  }
+
+  // Otherwise, return as is
   return url;
 };
+// --- END MODIFICATION ---
 
 const JobsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,7 +77,6 @@ const JobsPage = () => {
     }
 
     return apiJobs.map((job) => {
-      // ✅ Determine which buttons to show
       const buttons: Array<"form" | "result"> = [];
       if (job.imageUrl) buttons.push("form");
       if (job.resultDocuments) buttons.push("result");
@@ -77,8 +91,10 @@ const JobsPage = () => {
         interviewDate: job.lastDate,
         latestUpdate: job.createdAt || job.postDate,
         buttons,
-        formLink: fixFileUrl(job.imageUrl), // ✅ Fix URL for form
-        resultLink: fixFileUrl(job.resultDocuments), // ✅ Fix URL for result
+        // --- MODIFIED SECTION ---
+        formLink: formatLink(job.imageUrl), // ✅ Use formatLink
+        resultLink: formatLink(job.resultDocuments), // ✅ Use formatLink
+        // --- END MODIFICATION ---
       };
     });
   }, [apiJobs, isError]);

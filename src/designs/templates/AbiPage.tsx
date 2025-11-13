@@ -262,7 +262,7 @@ const HortIndAbiCentrePage = () => {
           if (firstImage && firstImage.url) {
             // --- THIS IS THE CORRECTED LOGIC ---
             // Use 'title' for the link URL
-            let linkUrl = firstItem.title || fallbackBanner.linkUrl;
+            let linkUrl = firstItem.name || fallbackBanner.linkUrl;
             // ------------------------------------
 
             // Prepend https:// if the link doesn't have it

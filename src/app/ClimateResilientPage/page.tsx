@@ -10,6 +10,7 @@ import Image from "next/image";
 import { ApiTechnology, TechnologyCardItem } from "@/types";
 import { varietiesItem, technologiesVarietiesItems } from "@/lib/utils";
 import { DetailsModal } from "@/designs/molecules/DetailsModal";
+import { Logo } from "@/designs/atoms/Logo";
 
 function ClimateResilientPage() {
   const [topVariety, setTopVariety] = useState<TechnologyCardItem[]>(varietiesItem);
@@ -100,16 +101,9 @@ function ClimateResilientPage() {
     <div>
       <Header />
       <ResponsiveNavbar />
-      <section className="relative w-full">
-        <Image
-          src={"/icons/bannerblank.svg"}
-          alt="Website Banner"
-          height={452}
-          width={2000}
-          className="w-full object-cover"
-          priority
-        />
-      </section>
+     <section className="relative w-full">
+                   <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
+                 </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "CLIMATE RESILIENT" }]}
         iconProps={false}

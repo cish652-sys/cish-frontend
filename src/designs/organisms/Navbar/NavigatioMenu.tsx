@@ -121,7 +121,7 @@ interface NavItem {
 }
 
 const ResponsiveNavbar: React.FC = () => {
-  const [activeItem, setActiveItem] = useState<string>("HOME");
+  const [activeItem, setActiveItem] = useState<string>("");
   const [hoveredItem, setHoveredItem] = useState<string>("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string>("");
@@ -488,7 +488,7 @@ const ResponsiveNavbar: React.FC = () => {
                 )}
               </svg>
             </button>
-            <div className="w-8"></div> 
+            <div className="w-8"></div>
           </div>
         </div>
       </div>
@@ -510,7 +510,6 @@ const ResponsiveNavbar: React.FC = () => {
             }
           `}
         >
-         
           <div className="bg-white max-h-[80vh] overflow-y-auto  shadow-lg p-2 space-y-1">
             {navigationItems.map((item) => renderNavItem(item, true))}
           </div>
