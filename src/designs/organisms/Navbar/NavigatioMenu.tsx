@@ -273,7 +273,7 @@ const ResponsiveNavbar: React.FC = () => {
 
     return (
       <div
-        className="absolute top-full left-0 mt-1 w-64 bg-black/60 border border-white/10 shadow-lg z-50 rounded-md overflow-hidden"
+        className="absolute top-full left-0 mt-1 w-64 bg-black/60 border border-white/10 shadow-lg z-50  overflow-hidden"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
@@ -323,7 +323,7 @@ const ResponsiveNavbar: React.FC = () => {
           >
             <div
               className={`
-                flex items-center justify-between px-6 pl-[15px] py-4 cursor-pointer transition-colors duration-200 rounded-md
+                flex items-center justify-between px-6 pl-[15px] py-4 cursor-pointer transition-colors duration-200 
                 ${isActive ? "bg-[#67B96D] text-white" : "text-gray-700 hover:bg-[#67B96D] hover:text-white"}
               `}
             >
@@ -356,7 +356,7 @@ const ResponsiveNavbar: React.FC = () => {
         <div key={item.label} className="border-b border-gray-200 last:border-b-0">
           <div
             className={`
-              flex items-center justify-between px-4 py-4 cursor-pointer transition-colors duration-200 rounded-md
+              flex items-center justify-between px-4 py-4 cursor-pointer transition-colors duration-200 
               ${
                 isActive && !hasDropdown
                   ? "bg-[#67B96D] text-white"
@@ -397,7 +397,7 @@ const ResponsiveNavbar: React.FC = () => {
                     href={routes[subItem] || "#"}
                     onClick={() => handleMobileSubItemClick(subItem)}
                   >
-                    <div className="pl-8 pr-4 py-3 text-sm text-gray-600 hover:bg-[#67B96D] hover:text-white cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0 rounded-md">
+                    <div className="pl-8 pr-4 py-3 text-sm text-gray-600 hover:bg-[#67B96D] hover:text-white cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0 ">
                       {subItem}
                     </div>
                   </a>
@@ -462,7 +462,7 @@ const ResponsiveNavbar: React.FC = () => {
           <div className="lg:hidden flex items-center justify-between h-16">
             <button
               onClick={toggleMobileMenu}
-              className="p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#67B96D] rounded-md"
+              className="p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#67B96D] "
               aria-label="Toggle mobile menu"
             >
               <svg
@@ -488,16 +488,11 @@ const ResponsiveNavbar: React.FC = () => {
                 )}
               </svg>
             </button>
-            <span className="font-semibold text-gray-700">CISH</span>
-            <div className="w-8"></div> {/* Spacer to balance the button */}
+            <div className="w-8"></div> 
           </div>
         </div>
       </div>
 
-      {/* 4. Mobile dropdown. This is a sibling to the header bar. */}
-      {/* It will be pushed down by the spacer div when the nav is fixed. */}
-      {/* We add `isFixed` to conditionally apply `fixed` positioning to the dropdown too, */}
-      {/* ensuring it appears directly below the fixed header. */}
       <div
         className={`
           max-w-full mx-auto px-4
@@ -515,10 +510,8 @@ const ResponsiveNavbar: React.FC = () => {
             }
           `}
         >
-          {/* This `mt-2` provides a small gap between the sticky header and the dropdown menu */}
-          {/* This margin is applied whether the nav is fixed or not, for consistency. */}
-          {/* Removed mt-2 and added bg-white for a seamless look when fixed */}
-          <div className="bg-white max-h-[80vh] overflow-y-auto rounded-md shadow-lg p-2 space-y-1">
+         
+          <div className="bg-white max-h-[80vh] overflow-y-auto  shadow-lg p-2 space-y-1">
             {navigationItems.map((item) => renderNavItem(item, true))}
           </div>
         </div>

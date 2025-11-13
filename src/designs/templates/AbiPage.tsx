@@ -246,9 +246,7 @@ const HortIndAbiCentrePage = () => {
   useEffect(() => {
     const fetchBannerData = async () => {
       try {
-        const response = await fetch(
-          "https://api.cish.org.in/api/news?type=abic",
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=abic");
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
         }
@@ -258,16 +256,13 @@ const HortIndAbiCentrePage = () => {
         if (data && data.length > 0) {
           const firstItem = data[0];
           const firstImage =
-            firstItem.images && firstItem.images.length > 0
-              ? firstItem.images[0]
-              : null;
+            firstItem.images && firstItem.images.length > 0 ? firstItem.images[0] : null;
 
           // Only update state if we have a valid image URL
           if (firstImage && firstImage.url) {
-            
             // --- THIS IS THE CORRECTED LOGIC ---
             // Use 'title' for the link URL
-            let linkUrl = firstItem.title || fallbackBanner.linkUrl; 
+            let linkUrl = firstItem.title || fallbackBanner.linkUrl;
             // ------------------------------------
 
             // Prepend https:// if the link doesn't have it
@@ -527,7 +522,6 @@ const HortIndAbiCentrePage = () => {
           </ul>
         </div>
       </section>
-      
       {/* --- This section is unchanged (using your DataTable) --- */}
       <section className="w-full bg-white">
         <DataTable
@@ -536,11 +530,10 @@ const HortIndAbiCentrePage = () => {
           data={startupData} // <-- Passing typed StartupRow[]
           showActions={false}
           rowGap={4}
-          />
-        </section>
-      
+        />
+      </section>
       {/* --- This section is unchanged --- */}
-      < section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <div>
             <h2 className="text-green-800 font-bold mb-3">WHO CAN APPLY</h2>
