@@ -1,8 +1,8 @@
 "use client";
 
 import { DataTable, Column } from "@/designs/molecules/DataTable";
-
-import React from "react";
+// NEW: Explicitly import types
+import React, { useState, useEffect, ReactNode } from "react";
 import Image from "next/image";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
@@ -145,9 +145,8 @@ const supportedStartups = [
   },
 ];
 
-// -----------------------------------------------------------------
-// NEW: Define columns for the DataTable
-// -----------------------------------------------------------------
+// --- Column definition is unchanged ---
+// (This assumes your imported 'Column' type is correct)
 const startupColumns: Column[] = [
   {
     key: "sr",
@@ -170,24 +169,28 @@ const startupColumns: Column[] = [
 ];
 
 // -----------------------------------------------------------------
-// NEW: Transform data for the DataTable
-// We do this to convert the 'name' and 'link' into a single
-// clickable ReactNode (the <a> tag).
+// NEW: Define an explicit type for the data going into the table
 // -----------------------------------------------------------------
-const startupData = supportedStartups.map((item) => ({
+interface StartupRow {
+  [key: string]: string | ReactNode;
+  sr: string;
+  tech: string;
+  name: ReactNode; // Explicitly type 'name' as a ReactNode
+}
+
+// --- Data transform is unchanged, but now uses the type ---
+const startupData: StartupRow[] = supportedStartups.map((item) => ({
   sr: item.sr,
   tech: item.tech,
   name: (
     <a
-      href={item.link || "#"} // Use '#' as a fallback for empty links
+      href={item.link || "#"}
       target="_blank"
       rel="noopener noreferrer"
       className={
-        // --- THIS IS THE MODIFIED LOGIC ---
         item.link
-          ? "text-green-700 hover:text-green-900 hover:underline transition-colors" // <-- If link, GREEN + hover
-          : "text-green-700" // <-- If NO link, still GREEN (just no hover)
-        // ----------------------------------
+          ? "text-green-700 hover:text-green-900 hover:underline transition-colors"
+          : "text-green-700"
       }
     >
       {item.name}
@@ -195,31 +198,134 @@ const startupData = supportedStartups.map((item) => ({
   ),
 }));
 
+// -----------------------------------------------------------------
+// NEW: Define types for API and State
+// -----------------------------------------------------------------
+
+// Type for the API's image object
+interface ApiBannerImage {
+  url: string;
+  thumbnail: boolean;
+}
+
+// Type for the API's main data object (based on your JSON)
+interface ApiBannerData {
+  id: number;
+  name: string; // This is the link URL
+  date: string | null;
+  title: string;
+  type: string;
+  startDate: string | null;
+  endDate: string | null;
+  images: ApiBannerImage[];
+}
+
+// Type for our component's banner state
+interface BannerState {
+  imageUrl: string;
+  linkUrl: string;
+}
+
+// -----------------------------------------------------------------
+
 const HortIndAbiCentrePage = () => {
+  // -----------------------------------------------------------------
+  // NEW: State for banner data with explicit types
+  // -----------------------------------------------------------------
+  const fallbackBanner: BannerState = {
+    imageUrl: "/icons/ABIBanner.jpg",
+    linkUrl: "https://forms.gle/kXEjby2TXkHAYT7m7",
+  };
+
+  // Use the explicit 'BannerState' type for useState
+  const [bannerData, setBannerData] = useState<BannerState>(fallbackBanner);
+
+  // -----------------------------------------------------------------
+  // NEW: useEffect to fetch data
+  // -----------------------------------------------------------------
+  useEffect(() => {
+    const fetchBannerData = async () => {
+      try {
+        const response = await fetch(
+          "https://api.cish.org.in/api/news?type=abic",
+        );
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+
+        const data: ApiBannerData[] = await response.json();
+
+        if (data && data.length > 0) {
+          const firstItem = data[0];
+          const firstImage =
+            firstItem.images && firstItem.images.length > 0
+              ? firstItem.images[0]
+              : null;
+
+          // Only update state if we have a valid image URL
+          if (firstImage && firstImage.url) {
+            
+            // --- THIS IS THE CORRECTED LOGIC ---
+            // Use 'title' for the link URL
+            let linkUrl = firstItem.title || fallbackBanner.linkUrl; 
+            // ------------------------------------
+
+            // Prepend https:// if the link doesn't have it
+            if (
+              linkUrl &&
+              !linkUrl.startsWith("http://") &&
+              !linkUrl.startsWith("https://") &&
+              linkUrl !== fallbackBanner.linkUrl
+            ) {
+              linkUrl = `https://${linkUrl}`;
+            }
+
+            setBannerData({
+              imageUrl: firstImage.url,
+              linkUrl: linkUrl,
+            });
+          }
+        }
+      } catch (error) {
+        console.error("Failed to fetch banner data, using fallback:", error);
+      }
+    };
+
+    fetchBannerData();
+  }, []); // Empty dependency array ensures this runs only once
+
   return (
     <main>
       <Header />
       <ResponsiveNavbar />{" "}
+      {/* // -----------------------------------------------------------------
+      // MODIFIED SECTION: This section now uses state
+      // -----------------------------------------------------------------
+      */}
       <section className="relative w-full flex justify-center">
         <a
-          href="https://forms.gle/kXEjby2TXkHAYT7m7"
+          href={bannerData.linkUrl} // <-- Uses BannerState.linkUrl
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full"
         >
           <div className="w-full max-w-screen-xl mx-auto">
             <Image
-              src="/icons/ABIBanner.jpg"
+              src={bannerData.imageUrl} // <-- Uses BannerState.imageUrl
               alt="Hort Ind Agri-Business Incubation Centre Banner"
               width={2000}
-              height={300} // reduced from 1000 or full image height
-              style={{ objectFit: "contain" }} // ensures full image shows without cropping
+              height={300}
+              style={{ objectFit: "contain" }}
               className="cursor-pointer"
               priority
             />
           </div>
         </a>
       </section>
+      {/* // -----------------------------------------------------------------
+      // End of modified section
+      // -----------------------------------------------------------------
+      */}
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
@@ -345,7 +451,7 @@ const HortIndAbiCentrePage = () => {
           </ol>
         </div>
       </section>
-      {/* --- This section is unchanged (Bad fit for DataTable) --- */}
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold">INCUBATION STAGES</h2>
@@ -355,8 +461,6 @@ const HortIndAbiCentrePage = () => {
                 {incubationStages.map((item) => (
                   <tr key={item.stage} className="border-b border-amber-300 last:border-b-0">
                     <td className="p-3 w-1/4 bg-amber-100 border-r border-amber-300">
-                      {/* Note: Your original code had white text on amber-100, which is invisible. */}
-                      {/* I'll change it to text-amber-900 for visibility. */}
                       <h2 className="font-semibold text-amber-900">{item.stage}</h2>
                     </td>
                     <td className="p-3">
@@ -423,27 +527,20 @@ const HortIndAbiCentrePage = () => {
           </ul>
         </div>
       </section>
-      {/* // -----------------------------------------------------------------
-      // MODIFIED SECTION: Replaced with your DataTable component
-      // -----------------------------------------------------------------
-      // Your DataTable component includes its own padding and max-width,
-      // so we place it directly inside a <section> tag.
-      */}
+      
+      {/* --- This section is unchanged (using your DataTable) --- */}
       <section className="w-full bg-white">
         <DataTable
           title="ICAR-CISH, ABI SUPPORTED STARTUPS/ENTERPRISES/FPO"
           columns={startupColumns}
-          data={startupData}
-          showActions={false} // We don't need View/Download for this table
-          rowGap={4} // Using your new prop to add space!
-        />
-      </section>
-      {/* // -----------------------------------------------------------------
-      // End of modified section
-      // -----------------------------------------------------------------
-      */}
+          data={startupData} // <-- Passing typed StartupRow[]
+          showActions={false}
+          rowGap={4}
+          />
+        </section>
+      
       {/* --- This section is unchanged --- */}
-      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
+      < section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <div>
             <h2 className="text-green-800 font-bold mb-3">WHO CAN APPLY</h2>
