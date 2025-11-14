@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Logo } from "../atoms/Logo";
 import { SearchBar } from "../atoms/SearchBar";
 import cish from "../public/images/images (2) 2.svg";
@@ -21,10 +22,14 @@ export const Header = () => {
   return (
     <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm">
       <div className="container py-3">
+        {/* Desktop layout */}
         <div className="hidden [@media(min-width:769px)]:flex flex-row items-center justify-between gap-4">
           <div className="flex flex-row items-center gap-3">
             <div className="flex justify-start">
-              <Logo src={icar} alt="CISH Logo" width={81} height={109} />
+              {/* ICAR logo redirects to home */}
+              <Link href="/" aria-label="Go to Home">
+                <Logo src={icar} alt="CISH Logo" width={81} height={109} />
+              </Link>
             </div>
 
             <div className="flex flex-col items-start gap-1">
@@ -38,8 +43,11 @@ export const Header = () => {
               <SearchBar />
             </div>
 
+            {/* CISH logo redirects to home */}
             <div className="flex justify-center">
-              <Logo src={cish} alt="ICAR Logo" width={80} height={80} />
+              <Link href="/" aria-label="Go to Home">
+                <Logo src={cish} alt="ICAR Logo" width={80} height={80} />
+              </Link>
             </div>
 
             <div className="flex items-center gap-3 flex-wrap">
@@ -48,12 +56,12 @@ export const Header = () => {
               </button>
               <Logo src={next} alt="Next" width={20} height={20} />
               <Logo src={local} alt="Localizer" width={20} height={20} />
-              {/* Replace the accessibility Logo with AccessibilityMenu */}
               <AccessibilityMenu accessibility={accessibility} />
             </div>
           </div>
         </div>
 
+        {/* Medium screen layout */}
         <div className="hidden [@media(width:768px)]:flex flex-col gap-3">
           <div className="flex justify-end">
             <div className="flex items-center gap-3 flex-wrap">
@@ -62,7 +70,6 @@ export const Header = () => {
               </button>
               <Logo src={next} alt="Next" width={20} height={20} />
               <Logo src={local} alt="Location" width={20} height={20} />
-              {/* Replace the accessibility Logo with AccessibilityMenu */}
               <AccessibilityMenu accessibility={accessibility} />
             </div>
           </div>
@@ -70,7 +77,9 @@ export const Header = () => {
           <div className="flex flex-row items-center justify-between gap-4">
             <div className="flex flex-row items-center gap-3">
               <div className="flex justify-start">
-                <Logo src={icar} alt="CISH Logo" width={81} height={109} />
+                <Link href="/" aria-label="Go to Home">
+                  <Logo src={icar} alt="CISH Logo" width={81} height={109} />
+                </Link>
               </div>
 
               <div className="flex flex-col items-start gap-1">
@@ -85,18 +94,23 @@ export const Header = () => {
               </div>
 
               <div className="flex justify-center">
-                <Logo src={cish} alt="ICAR Logo" width={180} height={200} />
+                <Link href="/" aria-label="Go to Home">
+                  <Logo src={cish} alt="ICAR Logo" width={180} height={200} />
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Mobile layout */}
       <div className="flex md:hidden flex-col gap-3 px-2">
         <div className="flex items-start justify-between gap-2">
           <div className="flex pt-[20px] flex-1 min-w-0">
             <div className="flex flex-col justify-end flex-shrink-0">
-              <Logo src={icar} alt="CISH Logo" width={80} height={100} />
+              <Link href="/" aria-label="Go to Home">
+                <Logo src={icar} alt="CISH Logo" width={80} height={100} />
+              </Link>
             </div>
             <div className="flex flex-col ml-2 flex-1 min-w-0">
               <div className="text-container">
@@ -115,13 +129,16 @@ export const Header = () => {
             </button>
             <Logo src={next} alt="Next" width={16} height={16} />
             <Logo src={local} alt="Location" width={16} height={16} />
-            {/* Replace the accessibility Logo with AccessibilityMenu */}
             <AccessibilityMenu accessibility={accessibility} />
           </div>
         </div>
+
         <div className="flex justify-center">
-          <Logo src={cish} alt="ICAR Logo" width={60} height={60} />
+          <Link href="/" aria-label="Go to Home">
+            <Logo src={cish} alt="ICAR Logo" width={60} height={60} />
+          </Link>
         </div>
+
         <div className="w-full px-1">
           <SearchBar />
         </div>

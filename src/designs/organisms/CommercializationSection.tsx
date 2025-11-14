@@ -18,11 +18,24 @@ interface ApiVarietyResponse {
   image: string;
 }
 
-// Interface for the data expected by TechnologyItem
+// --- TYPE FIX START ---
+
+// Interface for the data we use INSIDE the component
 interface Technology {
   title: string;
   description: string;
   date: string;
+  isTrending: boolean;
+  createdAt: string; // --- MODIFIED --- Added createdAt
+}
+
+// Interface for the data passed as a PROP (isTrending is optional)
+interface FallbackTechnology {
+  title: string;
+  description: string;
+  date: string;
+  isTrending?: boolean;
+  createdAt?: string; // --- MODIFIED --- Added optional createdAt
 }
 
 // Interface for the raw API response for Technologies (only fields we need)
@@ -30,24 +43,35 @@ interface ApiTechnologyResponse {
   title: string;
   details: string; // This will map to 'description'
   date: string;
+  isTrending: boolean;
+  createdAt: string; // --- MODIFIED --- Added createdAt
 }
 
 interface CommercializationSectionProps {
   // These props now serve as the FALLBACK data
   varieties: Variety[];
-  technologies: Technology[];
+  technologies: FallbackTechnology[]; // <-- Use the optional type for the prop
 }
+
+// --- TYPE FIX END ---
 
 export const CommercializationSection = ({
   varieties: fallbackVarieties,
-  technologies: fallbackTechnologies, // Renamed prop for clarity
+  technologies: fallbackTechnologies, // This is now 'FallbackTechnology[]'
 }: CommercializationSectionProps) => {
   // --- State Initialization ---
-  // Initialize state with the fallback data.
-  // This data will be shown by default, or if API calls fail.
   const [displayedVarieties, setDisplayedVarieties] = useState<Variety[]>(fallbackVarieties);
+  
+  // Convert the 'FallbackTechnology[]' prop to the internal 'Technology[]' state
   const [displayedTechnologies, setDisplayedTechnologies] =
-    useState<Technology[]>(fallbackTechnologies);
+    useState<Technology[]>(
+      fallbackTechnologies.map(t => ({
+        ...t,
+        isTrending: t.isTrending || false,
+        // --- MODIFIED --- Add a default 'createdAt' for fallback data (epoch time 0)
+        createdAt: t.createdAt || new Date(0).toISOString(), 
+      }))
+    );
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -74,7 +98,7 @@ export const CommercializationSection = ({
     };
 
     fetchVarieties();
-  }, [fallbackVarieties]); // Depend on fallback in case it's needed
+  }, [fallbackVarieties]);
 
   // --- Data Fetching Effect (Technologies) ---
   useEffect(() => {
@@ -86,38 +110,54 @@ export const CommercializationSection = ({
         }
         const data: ApiTechnologyResponse[] = await response.json();
 
-        // Check if the API returned valid, non-empty data
         if (data && data.length > 0) {
-          // Map API data (details, title, date) to component state (description, title, date)
+          // Map API data
           const formattedTechnologies = data.map((item) => ({
             title: item.title,
-            description: item.details, // Map 'details' from API to 'description'
+            description: item.details,
             date: item.date,
+            isTrending: item.isTrending,
+            createdAt: item.createdAt, // --- MODIFIED --- Pass createdAt
           }));
 
-          // Set the state to the NEW data from the API
-          setDisplayedTechnologies(formattedTechnologies);
+          // Sort the technologies
+          const sortedTechnologies = formattedTechnologies.sort((a, b) => {
+            // Rule 1: Prioritize 'isTrending: true'
+            if (a.isTrending && !b.isTrending) return -1;
+            if (!a.isTrending && b.isTrending) return 1;
+
+            // --- MODIFIED ---
+            // Rule 2: If 'isTrending' is the same, sort by createdAt (oldest first)
+            const dateA = new Date(a.createdAt).getTime();
+            const dateB = new Date(b.createdAt).getTime();
+            
+            if (isNaN(dateA)) return 1; // Handle invalid dates
+            if (isNaN(dateB)) return -1;
+            
+            // return dateB - dateA; // This was Newest to Oldest
+            return dateA - dateB; // This is Oldest to Newest
+          });
+
+          setDisplayedTechnologies(sortedTechnologies);
         }
-        // If data is empty, 'displayedTechnologies' will remain as 'fallbackTechnologies'
       } catch (error) {
         console.error("Failed to fetch technologies, using fallback data:", error);
-        // On error, 'displayedTechnologies' remains the 'fallbackTechnologies'
       }
     };
 
     fetchTechnologies();
-  }, [fallbackTechnologies]); // Depend on fallback in case it's needed
+  }, []); // Removed 'fallbackTechnologies' as it's now just an initial value
 
   // --- Memoization for Technologies ---
-  // This now uses the 'displayedTechnologies' state
   const uniqueTechnologies = useMemo(() => {
     const seen = new Set();
+    // 'displayedTechnologies' is already of type 'Technology[]'
     return displayedTechnologies.filter((tech) => {
       if (seen.has(tech.title)) return false;
       seen.add(tech.title);
       return true;
     });
-  }, [displayedTechnologies]); // Dependency is now the state variable
+  }, [displayedTechnologies]);
 
   // --- Scrolling Effect (Varieties) ---
   useEffect(() => {
@@ -164,9 +204,13 @@ export const CommercializationSection = ({
               >
                 {displayedVarieties.length > 0 &&
                   displayedVarieties.concat(displayedVarieties).map((item, idx) => (
-                    <div key={idx} className="flex-shrink-0">
+                    <Link
+                      href="/varieties"
+                      key={idx}
+                      className="flex-shrink-0"
+                    >
                       <VarietyCard src={item.src} title={item.title} />
-                    </div>
+                    </Link>
                   ))}
               </div>
             </div>
@@ -199,7 +243,13 @@ export const CommercializationSection = ({
               <div className="bg-white shadow-md overflow-hidden">
                 <div className="overflow-y-auto max-h-[208px]">
                   {uniqueTechnologies.map((tech, idx) => (
-                    <TechnologyItem key={idx} title={tech.title} description={""} date={""} />
+                    <Link href="/technologies" key={idx}>
+                      <TechnologyItem
+                        title={tech.title}
+                        description={""}
+                        date={""}
+                      />
+                    </Link>
                   ))}
                 </div>
               </div>

@@ -10,6 +10,7 @@ import Image from "next/image";
 import { ApiTechnology, TechnologyCardItem } from "@/types";
 import { varietiesItem, technologiesVarietiesItems } from "@/lib/utils";
 import { DetailsModal } from "@/designs/molecules/DetailsModal";
+import { Logo } from "@/designs/atoms/Logo";
 
 function VarietiesPage() {
   const [topVariety, setTopVariety] = useState<TechnologyCardItem[]>(varietiesItem);
@@ -104,15 +105,8 @@ function VarietiesPage() {
       <Header />
       <ResponsiveNavbar />
       <section className="relative w-full">
-        <Image
-          src={"/icons/bannerblank.svg"}
-          alt="Website Banner"
-          height={452}
-          width={2000}
-          className="w-full object-cover"
-          priority
-        />
-      </section>
+              <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
+            </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
         iconProps={false}
