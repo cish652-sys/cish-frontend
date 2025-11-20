@@ -101,7 +101,12 @@ const formatDate = (dateString: string | null): string => {
 
 const formatLink = (url: string | null): string => {
   if (!url) return "";
-  if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("/") || url.startsWith("#")) {
+  if (
+    url.startsWith("http://") ||
+    url.startsWith("https://") ||
+    url.startsWith("/") ||
+    url.startsWith("#")
+  ) {
     return url;
   }
   if (url.includes(".")) {
@@ -139,18 +144,29 @@ const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
   const router = useRouter();
   const handleViewMore = () => {
     switch (activeTab) {
-      case "Tenders": router.push("/Tenders"); break;
-      case "Jobs": router.push("/Jobs"); break;
-      case "Announcements": router.push("/Announcement"); break;
-      default: break;
+      case "Tenders":
+        router.push("/Tenders");
+        break;
+      case "Jobs":
+        router.push("/Jobs");
+        break;
+      case "Announcements":
+        router.push("/Announcement");
+        break;
+      default:
+        break;
     }
   };
   const getButtonText = () => {
     switch (activeTab) {
-      case "Tenders": return "View Tenders";
-      case "Jobs": return "View Jobs";
-      case "Announcements": return "View Announcements";
-      default: return "View More";
+      case "Tenders":
+        return "View Tenders";
+      case "Jobs":
+        return "View Jobs";
+      case "Announcements":
+        return "View Announcements";
+      default:
+        return "View More";
     }
   };
   return (
@@ -176,24 +192,27 @@ const ViewMoreButton: React.FC<{ activeTab: string }> = ({ activeTab }) => {
 export const KeyOfferingsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Announcements");
 
-  // --- DATA FETCHING & NORMALIZATION (Unchanged) ---
+  // --- DATA FETCHING & NORMALIZATION WITH SORTING ---
   const {
     data: apiAnnouncements,
     isPending: isAnnouncementsPending,
     isError: isAnnouncementsError,
   } = useQuery({ queryKey: ["announcements"], queryFn: fetchAnnouncements });
 
-  const normalizedAnnouncements: Tender[] = (apiAnnouncements || []).map((item) => ({
-    id: item.id,
-    title: item.title,
-    lastDate: formatDate(item.date),
-    isNew: isJobActive(item.date),
-    link: formatLink(item.link),
-  }));
+  // ✅ SORT ANNOUNCEMENTS BY DATE (NEWEST FIRST)
+  const normalizedAnnouncements: Tender[] = (apiAnnouncements || [])
+    .sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime())
+    .map((item) => ({
+      id: item.id,
+      title: item.title,
+      lastDate: formatDate(item.date),
+      isNew: isJobActive(item.date),
+      link: formatLink(item.link),
+    }));
 
   const announcementsToDisplay =
     isAnnouncementsError || normalizedAnnouncements.length === 0
-      ? announcementsData.map(item => ({ ...item, isNew: isJobActive(item.lastDate) }))
+      ? announcementsData.map((item) => ({ ...item, isNew: isJobActive(item.lastDate) }))
       : normalizedAnnouncements;
 
   const {
@@ -202,21 +221,24 @@ export const KeyOfferingsSection: React.FC = () => {
     isError: isJobsError,
   } = useQuery({ queryKey: ["jobs"], queryFn: fetchJobs });
 
-  const normalizedJobs: Tender[] = (apiJobs || []).map((item) => ({
-    id: item.id,
-    title: item.title,
-    postDate: formatDate(item.postDate),
-    lastDate: formatDate(item.lastDate),
-    isNew: isJobActive(item.lastDate),
-    link: formatLink(item.imageUrl),
-    form: item.imageUrl ? "Application Form" : "",
-    result: item.resultDocuments ? "See Result" : "",
-    resultLink: formatLink(item.resultDocuments),
-  }));
+  // ✅ SORT JOBS BY POST DATE (NEWEST FIRST)
+  const normalizedJobs: Tender[] = (apiJobs || [])
+    .sort((a, b) => new Date(b.postDate || "").getTime() - new Date(a.postDate || "").getTime())
+    .map((item) => ({
+      id: item.id,
+      title: item.title,
+      postDate: formatDate(item.postDate),
+      lastDate: formatDate(item.lastDate),
+      isNew: isJobActive(item.lastDate),
+      link: formatLink(item.imageUrl),
+      form: item.imageUrl ? "Application Form" : "",
+      result: item.resultDocuments ? "See Result" : "",
+      resultLink: formatLink(item.resultDocuments),
+    }));
 
   const jobsToDisplay =
     isJobsError || normalizedJobs.length === 0
-      ? jobsData.map(item => ({ ...item, isNew: isJobActive(item.lastDate) }))
+      ? jobsData.map((item) => ({ ...item, isNew: isJobActive(item.lastDate) }))
       : normalizedJobs;
 
   const {
@@ -225,17 +247,20 @@ export const KeyOfferingsSection: React.FC = () => {
     isError: isTendersError,
   } = useQuery({ queryKey: ["tenders"], queryFn: fetchTenders });
 
-  const normalizedTenders: Tender[] = (apiTenders || []).map((item) => ({
-    id: item.id,
-    title: item.title,
-    lastDate: formatDate(item.date),
-    isNew: isJobActive(item.date),
-    link: formatLink(item.imageUrl),
-  }));
+  // ✅ SORT TENDERS BY DATE (NEWEST FIRST)
+  const normalizedTenders: Tender[] = (apiTenders || [])
+    .sort((a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime())
+    .map((item) => ({
+      id: item.id,
+      title: item.title,
+      lastDate: formatDate(item.date),
+      isNew: isJobActive(item.date),
+      link: formatLink(item.imageUrl),
+    }));
 
   const tendersToDisplay =
-    isJobsError || normalizedTenders.length === 0
-      ? dummyTenders.map(item => ({ ...item, isNew: isJobActive(item.lastDate) }))
+    isTendersError || normalizedTenders.length === 0
+      ? dummyTenders.map((item) => ({ ...item, isNew: isJobActive(item.lastDate) }))
       : normalizedTenders;
 
   // --- RENDER (JSX) ---
@@ -251,23 +276,13 @@ export const KeyOfferingsSection: React.FC = () => {
         <ViewMoreButton activeTab={activeTab} />
       </div>
 
-      {/* --- MODIFIED SECTION --- */}
       <div className="flex overflow-hidden border">
         {["Announcements", "Jobs", "Tenders"].map((tab) => (
-          <div
-            key={tab}
-            // Add 'flex' here
-            className="flex flex-1 border-r border-gray-200 last:border-r-0" 
-          >
-            <TabButton
-              label={tab}
-              active={activeTab === tab}
-              onClick={() => setActiveTab(tab)}
-            />
+          <div key={tab} className="flex flex-1 border-r border-gray-200 last:border-r-0">
+            <TabButton label={tab} active={activeTab === tab} onClick={() => setActiveTab(tab)} />
           </div>
         ))}
       </div>
-      {/* --- END MODIFICATION --- */}
 
       <div className="mt-2 flex-1 overflow-y-auto">
         {activeTab === "Announcements" &&

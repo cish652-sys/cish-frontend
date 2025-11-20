@@ -101,9 +101,9 @@ function ClimateResilientPage() {
     <div>
       <Header />
       <ResponsiveNavbar />
-     <section className="relative w-full">
-                   <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
-                 </section>
+      <section className="relative w-full">
+        <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
+      </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "CLIMATE RESILIENT" }]}
         iconProps={false}

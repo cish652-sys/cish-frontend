@@ -61,17 +61,16 @@ export const CommercializationSection = ({
 }: CommercializationSectionProps) => {
   // --- State Initialization ---
   const [displayedVarieties, setDisplayedVarieties] = useState<Variety[]>(fallbackVarieties);
-  
+
   // Convert the 'FallbackTechnology[]' prop to the internal 'Technology[]' state
-  const [displayedTechnologies, setDisplayedTechnologies] =
-    useState<Technology[]>(
-      fallbackTechnologies.map(t => ({
-        ...t,
-        isTrending: t.isTrending || false,
-        // --- MODIFIED --- Add a default 'createdAt' for fallback data (epoch time 0)
-        createdAt: t.createdAt || new Date(0).toISOString(), 
-      }))
-    );
+  const [displayedTechnologies, setDisplayedTechnologies] = useState<Technology[]>(
+    fallbackTechnologies.map((t) => ({
+      ...t,
+      isTrending: t.isTrending || false,
+      // --- MODIFIED --- Add a default 'createdAt' for fallback data (epoch time 0)
+      createdAt: t.createdAt || new Date(0).toISOString(),
+    }))
+  );
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -130,10 +129,10 @@ export const CommercializationSection = ({
             // Rule 2: If 'isTrending' is the same, sort by createdAt (oldest first)
             const dateA = new Date(a.createdAt).getTime();
             const dateB = new Date(b.createdAt).getTime();
-            
+
             if (isNaN(dateA)) return 1; // Handle invalid dates
             if (isNaN(dateB)) return -1;
-            
+
             // return dateB - dateA; // This was Newest to Oldest
             return dateA - dateB; // This is Oldest to Newest
           });
@@ -204,11 +203,7 @@ export const CommercializationSection = ({
               >
                 {displayedVarieties.length > 0 &&
                   displayedVarieties.concat(displayedVarieties).map((item, idx) => (
-                    <Link
-                      href="/varieties"
-                      key={idx}
-                      className="flex-shrink-0"
-                    >
+                    <Link href="/varieties" key={idx} className="flex-shrink-0">
                       <VarietyCard src={item.src} title={item.title} />
                     </Link>
                   ))}
@@ -244,11 +239,7 @@ export const CommercializationSection = ({
                 <div className="overflow-y-auto max-h-[208px]">
                   {uniqueTechnologies.map((tech, idx) => (
                     <Link href="/technologies" key={idx}>
-                      <TechnologyItem
-                        title={tech.title}
-                        description={""}
-                        date={""}
-                      />
+                      <TechnologyItem title={tech.title} description={""} date={""} />
                     </Link>
                   ))}
                 </div>
