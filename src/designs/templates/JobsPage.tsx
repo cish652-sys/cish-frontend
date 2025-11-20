@@ -70,42 +70,48 @@ const JobsPage = () => {
     retry: 1,
   });
 
-const jobsToDisplay: Job[] = useMemo(() => {
-  console.log("🔍 useMemo running", { isError, apiJobsLength: apiJobs?.length });
-  
-  if (isError || !apiJobs || apiJobs.length === 0) {
-    console.log("API failed or returned no data. Using fallback dummy data.");
-    return jobData;
-  }
+  const jobsToDisplay: Job[] = useMemo(() => {
+    console.log("🔍 useMemo running", { isError, apiJobsLength: apiJobs?.length });
 
-  console.log("📊 Original API jobs:", apiJobs.map(j => ({ id: j.id, postDate: j.postDate })));
+    if (isError || !apiJobs || apiJobs.length === 0) {
+      console.log("API failed or returned no data. Using fallback dummy data.");
+      return jobData;
+    }
 
-  const sortedJobs = [...apiJobs].sort((a, b) => {
-    return new Date(b.postDate).getTime() - new Date(a.postDate).getTime();
-  });
+    console.log(
+      "📊 Original API jobs:",
+      apiJobs.map((j) => ({ id: j.id, postDate: j.postDate }))
+    );
 
-  console.log("✅ Sorted jobs:", sortedJobs.map(j => ({ id: j.id, postDate: j.postDate })));
+    const sortedJobs = [...apiJobs].sort((a, b) => {
+      return new Date(b.postDate).getTime() - new Date(a.postDate).getTime();
+    });
 
-  return sortedJobs.map((job) => {
-    const buttons: Array<"form" | "result"> = [];
-    if (job.imageUrl) buttons.push("form");
-    if (job.resultDocuments) buttons.push("result");
+    console.log(
+      "✅ Sorted jobs:",
+      sortedJobs.map((j) => ({ id: j.id, postDate: j.postDate }))
+    );
 
-    return {
-      id: job.id,
-      title: job.title,
-      description: job.description || "No description available for this position.",
-      lastDateText: ``,
-      publishedDate: job.postDate,
-      startDate: job.date || "N/A",
-      interviewDate: job.lastDate,
-      latestUpdate: job.createdAt || job.postDate,
-      buttons,
-      formLink: formatLink(job.imageUrl),
-      resultLink: formatLink(job.resultDocuments),
-    };
-  });
-}, [apiJobs, isError]);
+    return sortedJobs.map((job) => {
+      const buttons: Array<"form" | "result"> = [];
+      if (job.imageUrl) buttons.push("form");
+      if (job.resultDocuments) buttons.push("result");
+
+      return {
+        id: job.id,
+        title: job.title,
+        description: job.description || "No description available for this position.",
+        lastDateText: ``,
+        publishedDate: job.postDate,
+        startDate: job.date || "N/A",
+        interviewDate: job.lastDate,
+        latestUpdate: job.createdAt || job.postDate,
+        buttons,
+        formLink: formatLink(job.imageUrl),
+        resultLink: formatLink(job.resultDocuments),
+      };
+    });
+  }, [apiJobs, isError]);
 
   const totalPages = Math.ceil(jobsToDisplay.length / JOBS_PER_PAGE);
 

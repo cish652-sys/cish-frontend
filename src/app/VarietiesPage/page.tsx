@@ -105,8 +105,8 @@ function VarietiesPage() {
       <Header />
       <ResponsiveNavbar />
       <section className="relative w-full">
-              <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
-            </section>
+        <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
+      </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
         iconProps={false}

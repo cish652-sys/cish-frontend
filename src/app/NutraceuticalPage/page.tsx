@@ -105,9 +105,9 @@ function NutraceuticalPage() {
     <div>
       <Header />
       <ResponsiveNavbar />
-     <section className="relative w-full">
-                   <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
-                 </section>
+      <section className="relative w-full">
+        <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
+      </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "NUTRACEUTICAL RICH" }]}
         iconProps={false}

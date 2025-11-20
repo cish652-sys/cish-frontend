@@ -160,35 +160,34 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
           )}
 
           {item.targetCustomers && (
-  <p className="md:col-span-2">
-    <strong>Target Customers:</strong>{" "}
-    {Array.isArray(item.targetCustomers)
-      ? item.targetCustomers
-          .map((customer: string) => {
-            const formatted = customer
-              .split(" ")
-              .map((word) => {
-                const lower = word.toLowerCase();
-                if (lower === "msmes") return "MSMEs";
-                if (lower === "mncs") return "MNCs";
-                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-              })
-              .join(" ");
-            return formatted;
-          })
-          .join(", ")
-      : (item.targetCustomers as string)
-          .split(" ")
-          .map((word) => {
-            const lower = word.toLowerCase();
-            if (lower === "msmes") return "MSMEs";
-            if (lower === "mncs") return "MNCs";
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-          })
-          .join(" ")}
-  </p>
-)}
-
+            <p className="md:col-span-2">
+              <strong>Target Customers:</strong>{" "}
+              {Array.isArray(item.targetCustomers)
+                ? item.targetCustomers
+                    .map((customer: string) => {
+                      const formatted = customer
+                        .split(" ")
+                        .map((word) => {
+                          const lower = word.toLowerCase();
+                          if (lower === "msmes") return "MSMEs";
+                          if (lower === "mncs") return "MNCs";
+                          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                        })
+                        .join(" ");
+                      return formatted;
+                    })
+                    .join(", ")
+                : (item.targetCustomers as string)
+                    .split(" ")
+                    .map((word) => {
+                      const lower = word.toLowerCase();
+                      if (lower === "msmes") return "MSMEs";
+                      if (lower === "mncs") return "MNCs";
+                      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                    })
+                    .join(" ")}
+            </p>
+          )}
         </div>
       </div>
     </div>
