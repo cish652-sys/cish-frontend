@@ -81,6 +81,7 @@ export default function EventsSection() {
       } finally {
         setLoading(false);
       }
+      
     };
 
     fetchEvents();
