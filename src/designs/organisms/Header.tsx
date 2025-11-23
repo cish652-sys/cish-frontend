@@ -12,13 +12,26 @@ import accessibility from "../public/images/accessibility.svg";
 import label from "../public/images/mainlabelhindi.svg";
 import label2 from "../public/images/mainlabel.svg";
 import { AccessibilityMenu } from "./AccessibilityMenuComponent";
+import { useEffect } from "react";
 
 export const Header = () => {
   const scrollToDirectors = () => {
     const section = document.getElementById("directorsSection");
     section?.scrollIntoView({ behavior: "smooth" });
   };
+useEffect(() => {
+  const script = document.createElement("script");
+  script.src =
+    "https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js";
+  script.async = true;
+  script.setAttribute("language-icon-color", "#000000ff"); // optional
 
+  document.body.appendChild(script);
+
+  return () => {
+    document.body.removeChild(script);
+  };
+}, []);
   return (
     <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm">
       <div className="container py-3">
@@ -55,7 +68,7 @@ export const Header = () => {
                 <Logo src={access} alt="Redirect to Directors" width={20} height={20} />
               </button>
               <Logo src={next} alt="Next" width={20} height={20} />
-              <Logo src={local} alt="Localizer" width={20} height={20} />
+              <div className="bhashini-plugin-container"></div>
               <AccessibilityMenu accessibility={accessibility} />
             </div>
           </div>

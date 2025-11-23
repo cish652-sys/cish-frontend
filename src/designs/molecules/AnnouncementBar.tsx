@@ -21,12 +21,18 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
   const renderMessage = (msg: AnnouncementItem, key: React.Key) => {
     const baseClasses = "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
     const fontStyle = { fontFamily: "Noto Sans" };
-
+    const normalizeUrl = (url: string) => {
+      if (!url) return "";
+      if (url.startsWith("http://") || url.startsWith("https://")) {
+        return url;
+      }
+      return `https://${url}`;
+    };
     if (msg.link) {
       return (
         <a
           key={key}
-          href={msg.link}
+          href={normalizeUrl(msg.link)}
           target="_blank"
           rel="noopener noreferrer"
           className={`${baseClasses} text-green-600 hover:text-green-700 no-underline hover:underline transition-colors cursor-pointer`}
