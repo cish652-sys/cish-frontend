@@ -80,7 +80,7 @@ const VKSAPage = () => {
               id: parseInt(String(item.id), 10),
               title: item.name,
               description: item.title,
-              images: item.images.map((img) => img.url),
+images: item.images.map((img) => normalizeUrl(img.url)),
             }));
             setCards(mappedData);
           } else {
@@ -99,7 +99,17 @@ const VKSAPage = () => {
 
     fetchVksaList();
   }, []);
+const normalizeUrl = (url :string) => {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
 
+  // Fix edge case: "http:13.234..." → add //
+  if (url.startsWith("http:") && !url.startsWith("http://")) {
+    return url.replace("http:", "http://");
+  }
+
+  return `https://${url}`;
+};
   return (
     <main>
       <Header />
