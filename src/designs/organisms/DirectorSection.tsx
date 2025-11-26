@@ -38,6 +38,9 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({
     queryFn: getDirectorData,
   });
 
+  // Fallback content
+  const fallbackContent = `Central Institute for Subtropical Horticulture Institute with a unique distinction of working on the mango the king of fruit on one hand and guava the poor man's apple on the other is placed on envious pedestal of having the world largest germplasm (755) in its field genebank. Being ever committed to challenging and tempting task of conserving our invaluable fast eroding genetic wealth of mango, during the period we through our dedicated team at the Institute could virtually ignite the passion of farmers and set the example to be emulated, for conserving the unique heirloom mango varieties by empowering the farmer through Society for Conservation of Biodiversity. Consequently we were able to submit 34 farmers and community varieties to PPV&fRA for registration, established community nurseries and outside community nursery produced more than 10000 grafts of non-commercial varieties. `;
+
   // UPDATED LOGIC:
   // 1. Filter the full response to get only the items marked as a director.
   const allDirectors = data?.filter((item) => item.isDirector === true);
@@ -47,10 +50,8 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({
     ? allDirectors.reduce((latest, current) => (current.id > latest.id ? current : latest))
     : undefined;
 
-  const content =
-    directorInfo?.description ??
-    `Central Institute for Subtropical Horticulture Institute with a unique distinction of working on the mango the king of fruit on one hand and guava the poor man’s apple on the other is placed on envious pedestal of having the world largest germplasm (755) in its field genebank. Being ever committed to challenging and tempting task of conserving our invaluable fast eroding genetic wealth of mango, during the period we through our dedicated team at the Institute could virtually ignite the passion of farmers and set the example to be emulated, for conserving the unique heirloom mango varieties by empowering the farmer through Society for Conservation of Biodiversity. Consequently we were able to submit 34 farmers and community varieties to PPV&fRA for registration, established community nurseries and outside community nursery produced more than 10000 grafts of non-commercial varieties. `;
-
+  // Use API data if available, otherwise use fallback
+  const content = directorInfo?.description ?? fallbackContent;
   const imageSrc = directorInfo?.fileUrl ?? fallbackImageSrc;
 
   const linkHref = "https://cish.in/dir_message.php";
@@ -63,8 +64,6 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({
 
           {isLoading ? (
             <div>Loading directors message...</div>
-          ) : isError ? (
-            <div>Error: Could not load directors message.</div>
           ) : (
             <DirectorContent content={content} linkHref={linkHref} linkText="SEE MORE" />
           )}
