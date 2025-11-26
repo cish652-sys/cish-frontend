@@ -11,18 +11,18 @@ interface Project {
 
 // Define the structure of the data returned by the API
 interface ApiProject {
-    id: number;
-    activityName: string;
-    principalInvestigator: string;
-    coPrincipalInvestigator: string;
-    createdAt: string;
-    ispublished: boolean;
-    isactive: boolean;
-    backtocreator: boolean;
+  id: number;
+  activityName: string;
+  principalInvestigator: string;
+  coPrincipalInvestigator: string;
+  createdAt: string;
+  ispublished: boolean;
+  isactive: boolean;
+  backtocreator: boolean;
 }
 
 // Existing hardcoded dummy data as the fallback (raw structure without 'no')
-const rawFallbackProjects = [ 
+const rawFallbackProjects = [
   {
     name: "Genetic resource management and improvement of mango",
     principal: "Dr. Ashish Yadav",
@@ -145,25 +145,24 @@ const rawFallbackProjects = [
 ];
 
 // Map the raw data to the final Project[] structure to satisfy TypeScript before state initialization.
-const fallbackProjects: Project[] = rawFallbackProjects.map((p, index) => ({ 
-    ...p, 
-    no: String(index + 1).padStart(2, '0') // Add 'no' dynamically here
-})); 
+const fallbackProjects: Project[] = rawFallbackProjects.map((p, index) => ({
+  ...p,
+  no: String(index + 1).padStart(2, "0"), // Add 'no' dynamically here
+}));
 
 // Helper function to map API data to the component's Project structure
 const mapApiDataToProject = (data: ApiProject[]): Project[] => {
-    // Sort by id to ensure correct numerical order before mapping
-    const sortedData = data.sort((a, b) => a.id - b.id);
-    
-    return sortedData.map((item, index) => ({
-        // Use index + 1 for S.No 
-        no: String(index + 1).padStart(2, '0'), 
-        name: item.activityName || "N/A",
-        principal: item.principalInvestigator || "N/A",
-        coPrincipal: item.coPrincipalInvestigator || "N/A",
-    }));
-};
+  // Sort by id to ensure correct numerical order before mapping
+  const sortedData = data.sort((a, b) => a.id - b.id);
 
+  return sortedData.map((item, index) => ({
+    // Use index + 1 for S.No
+    no: String(index + 1).padStart(2, "0"),
+    name: item.activityName || "N/A",
+    principal: item.principalInvestigator || "N/A",
+    coPrincipal: item.coPrincipalInvestigator || "N/A",
+  }));
+};
 
 export default function OngoingHouseProject() {
   const [projects, setProjects] = useState<Project[]>(fallbackProjects);
@@ -230,7 +229,7 @@ export default function OngoingHouseProject() {
   const handlePageChange = (page: number) => {
     if (page > 0 && page <= totalPages) setCurrentPage(page);
   };
-  
+
   // Conditionally render a loading state
   if (isLoading) {
     return (
@@ -297,7 +296,7 @@ export default function OngoingHouseProject() {
             <tbody>
               {currentData.map((p, i) => (
                 <tr
-                  key={p.no} 
+                  key={p.no}
                   className="bg-white rounded-md shadow-sm hover:shadow-md transition-all"
                 >
                   <td className="py-3 px-4 text-center text-[#567C3B] font-semibold">{p.no}</td>
@@ -338,12 +337,7 @@ export default function OngoingHouseProject() {
             &gt;
           </button>
         </div>
-        {/* Display an alert if using fallback data */}
-        {isFallback && !isLoading && (
-          <div className="mt-6 p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-md text-sm text-center">
-            ⚠️ **Note:** Project data could not be fetched from the API, displaying fallback data.
-          </div>
-        )}
+       
       </div>
     </section>
   );
