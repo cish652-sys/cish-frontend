@@ -406,7 +406,6 @@ export default function OngoingExtenallyProject() {
             &gt;
           </button>
         </div>
-       
       </div>
     </section>
   );

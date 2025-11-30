@@ -337,7 +337,6 @@ export default function OngoingHouseProject() {
             &gt;
           </button>
         </div>
-       
       </div>
     </section>
   );
