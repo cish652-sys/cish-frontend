@@ -7,7 +7,15 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="bg-green-800 text-white py-10">
+    <footer  className="
+        bg-green-800 
+        text-white 
+        py-10 
+        bg-[url('/icons/cish-footer.webp')] 
+        bg-cover 
+        bg-center 
+        bg-no-repeat
+      ">
       <div className="container">
         <div className="grid md:grid-cols-4 gap-10">
           <div>
@@ -34,7 +42,7 @@ export function Footer() {
             <div className="flex gap-3">
               <FooterIcon
                 href="https://www.facebook.com/ICARCISH/"
-                imgSrc="/icons/Facebook.svg"
+                imgSrc="/icons/facebook.svg"
                 alt="Facebook"
               />
               <FooterIcon
@@ -49,7 +57,7 @@ export function Footer() {
               />
               <FooterIcon
                 href="https://www.youtube.com/channel/UCUvmB_0pBbCsUenY8Ckb4Ng"
-                imgSrc="/icons/Youtube.svg"
+                imgSrc="/icons/youtube.svg"
                 alt="YouTube"
               />
             </div>
@@ -60,7 +68,7 @@ export function Footer() {
             links={[
               { label: "About Us", href: "/AboutUs" },
               { label: "Research", href: "/ResearchFunded" },
-              { label: "Publication", href: "#" },
+              { label: "Publication", href: "https://cish.org.in/CishPublications" },
               { label: "Careers", href: "/Jobs" },
               { label: "Tenders", href: "/Tenders" },
               { label: "VKSA", href: "/VKSA" },
@@ -79,7 +87,7 @@ export function Footer() {
               { label: "Museum", href: "/Museum" },
               { label: "Nursery", href: "/Nursery" },
               { label: "Consultancy", href: "/Consultancy" },
-              { label: "Contract Research", href: "https://cish.in/contract-research.php" },
+              { label: "Contract Research", href: "/ContractResearch" },
               { label: "Education", href: "/Education" },
               { label: "Auditorium", href: "/Auditorium" },
               { label: "Guest House", href: "/GuestHouse" },

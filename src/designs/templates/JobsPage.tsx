@@ -21,12 +21,41 @@ type ApiJob = {
   lastDate: string;
   createdAt: string | null;
   date: string | null;
+  imageUrl?: string;
+  resultDocuments?: string | null;
 };
 
 const fetchJobs = async (): Promise<ApiJob[]> => {
   const { data } = await axios.get("https://api.cish.org.in/api/content/jobs");
   return data;
 };
+
+// --- MODIFIED SECTION ---
+
+// ✅ Replaced 'fixFileUrl' with the robust 'formatLink' function
+const formatLink = (url: string | null | undefined): string => {
+  if (!url) return "";
+
+  // Case 1: Already a valid absolute URL (like http://13.234.154.152:9000/...)
+  // This will be left alone, which is the correct behavior.
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+
+  // Case 2: An internal path or anchor.
+  if (url.startsWith("/") || url.startsWith("#")) {
+    return url;
+  }
+
+  // Case 3: A URL missing its protocol (e.g., "www.google.com")
+  if (url.includes(".")) {
+    return `https://${url}`;
+  }
+
+  // Otherwise, return as is
+  return url;
+};
+// --- END MODIFICATION ---
 
 const JobsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,22 +71,46 @@ const JobsPage = () => {
   });
 
   const jobsToDisplay: Job[] = useMemo(() => {
+    console.log("🔍 useMemo running", { isError, apiJobsLength: apiJobs?.length });
+
     if (isError || !apiJobs || apiJobs.length === 0) {
       console.log("API failed or returned no data. Using fallback dummy data.");
       return jobData;
     }
 
-    return apiJobs.map((job) => ({
-      id: job.id,
-      title: job.title,
-      description: job.description || "No description available for this position.",
-      lastDateText: ``,
-      publishedDate: job.postDate,
-      startDate: job.date || "N/A",
-      interviewDate: job.lastDate,
-      latestUpdate: job.createdAt || job.postDate,
-      buttons: ["form"],
-    }));
+    console.log(
+      "📊 Original API jobs:",
+      apiJobs.map((j) => ({ id: j.id, postDate: j.postDate }))
+    );
+
+    const sortedJobs = [...apiJobs].sort((a, b) => {
+      return new Date(b.postDate).getTime() - new Date(a.postDate).getTime();
+    });
+
+    console.log(
+      "✅ Sorted jobs:",
+      sortedJobs.map((j) => ({ id: j.id, postDate: j.postDate }))
+    );
+
+    return sortedJobs.map((job) => {
+      const buttons: Array<"form" | "result"> = [];
+      if (job.imageUrl) buttons.push("form");
+      if (job.resultDocuments) buttons.push("result");
+
+      return {
+        id: job.id,
+        title: job.title,
+        description: job.description || "No description available for this position.",
+        lastDateText: ``,
+        publishedDate: job.postDate,
+        startDate: job.date || "N/A",
+        interviewDate: job.lastDate,
+        latestUpdate: job.createdAt || job.postDate,
+        buttons,
+        formLink: formatLink(job.imageUrl),
+        resultLink: formatLink(job.resultDocuments),
+      };
+    });
   }, [apiJobs, isError]);
 
   const totalPages = Math.ceil(jobsToDisplay.length / JOBS_PER_PAGE);

@@ -15,6 +15,7 @@ type Tender = {
   publishDate: string;
   dueDate: string;
   fileSize: string;
+  imageUrl?: string; // Add imageUrl field
 };
 
 type ApiTender = {
@@ -24,6 +25,7 @@ type ApiTender = {
   date: string;
   postDate: string | null;
   lastDate: string | null;
+  imageUrl?: string; // Add imageUrl field from API
 };
 
 const fallbackTenderData: Tender[] = [
@@ -171,41 +173,56 @@ type TenderRowProps = {
   tender: Tender;
 };
 
-const TenderRow: React.FC<TenderRowProps> = ({ tender }) => (
-  <div className="grid container grid-cols-12 gap-x-4 gap-y-3 p-4 bg-white border border-gray-200  shadow-sm">
-    <div className="col-span-12 md:col-span-2">
-      <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Title</div>
-      <div className="font-bold text-gray-800">{tender.title}</div>
-    </div>
-    <div className="col-span-12 md:col-span-3">
-      <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Description</div>
-      <div className="text-gray-600">{tender.description}</div>
-    </div>
-    <div className="col-span-12 sm:col-span-6 md:col-span-2">
-      <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Publish Date</div>
-      <div className="text-gray-800">{tender.publishDate}</div>
-    </div>
-    <div className="col-span-12 sm:col-span-6 md:col-span-2">
-      <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Due Date</div>
-      <div className="text-gray-800">{tender.dueDate}</div>
-    </div>
+const TenderRow: React.FC<TenderRowProps> = ({ tender }) => {
+  const handleViewClick = () => {
+    if (tender.imageUrl) {
+      // Open the image URL in a new tab
+      window.open(tender.imageUrl, "_blank", "noopener,noreferrer");
+    } else {
+      // Optionally show an alert or message if no URL is available
+      alert("No document available for this tender");
+    }
+  };
 
-    <div className="col-span-12 sm:col-span-6 md:col-span-2 flex items-center gap-2 text-green-800">
-      <FileText className="w-5 h-5 flex-shrink-0" />
-      <div>
-        <div className="text-xs text-gray-500 font-bold uppercase md:hidden">File/Size</div>
-        <div className="font-medium">{tender.fileSize}</div>
+  return (
+    <div className="grid container grid-cols-12 gap-x-4 gap-y-3 p-4 bg-white border border-gray-200  shadow-sm">
+      <div className="col-span-12 md:col-span-2">
+        <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Title</div>
+        <div className="font-bold text-gray-800">{tender.title}</div>
+      </div>
+      <div className="col-span-12 md:col-span-3">
+        <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Description</div>
+        <div className="text-gray-600">{tender.description}</div>
+      </div>
+      <div className="col-span-12 sm:col-span-6 md:col-span-2">
+        <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Publish Date</div>
+        <div className="text-gray-800">{tender.publishDate}</div>
+      </div>
+      <div className="col-span-12 sm:col-span-6 md:col-span-2">
+        <div className="text-xs text-gray-500 font-bold uppercase md:hidden">Due Date</div>
+        <div className="text-gray-800">{tender.dueDate}</div>
+      </div>
+
+      <div className="col-span-12 sm:col-span-6 md:col-span-2 flex items-center gap-2 text-green-800">
+        <FileText className="w-5 h-5 flex-shrink-0" />
+        <div>
+          <div className="text-xs text-gray-500 font-bold uppercase md:hidden">File/Size</div>
+          <div className="font-medium">{tender.fileSize}</div>
+        </div>
+      </div>
+
+      <div className="col-span-12 sm:col-span-6 md:col-span-1 flex items-center md:justify-end">
+        <button
+          onClick={handleViewClick}
+          className="w-full md:w-auto px-4 py-2 bg-[#86C48A] text-blue-900 font-semibold hover:bg-green-400 transition-colors text-xs flex items-center justify-center gap-1.5 "
+        >
+          <Eye className="w-4 h-4" />
+          VIEW
+        </button>
       </div>
     </div>
-
-    <div className="col-span-12 sm:col-span-6 md:col-span-1 flex items-center md:justify-end">
-      <button className="w-full md:w-auto px-4 py-2 bg-[#86C48A] text-blue-900 font-semibold hover:bg-green-400 transition-colors text-xs flex items-center justify-center gap-1.5 ">
-        <Eye className="w-4 h-4" />
-        VIEW
-      </button>
-    </div>
-  </div>
-);
+  );
+};
 
 const TendersPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -227,6 +244,7 @@ const TendersPage = () => {
             publishDate: `${item.date} 17:00:00`,
             dueDate: `${item.lastDate || item.date} 17:30:00`,
             fileSize: "N/A",
+            imageUrl: item.imageUrl, // Map the imageUrl from API
           }));
           setTenders(mappedTenders);
         } else {

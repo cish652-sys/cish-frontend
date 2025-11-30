@@ -20,20 +20,9 @@ export const AccessibilityMenu = ({ accessibility }: AccessibilityMenuProps) => 
     if (savedTheme === "dark") {
       setIsDark(true);
       document.documentElement.classList.add("dark");
-      document.body.classList.add("dark");
-
-      document.documentElement.style.backgroundColor = "#1a1a1a";
-      document.body.style.backgroundColor = "#1a1a1a";
-      document.body.style.color = "#ffffff";
     } else {
       setIsDark(false);
       document.documentElement.classList.remove("dark");
-      document.body.classList.remove("dark");
-
-      document.documentElement.style.backgroundColor = "#ffffff";
-      document.body.style.backgroundColor = "#ffffff";
-      document.body.style.color = "#000000";
-
       if (!savedTheme) {
         localStorage.setItem("theme", "light");
       }
@@ -118,25 +107,12 @@ export const AccessibilityMenu = ({ accessibility }: AccessibilityMenuProps) => 
 
     if (newTheme) {
       document.documentElement.classList.add("dark");
-      document.body.classList.add("dark");
-
-      document.documentElement.style.backgroundColor = "#1a1a1a";
-      document.body.style.backgroundColor = "#1a1a1a";
-      document.body.style.color = "#ffffff";
-
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
-      document.body.classList.remove("dark");
-
-      document.documentElement.style.backgroundColor = "#ffffff";
-      document.body.style.backgroundColor = "#ffffff";
-      document.body.style.color = "#000000";
-
       localStorage.setItem("theme", "light");
     }
   };
-
   const getFontSizeDisplay = () => {
     switch (fontSizeLevel) {
       case -2:

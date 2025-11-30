@@ -7,7 +7,7 @@ import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import ViksitKrishiCard from "@/designs/molecules/VKSACard";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Logo } from "@/designs/atoms/Logo";
-import { UdyogData } from "../data";
+import { UdyanRashmiData } from "../data";
 
 interface CardDetailPageProps {
   params: { id: string };
@@ -15,7 +15,9 @@ interface CardDetailPageProps {
 
 const CardDetailPage: React.FC<CardDetailPageProps> = ({ params }) => {
   const cardId = parseInt(params.id, 10);
-  const [cardData, setCardData] = useState(UdyogData.find((card) => card.id === cardId) || null);
+  const [cardData, setCardData] = useState(
+    UdyanRashmiData.find((card) => card.id === cardId) || null
+  );
 
   if (!cardData) notFound();
 

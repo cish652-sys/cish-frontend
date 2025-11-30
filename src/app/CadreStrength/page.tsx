@@ -2,15 +2,25 @@ import React from "react";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
+import { SectionHeader } from "@/designs/organisms/SectionHeader";
 
 export default function CadreStrength() {
   return (
     <div>
       <Header />
       <ResponsiveNavbar />
+      <SectionHeader
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "CADRE STRENGTH", href: "/Itmu" },
+        ]}
+        iconProps={true}
+        title="CADRE STRENGTH"
+        description={[""]}
+      />
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="max-w-6xl mx-auto flex flex-col gap-10 text-gray-800">
-          <h1 className="text-green-800 font-bold text-2xl text-center">CADRE STRENGTH</h1>
+          {/* <h1 className="text-green-800 font-bold text-2xl text-center">CADRE STRENGTH</h1> */}
           <h2 className="text-center font-semibold">
             ICAR-Central Institute for Subtropical Horticulture as on 01-06-2021
           </h2>
@@ -92,7 +102,7 @@ export default function CadreStrength() {
 
                 {/* TOTAL Row */}
                 <tr className="font-semibold bg-[#599A5E]">
-                  <td colSpan={2} className="p-2 text-center border-t">
+                  <td colSpan={2} className="p-2 text-start border-t">
                     TOTAL
                   </td>
                   <td className="p-2 border-t">34</td>
@@ -111,7 +121,9 @@ export default function CadreStrength() {
           </div>
 
           {/* Regional Station, Malda */}
-          <h3 className="text-green-800 font-bold text-xl">Regional Station, Malda</h3>
+          <h3 className="text-green-800 font-bold text-xl">
+            ICAR-CISH Regional Research Station, Malda W.B.
+          </h3>
           <div className="overflow-x-auto shadow-lg border border-gray-300">
             <table className="w-full border-collapse text-sm">
               <thead className="bg-[#599A5E]">
@@ -124,6 +136,20 @@ export default function CadreStrength() {
                   <th className="p-3 border-b border-gray-300" colSpan={5}>
                     In-Position
                   </th>
+                </tr>
+                <tr className="bg-[#599A5E]">
+                  <th></th>
+                  <th></th>
+                  <th className="p-2 border-b border-gray-300">Sci.</th>
+                  <th className="p-2 border-b border-gray-300">Sr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">Pr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">HoD</th>
+                  <th className="p-2 border-b border-gray-300">Total</th>
+                  <th className="p-2 border-b border-gray-300">Sci.</th>
+                  <th className="p-2 border-b border-gray-300">Sr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">Pr. Sci</th>
+                  <th className="p-2 border-b border-gray-300">HoD</th>
+                  <th className="p-2 border-b border-gray-300">Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -141,8 +167,8 @@ export default function CadreStrength() {
                   </tr>
                 ))}
 
-                <tr className="font-semibold bg-[#599A5E]">
-                  <td colSpan={2} className="p-2 text-center border-t">
+                <tr className="font-semibold text-center bg-[#599A5E]">
+                  <td colSpan={2} className="p-2 text-start border-t">
                     TOTAL
                   </td>
                   <td className="p-2 border-t">2</td>
@@ -157,8 +183,8 @@ export default function CadreStrength() {
                   <td className="p-2 border-t">2</td>
                 </tr>
 
-                <tr className="font-bold bg-[#599A5E]">
-                  <td colSpan={2} className="p-2 text-center border-t">
+                <tr className="font-bold text-center  bg-[#599A5E]">
+                  <td colSpan={2} className="p-2 text-start border-t">
                     GRAND TOTAL
                   </td>
                   <td>36</td>
@@ -240,7 +266,7 @@ export default function CadreStrength() {
                   </tr>
                 ))}
 
-                <tr className="font-semibold bg-[#599A5E]">
+                <tr className="font-semibold items-center bg-[#599A5E]">
                   <td className="p-2 border-t">Total</td>
                   <td className="p-2 border-t text-center">26</td>
                   <td className="p-2 border-t text-center">14</td>

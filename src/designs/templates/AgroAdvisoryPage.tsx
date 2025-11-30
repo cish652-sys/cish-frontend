@@ -21,10 +21,10 @@ export default function AgroAdvisoryPage() {
   // ✅ Table data
   const data: TableRow[] = [
     {
-      title: "Agro Advisory",
-      publishedDate: "04-03-2025",
+      title: "Latest Agro Advisory",
+      publishedDate: "04-11-2025",
       fileSize: "",
-      fileUrl: "/files/AgroAdvisory.pdf",
+      fileUrl: "https://minio.cish.org.in/cish-bucket/AgroAdvisory.pdf",
     },
   ];
 
@@ -64,9 +64,9 @@ export default function AgroAdvisoryPage() {
 
       {/* Breadcrumb + Title */}
       <SectionHeader
-        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Agro Advisory" }]}
+        breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Latest Agro Advisory" }]}
         iconProps={true}
-        title="Agro Advisory"
+        title="Latest Agro Advisory"
         description={[""]}
       />
 

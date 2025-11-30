@@ -119,8 +119,8 @@ export default function CishPublications() {
             List of Institute’s Publications
           </Typography>
 
-          <div className="border border-gray-300 shadow-lg bg-white p-6 md:p-8">
-            <DataTable columns={columns} data={data} showActions={false} />
+          <div className=" shadow-lg  p-6 md:p-8">
+            <DataTable columns={columns} data={data} showActions={false} rowGap={4} />
           </div>
         </div>
       </section>

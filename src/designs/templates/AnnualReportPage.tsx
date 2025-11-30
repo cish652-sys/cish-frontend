@@ -21,8 +21,8 @@ const columns: Column[] = [
 const generateReportsData = (): TableRow[] => {
   const reports: TableRow[] = [];
 
-  // Single year reports (2024 to 2020)
-  for (let year = 2024; year >= 2020; year--) {
+  // Single year reports (2025 to 2020)
+  for (let year = 2025; year >= 2020; year--) {
     reports.push({
       title: `Annual Report ${year}`,
       fileSize: "228.97 KB",
@@ -197,9 +197,16 @@ const AnnualReportPage = () => {
     window.scrollTo({ top: 500, behavior: "smooth" });
   };
 
-  // ✅ Show "Coming Soon" modal instead of opening 404
+  // ✅ Show "Coming Soon" modal OR open specific link
   const handleView = (row: TableRow) => {
-    setShowComingSoon(true);
+    // Check if it's the first row (S.No "01")
+    if (row.sno === "01") {
+      // Open the specific hyperlink in a new tab
+      window.open("https://cish.in/Annual.php", "_blank", "noopener,noreferrer");
+    } else {
+      // For all other rows, show the "Coming Soon" modal
+      setShowComingSoon(true);
+    }
   };
 
   return (

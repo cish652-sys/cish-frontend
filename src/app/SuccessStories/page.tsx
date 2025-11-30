@@ -21,7 +21,8 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
       <div className="border rounded-md shadow-sm mb-6 bg-white">
         <button
           onClick={() => setOpen(!open)}
-          className="w-full text-left px-6 py-4 bg-[#599A5E] text-white font-semibold flex justify-between items-center"
+          // --- Change Here: Added 'text-lg' to increase font size ---
+          className="w-full text-left px-6 py-4 bg-[#599A5E] text-white font-semibold flex justify-between items-center text-lg"
         >
           {title}
           <span>{open ? "–" : "+"}</span>
@@ -30,8 +31,9 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
         {open && (
           <div className="px-6 py-4 text-gray-700 space-y-4 leading-relaxed">
             <div>
-              <h3 className="font-semibold text-[#31572C]">Overview</h3>
-              <ul className="list-disc list-inside space-y-1">
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Overview</h3>
+              {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
+              <ul className="list-none space-y-1">
                 {overview.map((i, idx) => (
                   <li key={idx}>{i}</li>
                 ))}
@@ -39,8 +41,9 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#31572C]">Initiatives</h3>
-              <ul className="list-disc list-inside space-y-1">
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Initiatives</h3>
+              {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
+              <ul className="list-none space-y-1">
                 {initiatives.map((i, idx) => (
                   <li key={idx}>{i}</li>
                 ))}
@@ -48,8 +51,9 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#31572C]">Outcome</h3>
-              <ul className="list-disc list-inside space-y-1">
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Outcome</h3>
+              {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
+              <ul className="list-none space-y-1">
                 {outcome.map((i, idx) => (
                   <li key={idx}>{i}</li>
                 ))}
@@ -57,8 +61,9 @@ const SuccessAccordion = ({ title, overview, initiatives, outcome, impact }: Sec
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#31572C]">Impact</h3>
-              <ul className="list-disc list-inside space-y-1">
+              <h3 className="font-semibold text-[20px] text-[#31572C]">Impact</h3>
+              {/* --- Change Here: Replaced 'list-disc list-inside' with 'list-none' --- */}
+              <ul className="list-none space-y-1">
                 {impact.map((i, idx) => (
                   <li key={idx}>{i}</li>
                 ))}

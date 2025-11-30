@@ -8,18 +8,59 @@ import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Column, DataTable, TableRow } from "@/designs/molecules/DataTable";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
-export default function CitizenCharter() {
+// --- Renamed component ---
+export default function NewsLetterPage() {
   const columns: Column[] = [
     { key: "title", label: "TITLE", align: "left", width: "40%" },
     { key: "fileSize", label: "TYPE/SIZE", align: "center", width: "20%" },
   ];
 
+  // --- Updated data from your image ---
   const data: TableRow[] = [
     {
-      title: "newsletter",
-      publishedDate: "04-03-2025",
-      fileSize: "1.19 MB",
-      fileUrl: "/path/to/citizen-charter.pdf",
+      title: "CISH Newsletter 01 January to 30 June 2025",
+      fileSize: "N/A", // You can update this size
+      fileUrl: "https://cish.in/news_letter.php", // Update this path
+    },
+    {
+      title: "CISH Newsletter 01 January to 30 June 2022",
+      fileSize: "N/A", // You can update this size
+      fileUrl: "/newsletters/CISH-Newsletter-Jan-June-2022.pdf", // Update this path
+    },
+    {
+      title: "CISH Newsletter 01 July to 31 December 2021",
+      fileSize: "N/A",
+      fileUrl: "/newsletters/CISH-Newsletter-July-Dec-2021.pdf",
+    },
+    {
+      title: "CISH Newsletter 01 July to 31 December 2020",
+      fileSize: "N/A",
+      fileUrl: "/newsletters/CISH-Newsletter-July-Dec-2020.pdf",
+    },
+    {
+      title: "CISH Newsletter 01 January to 30 June 2020",
+      fileSize: "N/A",
+      fileUrl: "/newsletters/CISH-Newsletter-Jan-June-2020.pdf",
+    },
+    {
+      title: "CISH Newsletter 01 January to 30 June 2019",
+      fileSize: "N/A",
+      fileUrl: "/newsletters/CISH-Newsletter-Jan-June-2019.pdf",
+    },
+    {
+      title: "CISH Newsletter 01 July to 31 December 2018",
+      fileSize: "N/A",
+      fileUrl: "/newsletters/CISH-Newsletter-July-Dec-2018.pdf",
+    },
+    {
+      title: "CISH Newsletter 01 January to 30 June 2018",
+      fileSize: "N/A",
+      fileUrl: "/newsletters/CISH-Newsletter-Jan-June-2018.pdf",
+    },
+    {
+      title: "CISH Newsletter 01 January to 30 June 2017",
+      fileSize: "N/A",
+      fileUrl: "/newsletters/CISH-Newsletter-Jan-June-2017.pdf",
     },
   ];
 

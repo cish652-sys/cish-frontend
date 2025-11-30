@@ -1,19 +1,17 @@
-// src/designs/molecules/DetailsModal.tsx
 "use client";
 
 import React from "react";
 import Image from "next/image";
 import Typography from "../atoms/Typography";
-import { TechnologyCardItem } from "@/types";
+import { ApiTechnology } from "@/types"; // Make sure this is imported
 
 interface DetailsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  item?: TechnologyCardItem | null;
-  // ✅ New props for PDF viewing
+  item?: ApiTechnology | null; // This should be ApiTechnology
   pdfUrl?: string;
   pdfTitle?: string;
-  mode?: "details" | "pdf"; // ✅ Mode to determine what to show
+  mode?: "details" | "pdf";
 }
 
 export const DetailsModal: React.FC<DetailsModalProps> = ({
@@ -28,8 +26,9 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
     return null;
   }
 
-  // ✅ PDF viewing mode
+  // PDF viewing mode
   if (mode === "pdf" && pdfUrl) {
+    // ... (no changes in this block)
     return (
       <div
         className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
@@ -59,7 +58,7 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
     );
   }
 
-  // ✅ Original details mode (existing functionality)
+  // Details mode
   if (!item) {
     return null;
   }
@@ -97,13 +96,99 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
         <Typography variant="bodyLarge" className="mb-2">
           Details:
         </Typography>
-        <ul className="list-disc list-outside pl-5 space-y-1">
-          {item.description.map((line, idx) => (
-            <li key={idx}>
-              <p className="text-gray-700 text-sm">{line}</p>
-            </li>
-          ))}
-        </ul>
+        <p className="text-gray-700 text-sm mb-4 whitespace-pre-line">{item.details}</p>
+
+        {/* All Other API Data */}
+        <Typography variant="bodyLarge" className="mb-3 border-t pt-3">
+          Key Information
+        </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-800">
+          {item.inventor && (
+            <p>
+              <strong>Inventor:</strong> {item.inventor}
+            </p>
+          )}
+          {item.collaborators && (
+            <p>
+              <strong>Collaborators:</strong> {item.collaborators}
+            </p>
+          )}
+          {item.yearOfDevelopment && (
+            <p>
+              <strong>Year of Development:</strong> {item.yearOfDevelopment}
+            </p>
+          )}
+          {item.yearOfRelease && (
+            <p>
+              <strong>Year of Release:</strong> {item.yearOfRelease}
+            </p>
+          )}
+          {item.yearOfCommercialization && (
+            <p>
+              <strong>Commercialization:</strong> {item.yearOfCommercialization}
+            </p>
+          )}
+          {item.royalty && (
+            <p>
+              <strong>Royalty:</strong> {item.royalty}
+            </p>
+          )}
+          {item.licenseFee && (
+            <p>
+              <strong>License Fee:</strong> {item.licenseFee}
+            </p>
+          )}
+          {item.natureOfLicense && (
+            <p>
+              <strong>Nature of License:</strong> {item.natureOfLicense}
+            </p>
+          )}
+          {item.licenseDuration && (
+            <p>
+              <strong>License Duration:</strong> {item.licenseDuration}
+            </p>
+          )}
+          {item.icNumber && (
+            <p>
+              <strong>IP Protection:</strong> {item.icNumber}
+            </p>
+          )}
+          {item.ppvfraRegistration && (
+            <p>
+              <strong>PPVFRA Registration:</strong> {item.ppvfraRegistration}
+            </p>
+          )}
+
+          {item.targetCustomers && (
+            <p className="md:col-span-2">
+              <strong>Target Customers:</strong>{" "}
+              {Array.isArray(item.targetCustomers)
+                ? item.targetCustomers
+                    .map((customer: string) => {
+                      const formatted = customer
+                        .split(" ")
+                        .map((word) => {
+                          const lower = word.toLowerCase();
+                          if (lower === "msmes") return "MSMEs";
+                          if (lower === "mncs") return "MNCs";
+                          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                        })
+                        .join(" ");
+                      return formatted;
+                    })
+                    .join(", ")
+                : (item.targetCustomers as string)
+                    .split(" ")
+                    .map((word) => {
+                      const lower = word.toLowerCase();
+                      if (lower === "msmes") return "MSMEs";
+                      if (lower === "mncs") return "MNCs";
+                      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                    })
+                    .join(" ")}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

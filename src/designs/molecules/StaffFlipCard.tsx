@@ -30,6 +30,11 @@ export const StaffFlipCard: React.FC<StaffFlipCardProps> = ({ staff, onViewMore 
               <h3 className="text-lg font-bold text-white">{staffName}</h3>
             </div>
             <div className="flex-grow p-4 text-sm space-y-2 text-gray-700 overflow-y-auto">
+              {staff.descriptionDirector && (
+                <p className="line-clamp-3 text-sm text-gray-600 mb-2">
+                  {staff.descriptionDirector}
+                </p>
+              )}
               <p>
                 <strong>Designation:</strong> {staff.designation || "N/A"}
               </p>

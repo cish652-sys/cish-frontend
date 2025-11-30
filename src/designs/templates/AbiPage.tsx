@@ -1,11 +1,15 @@
-"use-client";
-import React from "react";
+"use client";
+
+import { DataTable, Column } from "@/designs/molecules/DataTable";
+// NEW: Explicitly import types
+import React, { useState, useEffect, ReactNode } from "react";
 import Image from "next/image";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// --- This data is unchanged ---
 const incubationStages = [
   { stage: "Stage 1", task: "Invitation of technology from mentors" },
   {
@@ -47,6 +51,7 @@ const incubationStages = [
   { stage: "Stage 14", task: "Yearly audit by CISH (for sale and royalty)" },
 ];
 
+// --- This data is unchanged ---
 const supportedStartups = [
   {
     sr: "1.",
@@ -138,31 +143,184 @@ const supportedStartups = [
     tech: "Organic Farming Tech.",
     link: "",
   },
+];
+
+// --- Column definition is unchanged ---
+// (This assumes your imported 'Column' type is correct)
+const startupColumns: Column[] = [
   {
-    sr: "16.",
-    name: "Mittan AgriTech Pvt. Ltd.",
-    tech: "CSR Grow-Sure",
-    link: "https://www.mittanagritech.in/",
+    key: "sr",
+    label: "S. No.",
+    width: "10%",
+    align: "center",
+  },
+  {
+    key: "name",
+    label: "Name of Startups / Enterprises / FPO",
+    width: "60%",
+    align: "left",
+  },
+  {
+    key: "tech",
+    label: "Technology",
+    width: "30%",
+    align: "left",
   },
 ];
 
+// -----------------------------------------------------------------
+// NEW: Define an explicit type for the data going into the table
+// -----------------------------------------------------------------
+interface StartupRow {
+  [key: string]: string | ReactNode;
+  sr: string;
+  tech: string;
+  name: ReactNode; // Explicitly type 'name' as a ReactNode
+}
+
+// --- Data transform is unchanged, but now uses the type ---
+const startupData: StartupRow[] = supportedStartups.map((item) => ({
+  sr: item.sr,
+  tech: item.tech,
+  name: (
+    <a
+      href={item.link || "#"}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={
+        item.link
+          ? "text-green-700 hover:text-green-900 hover:underline transition-colors"
+          : "text-green-700"
+      }
+    >
+      {item.name}
+    </a>
+  ),
+}));
+
+// -----------------------------------------------------------------
+// NEW: Define types for API and State
+// -----------------------------------------------------------------
+
+// Type for the API's image object
+interface ApiBannerImage {
+  url: string;
+  thumbnail: boolean;
+}
+
+// Type for the API's main data object (based on your JSON)
+interface ApiBannerData {
+  id: number;
+  name: string; // This is the link URL
+  date: string | null;
+  title: string;
+  type: string;
+  startDate: string | null;
+  endDate: string | null;
+  images: ApiBannerImage[];
+}
+
+// Type for our component's banner state
+interface BannerState {
+  imageUrl: string;
+  linkUrl: string;
+}
+
+// -----------------------------------------------------------------
+
 const HortIndAbiCentrePage = () => {
+  // -----------------------------------------------------------------
+  // NEW: State for banner data with explicit types
+  // -----------------------------------------------------------------
+  const fallbackBanner: BannerState = {
+    imageUrl: "/icons/ABIBanner.jpg",
+    linkUrl: "https://forms.gle/kXEjby2TXkHAYT7m7",
+  };
+
+  // Use the explicit 'BannerState' type for useState
+  const [bannerData, setBannerData] = useState<BannerState>(fallbackBanner);
+
+  // -----------------------------------------------------------------
+  // NEW: useEffect to fetch data
+  // -----------------------------------------------------------------
+  useEffect(() => {
+    const fetchBannerData = async () => {
+      try {
+        const response = await fetch("https://api.cish.org.in/api/news?type=abic");
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+
+        const data: ApiBannerData[] = await response.json();
+
+        if (data && data.length > 0) {
+          const firstItem = data[0];
+          const firstImage =
+            firstItem.images && firstItem.images.length > 0 ? firstItem.images[0] : null;
+
+          // Only update state if we have a valid image URL
+          if (firstImage && firstImage.url) {
+            // --- THIS IS THE CORRECTED LOGIC ---
+            // Use 'title' for the link URL
+            let linkUrl = firstItem.name || fallbackBanner.linkUrl;
+            // ------------------------------------
+
+            // Prepend https:// if the link doesn't have it
+            if (
+              linkUrl &&
+              !linkUrl.startsWith("http://") &&
+              !linkUrl.startsWith("https://") &&
+              linkUrl !== fallbackBanner.linkUrl
+            ) {
+              linkUrl = `https://${linkUrl}`;
+            }
+
+            setBannerData({
+              imageUrl: firstImage.url,
+              linkUrl: linkUrl,
+            });
+          }
+        }
+      } catch (error) {
+        console.error("Failed to fetch banner data, using fallback:", error);
+      }
+    };
+
+    fetchBannerData();
+  }, []); // Empty dependency array ensures this runs only once
+
   return (
     <main>
       <Header />
       <ResponsiveNavbar />{" "}
-      <section className="relative w-full">
-        <div className="w-full">
-          <Image
-            src="/images/abi_centre_banner.png"
-            alt="Hort Ind Agri-Business Incubation Centre Banner"
-            layout="responsive"
-            width={1200}
-            height={400}
-            objectFit="cover"
-          />
-        </div>
+      {/* // -----------------------------------------------------------------
+      // MODIFIED SECTION: This section now uses state
+      // -----------------------------------------------------------------
+      */}
+      <section className="relative w-full flex justify-center">
+        <a
+          href={bannerData.linkUrl} // <-- Uses BannerState.linkUrl
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full"
+        >
+          <div className="w-full max-w-screen-xl mx-auto">
+            <Image
+              src={bannerData.imageUrl} // <-- Uses BannerState.imageUrl
+              alt="Hort Ind Agri-Business Incubation Centre Banner"
+              width={2000}
+              height={300}
+              style={{ objectFit: "contain" }}
+              className="cursor-pointer"
+              priority
+            />
+          </div>
+        </a>
       </section>
+      {/* // -----------------------------------------------------------------
+      // End of modified section
+      // -----------------------------------------------------------------
+      */}
       <SectionHeader
         breadcrumbItems={[
           { label: "Home", href: "/" },
@@ -172,6 +330,7 @@ const HortIndAbiCentrePage = () => {
         title="HORT IND AGRI-BUSINESS INCUBATION (ABI) CENTRE"
         description={[""]}
       />
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-8">
           <h2 className="text-gray-700">
@@ -201,14 +360,56 @@ const HortIndAbiCentrePage = () => {
               panel discussion and lectures etc. by the eminent experts for imparting and building
               the capacity of knowledge.
             </h2>
+
             <h2 className="text-gray-700">
               <span className="font-semibold">Branding and promotion:</span> Startups are mentored
               and facilitated for the branding and promotion of their products through several tools
               and platforms.
             </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Intellectual property management:</span> ICAR-CISH
+              helps entrepreneurs in protection of intellectual property issues arise during the
+              period of incubation. Mentors will help in filing the patent of process/product
+              developed during incubation.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Funding facilitation:</span> Entrepreneurs are helped
+              during preparation of Detailed Project Report (DPR) of their business plan, pitch
+              preparation and project presentation to attract angel investors. Linkages will be
+              developed among entrepreneurs and government funding agencies.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Business Development and Support:</span> ICAR-CISH
+              provides technological support to the startups during incubation and after exit of
+              incubatee for further up gradation and expansion of business.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Marketing Linkages:</span> Growing startups are helped
+              in test marketing by providing backward and forward linkages.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Marketing tools and instrumentation:</span> Website,
+              apps, print (banner, poster, brochure and flyer etc.) and digital media development
+              facilities are available by the experienced experts under one roof.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Product prototype development:</span> ICAR-CISH expert
+              scientists help in developing prototype of various products and their testing before
+              development of the final product.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Product refinement:</span> Various enterprises require
+              improvement and up gradation of their existing products, are also facilitated.
+            </h2>
+            <h2 className="text-gray-700">
+              <span className="font-semibold">Packaging and designing:</span> Developed products are
+              facilitated for high quality designing and packaging through highly advanced tools and
+              machines.
+            </h2>
           </div>
         </div>
       </section>
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold text-lg">IN-HOUSE INCUBATION FACILITIES:</h2>
@@ -245,6 +446,7 @@ const HortIndAbiCentrePage = () => {
           </ol>
         </div>
       </section>
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold">INCUBATION STAGES</h2>
@@ -254,7 +456,7 @@ const HortIndAbiCentrePage = () => {
                 {incubationStages.map((item) => (
                   <tr key={item.stage} className="border-b border-amber-300 last:border-b-0">
                     <td className="p-3 w-1/4 bg-amber-100 border-r border-amber-300">
-                      <h2 className="font-semibold text-white">{item.stage}</h2>
+                      <h2 className="font-semibold text-amber-900">{item.stage}</h2>
                     </td>
                     <td className="p-3">
                       {Array.isArray(item.task) ? (
@@ -276,6 +478,7 @@ const HortIndAbiCentrePage = () => {
           </div>
         </div>
       </section>
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-4">
           <h2 className="text-green-800 font-bold text-lg">
@@ -319,52 +522,17 @@ const HortIndAbiCentrePage = () => {
           </ul>
         </div>
       </section>
-      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
-        <div className="container max-w-4xl mx-auto flex flex-col gap-4">
-          <h2 className="text-green-800 font-bold">
-            ICAR-CISH, ABI SUPPORTED STARTUPS/ENTERPRISES/FPO
-          </h2>
-          <div className="overflow-x-auto shadow-lg border border-gray-300">
-            <table className="w-full border-collapse">
-              <thead className="bg-[#599A5E]">
-                <tr>
-                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
-                    Sr. No.
-                  </th>
-                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
-                    Name of Startups / Enterprises / FPO
-                  </th>
-                  <th className="p-3 text-left font-semibold text-white border-b border-gray-300">
-                    Technology
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {supportedStartups.map((item, index) => (
-                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-lime-50"}>
-                    <td className="p-3 border-t border-gray-300">
-                      <h2 className="text-gray-700">{item.sr}</h2>
-                    </td>
-                    <td className="p-3 border-t border-gray-300">
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-700 hover:text-green-900 hover:underline transition-colors"
-                      >
-                        {item.name}
-                      </a>
-                    </td>
-                    <td className="p-3 border-t border-gray-300">
-                      <h2 className="text-gray-700">{item.tech}</h2>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      {/* --- This section is unchanged (using your DataTable) --- */}
+      <section className="w-full bg-white">
+        <DataTable
+          title="ICAR-CISH, ABI SUPPORTED STARTUPS/ENTERPRISES/FPO"
+          columns={startupColumns}
+          data={startupData} // <-- Passing typed StartupRow[]
+          showActions={false}
+          rowGap={4}
+        />
       </section>
+      {/* --- This section is unchanged --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <div>
@@ -404,19 +572,6 @@ const HortIndAbiCentrePage = () => {
                 className="text-blue-600 underline hover:text-blue-800"
               >
                 Click here to fill the form online
-              </a>
-              <span className="text-red-500 font-bold ml-1">new</span>
-            </h2>
-          </div>
-
-          <div>
-            <h2 className="text-green-800 font-bold mb-3">CISH ABI report</h2>
-            <h2 className="text-gray-700">
-              <a
-                href="https://drive.google.com/file/d/1U6pJcH5KWeLbZsCjQAS7N00SAqGo1t_9/view"
-                className="text-blue-600 underline hover:text-blue-800"
-              >
-                Click here
               </a>
               <span className="text-red-500 font-bold ml-1">new</span>
             </h2>

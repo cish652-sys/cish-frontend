@@ -7,21 +7,35 @@ import { Header } from "../organisms/Header";
 import { AnnouncementBar } from "../molecules/AnnouncementBar";
 import ResponsiveNavbar from "../organisms/Navbar/NavigatioMenu";
 
-interface FileInfo {
+// UPDATED INTERFACE FOR NEW BANNER API
+interface BannerItem {
   id: number;
-  fileUrl: string;
-  isDirector: boolean | null;
-  isActive: boolean;
+  type: string;
+  url: string;
+  thumbnail: boolean;
+  title: string | null;
+  publishDate: string | null;
+  bannerLink: string | null;
+  isBannerFirst: boolean | null;
+  ispublished: boolean;
+  isactive: boolean;
+  backtocreator: boolean;
 }
 
 interface ApiAnnouncement {
   id: number;
   title: string;
   contentKey: string;
+  link: string | null;
 }
 
-const staticBanners = [
-  { type: "video", src: "/icons/HomeVideo.mp4" },
+interface Banner {
+  type: string;
+  src: string;
+  link?: string | null;
+}
+
+const staticBanners: Banner[] = [
   { type: "image", src: "/icons/Home1.JPG" },
   { type: "image", src: "/icons/Home2.JPG" },
   { type: "image", src: "/icons/Home3.JPG" },
@@ -35,22 +49,21 @@ const staticBanners = [
 function fixImageUrl(url: string): string {
   if (url.startsWith("http://13.234.154.152:9000/")) {
     const path = url.replace("http://13.234.154.152:9000/", "");
-    return `https://api.nationalfarmerportal.org/nfp-portal/files/proxy?path=${encodeURIComponent(
-      path
-    )}`;
+    return `https://api.cish.org.in/files/proxy?path=${encodeURIComponent(path)}`;
   }
   return url;
 }
 
-const getBannerData = async (): Promise<FileInfo[]> => {
-  const response = await fetch("https://api.cish.org.in/files/getAll");
+// UPDATED FUNCTION TO FETCH NEW BANNER API
+const getBannerData = async (): Promise<BannerItem[]> => {
+  const response = await fetch("https://api.cish.org.in/media/get/banner");
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
   const data = await response.json();
-  return data.map((item: FileInfo) => ({
+  return data.map((item: BannerItem) => ({
     ...item,
-    fileUrl: fixImageUrl(item.fileUrl),
+    url: fixImageUrl(item.url),
   }));
 };
 
@@ -63,10 +76,9 @@ const fetchAnnouncements = async (): Promise<ApiAnnouncement[]> => {
 };
 
 export const MainHeader = () => {
-  // const banners = [ banner2, banner3, banner4, banner5];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { data: apiData, isLoading: isBannersLoading } = useQuery<FileInfo[]>({
+  const { data: apiData, isLoading: isBannersLoading } = useQuery<BannerItem[]>({
     queryKey: ["bannerFiles"],
     queryFn: getBannerData,
   });
@@ -80,22 +92,42 @@ export const MainHeader = () => {
     queryFn: fetchAnnouncements,
   });
 
-  const banners = useMemo(() => {
+  // UPDATED BANNER MAPPING LOGIC
+  const banners = useMemo<Banner[]>(() => {
     if (!apiData) return staticBanners;
 
-    const activeBanners = apiData
-      .filter((item) => item.isDirector === null && item.isActive === true)
+    // Filter only active banners
+    const activeBanners = apiData.filter((item) => item.isactive === true);
+
+    if (activeBanners.length === 0) return staticBanners;
+
+    // Find the banner with isBannerFirst: true
+    const firstBanner = activeBanners.find((item) => item.isBannerFirst === true);
+
+    // Get all other active banners, sorted by id (descending)
+    const otherBanners = activeBanners
+      .filter((item) => item.isBannerFirst !== true)
       .sort((a, b) => b.id - a.id);
-    const firstBanner =
-      activeBanners.length > 0 ? { type: "image", src: activeBanners[0].fileUrl } : null;
-    const carouselBanners = apiData
-      .filter((item) => item.isDirector === null && item.isActive === false)
-      .sort((a, b) => b.id - a.id)
-      .map((item) => ({ type: "image", src: item.fileUrl }));
 
     const dynamicBanners = [];
-    if (firstBanner) dynamicBanners.push(firstBanner);
-    dynamicBanners.push(...carouselBanners);
+
+    // Add first banner at the beginning if it exists
+    if (firstBanner) {
+      dynamicBanners.push({
+        type: "image",
+        src: firstBanner.url,
+        link: firstBanner.bannerLink,
+      });
+    }
+
+    // Add remaining banners
+    dynamicBanners.push(
+      ...otherBanners.map((item) => ({
+        type: "image",
+        src: item.url,
+        link: item.bannerLink,
+      }))
+    );
 
     return dynamicBanners.length > 0 ? dynamicBanners : staticBanners;
   }, [apiData]);
@@ -115,7 +147,11 @@ export const MainHeader = () => {
         },
       ];
     }
-    return apiAnnouncements.map((item) => item.title);
+
+    return apiAnnouncements.map((item) => ({
+      text: item.title,
+      link: item.link || undefined,
+    }));
   }, [apiAnnouncements, isAnnouncementsPending, isAnnouncementsError]);
 
   const goToNext = useCallback(() => {
@@ -152,42 +188,89 @@ export const MainHeader = () => {
           ) : (
             <AnimatePresence initial={false} mode="sync">
               {banners[currentIndex].type === "video" ? (
-                <motion.video
+                <motion.div
                   key={currentIndex}
-                  src={banners[currentIndex].src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0"
                   initial={{ scale: 1.05, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
+                >
+                  {banners[currentIndex].link ? (
+                    <a
+                      href={banners[currentIndex].link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                    >
+                      <video
+                        src={banners[currentIndex].src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover cursor-pointer"
+                      />
+                    </a>
+                  ) : (
+                    <video
+                      src={banners[currentIndex].src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </motion.div>
               ) : (
-                <motion.img
+                <motion.div
                   key={currentIndex}
-                  src={banners[currentIndex].src}
-                  alt={`Website Banner ${currentIndex + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 640px) 100vw, 100vw"
+                  className="absolute inset-0"
                   initial={{ scale: 1.05, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
+                >
+                  {banners[currentIndex].link ? (
+                    <a
+                      href={banners[currentIndex].link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                    >
+                      <img
+                        src={banners[currentIndex].src}
+                        alt={`Website Banner ${currentIndex + 1}`}
+                        className="w-full h-full object-cover cursor-pointer"
+                        loading="lazy"
+                        sizes="(max-width: 640px) 100vw, 100vw"
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={banners[currentIndex].src}
+                      alt={`Website Banner ${currentIndex + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, 100vw"
+                    />
+                  )}
+                </motion.div>
               )}
             </AnimatePresence>
           )}
 
           {!isBannersLoading && (
             <>
-              <div className="absolute inset-0 flex items-center justify-between p-4">
+              <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
                 <button
-                  onClick={goToPrevious}
-                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    goToPrevious();
+                  }}
+                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors pointer-events-auto z-10"
                   aria-label="Previous slide"
                 >
                   <svg
@@ -206,8 +289,12 @@ export const MainHeader = () => {
                   </svg>
                 </button>
                 <button
-                  onClick={goToNext}
-                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    goToNext();
+                  }}
+                  className="bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors pointer-events-auto z-10"
                   aria-label="Next slide"
                 >
                   <svg
@@ -227,11 +314,15 @@ export const MainHeader = () => {
                 </button>
               </div>
 
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2">
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
                 {banners.map((_, slideIndex) => (
                   <button
                     key={slideIndex}
-                    onClick={() => goToSlide(slideIndex)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      goToSlide(slideIndex);
+                    }}
                     className={`w-3 h-3 rounded-full transition-colors ${
                       currentIndex === slideIndex ? "bg-white" : "bg-white/50"
                     }`}

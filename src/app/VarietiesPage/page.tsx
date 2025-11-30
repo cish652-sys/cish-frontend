@@ -1,4 +1,3 @@
-// src/app/varieties/page.tsx (or wherever VarietiesPage.tsx is)
 "use client";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Header } from "@/designs/organisms/Header";
@@ -10,21 +9,19 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ApiTechnology, TechnologyCardItem } from "@/types";
 import { varietiesItem, technologiesVarietiesItems } from "@/lib/utils";
-import { DetailsModal } from "@/designs/molecules/DetailsModal"; // Import the modal
+import { DetailsModal } from "@/designs/molecules/DetailsModal";
+import { Logo } from "@/designs/atoms/Logo";
 
 function VarietiesPage() {
   const [topVariety, setTopVariety] = useState<TechnologyCardItem[]>(varietiesItem);
   const [otherVarieties, setOtherVarieties] = useState<TechnologyCardItem[]>(
     technologiesVarietiesItems
   );
-
-  // State for the modal
+  const [allVarietiesData, setAllVarietiesData] = useState<ApiTechnology[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<TechnologyCardItem | null>(null);
+  const [selectedItem, setSelectedItem] = useState<ApiTechnology | null>(null);
 
   useEffect(() => {
-    // ... your existing fetchVarieties logic ...
-    // (No changes needed inside useEffect)
     const fetchVarieties = async () => {
       try {
         const apiUrl = "https://api.cish.org.in/api/innovation?key=varities";
@@ -33,29 +30,47 @@ function VarietiesPage() {
           throw new Error(`API call failed with status: ${response.status}`);
         }
         const data: ApiTechnology[] = await response.json();
+
         if (Array.isArray(data) && data.length > 0) {
-          const topItemData = data.slice(0, 1);
-          const mappedTopVariety = topItemData.map(
-            (item): TechnologyCardItem => ({
-              id: item.id,
-              title: item.title,
-              description: [item.details],
-              image: item.image,
-              href: `/varieties/${item.id}`,
-            })
-          );
-          setTopVariety(mappedTopVariety);
-          const otherItemsData = data.slice(1);
-          const mappedOtherVarieties = otherItemsData.map(
-            (item): TechnologyCardItem => ({
-              id: item.id,
-              title: item.title,
-              image: item.image,
-              description: [item.details],
-              href: `/varieties/${item.id}`,
-            })
-          );
-          setOtherVarieties(mappedOtherVarieties);
+          const varietiesOnly = data.filter((item) => item.isVarieties === true);
+          setAllVarietiesData(varietiesOnly);
+
+          // --- CHANGE IS HERE ---
+          // Show first 3 items in the top section
+          const topItemData = varietiesOnly.slice(0, 3);
+          // Show the rest (from item 3 onwards) in the bottom section
+          const otherItemsData = varietiesOnly.slice(3);
+          // --- END OF CHANGE ---
+
+          if (topItemData.length > 0) {
+            const mappedTopVariety = topItemData.map(
+              (item): TechnologyCardItem => ({
+                id: item.id,
+                title: item.title,
+                description: [item.details],
+                image: item.image,
+                href: `/varieties/${item.id}`,
+              })
+            );
+            setTopVariety(mappedTopVariety);
+          } else {
+            setTopVariety([]);
+          }
+
+          if (otherItemsData.length > 0) {
+            const mappedOtherVarieties = otherItemsData.map(
+              (item): TechnologyCardItem => ({
+                id: item.id,
+                title: item.title,
+                image: item.image,
+                description: [item.details],
+                href: `/varieties/${item.id}`,
+              })
+            );
+            setOtherVarieties(mappedOtherVarieties);
+          } else {
+            setOtherVarieties([]);
+          }
         }
       } catch (error) {
         console.error("Failed to fetch varieties:", error);
@@ -64,23 +79,22 @@ function VarietiesPage() {
     fetchVarieties();
   }, []);
 
-  // Handler for the "Trending" item (passes the full item)
   const handleViewTopItem = (item: TechnologyCardItem) => {
-    setSelectedItem(item);
-    setIsModalOpen(true);
-  };
-
-  // Handler for the "Other" items (finds item by ID)
-  const handleViewOtherItem = (id: number) => {
-    // Find from the correct list
-    const item = [...topVariety, ...otherVarieties].find((v) => v.id === id);
-    if (item) {
-      setSelectedItem(item);
+    const fullItem = allVarietiesData.find((v) => v.id === item.id);
+    if (fullItem) {
+      setSelectedItem(fullItem);
       setIsModalOpen(true);
     }
   };
 
-  // Handler to close the modal
+  const handleViewOtherItem = (id: number) => {
+    const fullItem = allVarietiesData.find((v) => v.id === id);
+    if (fullItem) {
+      setSelectedItem(fullItem);
+      setIsModalOpen(true);
+    }
+  };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedItem(null);
@@ -90,16 +104,8 @@ function VarietiesPage() {
     <div>
       <Header />
       <ResponsiveNavbar />
-      {/* ... section, SectionHeader ... */}
       <section className="relative w-full">
-        <Image
-          src={"/icons/bannerblank.svg"}
-          alt="Website Banner"
-          height={452}
-          width={2000}
-          className="w-full object-cover"
-          priority
-        />
+        <Logo src="/icons/Mask group.jpg" alt="Website Banner" responsive />
       </section>
       <SectionHeader
         breadcrumbItems={[{ label: "Home", href: "/" }, { label: "Varieties" }]}
@@ -112,17 +118,15 @@ function VarietiesPage() {
         <TrendingTechnologies
           technologies={topVariety}
           showVerieties={false}
-          onViewMore={handleViewTopItem} // Pass the handler
+          onViewMore={handleViewTopItem}
         />
         <OtherTechnologies
           technologiesItems={otherVarieties}
           showHeading={false}
-          onViewMore={handleViewOtherItem} // Pass the handler
+          onViewMore={handleViewOtherItem}
         />
       </div>
       <Footer />
-
-      {/* Render the modal */}
       <DetailsModal isOpen={isModalOpen} onClose={handleCloseModal} item={selectedItem} />
     </div>
   );

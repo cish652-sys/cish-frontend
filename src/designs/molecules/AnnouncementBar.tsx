@@ -21,22 +21,18 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
   const renderMessage = (msg: AnnouncementItem, key: React.Key) => {
     const baseClasses = "mx-8 font-normal text-[16px] leading-[100%] tracking-[0] capitalize";
     const fontStyle = { fontFamily: "Noto Sans" };
-
-    // If it's a string, render as plain text
-    if (typeof msg === "string") {
-      return (
-        <span className={baseClasses} style={fontStyle}>
-          {msg}
-        </span>
-      );
-    }
-
-    // If it's an object with a link, render as hyperlink
+    const normalizeUrl = (url: string) => {
+      if (!url) return "";
+      if (url.startsWith("http://") || url.startsWith("https://")) {
+        return url;
+      }
+      return `https://${url}`;
+    };
     if (msg.link) {
       return (
         <a
           key={key}
-          href={msg.link}
+          href={normalizeUrl(msg.link)}
           target="_blank"
           rel="noopener noreferrer"
           className={`${baseClasses} text-green-600 hover:text-green-700 no-underline hover:underline transition-colors cursor-pointer`}
@@ -61,13 +57,48 @@ export const AnnouncementBar = ({ messages }: AnnouncementBarProps) => {
           <h2 className="text-[#1B5E20] font-semibold">ANNOUNCEMENTS</h2>
           <Logo src={plump} alt="Announcement Icon" width={24} height={24} />
         </div>
+
+        {/* Marquee container */}
         <div className="relative flex-1 overflow-hidden">
-          <div className="flex whitespace-nowrap animate-marquee">
+          <div className="marquee flex whitespace-nowrap hover:[animation-play-state:paused]">
             {normalizedMessages.map((msg, index) => renderMessage(msg, index))}
             {normalizedMessages.map((msg, index) => renderMessage(msg, `dup-${index}`))}
           </div>
         </div>
       </div>
+
+      {/* Custom marquee animation */}
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .marquee {
+          animation: marquee 10s linear infinite;
+        }
+
+        .marquee:hover {
+          animation-play-state: paused;
+        }
+
+        /* 📱 Make it faster on mobile */
+        @media (max-width: 768px) {
+          .marquee {
+            animation-duration: 6s; /* faster */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .marquee {
+            animation-duration: 4s; /* even faster on very small screens */
+          }
+        }
+      `}</style>
     </div>
   );
 };

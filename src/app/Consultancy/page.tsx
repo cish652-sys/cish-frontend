@@ -2,9 +2,50 @@ import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
+// --- Import Typography for consistent titles ---
+import Typography from "@/designs/atoms/Typography";
+import React from "react"; // Added React import
+
+// ==========================
+// DATA
+// ==========================
+const consultancyData = [
+  { sr: 1, year: "2001-02", no: 4 },
+  { sr: 2, year: "2002-03", no: 5 },
+  { sr: 3, year: "2003-04", no: 6 },
+  { sr: 4, year: "2004-05", no: 5 },
+  { sr: 5, year: "2005-06", no: 6 },
+  { sr: 6, year: "2007-08", no: 3 },
+  { sr: 7, year: "2008-09", no: 5 },
+  { sr: 8, year: "2009-10", no: 1 },
+  { sr: 9, year: "2010-11", no: 1 },
+  { sr: 10, year: "2011-12", no: 2 },
+  { sr: 11, year: "2012-13", no: 2 },
+  { sr: 12, year: "2013-14", no: "-" },
+];
+
+// ==========================
+// HELPER COMPONENT
+// ==========================
+const NoDataRow = ({ colSpan }: { colSpan: number }) => (
+  <table className="w-full border-collapse bg-white shadow-sm overflow-hidden">
+    <tbody>
+      <tr>
+        <td colSpan={colSpan} className="px-6 py-8 text-center text-gray-500">
+          No data available
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+// ==========================
+// PAGE COMPONENT
+// ==========================
 export default function Consultancy() {
   return (
-    <main className="w-full bg-[#FBFAF0]">
+    // Changed main bg to match other pages
+    <main className="w-full bg-white">
       <Header />
       <ResponsiveNavbar />
       <SectionHeader
@@ -16,7 +57,7 @@ export default function Consultancy() {
         title="CONSULTANCY"
         description={[""]}
       />
-      {/* --- Intro Section --- */}
+      {/* --- Intro Section (Unchanged) --- */}
       <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           <p className="text-gray-700 leading-relaxed">
@@ -32,55 +73,77 @@ export default function Consultancy() {
         </div>
       </section>
 
-      {/* --- Table Section --- */}
-      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-white">
+      {/* ===================================================== */}
+      {/* Table Section (MODIFIED)                              */}
+      {/* ===================================================== */}
+      {/* Changed bg to match other table sections */}
+      <section className="w-full px-4 md:px-8 lg:px-16 py-12 bg-[#FBFAF0]">
         <div className="container max-w-3xl mx-auto flex flex-col gap-4">
-          <h2 className="text-green-800 font-bold">CONSULTANCY OFFERED</h2>
-          <div className="overflow-x-auto shadow-lg border border-gray-300">
-            <table className="w-full border-collapse table-fixed">
-              <thead className="bg-[#599A5E]">
-                <tr>
-                  <th className="p-3 text-center font-semibold text-gray-800 border-b border-gray-300 w-1/4">
-                    Sr. No.
+          <Typography variant="sectionHeading" className="text-green-800 font-bold mb-4">
+            CONSULTANCY OFFERED
+          </Typography>
+          <div className="overflow-x-auto">
+            {/* Header */}
+            <table className="w-full border-collapse mb-3">
+              <thead>
+                <tr className="bg-[#599A5E]">
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
+                    S. No.
                   </th>
-                  <th className="p-3 text-center font-semibold text-gray-800 border-b border-gray-300 w-1/2">
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "50%" }}
+                  >
                     Year
                   </th>
-                  <th className="p-3 text-center font-semibold text-gray-800 border-b border-gray-300 w-1/4">
+                  <th
+                    className="px-6 py-4 text-center text-white font-semibold uppercase text-sm tracking-wider"
+                    style={{ width: "25%" }}
+                  >
                     Number of Consultancies
                   </th>
                 </tr>
               </thead>
-
-              <tbody>
-                {[
-                  { sr: 1, year: "2001-02", no: 4 },
-                  { sr: 2, year: "2002-03", no: 5 },
-                  { sr: 3, year: "2003-04", no: 6 },
-                  { sr: 4, year: "2004-05", no: 5 },
-                  { sr: 5, year: "2005-06", no: 6 },
-                  { sr: 6, year: "2007-08", no: 3 },
-                  { sr: 7, year: "2008-09", no: 5 },
-                  { sr: 8, year: "2009-10", no: 1 },
-                  { sr: 9, year: "2010-11", no: 1 },
-                  { sr: 10, year: "2011-12", no: 2 },
-                  { sr: 11, year: "2012-13", no: 2 },
-                  { sr: 12, year: "2013-14", no: "-" },
-                ].map((item, index) => (
-                  <tr key={item.sr} className={index % 2 === 0 ? "bg-white" : "bg-lime-50"}>
-                    <td className="p-3 border-t border-gray-300 text-center text-gray-700">
-                      {item.sr}
-                    </td>
-                    <td className="p-3 border-t border-gray-300 text-center text-gray-700">
-                      {item.year}
-                    </td>
-                    <td className="p-3 border-t border-gray-300 text-center text-gray-700">
-                      {item.no}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
             </table>
+            {/* Body */}
+            <div className="w-full">
+              {consultancyData.length === 0 ? (
+                <NoDataRow colSpan={3} />
+              ) : (
+                consultancyData.map((item) => (
+                  <table
+                    key={item.sr}
+                    className="w-full border-collapse bg-white shadow-sm mb-2 overflow-hidden"
+                  >
+                    <tbody>
+                      <tr className="hover:bg-gray-50 transition-colors">
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
+                          {item.sr}
+                        </td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "50%" }}
+                        >
+                          {item.year}
+                        </td>
+                        <td
+                          className="px-6 py-4 text-center text-gray-700"
+                          style={{ width: "25%" }}
+                        >
+                          {item.no}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </section>

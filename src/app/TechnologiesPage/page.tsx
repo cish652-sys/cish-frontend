@@ -7,7 +7,6 @@ import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import TrendingTechnologies from "@/designs/organisms/TrendingTechnologies";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
-// 1. IMPORT THE NEW MODAL
 import { DetailsModal } from "@/designs/molecules/DetailsModal";
 import { technoItems, technologiesItems } from "@/lib/utils"; // Fallback data
 import { ApiTechnology, TechnologyCardItem } from "@/types";
@@ -15,74 +14,84 @@ import { ApiTechnology, TechnologyCardItem } from "@/types";
 function TechnologiesPage() {
   const [trendingTech, setTrendingTech] = useState<TechnologyCardItem[]>(technoItems);
   const [otherTech, setOtherTech] = useState<TechnologyCardItem[]>(technologiesItems);
-  // 2. USE STATE FOR THE NEW MODAL'S ITEM
-  const [modalItem, setModalItem] = useState<TechnologyCardItem | null>(null);
+  const [allTechData, setAllTechData] = useState<ApiTechnology[]>([]);
+  const [modalItem, setModalItem] = useState<ApiTechnology | null>(null);
 
   useEffect(() => {
     const fetchTechnologies = async () => {
       try {
-        const trendingApiUrl =
-          "https://api.cish.org.in/api/innovation?key=technology&isTrending=true";
-        const otherApiUrl = "https://api.cish.org.in/api/innovation?key=technology";
+        // --- 1. We only need to fetch ALL technologies once ---
+        const allTechApiUrl = "https://api.cish.org.in/api/innovation?key=technology";
 
-        const [trendingRes, otherRes] = await Promise.all([
-          fetch(trendingApiUrl),
-          fetch(otherApiUrl),
-        ]);
+        const res = await fetch(allTechApiUrl);
+        const allData: ApiTechnology[] = res.ok ? await res.json() : [];
 
-        const trendingData: ApiTechnology[] = trendingRes.ok ? await trendingRes.json() : [];
-        const allData: ApiTechnology[] = otherRes.ok ? await otherRes.json() : [];
+        if (Array.isArray(allData) && allData.length > 0) {
+          // --- 2. Store the complete API response ---
+          setAllTechData(allData);
 
-        // 3. The allTechData state is no longer needed
+          // --- 3. Filter for Trending technologies (isTrending === true) ---
+          const trendingData = allData.filter((item) => item.isTrending === true);
 
-        if (Array.isArray(trendingData) && trendingData.length > 0) {
-          const mappedTrending = trendingData.map(
-            (item): TechnologyCardItem => ({
-              id: item.id,
-              title: item.title,
-              description: [item.details],
-              image: item.image,
-              href: `/technologies/${item.id}`,
-            })
-          );
-          setTrendingTech(mappedTrending);
-        }
+          // --- 4. Filter for Other technologies (isTrending is false or null) ---
+          const otherOnlyData = allData.filter((item) => item.isTrending !== true);
 
-        const otherOnlyData = allData.filter(
-          (item) => !trendingData.some((trendingItem) => trendingItem.id === item.id)
-        );
+          // --- 5. Map and set Trending technologies ---
+          if (trendingData.length > 0) {
+            const mappedTrending = trendingData.map(
+              (item): TechnologyCardItem => ({
+                id: item.id,
+                title: item.title,
+                description: [item.details], // Map details for the card
+                image: item.image,
+                href: `/technologies/${item.id}`,
+              })
+            );
+            setTrendingTech(mappedTrending);
+          } else {
+            // If API returns no trending items, set to empty array
+            setTrendingTech([]);
+          }
 
-        if (Array.isArray(otherOnlyData) && otherOnlyData.length > 0) {
-          const mappedOther = otherOnlyData.map(
-            (item): TechnologyCardItem => ({
-              id: item.id,
-              title: item.title,
-              image: item.image,
-              description: [item.details],
-              href: `/technologies/${item.id}`,
-            })
-          );
-          setOtherTech(mappedOther);
+          // --- 6. Map and set Other technologies ---
+          if (otherOnlyData.length > 0) {
+            const mappedOther = otherOnlyData.map(
+              (item): TechnologyCardItem => ({
+                id: item.id,
+                title: item.title,
+                image: item.image,
+                description: [item.details], // Map details for the card
+                href: `/technologies/${item.id}`,
+              })
+            );
+            setOtherTech(mappedOther);
+          } else {
+            // If API returns no other items, set to empty array
+            setOtherTech([]);
+          }
         }
       } catch (error) {
         console.error("Failed to fetch technologies:", error);
-      } finally {
+        // On error, the component will use the default fallback state
       }
     };
-    fetchTechnologies();
-  }, [otherTech]); // Added otherTech as a dependency to avoid potential stale closure issues
 
-  // 4. CREATE HANDLERS FOR EACH COMPONENT
-  // This handler matches the signature for TrendingTechnologies: (item: TechnologyCardItem) => void
+    fetchTechnologies();
+  }, []); // --- 7. Dependency array set to [] to run only once on mount ---
+
+  // These handlers are correct and find the full item from allTechData
   const handleViewTrending = (item: TechnologyCardItem) => {
-    setModalItem(item);
+    const fullItem = allTechData.find((t) => t.id === item.id);
+    if (fullItem) {
+      setModalItem(fullItem);
+    }
   };
 
-  // This handler matches the signature for OtherTechnologies: (id: number) => void
   const handleViewOther = (id: number) => {
-    // We find the item from the state we already have
-    const tech = otherTech.find((t) => t.id === id);
-    if (tech) setModalItem(tech);
+    const fullItem = allTechData.find((t) => t.id === id);
+    if (fullItem) {
+      setModalItem(fullItem);
+    }
   };
 
   const closeModal = () => setModalItem(null);
@@ -101,12 +110,11 @@ function TechnologiesPage() {
         description={[""]}
       />
 
-      {/* 5. PASS THE HANDLERS TO THE COMPONENTS */}
       <TrendingTechnologies technologies={trendingTech} onViewMore={handleViewTrending} />
       <OtherTechnologies technologiesItems={otherTech} onViewMore={handleViewOther} />
       <Footer />
 
-      {/* 6. RENDER THE NEW MODAL */}
+      {/* This modal correctly receives the full ApiTechnology object */}
       {modalItem && <DetailsModal isOpen={!!modalItem} item={modalItem} onClose={closeModal} />}
     </div>
   );

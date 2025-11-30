@@ -1,6 +1,9 @@
+// designs/molecules/StaffModal.tsx
 "use client";
 import Image from "next/image";
 import { StaffsItems } from "../organisms/StaffsGrid";
+// Make sure you import your Typography atom
+import Typography from "../atoms/Typography";
 
 interface StaffModalProps {
   staff: StaffsItems;
@@ -18,7 +21,7 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="relative mx-4 w-full max-w-3xl rounded-lg bg-white shadow-2xl"
+        className="relative mx-4 w-full max-w-3xl rounded-lg bg-white shadow-2xl max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -29,8 +32,9 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
           &times;
         </button>
 
-        <div className="flex flex-col md:flex-row">
-          <div className="relative h-64 w-full md:h-auto md:w-1/3">
+        <div className="flex flex-col md:flex-row overflow-hidden">
+          {/* Image */}
+          <div className="relative h-64 w-full md:h-auto md:w-1/3 flex-shrink-0">
             <Image
               src={staff.image || "/icons/dummyStaff.svg"}
               alt={staffName}
@@ -39,9 +43,19 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
             />
           </div>
 
-          <div className="flex flex-col p-6 md:w-2/3">
+          {/* Content */}
+          <div className="flex flex-col p-6 md:w-2/3 overflow-y-auto">
             <h2 className="mb-4 text-2xl font-bold text-green-800">{staffName}</h2>
-            <div className="space-y-2 overflow-y-auto text-sm text-gray-700">
+
+            {/* *** ADDED THIS BLOCK FOR FULL DESCRIPTION *** */}
+            {staff.descriptionDirector && (
+              <div className="mb-4 border-b pb-4">
+                <p className="text-gray-700 whitespace-pre-line">{staff.descriptionDirector}</p>
+              </div>
+            )}
+            {/* *** END OF ADDED BLOCK *** */}
+
+            <div className="space-y-2 text-sm text-gray-700">
               <p>
                 <strong>Designation:</strong> {staff.designation || "N/A"}
               </p>

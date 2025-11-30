@@ -15,6 +15,8 @@ import {
   ChevronLeft, // For Modal
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link"; // <-- Import Link
+import { useSearchParams, usePathname } from "next/navigation"; // <-- Import router hooks
 
 // Represents a single media file (image or video)
 interface ApiMediaItem {
@@ -145,10 +147,9 @@ const transformMedia = (items: ApiMediaItem[], type: "image" | "video"): Gallery
   }));
 };
 
-// --- THIS IS THE CORRECTED COMPONENT ---
+// --- GalleryFilterBar: Updated to use <Link> ---
 type GalleryFilterBarProps = {
   activeTab: "images" | "videos";
-  setActiveTab: (tab: "images" | "videos") => void;
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   sortBy: string;
@@ -157,58 +158,63 @@ type GalleryFilterBarProps = {
 
 const GalleryFilterBar: React.FC<GalleryFilterBarProps> = ({
   activeTab,
-  setActiveTab,
   searchTerm,
   setSearchTerm,
   sortBy,
   setSortBy,
-}) => (
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-    <div className="relative w-full md:w-auto md:flex-grow max-w-sm">
-      <input
-        type="text"
-        placeholder="Search..."
-        className="w-full pl-10 pr-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-[#5b9a5d]"
-        value={searchTerm} // <-- Was missing
-        onChange={(e) => setSearchTerm(e.target.value)} // <-- Was missing
-      />
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-    </div>
+}) => {
+  const pathname = usePathname(); // Get current path
 
-    <div className="flex bg-gray-100 p-1 ">
-      <button
-        className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "images" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200" // <-- Fixed logic
-        }`}
-        onClick={() => setActiveTab("images")} // <-- Was missing
-      >
-        <ImageIcon className="w-5 h-5" /> Images
-      </button>
-      <button
-        className={`px-4 py-2 flex items-center gap-2  transition-colors ${
-          activeTab === "videos" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200" // <-- Fixed logic
-        }`}
-        onClick={() => setActiveTab("videos")} // <-- Was missing
-      >
-        <VideoIcon className="w-5 h-5" /> Videos
-      </button>
-    </div>
+  return (
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="relative w-full md:w-auto md:flex-grow max-w-sm">
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full pl-10 pr-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-[#5b9a5d]"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+      </div>
 
-    <div className="relative w-full md:w-auto">
-      <select
-        className="appearance-none bg-white border border-gray-300  pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-[#5b9a5d] w-full"
-        value={sortBy} // <-- Was missing
-        onChange={(e) => setSortBy(e.target.value)} // <-- Was missing
-      >
-        <option value="date-desc">Sort By Date (Newest)</option>
-        <option value="date-asc">Sort By Date (Oldest)</option>
-        <option value="title-asc">Sort By Title (A-Z)</option>
-        <option value="title-desc">Sort By Title (Z-A)</option>
-      </select>
-      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+      <div className="flex bg-gray-100 p-1 ">
+        <Link
+          href={`${pathname}?tab=images`}
+          scroll={false}
+          className={`px-4 py-2 flex items-center gap-2  transition-colors ${
+            activeTab === "images" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
+          }`}
+        >
+          <ImageIcon className="w-5 h-5" /> Images
+        </Link>
+        <Link
+          href={`${pathname}?tab=videos`}
+          scroll={false}
+          className={`px-4 py-2 flex items-center gap-2  transition-colors ${
+            activeTab === "videos" ? "bg-[#5b9a5d] text-white" : "text-gray-700 hover:bg-gray-200"
+          }`}
+        >
+          <VideoIcon className="w-5 h-5" /> Videos
+        </Link>
+      </div>
+
+      <div className="relative w-full md:w-auto">
+        <select
+          className="appearance-none bg-white border border-gray-300  pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-[#5b9a5d] w-full"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option value="date-desc">Sort By Date (Newest)</option>
+          <option value="date-asc">Sort By Date (Oldest)</option>
+          <option value="title-asc">Sort By Title (A-Z)</option>
+          <option value="title-desc">Sort By Title (Z-A)</option>
+        </select>
+        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 // --- END OF CORRECTION ---
 
 // GalleryCard updated to accept an onClick prop
@@ -271,8 +277,7 @@ const GalleryGrid: React.FC<{
   </div>
 );
 
-// --- NEW MODAL COMPONENT ---
-
+// --- MODAL COMPONENT ---
 const GalleryModal: React.FC<{
   items: ApiMediaItem[];
   onClose: () => void;
@@ -314,8 +319,7 @@ const GalleryModal: React.FC<{
       onClick={onClose}
     >
       <div
-        // Changed max-w-4xl to max-w-6xl
-        className="relative w-full max-w-6xl max-h-[90vh] p-4 bg-white rounded-lg shadow-xl" // <-- CHANGED
+        className="relative w-full max-w-6xl max-h-[90vh] p-4 bg-white rounded-lg shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -334,8 +338,7 @@ const GalleryModal: React.FC<{
               alt="Gallery Image"
               width={1920}
               height={1080}
-              // Changed max-h-[80vh] to max-h-[85vh]
-              className="object-contain w-auto h-auto max-w-full max-h-[85vh]" // <-- CHANGED
+              className="object-contain w-auto h-auto max-w-full max-h-[85vh]"
             />
           )}
           {currentItem.type === "video" && isYouTube && (
@@ -345,8 +348,7 @@ const GalleryModal: React.FC<{
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              // Changed max-h-[80vh] to max-h-[85vh]
-              className="w-full aspect-video max-h-[85vh] rounded" // <-- CHANGED
+              className="w-full aspect-video max-h-[85vh] rounded"
             ></iframe>
           )}
           {currentItem.type === "video" && !isYouTube && (
@@ -354,8 +356,7 @@ const GalleryModal: React.FC<{
               src={currentItem.url}
               controls
               autoPlay
-              // Changed max-h-[80vh] to max-h-[85vh]
-              className="w-full h-auto max-h-[85vh] rounded" // <-- CHANGED
+              className="w-full h-auto max-h-[85vh] rounded"
             >
               Your browser does not support the video tag.
             </video>
@@ -392,19 +393,25 @@ const GalleryModal: React.FC<{
     </div>
   );
 };
-
 // --- END MODAL COMPONENT ---
 
+// --- Main GalleryPage Component ---
 const GalleryPage = () => {
-  const [activeTab, setActiveTab] = useState<"images" | "videos">("images");
+  // Read tab state from URL
+  const searchParams = useSearchParams();
+  const tabQuery = searchParams.get("tab");
+  const activeTab = tabQuery === "videos" ? "videos" : "images";
+
+  // State for filters (tab is now derived from URL)
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("date-desc");
 
+  // State for data
   const [imageData, setImageData] = useState<GalleryItem[]>(dummyImageData);
   const [videoData, setVideoData] = useState<GalleryItem[]>(dummyVideoData);
   const [isLoading, setIsLoading] = useState(true);
 
-  // --- State for Modal ---
+  // State for Modal
   const [modalMedia, setModalMedia] = useState<ApiMediaItem[] | null>(null);
 
   useEffect(() => {
@@ -474,7 +481,7 @@ const GalleryPage = () => {
     return filtered;
   }, [activeTab, searchTerm, sortBy, imageData, videoData]);
 
-  // --- Click Handler for Cards ---
+  // Click Handler for Cards
   const handleCardClick = (item: GalleryItem) => {
     if (item.media && item.media.length > 0) {
       setModalMedia(item.media);
@@ -499,8 +506,7 @@ const GalleryPage = () => {
         </div>
 
         <GalleryFilterBar
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
+          activeTab={activeTab} // Pass the tab read from the URL
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           sortBy={sortBy}
@@ -512,13 +518,13 @@ const GalleryPage = () => {
         ) : (
           <GalleryGrid
             items={filteredAndSortedItems}
-            onCardClick={handleCardClick} // <-- Pass handler to grid
+            onCardClick={handleCardClick} // Pass handler to grid
           />
         )}
       </main>
       <Footer />
 
-      {/* --- Render Modal --- */}
+      {/* Render Modal */}
       {modalMedia && <GalleryModal items={modalMedia} onClose={() => setModalMedia(null)} />}
     </>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { eventsData, Event } from "@/app/Events/data";
@@ -10,22 +10,28 @@ import { Logo } from "@/designs/atoms/Logo";
 import { SectionHeader } from "@/designs/organisms/SectionHeader";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
 
+// --- FIX 1: Update the ApiEvent interface ---
 interface ApiEvent {
   id: number;
   date: string;
   title: string;
   name: string;
-  images: string[];
+  images: {
+    url: string;
+    thumbnail: boolean;
+  }[];
 }
+// ------------------------------------------
 
 interface EventDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
-  const { id } = params;
+  // ✅ Unwrap params using React.use()
+  const { id } = use(params);
   const [event, setEvent] = useState<Event | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,12 +39,11 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
     const fetchEventDetails = async () => {
       let dataToSearch: Event[] = eventsData;
       try {
-        const response = await fetch(
-          "https://api.nationalfarmerportal.org/nfp-portal/api/news?type=newsEvent"
-        );
+        const response = await fetch("https://api.cish.org.in/api/news?type=newsEvent");
         if (response.ok) {
           const apiData: ApiEvent[] = await response.json();
           if (apiData && apiData.length > 0) {
+            // --- FIX 2: Apply correct mapping ---
             dataToSearch = apiData.map((item) => {
               const eventDate = new Date(item.date);
               return {
@@ -51,14 +56,15 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
                   minute: "2-digit",
                   hour12: true,
                 }),
-                title: item.title,
-                shortDescription: item.name,
-                fullDescription: item.name,
-                cardImage: item.images?.[0] || "/icons/default-event.jpg",
-                detailImages: item.images || [],
+                title: item.name, // Swapped
+                shortDescription: item.title, // Swapped
+                fullDescription: item.title, // Swapped
+                cardImage: item.images?.[0]?.url || "/icons/default-event.jpg", // Access .url
+                detailImages: item.images?.map((img) => img.url) || [], // Map to .url
                 socialLinks: [],
               };
             });
+            // ------------------------------------
           }
         }
       } catch (error) {
@@ -111,21 +117,20 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ params }) => {
               height={20}
               className="mr-2"
             />
-            <span>
-              {event.date} @ {event.timeRange}
-            </span>
+            <span>{event.date}</span>
           </div>
 
           {event.detailImages[0] && (
-            <div className="w-full mb-8">
-              <Image
-                src={event.detailImages[0]}
-                alt={event.title}
-                width={1200}
-                height={600}
-                className="w-full h-auto object-cover rounded-lg"
-                priority
-              />
+            <div className="w-full mb-8 flex justify-center">
+              <div className="relative w-full max-w-5xl h-[50vh] md:h-[60vh] lg:h-[70vh]">
+                <Image
+                  src={event.detailImages[0]}
+                  alt={event.title}
+                  fill
+                  className="object-contain rounded-lg"
+                  priority
+                />
+              </div>
             </div>
           )}
 

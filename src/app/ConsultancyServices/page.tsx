@@ -3,6 +3,7 @@
 import { Header } from "@/designs/organisms/Header";
 import ResponsiveNavbar from "@/designs/organisms/Navbar/NavigatioMenu";
 import { Footer } from "@/designs/organisms/FooterOrganisms/Footer";
+import { SectionHeader } from "@/designs/organisms/SectionHeader";
 
 export default function ConsultancyServices() {
   const descriptionPoints = [
@@ -18,9 +19,23 @@ export default function ConsultancyServices() {
     <div>
       <Header />
       <ResponsiveNavbar />
+      <SectionHeader
+        breadcrumbItems={[
+          { label: "Home", href: "/" },
+          { label: "CISH ITMU / IPR CELL", href: "/Itmu" },
 
-      <section className="w-full py-12 bg-[#fff]">
-        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          {
+            label: "Professional Service Functions",
+            href: "/ConsultancyServices",
+          },
+        ]}
+        iconProps={true}
+        title="Professional Service Functions"
+        description={[]}
+      />
+
+      <section className="w-full  py-12 bg-[#fff]">
+        <div className="max-w-7xl border border-gray-400 shadow-lg p-4 mx-auto px-6 md:px-16">
           <h2 className="text-[#31572C] text-xl md:text-2xl font-semibold mb-6 uppercase">
             PROFESSIONAL SERVICE FUNCTION - CONSULTANCY SERVICES
           </h2>
