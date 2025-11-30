@@ -19,19 +19,18 @@ export const Header = () => {
     const section = document.getElementById("directorsSection");
     section?.scrollIntoView({ behavior: "smooth" });
   };
-useEffect(() => {
-  const script = document.createElement("script");
-  script.src =
-    "https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js";
-  script.async = true;
-  script.setAttribute("language-icon-color", "#000000ff"); // optional
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js";
+    script.async = true;
+    script.setAttribute("language-icon-color", "#000000ff"); // optional
 
-  document.body.appendChild(script);
+    document.body.appendChild(script);
 
-  return () => {
-    document.body.removeChild(script);
-  };
-}, []);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   return (
     <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm">
       <div className="container py-3">
