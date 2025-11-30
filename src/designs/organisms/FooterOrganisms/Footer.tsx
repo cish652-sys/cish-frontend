@@ -7,7 +7,8 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer  className="
+    <footer
+      className="
         bg-green-800 
         text-white 
         py-10 
@@ -15,7 +16,8 @@ export function Footer() {
         bg-cover 
         bg-center 
         bg-no-repeat
-      ">
+      "
+    >
       <div className="container">
         <div className="grid md:grid-cols-4 gap-10">
           <div>
