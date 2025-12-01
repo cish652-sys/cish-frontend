@@ -1,18 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import DirectorHeader from "../molecules/DirectorHeader";
-import DirectorContent from "../molecules/DirectorsContent";
 import ActionCards from "../molecules/ActionCardsDirectorsDesk";
 import ImageAtom from "../atoms/ImageDirectorDesk";
+import TextAtom from "../atoms/TextDirectorsDesk";
 
 export interface DirectorSectionProps {
   imageSrc: string;
   className?: string;
 }
 
-// The interface should match the full object structure from the API
 interface DirectorInfo {
   id: number;
   fileUrl: string;
@@ -20,7 +19,6 @@ interface DirectorInfo {
   description: string | null;
 }
 
-// UPDATED: Fetches ALL files without query parameters
 const getDirectorData = async (): Promise<DirectorInfo[]> => {
   const response = await fetch("https://api.cish.org.in/files/getAll");
   if (!response.ok) {
@@ -33,28 +31,32 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({
   imageSrc: fallbackImageSrc,
   className = "",
 }) => {
-  const { data, isLoading, isError } = useQuery<DirectorInfo[]>({
-    queryKey: ["allFilesData"], // Using a new query key for the full dataset
+  const { data, isLoading } = useQuery<DirectorInfo[]>({
+    queryKey: ["allFilesData"],
     queryFn: getDirectorData,
   });
 
-  // Fallback content
-  const fallbackContent = `Central Institute for Subtropical Horticulture Institute with a unique distinction of working on the mango the king of fruit on one hand and guava the poor man's apple on the other is placed on envious pedestal of having the world largest germplasm (755) in its field genebank. Being ever committed to challenging and tempting task of conserving our invaluable fast eroding genetic wealth of mango, during the period we through our dedicated team at the Institute could virtually ignite the passion of farmers and set the example to be emulated, for conserving the unique heirloom mango varieties by empowering the farmer through Society for Conservation of Biodiversity. Consequently we were able to submit 34 farmers and community varieties to PPV&fRA for registration, established community nurseries and outside community nursery produced more than 10000 grafts of non-commercial varieties. `;
+  const fallbackContent = `Central Institute for Subtropical Horticulture Institute with a unique distinction 
+  of working on the mango the king of fruit on one hand and guava the poor man's apple on the other is placed 
+  on envious pedestal of having the world largest germplasm (755) in its field genebank. Being ever committed 
+  to challenging and tempting task of conserving our invaluable fast eroding genetic wealth of mango, during the 
+  period we through our dedicated team at the Institute could virtually ignite the passion of farmers and set 
+  the example to be emulated, for conserving the unique heirloom mango varieties by empowering the farmer through 
+  Society for Conservation of Biodiversity. Consequently we were able to submit 34 farmers and community varieties 
+  to PPV&fRA for registration, established community nurseries and outside community nursery produced more than 
+  10000 grafts of non-commercial varieties.`;
 
-  // UPDATED LOGIC:
-  // 1. Filter the full response to get only the items marked as a director.
   const allDirectors = data?.filter((item) => item.isDirector === true);
-
-  // 2. From that filtered list, find the one with the highest 'id'.
   const directorInfo = allDirectors?.length
     ? allDirectors.reduce((latest, current) => (current.id > latest.id ? current : latest))
     : undefined;
 
-  // Use API data if available, otherwise use fallback
   const content = directorInfo?.description ?? fallbackContent;
   const imageSrc = directorInfo?.fileUrl ?? fallbackImageSrc;
 
-  const linkHref = "https://cish.in/dir_message.php";
+  // SEE MORE toggle state
+  const [expanded, setExpanded] = useState(false);
+  const shortText = content.slice(0, 300) + (content.length > 300 ? "..." : "");
 
   return (
     <section id="directorsSection" className={`mb-12 ${className}`}>
@@ -65,7 +67,21 @@ const DirectorSection: React.FC<DirectorSectionProps> = ({
           {isLoading ? (
             <div>Loading directors message...</div>
           ) : (
-            <DirectorContent content={content} linkHref={linkHref} linkText="SEE MORE" />
+            <TextAtom className={`flex flex-col gap-2 ${className}`}>
+              {expanded ? content : shortText}
+
+              {content.length > 300 && (
+                <span
+                  onClick={() => setExpanded(!expanded)}
+                  className="cursor-pointer inline-block w-fit"
+                >
+                  <TextAtom className="text-green-700 font-semibold inline-flex items-center gap-1 text-sm md:text-base mt-0">
+                    {expanded ? "SEE LESS" : "SEE MORE"}
+                    <span>{expanded ? "←" : "→"}</span>{" "}
+                  </TextAtom>
+                </span>
+              )}
+            </TextAtom>
           )}
 
           <div className="mt-10">
