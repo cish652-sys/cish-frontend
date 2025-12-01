@@ -22,13 +22,13 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Image
+              {/* <Image
                 src="/icons/cish.svg"
                 alt="ICAR-CISH Logo"
                 className="w-20 h-20"
                 height={80}
                 width={80}
-              />
+              /> */}
               <h3 className="font-bold text-xl md:text-2xl leading-tight font-['Noto_Sans',sans-serif]">
                 ICAR-CISH
               </h3>
