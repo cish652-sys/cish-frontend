@@ -106,9 +106,9 @@ export const Header = () => {
               </div>
 
               <div className="flex justify-center">
-                <Link href="/" aria-label="Go to Home">
+                {/* <Link href="/" aria-label="Go to Home">
                   <Logo src={cish} alt="ICAR Logo" width={180} height={200} />
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -146,9 +146,9 @@ export const Header = () => {
         </div>
 
         <div className="flex justify-center">
-          <Link href="/" aria-label="Go to Home">
+          {/* <Link href="/" aria-label="Go to Home">
             <Logo src={cish} alt="ICAR Logo" width={60} height={60} />
-          </Link>
+          </Link> */}
         </div>
 
         <div className="w-full px-1">
