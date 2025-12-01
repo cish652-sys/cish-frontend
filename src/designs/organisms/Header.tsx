@@ -56,11 +56,11 @@ export const Header = () => {
             </div>
 
             {/* CISH logo redirects to home */}
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <Link href="/" aria-label="Go to Home">
                 <Logo src={cish} alt="ICAR Logo" width={80} height={80} />
               </Link>
-            </div>
+            </div> */}
 
             <div className="flex items-center gap-3 flex-wrap">
               <button onClick={scrollToDirectors} aria-label="Scroll to Directors">
